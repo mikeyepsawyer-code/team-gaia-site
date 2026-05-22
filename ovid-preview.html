@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Art of Amōre — A Preview</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --near-black: #0d0a07;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --gold-pale: #f5e8c4;
+    --warm-white: #faf6ef;
+    --muted: #5a4d35;
+    --rule: rgba(201,168,76,0.22);
+    --burgundy-deep: #1a0808;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background-color: var(--near-black);
+    color: var(--warm-white);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 19px;
+    line-height: 1.85;
+    overflow-x: hidden;
+  }
+
+  /* Grain overlay */
+  body::before {
+    content: '';
+    position: fixed; top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none; z-index: 100; opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-size: 256px 256px;
+  }
+
+  /* ── COVER ── */
+  .cover {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 40px;
+    position: relative;
+    background: radial-gradient(ellipse at 50% 60%, #1a0a04 0%, var(--near-black) 70%);
+    animation: fadeUp 1.4s ease both;
+  }
+
+  .cover::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 120px;
+    background: linear-gradient(to bottom, transparent, var(--near-black));
+    pointer-events: none;
+  }
+
+  .ornament {
+    font-size: 1.4rem;
+    color: var(--gold);
+    opacity: 0.5;
+    letter-spacing: 0.18em;
+    margin-bottom: 36px;
+  }
+
+  .cover-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.35em;
+    color: var(--gold);
+    opacity: 0.55;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+
+  .cover-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(2.6rem, 7vw, 4.8rem);
+    font-weight: 400;
+    color: var(--gold-light);
+    letter-spacing: 0.08em;
+    line-height: 1.15;
+    margin-bottom: 18px;
+  }
+
+  .cover-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(1rem, 2.2vw, 1.3rem);
+    color: var(--gold-pale);
+    opacity: 0.65;
+    letter-spacing: 0.08em;
+    margin-bottom: 48px;
+  }
+
+  .cover-rule {
+    width: 80px; height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    margin: 0 auto 48px;
+  }
+
+  .cover-author {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    color: var(--warm-white);
+    opacity: 0.5;
+    letter-spacing: 0.12em;
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 44px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Cinzel', serif;
+    font-size: 0.58rem;
+    letter-spacing: 0.28em;
+    color: var(--gold);
+    opacity: 0.35;
+    text-transform: uppercase;
+    animation: pulse 2.8s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 0.35; }
+    50% { opacity: 0.65; }
+  }
+
+  /* ── SECTIONS ── */
+  .section {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 72px 40px;
+  }
+
+  .section-wide {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 60px 40px;
+  }
+
+  .divider {
+    width: 60px; height: 1px;
+    background: var(--gold);
+    opacity: 0.35;
+    margin: 0 auto 64px;
+  }
+
+  .section-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    opacity: 0.6;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 52px;
+  }
+
+  /* ── INTRO QUOTE ── */
+  .intro-quote {
+    font-style: italic;
+    font-size: clamp(1.1rem, 2.4vw, 1.35rem);
+    color: var(--gold-pale);
+    line-height: 1.95;
+    opacity: 0.92;
+    text-align: center;
+  }
+
+  /* ── BODY TEXT ── */
+  .body-text {
+    font-size: clamp(1rem, 1.8vw, 1.15rem);
+    color: var(--warm-white);
+    opacity: 0.82;
+    line-height: 1.95;
+    text-align: justify;
+    margin-bottom: 24px;
+  }
+
+  .body-text:last-child { margin-bottom: 0; }
+
+  /* ── CHAPTER ── */
+  .chapter-header {
+    text-align: center;
+    margin-bottom: 52px;
+  }
+
+  .chapter-num {
+    font-family: 'Cinzel', serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.32em;
+    color: var(--gold);
+    opacity: 0.5;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .chapter-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1.1rem, 2.5vw, 1.55rem);
+    font-weight: 400;
+    color: var(--gold-light);
+    letter-spacing: 0.1em;
+    line-height: 1.4;
+  }
+
+  /* ── OVID VOICE ── */
+  .ovid-block {
+    background: linear-gradient(160deg, #1c0c06 0%, #120806 100%);
+    border-left: 2px solid rgba(201,168,76,0.3);
+    padding: 36px 40px;
+    margin: 0 0 40px;
+    position: relative;
+  }
+
+  .ovid-block::before {
+    content: 'Ovid speaks — 2 AD';
+    display: block;
+    font-family: 'Cinzel', serif;
+    font-size: 0.58rem;
+    letter-spacing: 0.28em;
+    color: var(--gold);
+    opacity: 0.45;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .ovid-text {
+    font-style: italic;
+    font-size: clamp(0.98rem, 1.8vw, 1.12rem);
+    color: var(--gold-pale);
+    opacity: 0.78;
+    line-height: 1.9;
+  }
+
+  /* ── MICHAEL VOICE ── */
+  .michael-block {
+    padding: 8px 0 0 0;
+    position: relative;
+  }
+
+  .michael-block::before {
+    content: 'Michael responds — 2026';
+    display: block;
+    font-family: 'Cinzel', serif;
+    font-size: 0.58rem;
+    letter-spacing: 0.28em;
+    color: var(--gold);
+    opacity: 0.45;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  /* ── PULL QUOTE ── */
+  .pull-quote {
+    text-align: center;
+    padding: 48px 0;
+  }
+
+  .pull-quote p {
+    font-style: italic;
+    font-size: clamp(1.2rem, 2.8vw, 1.6rem);
+    color: var(--gold-pale);
+    line-height: 1.75;
+    opacity: 0.88;
+  }
+
+  /* ── BRIGHTEYES INTERLUDE ── */
+  .interlude {
+    background: radial-gradient(ellipse at 50% 50%, rgba(201,168,76,0.04) 0%, transparent 70%);
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    padding: 56px 40px;
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .interlude-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    opacity: 0.5;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+  }
+
+  .interlude-text {
+    font-style: italic;
+    font-size: clamp(1rem, 2.2vw, 1.25rem);
+    color: var(--gold-pale);
+    opacity: 0.85;
+    line-height: 2;
+  }
+
+  /* ── CLOSING ── */
+  .closing {
+    text-align: center;
+    padding: 80px 40px 100px;
+    max-width: 620px;
+    margin: 0 auto;
+  }
+
+  .closing-ornament {
+    font-size: 1.2rem;
+    color: var(--gold);
+    opacity: 0.4;
+    letter-spacing: 0.2em;
+    margin-bottom: 40px;
+  }
+
+  .closing-text {
+    font-style: italic;
+    font-size: clamp(1rem, 2.2vw, 1.2rem);
+    color: var(--warm-white);
+    opacity: 0.72;
+    line-height: 2;
+    margin-bottom: 56px;
+  }
+
+  .coming-soon-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.35em;
+    color: var(--gold);
+    opacity: 0.55;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .back-link {
+    display: inline-block;
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    opacity: 0.6;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(201,168,76,0.3);
+    padding-bottom: 3px;
+    transition: opacity 0.3s ease;
+  }
+
+  .back-link:hover { opacity: 1; }
+
+  footer {
+    text-align: center;
+    padding: 40px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .footer-name {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    opacity: 0.4;
+    text-transform: uppercase;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .a1 { animation: fadeUp 1.2s ease 0.15s both; }
+  .a2 { animation: fadeUp 1.2s ease 0.30s both; }
+  .a3 { animation: fadeUp 1.2s ease 0.50s both; }
+
+  @media (max-width: 600px) {
+    .section, .section-wide, .interlude, .closing { padding-left: 24px; padding-right: 24px; }
+    .ovid-block { padding: 28px 24px; }
+    .cover { padding: 60px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="ornament">❧ &nbsp; ❧ &nbsp; ❧</div>
+  <p class="cover-label">A Preview</p>
+  <h1 class="cover-title">The Art<br>of Amōre</h1>
+  <p class="cover-subtitle">Updating Ovid's <em>Ars Amatoria</em></p>
+  <div class="cover-rule"></div>
+  <p class="cover-author">Michael Sawyer</p>
+  <p class="scroll-hint">↓ &nbsp; Read &nbsp; ↓</p>
+</div>
+
+<!-- PREMISE -->
+<section class="section a1">
+  <div class="divider"></div>
+  <p class="intro-quote">
+    What follows is a conversation across centuries —<br>
+    love's ancient practice, recalibrated for a new age<br>
+    that espouses the values of equality, individuality,<br>
+    and active assent.
+  </p>
+</section>
+
+<!-- INTRO -->
+<section class="section a2">
+  <div class="divider"></div>
+  <div class="section-label">From the Introduction</div>
+
+  <p class="body-text">
+    In the year 2 AD, the Roman poet Ovid published <em>Ars Amatoria</em> — a trilogy of bold, witty counsel on finding and keeping love. We might read it today as a seduction manual, or advice about "game." Two thousand years later, the potentials of attraction and connection remain constant. The fundamental human need for love hasn't changed; we still need to feel seen and accepted. We still seek and offer intimacy.
+  </p>
+  <p class="body-text">
+    However, the world has shifted. This book re-imagines Ovid's original counsel with contemporary insight. His words appear first, followed by my reinterpretation from a modern perspective — not to correct his message, but to evolve it.
+  </p>
+  <p class="body-text">
+    Most English commentaries translate <em>Ars Amatoria</em> as "the Art of Love" — but I see this as a loss of fidelity. The English word "love" is so nebulous it is almost meaningless. There are many types of affection: maternal, paternal, fraternal, philia, amore, eros, agapé, anahata, enthios, exstasis. So I went with <em>amōre</em>.
+  </p>
+  <p class="body-text">
+    My main additions are the modern ideals which emancipate women from the role of "prey or target" to one that values her free agency, and a negotiated collaboration between the sexes. Look for intentional participation — more than passive consent — watch for her enthusiastic assent.
+  </p>
+</section>
+
+<!-- AUTHOR VOICE -->
+<section class="section">
+  <div class="divider"></div>
+  <div class="section-label">Michael's Opening</div>
+
+  <p class="body-text">
+    If you've struggled in love — and who hasn't — may this book open your heart so that attraction moves freely through you, naturally and with ease.
+  </p>
+  <p class="body-text">
+    Like navigation, love has its rhythms and principles which can be learned. My intention is to offer a compass to guide us, and star-maps to align us with the foundations of affection.
+  </p>
+  <p class="body-text">
+    I am not saying that I'm a total expert in all things related to love and sex, but I do have some insights worth sharing. Take my advice, such as it pleases and benefits you. I offer it with pure intent, with my wish for you to thrive and have all your heart's true desires.
+  </p>
+</section>
+
+<!-- CHAPTER 1 SAMPLE -->
+<section class="section-wide">
+  <div class="divider"></div>
+
+  <div class="chapter-header">
+    <p class="chapter-num">Chapter One</p>
+    <h2 class="chapter-title">Taking Initiative</h2>
+  </div>
+
+  <div class="ovid-block">
+    <p class="ovid-text">
+      "Alas! too great is the confidence of any youth in his own good looks, if he awaits for her to be the first to ask him. Let the man make the first approaches; let the man use words of entreaty; she will kindly receive his soft entreaties. To gain your wish, ask; she only wishes to be asked. Now is the time come for some conversation: fly afar hence, coy bashfulness, let Chance and Venus befriend the daring. Let your eloquence not be subject to any laws of mine; only make a beginning; of your own accord you will prove fluent."
+    </p>
+  </div>
+
+  <div class="michael-block">
+    <p class="body-text">
+      Someone has to initiate, and yeah, it is usually still expected that the man will do so. This doesn't mean that women shouldn't initiate — in fact they often do, and typically with more subtlety. But most women still prefer the man to show initiative, because it signals real interest: <em>"My attraction to you is strong enough that I'm willing to risk rejection."</em>
+    </p>
+    <p class="body-text">
+      Let your interest be clear. Eye contact that communicates attention. Words that reveal you're engaged with this person specifically, noticing details that make them distinct.
+    </p>
+    <p class="body-text">
+      Notice what genuinely attracts you and say so. Not as strategy, but as honest observation. "You have an interesting way of thinking about that." "Your laugh is contagious." Specific compliments about qualities someone has cultivated — intelligence, humor, passion, craft — resonate more deeply than generic praise about an appearance they were born with.
+    </p>
+    <p class="body-text">
+      Clearly ask: "Would you like to go for coffee?" Then actually listen to her response. Is it steeped in enthusiasm, or is there deflection? Honor her answer even if it isn't what you hoped to hear.
+    </p>
+    <p class="body-text">
+      If she's hesitant, your willingness to back off may just create the space for her to move toward you without feeling forced. If you pursue when she is hesitant, you pressurize that space which may otherwise have provided her an opportunity to reconsider.
+    </p>
+  </div>
+</section>
+
+<!-- PULL QUOTE -->
+<section class="section">
+  <div class="pull-quote">
+    <p>"Express clear interest once; perhaps twice if circumstances seem genuinely complicated. Then rein in your emotions and redirect your attention. Sometimes pulling back is exactly what she needs you to do — so that she can move toward you without too much headwind."</p>
+  </div>
+</section>
+
+<!-- CHAPTER 3 SAMPLE — PERSISTENCE -->
+<section class="section-wide">
+  <div class="divider"></div>
+
+  <div class="chapter-header">
+    <p class="chapter-num">Chapter Three</p>
+    <h2 class="chapter-title">Persistence &amp; Authenticity</h2>
+  </div>
+
+  <div class="ovid-block">
+    <p class="ovid-text">
+      "Persist in your design. In time the stubborn oxen come beneath the ploughs: in time the steeds are taught to submit to the flowing reins. What is there harder than stone? What more yielding than water? Yet hard stones are hollowed out by yielding water. Only persist, and in time you will overcome Penelope herself."
+    </p>
+  </div>
+
+  <div class="michael-block">
+    <p class="body-text">
+      Careful here — this is perhaps Ovid's worst advice.
+    </p>
+    <p class="body-text">
+      It is true that women sometimes play "hard to get" in order to test whether your interest is fleeting or sustained. And it is true that familiarity may cultivate empathy over time. But repeated pursuit of someone who shows disinterest creates discomfort, not desire. Trying to wear down her resistance over time is stalking, not courting.
+    </p>
+    <p class="body-text">
+      Legitimate attraction has a frequency that can't be faked well or sustained long. If you're drawn to someone, let that show naturally through authentic interest, curiosity, and empathy. Be genuinely interested or move on.
+    </p>
+    <p class="body-text">
+      If someone is interested but timing is wrong, they know where to find you. Let people come toward you as much as you move toward them.
+    </p>
+  </div>
+</section>
+
+<!-- BRIGHTEYES INTERLUDE -->
+<div class="interlude">
+  <p class="interlude-label">Personal Reflection — The Brighteyes</p>
+  <p class="interlude-text">
+    When I encounter someone who I now call a Brighteyes, our first glance is distinguished by ease and radiance. Like attracting like; our eyes are drawn together across the room.<br><br>
+    At the next level, the world melts around us like the Cheshire Cat. Our hearts open through our eyes, like a fibre-optic live stream, and we flow back and forth into each other's perspective. Our hearts connecting, our minds reflecting, our deeper identity reaching out across the void to feel ourselves as each other.<br><br>
+    Pro tip: see her as a verb rather than as a noun.
+  </p>
+</div>
+
+<!-- CLOSING CHAPTER PREVIEW -->
+<section class="section">
+  <div class="divider"></div>
+  <div class="section-label">From the Closing Reflection</div>
+
+  <p class="body-text">
+    Ovid wrote for his world — strict gender roles, limited agency, seduction as conquest. We write for ours — more freedom, more complexity, more responsibility. The art of amore now centers on creating conditions where two people genuinely choose each other. Where desire flows both directions. Where pleasure is mutual and communication is clear.
+  </p>
+  <p class="body-text">
+    The foundations remain: develop yourself, pay attention, show courage and interest. The expression evolves with each generation; hopefully toward authenticity, empathy, and collaboration.
+  </p>
+</section>
+
+<!-- CLOSING CTA -->
+<div class="closing">
+  <div class="closing-ornament">— ✦ —</div>
+  <p class="closing-text">
+    A conversation two thousand years in the making.<br>
+    Ovid's ancient counsel, answered by a modern voice<br>
+    shaped by philosophy, heartache, and hard-won wisdom.
+  </p>
+  <p class="coming-soon-label">Coming Soon</p>
+  <br>
+  <a class="back-link" href="https://landingpagegaia.netlify.app/">← Return to Michael, agapé</a>
+</div>
+
+<footer>
+  <p class="footer-name">Nacmine Gaia &nbsp;·&nbsp; Michael Sawyer</p>
+</footer>
+
+</body>
+</html>
