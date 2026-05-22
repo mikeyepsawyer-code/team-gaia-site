@@ -7,16 +7,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --page:       #f7f2e8;
-    --page-dark:  #ede6d6;
-    --ink:        #1c1612;
-    --ink-mid:    #3d3025;
-    --ink-light:  #6b5740;
-    --rule:       #c4a87a;
-    --rule-light: rgba(160,128,80,0.25);
-    --burgundy:   #5c1a1a;
-    --gold:       #8a6520;
-    --gold-light: #b58830;
+    --page:        #f7f2e8;
+    --page-dark:   #ede6d6;
+    --ink:         #1c1612;
+    --ink-mid:     #3d3025;
+    --ink-light:   #6b5740;
+    --rule:        #c4a87a;
+    --rule-light:  rgba(160,128,80,0.25);
+    --burgundy:    #5c1a1a;
+    --gold:        #8a6520;
+    --gold-light:  #b58830;
+    --gold-bright: #d4a030;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -25,8 +26,8 @@
     background: var(--page-dark);
     color: var(--ink);
     font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 19px;
-    line-height: 1.85;
+    font-size: 21px;
+    line-height: 1.9;
   }
 
   /* ── COVER ── */
@@ -42,7 +43,6 @@
     padding: 80px 40px;
     position: relative;
   }
-
   .cover::after {
     content: '';
     position: absolute;
@@ -51,297 +51,101 @@
     background: linear-gradient(to bottom, transparent, var(--page-dark));
     pointer-events: none;
   }
-
-  .cover-ornament {
-    font-size: 1.2rem;
-    color: var(--rule);
-    letter-spacing: 0.2em;
-    margin-bottom: 40px;
-    opacity: 0.7;
-  }
-
-  .cover-label {
-    font-family: 'Cinzel', serif;
-    font-size: 0.6rem;
-    letter-spacing: 0.4em;
-    color: var(--rule);
-    text-transform: uppercase;
-    margin-bottom: 32px;
-    opacity: 0.7;
-  }
-
+  .cover-ornament { font-size: 1.4rem; color: var(--rule); letter-spacing: 0.2em; margin-bottom: 40px; opacity: 0.7; }
   .cover-title {
     font-family: 'Cinzel', serif;
-    font-size: clamp(2.4rem, 7vw, 4.4rem);
+    font-size: clamp(2.8rem, 8vw, 5.2rem);
     font-weight: 400;
     color: #f5ead8;
     letter-spacing: 0.1em;
     line-height: 1.2;
     margin-bottom: 20px;
   }
-
-  .cover-subtitle {
-    font-style: italic;
-    font-size: clamp(1rem, 2vw, 1.25rem);
-    color: #c4a87a;
-    letter-spacing: 0.06em;
-    margin-bottom: 48px;
-  }
-
-  .cover-rule {
-    width: 60px; height: 1px;
-    background: var(--rule);
-    opacity: 0.5;
-    margin: 0 auto 48px;
-  }
-
-  .cover-author {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1rem;
-    color: #f5ead8;
-    opacity: 0.55;
-    letter-spacing: 0.14em;
-  }
-
-  .scroll-hint {
-    position: absolute;
-    bottom: 120px;
-    font-family: 'Cinzel', serif;
-    font-size: 0.55rem;
-    letter-spacing: 0.3em;
-    color: var(--rule);
-    opacity: 0.45;
-    text-transform: uppercase;
-    animation: pulse 2.8s ease-in-out infinite;
-  }
-
+  .cover-subtitle { font-style: italic; font-size: clamp(1.1rem, 2.2vw, 1.4rem); color: #c4a87a; letter-spacing: 0.06em; margin-bottom: 48px; }
+  .cover-rule { width: 60px; height: 1px; background: var(--rule); opacity: 0.5; margin: 0 auto 48px; }
+  .cover-author { font-size: 1.05rem; color: #f5ead8; opacity: 0.55; letter-spacing: 0.14em; }
+  .scroll-hint { position: absolute; bottom: 120px; font-family: 'Cinzel', serif; font-size: 0.62rem; letter-spacing: 0.3em; color: var(--rule); opacity: 0.45; text-transform: uppercase; animation: pulse 2.8s ease-in-out infinite; }
   @keyframes pulse { 0%,100%{opacity:0.35} 50%{opacity:0.65} }
 
   /* ── PAGE ── */
-  .page {
-    background: var(--page);
-    max-width: 680px;
-    margin: 0 auto;
-    padding: 64px 56px;
-    box-shadow: 0 2px 24px rgba(0,0,0,0.10);
-    position: relative;
-  }
-
-  .page + .page {
-    margin-top: 2px;
-  }
-
-  /* subtle top rule on each page */
-  .page-rule {
-    width: 100%;
-    height: 1px;
-    background: linear-gradient(to right, transparent, var(--rule), transparent);
-    margin-bottom: 56px;
-    opacity: 0.4;
-  }
-
-  .page-rule-bottom {
-    width: 100%;
-    height: 1px;
-    background: linear-gradient(to right, transparent, var(--rule), transparent);
-    margin-top: 56px;
-    opacity: 0.4;
-  }
+  .page { background: var(--page); max-width: 680px; margin: 0 auto; padding: 64px 56px; box-shadow: 0 2px 24px rgba(0,0,0,0.10); }
+  .page + .page { margin-top: 2px; }
+  .page-rule { width: 100%; height: 1px; background: linear-gradient(to right, transparent, var(--rule), transparent); margin-bottom: 56px; opacity: 0.4; }
+  .page-rule-bottom { width: 100%; height: 1px; background: linear-gradient(to right, transparent, var(--rule), transparent); margin-top: 56px; opacity: 0.4; }
 
   /* ── SECTION LABELS ── */
-  .section-label {
-    font-family: 'Cinzel', serif;
-    font-size: 0.6rem;
-    letter-spacing: 0.35em;
-    color: var(--gold);
-    text-transform: uppercase;
-    text-align: center;
-    margin-bottom: 40px;
-    opacity: 0.8;
-  }
+  .section-label { font-family: 'Cinzel', serif; font-size: 0.72rem; letter-spacing: 0.38em; color: var(--gold); text-transform: uppercase; text-align: center; margin-bottom: 44px; opacity: 0.85; }
 
-  /* ── CHAPTER HEADING ── */
-  .chapter-num {
-    font-family: 'Cinzel', serif;
-    font-size: 0.58rem;
-    letter-spacing: 0.32em;
-    color: var(--gold-light);
-    text-transform: uppercase;
-    text-align: center;
-    margin-bottom: 12px;
-    opacity: 0.7;
-  }
+  /* ── CHAPTER HEADING — gold glint ── */
+  .chapter-num { font-family: 'Cinzel', serif; font-size: 0.68rem; letter-spacing: 0.35em; color: var(--gold-light); text-transform: uppercase; text-align: center; margin-bottom: 14px; opacity: 0.8; }
 
   .chapter-title {
     font-family: 'Cinzel', serif;
-    font-size: clamp(1rem, 2.4vw, 1.4rem);
-    font-weight: 400;
-    color: var(--burgundy);
-    letter-spacing: 0.08em;
+    font-size: clamp(1.4rem, 3.2vw, 2rem);
+    font-weight: 600;
     text-align: center;
-    margin-bottom: 44px;
-    line-height: 1.4;
+    margin-bottom: 48px;
+    line-height: 1.35;
+    /* Gold gradient glint */
+    background: linear-gradient(
+      135deg,
+      var(--burgundy) 0%,
+      var(--gold-bright) 40%,
+      #e8c060 55%,
+      var(--gold-bright) 65%,
+      var(--burgundy) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   /* ── INTRO QUOTE ── */
-  .intro-quote {
-    font-style: italic;
-    font-size: clamp(1.05rem, 2.2vw, 1.25rem);
-    color: var(--ink-mid);
-    line-height: 2;
-    text-align: center;
-  }
+  .intro-quote { font-style: italic; font-size: clamp(1.15rem, 2.4vw, 1.4rem); color: var(--ink-mid); line-height: 2.05; text-align: center; }
 
   /* ── BODY ── */
-  .body-text {
-    font-size: clamp(1rem, 1.8vw, 1.1rem);
-    color: var(--ink);
-    line-height: 1.95;
-    text-align: justify;
-    margin-bottom: 22px;
-    hyphens: auto;
-  }
-
+  .body-text { font-size: clamp(1.05rem, 1.9vw, 1.18rem); color: var(--ink); line-height: 1.98; text-align: justify; margin-bottom: 24px; hyphens: auto; }
   .body-text:last-child { margin-bottom: 0; }
 
+  /* ── VOICE LABELS ── */
+  .voice-label { font-family: 'Cinzel', serif; font-size: 0.62rem; letter-spacing: 0.3em; color: var(--gold); text-transform: uppercase; margin-bottom: 18px; opacity: 0.75; }
+
   /* ── OVID BLOCK ── */
-  .ovid-block {
-    border-left: 3px solid var(--rule);
-    padding: 24px 28px;
-    margin: 0 0 36px;
-    background: rgba(196,168,122,0.08);
-  }
-
-  .voice-label {
-    font-family: 'Cinzel', serif;
-    font-size: 0.55rem;
-    letter-spacing: 0.28em;
-    color: var(--gold);
-    text-transform: uppercase;
-    margin-bottom: 16px;
-    opacity: 0.7;
-  }
-
-  .ovid-text {
-    font-style: italic;
-    font-size: clamp(0.95rem, 1.7vw, 1.08rem);
-    color: var(--ink-mid);
-    line-height: 1.9;
-  }
+  .ovid-block { border-left: 3px solid var(--rule); padding: 26px 30px; margin: 0 0 38px; background: rgba(196,168,122,0.09); }
+  .ovid-text { font-style: italic; font-size: clamp(1rem, 1.8vw, 1.12rem); color: var(--ink-mid); line-height: 1.95; }
 
   /* ── MICHAEL BLOCK ── */
-  .michael-block {
-    padding-top: 4px;
-  }
+  .michael-block { padding-top: 4px; }
 
   /* ── PULL QUOTE ── */
-  .pull-quote {
-    text-align: center;
-    padding: 16px 0;
-    border-top: 1px solid var(--rule-light);
-    border-bottom: 1px solid var(--rule-light);
-    margin: 8px 0;
-  }
-
+  .pull-quote { text-align: center; padding: 20px 0; border-top: 1px solid var(--rule-light); border-bottom: 1px solid var(--rule-light); margin: 8px 0; }
   .pull-quote p {
     font-style: italic;
-    font-size: clamp(1.05rem, 2.2vw, 1.3rem);
-    color: var(--burgundy);
-    line-height: 1.8;
+    font-size: clamp(1.15rem, 2.4vw, 1.45rem);
+    line-height: 1.85;
+    background: linear-gradient(135deg, var(--burgundy) 0%, var(--gold-bright) 50%, var(--burgundy) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   /* ── INTERLUDE ── */
-  .interlude {
-    background: var(--page-dark);
-    border-top: 1px solid var(--rule-light);
-    border-bottom: 1px solid var(--rule-light);
-    padding: 48px 56px;
-    text-align: center;
-    max-width: 680px;
-    margin: 0 auto;
-  }
-
-  .interlude .section-label { margin-bottom: 28px; }
-
-  .interlude-text {
-    font-style: italic;
-    font-size: clamp(1rem, 2vw, 1.18rem);
-    color: var(--ink-mid);
-    line-height: 2;
-  }
+  .interlude { background: var(--page-dark); border-top: 1px solid var(--rule-light); border-bottom: 1px solid var(--rule-light); padding: 52px 56px; text-align: center; max-width: 680px; margin: 0 auto; }
+  .interlude .section-label { margin-bottom: 30px; }
+  .interlude-text { font-style: italic; font-size: clamp(1.08rem, 2.1vw, 1.28rem); color: var(--ink-mid); line-height: 2.05; }
 
   /* ── CLOSING ── */
-  .closing {
-    background: var(--ink);
-    text-align: center;
-    padding: 72px 40px 88px;
-  }
-
-  .closing-ornament {
-    font-size: 1.1rem;
-    color: var(--rule);
-    opacity: 0.5;
-    letter-spacing: 0.2em;
-    margin-bottom: 36px;
-  }
-
-  .closing-text {
-    font-style: italic;
-    font-size: clamp(1rem, 2vw, 1.18rem);
-    color: #d4c4a8;
-    line-height: 2;
-    margin-bottom: 48px;
-    max-width: 520px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .coming-soon {
-    font-family: 'Cinzel', serif;
-    font-size: 0.6rem;
-    letter-spacing: 0.35em;
-    color: var(--rule);
-    opacity: 0.6;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-  }
-
-  .back-link {
-    display: inline-block;
-    font-family: 'Cinzel', serif;
-    font-size: 0.62rem;
-    letter-spacing: 0.22em;
-    color: var(--rule);
-    text-decoration: none;
-    text-transform: uppercase;
-    border-bottom: 1px solid rgba(196,168,122,0.35);
-    padding-bottom: 3px;
-    transition: opacity 0.3s;
-    opacity: 0.65;
-  }
-
+  .closing { background: var(--ink); text-align: center; padding: 72px 40px 88px; }
+  .closing-ornament { font-size: 1.2rem; color: var(--rule); opacity: 0.5; letter-spacing: 0.2em; margin-bottom: 36px; }
+  .closing-text { font-style: italic; font-size: clamp(1.08rem, 2.1vw, 1.3rem); color: #d4c4a8; line-height: 2.05; margin-bottom: 48px; max-width: 520px; margin-left: auto; margin-right: auto; }
+  .coming-soon { font-family: 'Cinzel', serif; font-size: 0.68rem; letter-spacing: 0.38em; color: var(--rule); opacity: 0.6; text-transform: uppercase; margin-bottom: 20px; }
+  .back-link { display: inline-block; font-family: 'Cinzel', serif; font-size: 0.68rem; letter-spacing: 0.25em; color: var(--rule); text-decoration: none; text-transform: uppercase; border-bottom: 1px solid rgba(196,168,122,0.35); padding-bottom: 3px; transition: opacity 0.3s; opacity: 0.65; }
   .back-link:hover { opacity: 1; }
 
-  footer {
-    background: var(--ink);
-    text-align: center;
-    padding: 28px 40px;
-    border-top: 1px solid rgba(196,168,122,0.15);
-  }
+  footer { background: var(--ink); text-align: center; padding: 28px 40px; border-top: 1px solid rgba(196,168,122,0.15); }
+  .footer-name { font-family: 'Cinzel', serif; font-size: 0.72rem; letter-spacing: 0.25em; color: var(--rule); opacity: 0.4; text-transform: uppercase; }
 
-  .footer-name {
-    font-family: 'Cinzel', serif;
-    font-size: 0.65rem;
-    letter-spacing: 0.25em;
-    color: var(--rule);
-    opacity: 0.4;
-    text-transform: uppercase;
-  }
-
-  @keyframes fadeUp {
-    from { opacity:0; transform:translateY(16px); }
-    to   { opacity:1; transform:translateY(0); }
-  }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
   .cover { animation: fadeUp 1.2s ease both; }
 
   @media (max-width: 600px) {
