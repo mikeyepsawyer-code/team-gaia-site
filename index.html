@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Michael, agapé — Author, Philosopher, Shamanic Photographer</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --near-black: #0d0a07;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --gold-pale: #f5e8c4;
+    --warm-white: #faf6ef;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background-color: var(--near-black);
+    color: var(--warm-white);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.8;
+    overflow-x: hidden;
+  }
+  body::before {
+    content: '';
+    position: fixed; top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none; z-index: 100; opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-size: 256px 256px;
+  }
+  header {
+    text-align: center;
+    padding: 80px 40px 60px;
+    position: relative;
+  }
+  header::after {
+    content: '';
+    display: block;
+    width: 120px; height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    margin: 40px auto 0;
+  }
+  .title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    color: var(--gold-light);
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+  .subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    color: var(--gold-pale);
+    opacity: 0.85;
+    letter-spacing: 0.05em;
+  }
+  .section {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 56px 40px;
+    text-align: center;
+  }
+  .divider {
+    width: 60px; height: 1px;
+    background: var(--gold); opacity: 0.4;
+    margin: 44px auto;
+  }
+  .opening-quote {
+    font-size: clamp(1.1rem, 2.4vw, 1.35rem);
+    font-style: italic;
+    color: var(--gold-pale);
+    line-height: 1.95;
+    opacity: 0.92;
+  }
+  .gaia-heading {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(3.8rem, 11vw, 6.5rem);
+    font-weight: 700;
+    color: var(--gold-light);
+    line-height: 1.05;
+    margin-bottom: 10px;
+  }
+  .gaia-subheading {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(1rem, 2.2vw, 1.3rem);
+    color: var(--gold-pale);
+    opacity: 0.72;
+    letter-spacing: 0.14em;
+  }
+  .section-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.28em;
+    color: var(--gold);
+    opacity: 0.65;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 48px;
+  }
+  .body-intro {
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    color: var(--warm-white);
+    opacity: 0.82;
+    line-height: 1.95;
+    margin-bottom: 20px;
+  }
+  .body-quote {
+    font-size: clamp(1.05rem, 2.2vw, 1.25rem);
+    font-style: italic;
+    color: var(--gold-pale);
+    opacity: 0.9;
+    line-height: 1.9;
+  }
+  .grid-wide { max-width: 1100px; margin: 0 auto; padding: 0 40px 72px; }
+  .grid-mid  { max-width: 900px;  margin: 0 auto; padding: 0 40px 72px; }
+  .links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 32px;
+    align-items: start;
+  }
+  .link-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+  }
+  .link-card:hover { transform: translateY(-4px); opacity: 0.92; }
+  .link-card-img {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    border: 1px solid rgba(201,168,76,0.25);
+    border-radius: 4px;
+    overflow: hidden;
+    background: #1a130c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  .link-card-img img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+  .placeholder-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    color: var(--gold);
+    opacity: 0.5;
+    text-align: center;
+    padding: 24px;
+    line-height: 2;
+    text-transform: uppercase;
+  }
+  .link-caption-main {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    color: var(--gold-light);
+    text-align: center;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .link-caption-sub {
+    font-size: 0.95rem;
+    font-style: italic;
+    color: var(--warm-white);
+    opacity: 0.7;
+    text-align: center;
+    line-height: 1.6;
+    max-width: 240px;
+  }
+  .badge {
+    display: inline-block;
+    font-family: 'Cinzel', serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    padding: 4px 12px;
+    border-radius: 2px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+  .badge-adult { color: var(--near-black); background: var(--gold); }
+  .badge-soon {
+    color: var(--gold-light);
+    background: rgba(201,168,76,0.18);
+    border: 1px solid rgba(201,168,76,0.4);
+  }
+  .calendar-card .link-card-img {
+    background: #13100c;
+    border-style: dashed;
+    border-color: rgba(201,168,76,0.2);
+  }
+  .calendar-card .placeholder-label { opacity: 0.35; }
+
+  /* Ovid cover: burgundy/gold styled placeholder */
+  .ovid-cover {
+    background: linear-gradient(160deg, #2a0a0a 0%, #1a0808 40%, #0f0505 100%);
+    border-color: rgba(180,100,60,0.4) !important;
+    position: relative;
+    overflow: hidden;
+  }
+  .ovid-cover::before {
+    content: '';
+    position: absolute;
+    inset: 8px;
+    border: 1px solid rgba(201,168,76,0.2);
+    pointer-events: none;
+  }
+  .ovid-cover-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 28px 20px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  .ovid-ornament {
+    font-size: 1.6rem;
+    color: var(--gold);
+    opacity: 0.5;
+    letter-spacing: 0.1em;
+  }
+  .ovid-title-main {
+    font-family: 'Cinzel', serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    color: var(--gold-light);
+    opacity: 0.85;
+    text-transform: uppercase;
+    line-height: 1.7;
+  }
+  .ovid-title-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 0.78rem;
+    color: var(--gold-pale);
+    opacity: 0.55;
+    letter-spacing: 0.08em;
+  }
+  .ovid-divider {
+    width: 32px; height: 1px;
+    background: var(--gold);
+    opacity: 0.3;
+  }
+
+  .shorts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 24px;
+    align-items: start;
+    min-height: 60px;
+  }
+  .short-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+  }
+  .short-card:hover { transform: translateY(-4px); opacity: 0.92; }
+  .short-thumb {
+    width: 100%;
+    aspect-ratio: 9 / 16;
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 4px;
+    background: #111009;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+    position: relative;
+  }
+  .short-thumb img { width:100%; height:100%; object-fit:cover; display:block; position:relative; z-index:1; }
+  .short-thumb::after {
+    content: '▶';
+    position: absolute;
+    font-size: 1.6rem;
+    color: rgba(201,168,76,0.6);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .short-views {
+    font-family: 'Cinzel', serif;
+    font-size: 0.58rem;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    opacity: 0.6;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .short-title {
+    font-family: 'Cinzel', serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    color: var(--gold-light);
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 1.6;
+    max-width: 180px;
+  }
+  .view-all-link {
+    font-family: 'Cinzel', serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.22em;
+    color: var(--gold);
+    opacity: 0.7;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(201,168,76,0.3);
+    padding-bottom: 3px;
+    display: inline-block;
+    margin-top: 40px;
+  }
+
+  footer {
+    text-align: center;
+    padding: 48px 40px;
+    border-top: 1px solid rgba(201,168,76,0.12);
+  }
+  .footer-name {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    opacity: 0.5;
+    text-transform: uppercase;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  header    { animation: fadeUp 1.2s ease both; }
+  .a1 { animation: fadeUp 1.2s ease 0.15s both; }
+  .a2 { animation: fadeUp 1.2s ease 0.30s both; }
+  .a3 { animation: fadeUp 1.2s ease 0.45s both; }
+  .a4 { animation: fadeUp 1.2s ease 0.60s both; }
+
+  @media (max-width: 600px) {
+    header { padding: 60px 24px 48px; }
+    .section, .grid-wide, .grid-mid { padding-left: 24px; padding-right: 24px; }
+    .links-grid { grid-template-columns: 1fr; max-width: 320px; margin: 0 auto; }
+    .shorts-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1 class="title">Michael, agapé</h1>
+  <p class="subtitle">Author &middot; Philosopher &middot; Shamanic Photographer</p>
+</header>
+
+<main>
+
+  <!-- OPENING QUOTE -->
+  <section class="section a1">
+    <p class="opening-quote">
+      Pleasure is not the enemy of wisdom;<br>
+      joyful enthusiasm is nature&rsquo;s oldest language.<br>
+      <br>
+      True pleasure is not hedonism;<br>
+      it is the ecstatic integration of affectionate radiance.
+    </p>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- GAIA -->
+  <section class="section a2" style="padding-bottom: 28px;">
+    <p class="gaia-heading">Gaia</p>
+    <p class="gaia-subheading">the Earth goddess</p>
+  </section>
+
+  <!-- SHORTS — LIVE YOUTUBE API -->
+  <div class="grid-wide a2">
+    <p class="section-label">Visions from the Field</p>
+    <div class="shorts-grid" id="shorts-grid">
+      <p class="short-views" style="grid-column:1/-1;text-align:center;opacity:0.45;letter-spacing:0.18em;font-family:'Cinzel',serif;font-size:0.65rem;">Loading…</p>
+    </div>
+    <div style="text-align:center;">
+      <a class="view-all-link" href="https://www.youtube.com/@michaelsawyer627/shorts" target="_blank" rel="noopener">
+        View All Shorts on YouTube
+      </a>
+    </div>
+  </div>
+
+  <script>
+  (function() {
+    var API_KEY   = "AIzaSyDhFgaL27lmqORuZgigzoZucmjZK4QJB0c";
+    var HANDLE    = "michaelsawyer627";
+    var MIN_VIEWS = 800;
+
+    function fmt(n) {
+      return n >= 1000 ? (n / 1000).toFixed(1).replace(/\.0$/, "") + "k" : String(n);
+    }
+
+    function parseDuration(iso) {
+      var m = iso.match(/PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?/);
+      if (!m) return 9999;
+      return (parseInt(m[1] || 0) * 3600) + (parseInt(m[2] || 0) * 60) + parseInt(m[3] || 0);
+    }
+
+    function renderCards(shorts) {
+      var grid = document.getElementById("shorts-grid");
+      if (!shorts.length) {
+        grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;opacity:0.5;font-family:Cinzel,serif;font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;">No shorts found</p>';
+        return;
+      }
+      grid.innerHTML = shorts.map(function (s) {
+        var t = s.thumbnails;
+        var thumb = (t.maxres || t.high || t.medium || t.default).url;
+        var url = "https://www.youtube.com/shorts/" + s.id;
+        return '<a class="short-card" href="' + url + '" target="_blank" rel="noopener">'
+          + '<div class="short-thumb"><img src="' + thumb + '" alt="" loading="lazy"></div>'
+          + '<p class="short-views">' + fmt(s.viewCount) + ' views</p>'
+          + '<p class="short-title">' + s.title + '</p>'
+          + '</a>';
+      }).join("");
+    }
+
+    async function loadShorts() {
+      try {
+        var ch = await fetch(
+          "https://www.googleapis.com/youtube/v3/channels?part=contentDetails&forHandle=" + HANDLE + "&key=" + API_KEY
+        ).then(function (r) { return r.json(); });
+        var uploadsId = ch.items[0].contentDetails.relatedPlaylists.uploads;
+
+        var pl = await fetch(
+          "https://www.googleapis.com/youtube/v3/playlistItems?part=contentDetails&maxResults=50&playlistId=" + uploadsId + "&key=" + API_KEY
+        ).then(function (r) { return r.json(); });
+        var ids = pl.items.map(function (i) { return i.contentDetails.videoId; });
+
+        var vd = await fetch(
+          "https://www.googleapis.com/youtube/v3/videos?part=contentDetails,statistics,snippet&id=" + ids.join(",") + "&key=" + API_KEY
+        ).then(function (r) { return r.json(); });
+
+        var allShorts = vd.items
+          .filter(function (v) { return parseDuration(v.contentDetails.duration) <= 180; })
+          .map(function (v) {
+            return {
+              id: v.id,
+              title: v.snippet.title,
+              thumbnails: v.snippet.thumbnails,
+              viewCount: parseInt(v.statistics.viewCount || 0),
+              publishedAt: v.snippet.publishedAt
+            };
+          })
+          .sort(function (a, b) { return b.viewCount - a.viewCount; });
+
+        if (!allShorts.length) { renderCards([]); return; }
+
+        var latest = allShorts.slice().sort(function (a, b) {
+          return new Date(b.publishedAt) - new Date(a.publishedAt);
+        })[0];
+
+        var filtered = allShorts.filter(function (s) { return s.viewCount >= MIN_VIEWS; });
+
+        if (!filtered.some(function (s) { return s.id === latest.id; })) {
+          filtered.push(latest);
+        }
+
+        renderCards(filtered);
+
+      } catch (err) {
+        console.error("Shorts load error:", err);
+        document.getElementById("shorts-grid").innerHTML =
+          '<p style="grid-column:1/-1;text-align:center;opacity:0.5;font-family:Cinzel,serif;font-size:0.65rem;letter-spacing:0.18em;">'
+          + 'Could not load &mdash; <a href="https://www.youtube.com/@michaelsawyer627/shorts" style="color:var(--gold);">view on YouTube</a></p>';
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", loadShorts);
+  })();
+  </script>
+
+  <div class="divider"></div>
+
+  <!-- GAIA CALENDAR -->
+  <div class="grid-mid a3" style="padding-top: 0;">
+    <div class="links-grid" style="max-width: 320px; margin: 0 auto;">
+      <a class="link-card calendar-card" href="#" style="pointer-events: none; opacity: 0.55;">
+        <div class="link-card-img">
+          <p class="placeholder-label">Gaia Calendar 2027<br><br>Coming Soon</p>
+        </div>
+        <p class="link-caption-main">Gaia Calendar 2027</p>
+        <p class="link-caption-sub">Twelve months. Twelve sacred landscapes. Available soon.</p>
+      </a>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- MICHAEL COPY -->
+  <section class="section a3" style="padding-top: 0;">
+    <p class="body-intro">Michael writes at the intersection of the sacred and the sensual.</p>
+    <p class="body-quote">
+      &ldquo;When we gently put down our habitual tension, we leverage the sacred intelligence
+      of the body and the earth, to liberate pleasure and ecstasy from dogmatic and generational shame.&rdquo;
+    </p>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- BOOKS -->
+  <div class="grid-mid a4" style="padding-top: 0;">
+    <p class="section-label">Books</p>
+    <div class="links-grid">
+
+      <!-- 100 Orgasms an Hour — LIVE -->
+      <a class="link-card" href="https://a.co/02pRcOFo" target="_blank" rel="noopener">
+        <div class="link-card-img">
+          <img src="https://m.media-amazon.com/images/I/71yLqB4UrYL._SY425_.jpg"
+               alt="100 Orgasms an Hour by Michael Sawyer"
+               onerror="this.style.display='none';this.parentNode.innerHTML='<p class='placeholder-label' style='opacity:0.6;'>100 Orgasms<br>an Hour</p>'">
+        </div>
+        <span class="badge badge-adult">18+ &mdash; Adults Only</span>
+        <p class="link-caption-main">100 Orgasms an Hour</p>
+        <p class="link-caption-sub">Exploring female ecstasy.</p>
+      </a>
+
+      <!-- The Art of Amōre — NOW LINKED -->
+      <a class="link-card" href="/ovid-preview.html" target="_blank" rel="noopener">
+        <div class="link-card-img ovid-cover">
+          <div class="ovid-cover-inner">
+            <div class="ovid-ornament">❧</div>
+            <div class="ovid-divider"></div>
+            <p class="ovid-title-main">The Art<br>of Amōre</p>
+            <div class="ovid-divider"></div>
+            <p class="ovid-title-sub">Updating Ovid's<br>Ars Amatoria</p>
+            <div class="ovid-ornament" style="font-size:0.9rem;margin-top:4px;">· Michael Sawyer ·</div>
+          </div>
+        </div>
+        <span class="badge badge-soon">Read a Preview</span>
+        <p class="link-caption-main">The Art of Amōre</p>
+        <p class="link-caption-sub">Ovid across two thousand years.</p>
+      </a>
+
+      <!-- Radiant Vulnerability — Coming Soon -->
+      <a class="link-card" href="#" style="pointer-events: none; opacity: 0.85;">
+        <div class="link-card-img" style="background:#13100c;border-style:dashed;border-color:rgba(201,168,76,0.2);">
+          <p class="placeholder-label" style="opacity:0.4;">Radiant<br>Vulnerability</p>
+        </div>
+        <span class="badge badge-soon">Coming Soon</span>
+        <p class="link-caption-main">Radiant Vulnerability</p>
+        <p class="link-caption-sub">the power of empathy</p>
+      </a>
+
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <p class="footer-name">Nacmine Gaia &nbsp;&middot;&nbsp; nacminegaia.com</p>
+</footer>
+
+</body>
+</html>
