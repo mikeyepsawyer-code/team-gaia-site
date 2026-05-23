@@ -38,7 +38,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 0;
     text-align: center;
     padding: 0;
     position: relative;
@@ -63,7 +64,7 @@
   .cover-top {
     position: relative;
     z-index: 1;
-    padding: 18px 40px 0;
+    padding: 52px 40px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -203,21 +204,20 @@
     <p class="cover-subtitle">Ovid's classic advice for men, updated.</p>
   </div>
 
-  <!-- MIDDLE: scroll hint floats center -->
-  <p class="scroll-hint" style="position:relative;z-index:1;">↓ &nbsp; Read &nbsp; ↓</p>
-
   <!-- BOTTOM: author names + roman numerals -->
-  <div class="cover-bottom" style="padding-bottom:48px;gap:14px;">
+  <div class="cover-bottom" style="padding-bottom:52px;gap:12px;margin-top:auto;">
     <div style="width:80px;height:1px;background:var(--rule);opacity:0.35;margin-bottom:6px;"></div>
     <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1rem,2.2vw,1.22rem);color:#c4a87a;opacity:0.72;letter-spacing:0.07em;margin-bottom:14px;">
       A conversation across 2000 years.
     </p>
+    <p class="scroll-hint" style="position:relative;z-index:1;margin-bottom:8px;">↓ &nbsp; Read &nbsp; ↓</p>
+
     <!-- Conversation tagline -->
     <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1rem,2.1vw,1.22rem);color:#c4a87a;opacity:0.72;letter-spacing:0.07em;margin-bottom:4px;">
       A conversation across 2000 years.
     </p>
 
-    <div style="width:60px;height:1px;background:#c4a87a;opacity:0.28;margin:4px 0 12px;"></div>
+    <div style="width:60px;height:1px;background:#c4a87a;opacity:0.28;margin:8px 0;"></div>
 
     <!-- Names: one line each, no wrapping -->
     <p style="font-family:'Cinzel',serif;font-size:clamp(1.1rem,2.4vw,1.42rem);letter-spacing:0.22em;color:#f0e2c0;opacity:0.90;text-transform:uppercase;white-space:nowrap;">
