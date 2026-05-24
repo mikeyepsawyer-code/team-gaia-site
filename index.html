@@ -60,6 +60,9 @@
   .badge { display: inline-block; font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 0.15em; padding: 4px 12px; border-radius: 2px; margin-bottom: 12px; text-transform: uppercase; }
   .badge-adult { color: var(--near-black); background: var(--gold); }
   .badge-soon { color: var(--gold-light); background: rgba(201,168,76,0.18); border: 1px solid rgba(201,168,76,0.4); }
+  .sash-wrap { position: relative; overflow: hidden; }
+  .sash { position: absolute; top: 22px; right: -32px; width: 130px; padding: 5px 0; background: rgba(201,168,76,0.18); border-top: 1px solid rgba(201,168,76,0.5); border-bottom: 1px solid rgba(201,168,76,0.5); font-family: 'Cinzel', serif; font-size: 0.5rem; letter-spacing: 0.14em; color: var(--gold-light); text-align: center; text-transform: uppercase; transform: rotate(35deg); z-index: 2; pointer-events: none; }
+  .sash-preview { position: absolute; bottom: 14px; left: 0; right: 0; text-align: center; font-family: 'Cinzel', serif; font-size: 0.52rem; letter-spacing: 0.16em; color: var(--gold); opacity: 0.55; text-transform: uppercase; z-index: 2; pointer-events: none; }
   .calendar-card .link-card-img { background: #13100c; border-style: dashed; border-color: rgba(201,168,76,0.2); }
   .calendar-card .placeholder-label { opacity: 0.35; }
   .ovid-cover { background: linear-gradient(160deg, #2a0a0a 0%, #1a0808 40%, #0f0505 100%); border-color: rgba(180,100,60,0.4) !important; position: relative; overflow: hidden; }
@@ -196,8 +199,7 @@
   <section class="section a3" style="padding-top: 0;">
     <p class="body-intro">Michael writes at the intersection of the sacred and the sensual.</p>
     <p class="body-quote">
-      &ldquo;When we gently put down our habitual tension, we leverage the sacred intelligence
-      of the body and the earth, to liberate pleasure and ecstasy from dogmatic and generational shame.&rdquo;
+      &ldquo;Releasing our habitual tension leverages the sacred intelligence of the body and the earth, liberating pleasure and ecstasy from dogmatic and generational shame.&rdquo;
     </p>
   </section>
 
@@ -208,21 +210,10 @@
     <p class="section-label">Books</p>
     <div class="links-grid">
 
-      <!-- 100 Orgasms an Hour — LIVE -->
-      <a class="link-card" href="https://a.co/02pRcOFo" target="_blank" rel="noopener">
-        <div class="link-card-img">
-          <img src="https://m.media-amazon.com/images/I/71yLqB4UrYL._SY425_.jpg"
-               alt="100 Orgasms an Hour by Michael Sawyer"
-               onerror="this.style.display='none';this.parentNode.innerHTML='<p class=\'placeholder-label\' style=\'opacity:0.6;\'>100 Orgasms<br>an Hour</p>'">
-        </div>
-        <span class="badge badge-adult">18+ &mdash; Adults Only</span>
-        <p class="link-caption-main">100 Orgasms an Hour</p>
-        <p class="link-caption-sub">Exploring female ecstasy.</p>
-      </a>
-
-      <!-- The Art of Amōre — LIVE PREVIEW LINK -->
+      <!-- The Art of Amōre — LIVE PREVIEW -->
       <a class="link-card" href="/ovid-preview.html" target="_blank" rel="noopener">
-        <div class="link-card-img ovid-cover">
+        <div class="link-card-img ovid-cover sash-wrap">
+          <div class="sash">Preview</div>
           <div class="ovid-cover-inner">
             <div class="ovid-ornament">❧</div>
             <div class="ovid-divider"></div>
@@ -232,45 +223,38 @@
             <div class="ovid-ornament" style="font-size:0.9rem;margin-top:4px;">· Michael Sawyer ·</div>
           </div>
         </div>
-        <span class="badge badge-soon">Read a Preview</span>
-        <p class="link-caption-main">The Art of Amōre</p>
-        <p class="link-caption-sub">Ovid across two thousand years.</p>
       </a>
 
       <!-- Radiant Vulnerability — Coming Soon -->
-      <a class="link-card" href="#" style="pointer-events: none; opacity: 0.85;">
-        <div class="link-card-img" style="background:#13100c;border-style:dashed;border-color:rgba(201,168,76,0.2);">
-          <p class="placeholder-label" style="opacity:0.4;">Radiant<br>Vulnerability</p>
+      <a class="link-card" href="#" style="pointer-events: none; opacity: 0.75;">
+        <div class="link-card-img sash-wrap" style="background:#13100c;border-style:dashed;border-color:rgba(201,168,76,0.2);">
+          <div class="sash">Coming Soon</div>
+          <p class="placeholder-label" style="opacity:0.35;">Radiant<br>Vulnerability</p>
         </div>
-        <span class="badge badge-soon">Coming Soon</span>
-        <p class="link-caption-main">Radiant Vulnerability</p>
-        <p class="link-caption-sub">the power of empathy</p>
       </a>
 
       <!-- Cultivating Chi — Under Construction -->
-      <a class="link-card" href="#" style="pointer-events: none; opacity: 0.85;">
-        <div class="link-card-img" style="background:#0d0f13;border-style:dashed;border-color:rgba(201,168,76,0.2);position:relative;overflow:hidden;">
-          <!-- Star of David SVG placeholder -->
-          <svg viewBox="0 0 120 140" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:72%;opacity:0.35;">
-            <defs>
-              <filter id="chi-glow">
-                <feGaussianBlur stdDeviation="2" result="blur"/>
-                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-              </filter>
-            </defs>
-            <!-- Upward triangle -->
-            <polygon points="60,18 104,88 16,88" fill="none" stroke="#c9a84c" stroke-width="1.5" filter="url(#chi-glow)"/>
-            <!-- Downward triangle -->
-            <polygon points="60,122 16,52 104,52" fill="none" stroke="#c9a84c" stroke-width="1.5" filter="url(#chi-glow)"/>
-            <!-- Center point -->
-            <circle cx="60" cy="70" r="2.5" fill="#e8c97a" filter="url(#chi-glow)"/>
-            <!-- Vertical axis -->
+      <a class="link-card" href="#" style="pointer-events: none; opacity: 0.75;">
+        <div class="link-card-img sash-wrap" style="background:#0d0f13;border-style:dashed;border-color:rgba(201,168,76,0.2);">
+          <div class="sash">In Progress</div>
+          <svg viewBox="0 0 120 140" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:68%;opacity:0.3;">
+            <polygon points="60,18 104,88 16,88" fill="none" stroke="#c9a84c" stroke-width="1.5"/>
+            <polygon points="60,122 16,52 104,52" fill="none" stroke="#c9a84c" stroke-width="1.5"/>
+            <circle cx="60" cy="70" r="2.5" fill="#e8c97a"/>
             <line x1="60" y1="18" x2="60" y2="122" stroke="#c9a84c" stroke-width="0.5" stroke-dasharray="3,5" opacity="0.4"/>
           </svg>
+          <p class="sash-preview">Cultivating Chi</p>
         </div>
-        <span class="badge badge-soon">Under Construction</span>
-        <p class="link-caption-main">Cultivating Chi</p>
-        <p class="link-caption-sub">The body as a gyroscopic generator</p>
+      </a>
+
+      <!-- 100 Orgasms an Hour — LIVE -->
+      <a class="link-card" href="https://a.co/02pRcOFo" target="_blank" rel="noopener">
+        <div class="link-card-img sash-wrap">
+          <div class="sash" style="background:var(--gold);color:var(--near-black);border-color:var(--gold);">18+ Only</div>
+          <img src="https://m.media-amazon.com/images/I/71yLqB4UrYL._SY425_.jpg"
+               alt="100 Orgasms an Hour by Michael Sawyer"
+               onerror="this.style.display='none';this.parentNode.innerHTML='<p class=\'placeholder-label\' style=\'opacity:0.6;\'>100 Orgasms<br>an Hour</p>'">
+        </div>
       </a>
 
     </div>
@@ -284,3 +268,4 @@
 
 </body>
 </html>
+
