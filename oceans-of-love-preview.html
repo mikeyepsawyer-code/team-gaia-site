@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oceans of Love — Michael Sawyer</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --near-black: #0d0a07;
+    --ocean-deep: #060e1a;
+    --ocean-mid: #0d1f35;
+    --ocean-blue: #1a3a5c;
+    --sea-gold: #c9a84c;
+    --sea-gold-light: #e8c97a;
+    --sea-gold-pale: #f5e8c4;
+    --foam-white: #f0f4f8;
+    --sail-white: #eef2f5;
+    --warm-white: #faf6ef;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background-color: var(--ocean-deep);
+    color: var(--foam-white);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.8;
+    overflow-x: hidden;
+  }
+  body::before {
+    content: '';
+    position: fixed; top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none; z-index: 100; opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-size: 256px 256px;
+  }
+
+  /* Horizon line at top */
+  .horizon {
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right, transparent, var(--ocean-blue), var(--sea-gold), var(--ocean-blue), transparent);
+    opacity: 0.6;
+  }
+
+  header {
+    text-align: center;
+    padding: 72px 40px 56px;
+    position: relative;
+    animation: fadeUp 1.2s ease both;
+  }
+  header::after {
+    content: '';
+    display: block;
+    width: 80px; height: 1px;
+    background: linear-gradient(to right, transparent, var(--sea-gold), transparent);
+    margin: 36px auto 0;
+  }
+
+  .back-link {
+    display: inline-block;
+    position: absolute;
+    top: 32px; left: 40px;
+    font-family: 'Cinzel', serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.22em;
+    color: var(--sea-gold);
+    opacity: 0.55;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: opacity 0.3s;
+  }
+  .back-link:hover { opacity: 0.9; }
+
+  .subtitle-tag {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    color: var(--ocean-blue);
+    background: rgba(26,58,92,0.4);
+    border: 1px solid rgba(26,58,92,0.6);
+    padding: 4px 14px;
+    border-radius: 2px;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 24px;
+  }
+
+  .title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(2.2rem, 6vw, 3.8rem);
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    color: var(--sail-white);
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+  .title em {
+    color: var(--sea-gold-light);
+    font-style: normal;
+  }
+
+  .subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(1.05rem, 2.2vw, 1.3rem);
+    color: var(--sea-gold-pale);
+    opacity: 0.8;
+    letter-spacing: 0.06em;
+  }
+  .author {
+    font-family: 'Cinzel', serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.28em;
+    color: var(--sea-gold);
+    opacity: 0.6;
+    text-transform: uppercase;
+    margin-top: 12px;
+  }
+
+  /* Cover + intro two-column */
+  .cover-section {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 40px 64px;
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 56px;
+    align-items: start;
+    animation: fadeUp 1.2s ease 0.2s both;
+  }
+  .cover-img {
+    width: 100%;
+    aspect-ratio: 2/3;
+    border: 1px solid rgba(26,58,92,0.5);
+    border-radius: 3px;
+    overflow: hidden;
+    box-shadow: 0 12px 48px rgba(6,14,26,0.8), 0 0 0 4px rgba(26,58,92,0.15);
+  }
+  .cover-img img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+  .cover-text {
+    padding-top: 8px;
+  }
+  .cover-text p {
+    font-size: clamp(1rem, 1.8vw, 1.15rem);
+    color: var(--foam-white);
+    opacity: 0.85;
+    line-height: 2;
+    margin-bottom: 20px;
+  }
+  .cover-text .pull-quote {
+    font-style: italic;
+    color: var(--sea-gold-pale);
+    opacity: 0.9;
+    font-size: clamp(1.05rem, 2vw, 1.2rem);
+    border-left: 2px solid rgba(201,168,76,0.4);
+    padding-left: 20px;
+    margin: 28px 0;
+  }
+
+  .divider {
+    width: 60px; height: 1px;
+    background: var(--ocean-blue);
+    opacity: 0.5;
+    margin: 48px auto;
+  }
+  .divider-gold {
+    width: 60px; height: 1px;
+    background: var(--sea-gold);
+    opacity: 0.35;
+    margin: 48px auto;
+  }
+
+  /* Section labels */
+  .section-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.28em;
+    color: var(--ocean-blue);
+    opacity: 0.85;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 48px;
+  }
+
+  /* The sailboat model */
+  .sailboat-section {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 40px 64px;
+    animation: fadeUp 1.2s ease 0.35s both;
+  }
+
+  /* Mast cards */
+  .masts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+    margin-top: 40px;
+  }
+  .mast-card {
+    background: rgba(13,31,53,0.5);
+    border: 1px solid rgba(26,58,92,0.4);
+    border-radius: 4px;
+    padding: 28px 24px;
+    position: relative;
+  }
+  .mast-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 20px; right: 20px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(201,168,76,0.3), transparent);
+  }
+  .mast-num {
+    font-family: 'Cinzel', serif;
+    font-size: 0.55rem;
+    letter-spacing: 0.25em;
+    color: var(--sea-gold);
+    opacity: 0.5;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .mast-title {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    color: var(--sea-gold-light);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    line-height: 1.5;
+  }
+  .mast-body {
+    font-size: 0.95rem;
+    color: var(--foam-white);
+    opacity: 0.75;
+    line-height: 1.75;
+  }
+
+  /* Ocean model */
+  .ocean-section {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 40px 64px;
+    animation: fadeUp 1.2s ease 0.5s both;
+  }
+
+  .ocean-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    margin: 40px 0 32px;
+    text-align: center;
+  }
+  .ocean-letter {
+    background: rgba(13,31,53,0.6);
+    border: 1px solid rgba(26,58,92,0.4);
+    border-radius: 3px;
+    padding: 18px 8px 14px;
+  }
+  .ocean-initial {
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--sea-gold-light);
+    display: block;
+    margin-bottom: 8px;
+  }
+  .ocean-word {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 0.75rem;
+    color: var(--sea-gold-pale);
+    opacity: 0.7;
+    letter-spacing: 0.06em;
+  }
+
+  /* Excerpt */
+  .excerpt-section {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 40px 72px;
+    animation: fadeUp 1.2s ease 0.6s both;
+  }
+  .excerpt-block {
+    border-left: 1px solid rgba(26,58,92,0.6);
+    padding: 4px 0 4px 32px;
+    margin: 32px 0;
+  }
+  .excerpt-block p {
+    font-size: clamp(1rem, 1.9vw, 1.18rem);
+    color: var(--foam-white);
+    opacity: 0.82;
+    line-height: 2;
+    margin-bottom: 18px;
+  }
+  .excerpt-block p:last-child { margin-bottom: 0; }
+
+  /* Chapter list */
+  .chapters-section {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 40px 72px;
+    animation: fadeUp 1.2s ease 0.65s both;
+  }
+  .chapter-list {
+    list-style: none;
+    margin-top: 32px;
+  }
+  .chapter-list li {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(26,58,92,0.25);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    color: var(--foam-white);
+    opacity: 0.75;
+    letter-spacing: 0.04em;
+  }
+  .chapter-list li:last-child { border-bottom: none; }
+  .chapter-num {
+    font-family: 'Cinzel', serif;
+    font-size: 0.55rem;
+    letter-spacing: 0.2em;
+    color: var(--sea-gold);
+    opacity: 0.45;
+    min-width: 32px;
+    text-transform: uppercase;
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 48px 40px;
+    border-top: 1px solid rgba(26,58,92,0.2);
+  }
+  .footer-name {
+    font-family: 'Cinzel', serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.25em;
+    color: var(--sea-gold);
+    opacity: 0.45;
+    text-transform: uppercase;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 640px) {
+    .cover-section { grid-template-columns: 1fr; }
+    .cover-img { max-width: 220px; margin: 0 auto; }
+    .ocean-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    header { padding: 60px 24px 48px; }
+    .cover-section, .sailboat-section, .ocean-section,
+    .excerpt-section, .chapters-section { padding-left: 24px; padding-right: 24px; }
+    .back-link { left: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="horizon"></div>
+
+<header>
+  <a class="back-link" href="/">← All Books</a>
+  <div class="subtitle-tag">Field Guide</div>
+  <h1 class="title"><em>Oceans</em> of Love</h1>
+  <p class="subtitle">A field guide to agapé, eros, and other loves</p>
+  <p class="author">Michael Sawyer</p>
+</header>
+
+<main>
+
+  <!-- Cover + intro -->
+  <div class="cover-section">
+    <div class="cover-img">
+      <img src="data:image/jpeg;base64,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" alt="Oceans of Love — Michael Sawyer">
+    </div>
+    <div class="cover-text">
+      <p>Love is not one thing. It is an ocean — vast, layered, tidal. This book is a field guide to navigating it.</p>
+      <div class="pull-quote">"They say if you are widely interested, you will be widely regarded as interesting. Similarly, if we love broadly, we will be broadly loved."</div>
+      <p>Drawing on philosophy, psychology, and the ancient wisdom of agapé, Michael Sawyer maps the forms of love onto a sailboat — the hull, the masts, the sails — and charts a course toward the open water of the heart.</p>
+    </div>
+  </div>
+
+  <div class="divider-gold"></div>
+
+  <!-- The OCEAN Model -->
+  <div class="ocean-section">
+    <p class="section-label">The Psychology of Love</p>
+    <div style="text-align:center;max-width:560px;margin:0 auto 40px;">
+      <p style="font-style:italic;color:var(--sea-gold-pale);opacity:0.85;font-size:1.05rem;line-height:1.9;">The book maps love to the OCEAN model of personality — five root qualities that compose who we are, and how we love.</p>
+    </div>
+    <div class="ocean-grid">
+      <div class="ocean-letter">
+        <span class="ocean-initial">O</span>
+        <span class="ocean-word">Openness</span>
+      </div>
+      <div class="ocean-letter">
+        <span class="ocean-initial">C</span>
+        <span class="ocean-word">Conscientiousness</span>
+      </div>
+      <div class="ocean-letter">
+        <span class="ocean-initial">E</span>
+        <span class="ocean-word">Extroversion</span>
+      </div>
+      <div class="ocean-letter">
+        <span class="ocean-initial">A</span>
+        <span class="ocean-word">Agreeableness</span>
+      </div>
+      <div class="ocean-letter">
+        <span class="ocean-initial">N</span>
+        <span class="ocean-word">Neuroticism</span>
+      </div>
+    </div>
+    <p style="text-align:center;font-style:italic;color:var(--foam-white);opacity:0.55;font-size:0.9rem;letter-spacing:0.05em;">Each form of love maps to a dimension of psyche. Know your type; navigate your sea.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- The Sailboat -->
+  <div class="sailboat-section">
+    <p class="section-label">The Sailboat of Love</p>
+    <div style="text-align:center;max-width:560px;margin:0 auto 8px;">
+      <p style="font-style:italic;color:var(--sea-gold-pale);opacity:0.85;font-size:1.05rem;line-height:1.9;">"A sailboat of a certain size has a certain momentum. If we want more momentum, more attraction — we're going to need a bigger boat."</p>
+    </div>
+    <div class="masts-grid">
+      <div class="mast-card">
+        <div class="mast-num">The Hull</div>
+        <div class="mast-title">Self-Love</div>
+        <div class="mast-body">The foundation. Without a strong hull, no mast can stand. Self-love is not selfishness — it is the vessel that carries all other loves.</div>
+      </div>
+      <div class="mast-card">
+        <div class="mast-num">First Mast</div>
+        <div class="mast-title">Maternal &amp; Paternal</div>
+        <div class="mast-body">The parental loves — maternal shielding the vulnerable, paternal encouraging strength. Ideally both are present in all parents.</div>
+      </div>
+      <div class="mast-card">
+        <div class="mast-num">Second Mast</div>
+        <div class="mast-title">Fraternal &amp; Social</div>
+        <div class="mast-body">Brotherly and sisterly love, expanded outward — to tribe, to nation, to species. The civilizing instinct made personal.</div>
+      </div>
+      <div class="mast-card">
+        <div class="mast-num">Third Mast</div>
+        <div class="mast-title">Eros</div>
+        <div class="mast-body">Sensual love between partners. Desire, arousal, union of bodies and minds. The most personal of the masts — and the most ancient.</div>
+      </div>
+      <div class="mast-card">
+        <div class="mast-num">The Sails</div>
+        <div class="mast-title">Amoré &amp; Agapé</div>
+        <div class="mast-body">Amoré is the jib — focused, directional, assertive. Agapé is the spinnaker — vast, unfocused, ecstatic. Love without object. Love for its own sake.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider-gold"></div>
+
+  <!-- Excerpt -->
+  <div class="excerpt-section">
+    <p class="section-label">From the Book</p>
+    <div class="excerpt-block">
+      <p>I define all types of love as the cooperative overlapping of perspectives. When you and I share a we-identity. Not exactly that two become one — more like we retain our individual identities while simultaneously tapping into a shared perspective.</p>
+      <p>If we became fully one, we would no longer be individuals who could co-relate; while if we remained as individuals, there would be no transcendent experience of union.</p>
+    </div>
+    <div class="excerpt-block">
+      <p>Agapé is an unstructured, unfocused love — or you could say its focus is the entire universe. Its emotion is enthusiasm. En theos means in spirit, radiant, non-localized.</p>
+      <p>When agapé is in full bloom, the heart chakra is wide open; and like a spinnaker, it powerfully drags the rest of you along behind it like a ragdoll.</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Chapters -->
+  <div class="chapters-section">
+    <p class="section-label">Contents</p>
+    <ul class="chapter-list">
+      <li><span class="chapter-num">I</span>What is This Thing Called Love?</li>
+      <li><span class="chapter-num">II</span>OCEAN — The Psychology of Love</li>
+      <li><span class="chapter-num">III</span>The Hull: Self-Love as Foundation</li>
+      <li><span class="chapter-num">IV</span>The First Mast: Maternal &amp; Paternal</li>
+      <li><span class="chapter-num">V</span>The Second Mast: Fraternal &amp; Social</li>
+      <li><span class="chapter-num">VI</span>The Third Mast: Eros</li>
+      <li><span class="chapter-num">VII</span>The Sails: Amoré &amp; Agapé</li>
+      <li><span class="chapter-num">VIII</span>Anahata — The Crow's Nest</li>
+      <li><span class="chapter-num">IX</span>Collaborative Equilibrium</li>
+      <li><span class="chapter-num">X</span>How to Agapé</li>
+      <li><span class="chapter-num">XI</span>Shit Tests</li>
+      <li><span class="chapter-num">XII</span>Better Than Zipless</li>
+    </ul>
+  </div>
+
+</main>
+
+<footer>
+  <p class="footer-name">Michael Sawyer &nbsp;&middot;&nbsp; nacminegaia.com</p>
+</footer>
+
+</body>
+</html>
