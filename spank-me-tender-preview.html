@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spank Me Tender — Michael Sawyer</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --near-black: #0d0a07;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --gold-pale: #f5e8c4;
+    --warm-white: #faf6ef;
+    --ember: #c9784c;
+    --ember-light: #e8b09a;
+    --ember-pale: #f5e0d4;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background-color: var(--near-black);
+    color: var(--warm-white);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.8;
+    overflow-x: hidden;
+  }
+  body::before {
+    content: '';
+    position: fixed; top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none; z-index: 100; opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-size: 256px 256px;
+  }
+
+  /* HEADER */
+  .book-header {
+    text-align: center;
+    padding: 80px 40px 60px;
+    position: relative;
+    animation: fadeUp 1.2s ease both;
+  }
+  .book-header::after {
+    content: ''; display: block;
+    width: 80px; height: 1px;
+    background: linear-gradient(to right, transparent, var(--ember), transparent);
+    margin: 40px auto 0;
+  }
+  .construction-banner {
+    display: inline-block;
+    font-family: 'Cinzel', serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ember-light);
+    border: 1px solid rgba(201,120,76,0.45);
+    padding: 5px 16px;
+    border-radius: 2px;
+    margin-bottom: 32px;
+    opacity: 0.8;
+  }
+  .book-ornament {
+    font-size: 1.8rem;
+    color: var(--ember);
+    opacity: 0.4;
+    letter-spacing: 0.2em;
+    margin-bottom: 20px;
+    display: block;
+  }
+  .book-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(2.2rem, 6vw, 3.8rem);
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    color: var(--ember-light);
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+  .book-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(1rem, 2.2vw, 1.3rem);
+    color: var(--ember-pale);
+    opacity: 0.75;
+    letter-spacing: 0.06em;
+    margin-bottom: 8px;
+  }
+  .book-author {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.22em;
+    color: var(--ember);
+    opacity: 0.7;
+    text-transform: uppercase;
+    margin-bottom: 0;
+  }
+  .adult-badge {
+    display: inline-block;
+    font-family: 'Cinzel', serif;
+    font-size: 0.55rem;
+    letter-spacing: 0.16em;
+    padding: 4px 12px;
+    border-radius: 2px;
+    text-transform: uppercase;
+    color: var(--near-black);
+    background: var(--ember);
+    margin-top: 20px;
+  }
+
+  /* BODY */
+  .section {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 56px 40px;
+    text-align: center;
+  }
+  .divider {
+    width: 60px; height: 1px;
+    background: var(--ember);
+    opacity: 0.3;
+    margin: 44px auto;
+  }
+  .section-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.28em;
+    color: var(--ember);
+    opacity: 0.6;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 36px;
+  }
+  .opening-quote {
+    font-size: clamp(1.1rem, 2.4vw, 1.35rem);
+    font-style: italic;
+    color: var(--ember-pale);
+    line-height: 2;
+    opacity: 0.9;
+  }
+  .body-text {
+    font-size: clamp(1rem, 2vw, 1.12rem);
+    color: var(--warm-white);
+    opacity: 0.82;
+    line-height: 1.95;
+    text-align: justify;
+    margin-bottom: 1.4em;
+  }
+  .body-text:last-child { margin-bottom: 0; }
+
+  /* CONTENTS */
+  .contents-grid {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 40px 56px;
+  }
+  .part-block {
+    margin-bottom: 40px;
+    text-align: left;
+  }
+  .part-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.24em;
+    color: var(--ember);
+    opacity: 0.65;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .part-title {
+    font-family: 'Cinzel', serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.14em;
+    color: var(--ember-light);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .chapter-list {
+    list-style: none;
+    padding: 0;
+    border-left: 1px solid rgba(201,120,76,0.2);
+    padding-left: 18px;
+  }
+  .chapter-list li {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--warm-white);
+    opacity: 0.72;
+    line-height: 1.9;
+    letter-spacing: 0.03em;
+  }
+  .chapter-list li span {
+    font-style: normal;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    color: var(--ember);
+    opacity: 0.55;
+    text-transform: uppercase;
+    margin-right: 6px;
+  }
+
+  /* EXCERPT */
+  .excerpt-wrap {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 40px 56px;
+  }
+  .excerpt-block {
+    background: rgba(201,120,76,0.04);
+    border: 1px solid rgba(201,120,76,0.15);
+    border-radius: 3px;
+    padding: 40px 44px;
+    position: relative;
+  }
+  .excerpt-block::before {
+    content: '';
+    position: absolute;
+    top: 10px; left: 10px; right: 10px; bottom: 10px;
+    border: 1px solid rgba(201,120,76,0.07);
+    pointer-events: none;
+  }
+  .excerpt-chapter {
+    font-family: 'Cinzel', serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.22em;
+    color: var(--ember);
+    opacity: 0.6;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    text-align: center;
+  }
+  .excerpt-text {
+    font-size: clamp(1rem, 2vw, 1.1rem);
+    color: var(--warm-white);
+    opacity: 0.85;
+    line-height: 1.98;
+    text-align: justify;
+    margin-bottom: 1.4em;
+  }
+  .excerpt-text:last-child { margin-bottom: 0; }
+  .excerpt-text em {
+    font-style: italic;
+    color: var(--ember-pale);
+  }
+
+  /* RETURN LINK */
+  .return-wrap {
+    text-align: center;
+    padding: 40px 40px 80px;
+  }
+  .return-link {
+    font-family: 'Cinzel', serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.22em;
+    color: var(--ember);
+    opacity: 0.7;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(201,120,76,0.3);
+    padding-bottom: 3px;
+    display: inline-block;
+    transition: opacity 0.3s;
+  }
+  .return-link:hover { opacity: 1; }
+
+  footer {
+    text-align: center;
+    padding: 48px 40px;
+    border-top: 1px solid rgba(201,120,76,0.1);
+  }
+  .footer-name {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    color: var(--ember);
+    opacity: 0.45;
+    text-transform: uppercase;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .a1 { animation: fadeUp 1.2s ease 0.15s both; }
+  .a2 { animation: fadeUp 1.2s ease 0.3s both; }
+  .a3 { animation: fadeUp 1.2s ease 0.45s both; }
+
+  @media (max-width: 600px) {
+    .book-header { padding: 56px 24px 40px; }
+    .section, .contents-grid, .excerpt-wrap, .return-wrap { padding-left: 24px; padding-right: 24px; }
+    .excerpt-block { padding: 28px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="book-header">
+  <div class="construction-banner">Preview &nbsp;&middot;&nbsp; Under Construction</div>
+  <span class="book-ornament">&#10086;</span>
+  <h1 class="book-title">Spank Me<br>Tender</h1>
+  <p class="book-subtitle">An Introduction to Recreational Discipline</p>
+  <p class="book-author">Michael Sawyer</p>
+  <div><span class="adult-badge">18+ Only</span></div>
+</header>
+
+<main>
+
+  <!-- OPENING QUOTE -->
+  <section class="section a1">
+    <p class="opening-quote">
+      This book is about pleasure.<br>
+      Specifically, the kind that lives at the edge of sensation &mdash;<br>
+      where trust becomes erotic, where yielding is a form of power,<br>
+      and where the deliberate application of mild discomfort<br>
+      unlocks something ancient and deeply satisfying<br>
+      in the human nervous system.
+    </p>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ABOUT -->
+  <section class="section a2" style="padding-top:0;">
+    <p class="body-text">
+      The word <em>discipline</em> here carries its older meaning: the practice of a craft, with intention, skill, and devotion. Everything in these pages assumes two (or more) consenting adults, clear communication, and mutual care.
+    </p>
+    <p class="body-text">
+      This is a practical guide to recreational BDSM &mdash; the pleasurable, bonding, accessible end of the spectrum. It begins where intimacy always should: in trust, in the nervous system, in the whole body of another person who has chosen to be here.
+    </p>
+    <p class="body-text">
+      Part philosophy. Part instruction. All human.
+    </p>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CONTENTS -->
+  <div class="contents-grid a2">
+    <p class="section-label">Contents</p>
+
+    <div class="part-block">
+      <p class="part-label">Part I</p>
+      <p class="part-title">Foundations</p>
+      <ul class="chapter-list">
+        <li><span>1</span>The Territory &mdash; B&amp;D, S&amp;M, Origins, Motivations, Roles</li>
+      </ul>
+    </div>
+
+    <div class="part-block">
+      <p class="part-label">Part II</p>
+      <p class="part-title">Preparation</p>
+      <ul class="chapter-list">
+        <li><span>2</span>Safety First &mdash; Consent, Negotiation, Limits, Aftercare, Preplay</li>
+      </ul>
+    </div>
+
+    <div class="part-block">
+      <p class="part-label">Part III</p>
+      <p class="part-title">Equipment &amp; Tools</p>
+      <ul class="chapter-list">
+        <li><span>3</span>Clothing &mdash; Leather, Lace, Latex, Costume, Masks</li>
+        <li><span>4</span>Implements &mdash; The Hand, Paddles, Crops, Floggers</li>
+        <li><span>5</span>Techniques &mdash; Hand, Mouth, Flogger Progressions, Impact Rhythm</li>
+      </ul>
+    </div>
+
+    <div class="part-block">
+      <p class="part-label">Part IV</p>
+      <p class="part-title">Advanced Topics</p>
+      <ul class="chapter-list">
+        <li><span>6</span>Binding &mdash; Restraint Types, Safety, Quick Release</li>
+        <li><span>7</span>Position &amp; Support &mdash; Ergonomics, Furniture, Stability</li>
+        <li><span>8</span>Sensation &mdash; Marking, Vibration, Electricity, Wax, Endorphins, Deprivation</li>
+      </ul>
+    </div>
+
+    <div class="part-block">
+      <p class="part-label">Part V</p>
+      <p class="part-title">Beyond Basics</p>
+      <ul class="chapter-list">
+        <li><span>9</span>Psychological Aspects &mdash; Power Exchange, Communication, Emotional Response</li>
+        <li><span>10</span>Aftercare Protocols &mdash; Physical Care, Emotional Support, Post-Scene Discussion</li>
+        <li><span>11</span>Building a Community &mdash; Munches, Workshops, Resources</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- EXCERPT -->
+  <div class="excerpt-wrap a3">
+    <p class="section-label">From Chapter 4 &mdash; Implements</p>
+    <div class="excerpt-block">
+      <p class="excerpt-chapter">Beginning: Body Parts for Kissing and Energy Work</p>
+
+      <p class="excerpt-text">Before any impact play begins &mdash; before the first implement is considered &mdash; there is a whole landscape of subtle sensation that has not yet been fully explored.</p>
+
+      <p class="excerpt-text">Lips. Fingertips. The palm moving slowly across skin. The breath, warm against the back of the neck. The nose tracing the collarbone. The eyes, open and present, meeting the Bottom&rsquo;s eyes across the space of the scene.</p>
+
+      <p class="excerpt-text">These are not warmup exercises to be rushed through on the way to the real content. They <em>are</em> content. They are, in some ways, the most important content.</p>
+
+      <p class="excerpt-text">Arousal &mdash; genuine, full-body arousal &mdash; does not begin in the genitals. It begins in the nervous system, which must be primed through the full sensory field before it is capable of receiving and processing intense sensation as pleasure rather than threat.</p>
+
+      <p class="excerpt-text">Arouse her thoroughly in her mind and her subtle senses first. The jaw. The ear. The throat. The collarbone. The inner elbow. The space behind the knee. Work slowly. Be attentive. Only when her whole body is lit and her trust is fully established &mdash; only then has she been genuinely prepared for whatever comes next, whether vanilla or kink.</p>
+
+      <p class="excerpt-text">The arousal is the foundation. Everything else is built on top of it.</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- EXCERPT 2 -->
+  <div class="excerpt-wrap a3">
+    <p class="section-label">From Chapter 5 &mdash; Techniques</p>
+    <div class="excerpt-block">
+      <p class="excerpt-chapter">Flogger Technique: Stroking</p>
+
+      <p class="excerpt-text">The most subtle flogger technique. Hold the falls gathered in one hand and draw them slowly across the skin. This is sensation work, not impact work. With suede or deer-hide falls, this is deeply pleasurable &mdash; warm, enveloping, slightly electric.</p>
+
+      <p class="excerpt-text"><em>Suede waterfalls</em> is the community term for this particular technique: the falls cascading over the skin in a slow, continuous pour.</p>
+
+      <p class="excerpt-text">The most important technique in impact play is not the strike. It is the rhythm. A sustained, metronomic rhythm of impact and recovery &mdash; strike, soothe, strike, soothe &mdash; builds the Bottom&rsquo;s nervous system toward a state of surrender that a single intense blow cannot produce.</p>
+
+      <p class="excerpt-text">The experienced Top knows that the most intense moments in a scene are often preceded by the most tender ones.</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- CTA -->
+  <section class="section" style="padding-top:0;">
+    <p class="section-label">Coming Soon</p>
+    <p class="body-text" style="text-align:center;">
+      <em>Spank Me Tender</em> is currently in production.<br>
+      Available soon in print and digital editions.
+    </p>
+  </section>
+
+  <!-- RETURN -->
+  <div class="return-wrap">
+    <a class="return-link" href="/">&#8592; &nbsp; Return to Nacmine Gaia</a>
+  </div>
+
+</main>
+
+<footer>
+  <p class="footer-name">Nacmine Gaia &nbsp;&middot;&nbsp; nacminegaia.com</p>
+</footer>
+
+</body>
+</html>
