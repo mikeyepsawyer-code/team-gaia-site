@@ -41,12 +41,12 @@
   .subtitle { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(1.1rem, 2.5vw, 1.4rem); color: var(--gold-pale); opacity: 0.85; letter-spacing: 0.05em; }
   .section { max-width: 720px; margin: 0 auto; padding: 56px 40px; text-align: center; }
   .divider { width: 60px; height: 1px; background: var(--gold); opacity: 0.4; margin: 44px auto; }
-  .opening-quote { font-size: clamp(1.1rem, 2.4vw, 1.35rem); font-style: italic; color: var(--gold-pale); line-height: 1.95; opacity: 0.92; }
-  .gaia-heading { font-family: 'Dancing Script', cursive; font-size: clamp(3.8rem, 11vw, 6.5rem); font-weight: 700; color: var(--gold-light); line-height: 1.05; margin-bottom: 10px; }
-  .gaia-subheading { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(1rem, 2.2vw, 1.3rem); color: var(--gold-pale); opacity: 0.72; letter-spacing: 0.14em; }
-  .section-label { font-family: 'Cinzel', serif; font-size: 0.72rem; letter-spacing: 0.28em; color: var(--gold); opacity: 0.65; text-align: center; text-transform: uppercase; margin-bottom: 48px; }
-  .body-intro { font-size: clamp(1rem, 2vw, 1.15rem); color: var(--warm-white); opacity: 0.82; line-height: 1.95; margin-bottom: 20px; }
-  .body-quote { font-size: clamp(1.05rem, 2.2vw, 1.25rem); font-style: italic; color: var(--gold-pale); opacity: 0.9; line-height: 1.9; }
+  .opening-quote { font-size: clamp(1.3rem, 2.9vw, 1.62rem); font-style: italic; color: var(--gold-pale); line-height: 1.95; opacity: 0.92; }
+  .gaia-heading { font-family: 'Cinzel', serif; font-size: clamp(7rem, 20vw, 13rem); font-weight: 400; letter-spacing: 0.12em; font-weight: 700; color: var(--gold-light); line-height: 1.05; margin-bottom: 10px; }
+  .gaia-subheading { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(1.9rem, 4.2vw, 2.6rem); color: var(--gold-pale); opacity: 0.72; letter-spacing: 0.14em; }
+  .section-label { font-family: 'Cinzel', serif; font-size: 1.05rem; letter-spacing: 0.28em; color: var(--gold); opacity: 0.65; text-align: center; text-transform: uppercase; margin-bottom: 48px; }
+  .body-intro { font-size: clamp(1.2rem, 2.5vw, 1.4rem); color: var(--warm-white); opacity: 0.82; line-height: 1.95; margin-bottom: 20px; }
+  .body-quote { font-size: clamp(1.25rem, 2.7vw, 1.5rem); font-style: italic; color: var(--gold-pale); opacity: 0.9; line-height: 1.9; }
   .grid-wide { max-width: 1100px; margin: 0 auto; padding: 0 40px 72px; }
   .grid-mid  { max-width: 900px;  margin: 0 auto; padding: 0 40px 72px; }
   .links-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 32px; align-items: start; }
@@ -79,8 +79,8 @@
   .short-thumb img { width:100%; height:100%; object-fit:cover; display:block; position:relative; z-index:1; }
   .short-thumb::after { content: '▶'; position: absolute; font-size: 1.6rem; color: rgba(201,168,76,0.6); pointer-events: none; z-index: 0; }
   .short-views { font-family: 'Cinzel', serif; font-size: 0.58rem; letter-spacing: 0.15em; color: var(--gold); opacity: 0.6; text-transform: uppercase; margin-bottom: 6px; }
-  .short-title { font-family: 'Cinzel', serif; font-size: 0.62rem; letter-spacing: 0.12em; color: var(--gold-light); text-align: center; text-transform: uppercase; line-height: 1.6; max-width: 180px; }
-  .view-all-link { font-family: 'Cinzel', serif; font-size: 0.68rem; letter-spacing: 0.22em; color: var(--gold); opacity: 0.7; text-decoration: none; text-transform: uppercase; border-bottom: 1px solid rgba(201,168,76,0.3); padding-bottom: 3px; display: inline-block; margin-top: 40px; }
+  .short-title { font-family: 'Cinzel', serif; font-size: 0.85rem; letter-spacing: 0.12em; color: var(--gold-light); text-align: center; text-transform: uppercase; line-height: 1.6; max-width: 180px; }
+  .view-all-link { font-family: 'Cinzel', serif; font-size: 0.95rem; letter-spacing: 0.22em; color: var(--gold); opacity: 0.7; text-decoration: none; text-transform: uppercase; border-bottom: 1px solid rgba(201,168,76,0.3); padding-bottom: 3px; display: inline-block; margin-top: 40px; }
   footer { text-align: center; padding: 48px 40px; border-top: 1px solid rgba(201,168,76,0.12); }
   .footer-name { font-family: 'Cinzel', serif; font-size: 0.75rem; letter-spacing: 0.25em; color: var(--gold); opacity: 0.5; text-transform: uppercase; }
   @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
@@ -100,8 +100,9 @@
 <body>
 
 <header>
-  <h1 class="title">Michael, agapé</h1>
-  <p class="subtitle">Author &middot; Philosopher &middot; Shamanic Photographer</p>
+  <p style="font-family:'Cinzel',serif;font-size:clamp(1rem,2.5vw,1.3rem);letter-spacing:0.22em;color:var(--gold);opacity:0.7;text-transform:uppercase;margin-bottom:18px;">Michael</p>
+  <h1 class="title" style="font-size:clamp(5rem,18vw,11rem);letter-spacing:0.08em;line-height:1;margin-bottom:20px;">agapé</h1>
+  <p class="subtitle" style="font-size:clamp(0.85rem,1.8vw,1.1rem);letter-spacing:0.12em;">the works of Michael Sawyer &nbsp;&middot;&nbsp; Author &middot; Philosopher &middot; Shamanic Photographer</p>
 </header>
 
 <main>
@@ -153,7 +154,7 @@
         var t = s.thumbnails;
         var thumb = (t.maxres || t.high || t.medium || t.default).url;
         var url = "https://www.youtube.com/shorts/" + s.id;
-        return '<a class="short-card" href="' + url + '" target="_blank" rel="noopener"><div class="short-thumb"><img src="' + thumb + '" alt="" loading="lazy"></div><p class="short-views">' + fmt(s.viewCount) + ' views</p><p class="short-title">' + s.title + '</p></a>';
+        var cleanTitle = s.title.replace(/#\S+/g, '').trim(); return '<a class="short-card" href="' + url + '" target="_blank" rel="noopener"><div class="short-thumb"><img src="' + thumb + '" alt="" loading="lazy"></div><p class="short-views">' + fmt(s.viewCount) + ' views</p><p class="short-title">' + cleanTitle + '</p></a>';
       }).join("");
     }
     async function loadShorts() {
@@ -207,7 +208,7 @@
 
   <!-- BOOKS -->
   <div class="grid-mid a4" style="padding-top: 0;">
-    <p class="section-label">Books</p>
+    <p class="section-label" style="font-size:clamp(1.6rem,4vw,2.4rem);letter-spacing:0.2em;opacity:0.85;">Books</p>
     <div class="links-grid">
 
       <!-- Art Amōre — LIVE PREVIEW -->
@@ -291,7 +292,7 @@
 </main>
 
 <footer>
-  <p class="footer-name">Nacmine Gaia &nbsp;&middot;&nbsp; nacminegaia.com</p>
+  <p class="footer-name">Gaia Ridge &nbsp;&middot;&nbsp; gaiaridge.com</p>
 </footer>
 
 </body>
