@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Art of Amōre — A Preview</title>
+<title>The Subtle Art of Amore — A Preview</title>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -194,169 +194,14 @@
 <body>
 
 <!-- COVER -->
-<div class="cover">
-  <div class="cover-bg"></div>
-
-  <!-- TITLE: very top -->
-  <div style="position:absolute;top:28px;left:0;right:0;z-index:1;text-align:center;padding:0 28px;">
-    <p class="cover-ornament" style="margin-bottom:8px;">❧ &nbsp; ❧ &nbsp; ❧</p>
-    <h1 class="cover-title" style="font-size:clamp(5.2rem,16vw,11rem);line-height:1.05;margin-bottom:0;">Art<br>Amōre</h1>
-  </div>
-
-  <!-- SUBTITLE: just below his arm ~48% down -->
-  <div style="position:absolute;top:48%;left:0;right:0;z-index:1;text-align:center;padding:0 32px;">
-    <p class="cover-subtitle" style="font-size:clamp(0.9rem,1.8vw,1.1rem);opacity:0.72;">Ovid's classic advice for men, updated.</p>
-  </div>
-
-  <!-- BOTTOM: conversation, names, seal+dates -->
-  <div style="position:absolute;bottom:0;left:0;right:0;z-index:1;text-align:center;padding:0 28px 32px;display:flex;flex-direction:column;align-items:center;">
-
-    <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.1rem,2.3vw,1.35rem);color:#c4a87a;opacity:0.78;letter-spacing:0.07em;margin-bottom:12px;">
-      A conversation across 2000 years.
-    </p>
-
-    <p style="font-family:'Cinzel',serif;font-size:clamp(1.3rem,3vw,1.75rem);letter-spacing:0.2em;color:#f0e2c0;opacity:0.93;text-transform:uppercase;white-space:nowrap;line-height:1.55;">
-      Publius Ovidius Naso
-    </p>
-    <p style="font-family:'Cinzel',serif;font-size:clamp(1.3rem,3vw,1.75rem);letter-spacing:0.2em;color:#f0e2c0;opacity:0.93;text-transform:uppercase;white-space:nowrap;line-height:1.55;margin-bottom:14px;">
-      <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.65em;opacity:0.55;letter-spacing:0.08em;vertical-align:middle;margin-right:10px;">and</span>Michael Sawyer
-    </p>
-
-    <!-- Wax seal row -->
-    <div style="display:flex;align-items:center;justify-content:center;gap:22px;">
-
-      <p style="font-family:'Cinzel',serif;font-size:clamp(1.1rem,2.4vw,1.45rem);letter-spacing:0.22em;color:#d4b880;opacity:0.85;text-transform:uppercase;">
-        II AD
-      </p>
-
-      <!-- SVG wax seal — irregular edge, impressed ring, botanical rosette, metallic red -->
-      <svg width="90" height="90" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"
-           style="filter:drop-shadow(0 5px 16px rgba(100,8,0,0.9));flex-shrink:0;">
-        <defs>
-          <radialGradient id="waxG" cx="38%" cy="30%" r="68%">
-            <stop offset="0%"   stop-color="#e84020"/>
-            <stop offset="35%"  stop-color="#c02010"/>
-            <stop offset="70%"  stop-color="#901008"/>
-            <stop offset="100%" stop-color="#4a0400"/>
-          </radialGradient>
-          <radialGradient id="shineG" cx="34%" cy="26%" r="52%">
-            <stop offset="0%"   stop-color="rgba(255,200,175,0.55)"/>
-            <stop offset="60%"  stop-color="rgba(255,160,130,0.12)"/>
-            <stop offset="100%" stop-color="rgba(255,160,130,0)"/>
-          </radialGradient>
-          <!-- Metallic sheen sweep -->
-          <linearGradient id="sheen" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%"   stop-color="rgba(255,180,150,0.0)"/>
-            <stop offset="42%"  stop-color="rgba(255,190,160,0.18)"/>
-            <stop offset="55%"  stop-color="rgba(255,210,185,0.30)"/>
-            <stop offset="100%" stop-color="rgba(255,180,150,0.0)"/>
-          </linearGradient>
-        </defs>
-
-        <!-- Irregular waxy blob edge — organic, not a perfect circle -->
-        <path d="
-          M60,8
-          C70,6 82,10 90,18
-          C98,22 106,30 110,40
-          C115,50 114,62 110,72
-          C107,82 100,92 90,98
-          C80,105 68,112 58,112
-          C46,112 34,107 26,99
-          C17,91 10,80 8,68
-          C5,56 7,44 13,34
-          C19,23 28,12 38,9
-          C46,6 52,9 60,8Z
-        " fill="url(#waxG)"/>
-
-        <!-- Metallic sheen overlay -->
-        <path d="
-          M60,8
-          C70,6 82,10 90,18
-          C98,22 106,30 110,40
-          C115,50 114,62 110,72
-          C107,82 100,92 90,98
-          C80,105 68,112 58,112
-          C46,112 34,107 26,99
-          C17,91 10,80 8,68
-          C5,56 7,44 13,34
-          C19,23 28,12 38,9
-          C46,6 52,9 60,8Z
-        " fill="url(#sheen)"/>
-
-        <!-- Gloss highlight -->
-        <path d="
-          M60,8
-          C70,6 82,10 90,18
-          C98,22 106,30 110,40
-          C115,50 114,62 110,72
-          C107,82 100,92 90,98
-          C80,105 68,112 58,112
-          C46,112 34,107 26,99
-          C17,91 10,80 8,68
-          C5,56 7,44 13,34
-          C19,23 28,12 38,9
-          C46,6 52,9 60,8Z
-        " fill="url(#shineG)"/>
-
-        <!-- Outer impressed ring -->
-        <circle cx="60" cy="60" r="46" fill="none" stroke="rgba(0,0,0,0.30)" stroke-width="2.5"/>
-        <!-- Inner ring -->
-        <circle cx="60" cy="60" r="39" fill="none" stroke="rgba(0,0,0,0.20)" stroke-width="1.5"/>
-
-        <!-- Botanical rosette: 8 leaves around a centre flower -->
-        <g transform="translate(60,60)">
-          <!-- 8 outer leaves -->
-          <g fill="rgba(60,0,0,0.22)" stroke="rgba(0,0,0,0.38)" stroke-width="0.9">
-            <ellipse rx="4.5" ry="14" transform="rotate(0)   translate(0,-22)"/>
-            <ellipse rx="4.5" ry="14" transform="rotate(45)  translate(0,-22)"/>
-            <ellipse rx="4.5" ry="14" transform="rotate(90)  translate(0,-22)"/>
-            <ellipse rx="4.5" ry="14" transform="rotate(135) translate(0,-22)"/>
-            <ellipse rx="4.5" ry="14" transform="rotate(180) translate(0,-22)"/>
-            <ellipse rx="4.5" ry="14" transform="rotate(225) translate(0,-22)"/>
-            <ellipse rx="4.5" ry="14" transform="rotate(270) translate(0,-22)"/>
-            <ellipse rx="4.5" ry="14" transform="rotate(315) translate(0,-22)"/>
-          </g>
-          <!-- 8 inner petals offset -->
-          <g fill="rgba(40,0,0,0.18)" stroke="rgba(0,0,0,0.32)" stroke-width="0.8">
-            <ellipse rx="3" ry="9" transform="rotate(22.5)  translate(0,-13)"/>
-            <ellipse rx="3" ry="9" transform="rotate(67.5)  translate(0,-13)"/>
-            <ellipse rx="3" ry="9" transform="rotate(112.5) translate(0,-13)"/>
-            <ellipse rx="3" ry="9" transform="rotate(157.5) translate(0,-13)"/>
-            <ellipse rx="3" ry="9" transform="rotate(202.5) translate(0,-13)"/>
-            <ellipse rx="3" ry="9" transform="rotate(247.5) translate(0,-13)"/>
-            <ellipse rx="3" ry="9" transform="rotate(292.5) translate(0,-13)"/>
-            <ellipse rx="3" ry="9" transform="rotate(337.5) translate(0,-13)"/>
-          </g>
-          <!-- Centre flower -->
-          <circle r="7" fill="rgba(50,0,0,0.20)" stroke="rgba(0,0,0,0.32)" stroke-width="1"/>
-          <circle r="3.5" fill="rgba(30,0,0,0.25)" stroke="rgba(0,0,0,0.28)" stroke-width="0.8"/>
-          <circle r="1.2" fill="rgba(0,0,0,0.30)"/>
-        </g>
-
-        <!-- Edge darkening for depth -->
-        <path d="
-          M60,8
-          C70,6 82,10 90,18
-          C98,22 106,30 110,40
-          C115,50 114,62 110,72
-          C107,82 100,92 90,98
-          C80,105 68,112 58,112
-          C46,112 34,107 26,99
-          C17,91 10,80 8,68
-          C5,56 7,44 13,34
-          C19,23 28,12 38,9
-          C46,6 52,9 60,8Z
-        " fill="none" stroke="rgba(0,0,0,0.45)" stroke-width="3"/>
-      </svg>
-
-      <p style="font-family:'Cinzel',serif;font-size:clamp(1.1rem,2.4vw,1.45rem);letter-spacing:0.22em;color:#d4b880;opacity:0.85;text-transform:uppercase;">
-        MMXXVI
-      </p>
-
-    </div>
-  </div>
-
-  <p class="scroll-hint">↓ &nbsp; Read &nbsp; ↓</p>
+<div class="cover" style="background:#0a0208;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+  <!-- Full-screen cover image -->
+  <img src="/images/cover-art-amore.jpeg"
+       alt="The Subtle Art of Amore"
+       style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 10%;">
+  <!-- Subtle fade to content below -->
+  <div style="position:absolute;bottom:0;left:0;right:0;height:140px;background:linear-gradient(to bottom,transparent,var(--page-dark));pointer-events:none;z-index:2;"></div>
+  <p class="scroll-hint" style="z-index:3;">↓ &nbsp; Read &nbsp; ↓</p>
 </div>
 <!-- PREMISE -->
 <div class="page">
