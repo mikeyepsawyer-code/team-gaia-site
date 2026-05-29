@@ -12,12 +12,12 @@
     --ink:         #1c1612;
     --ink-mid:     #3d3025;
     --ink-light:   #6b5740;
-    --rule:        #d4a535;
+    --rule:        #c4a87a;
     --rule-light:  rgba(160,128,80,0.25);
     --burgundy:    #5c1a1a;
-    --gold:        #c49428;
-    --gold-light:  #d4a535;
-    --gold-bright: #e8b840;
+    --gold:        #8a6520;
+    --gold-light:  #b58830;
+    --gold-bright: #d4a030;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; } html, body { overflow-x: hidden; width: 100%; }
@@ -110,7 +110,7 @@
   .page-rule-bottom { width: 100%; height: 1px; background: linear-gradient(to right, transparent, var(--rule), transparent); margin-top: 56px; opacity: 0.4; }
 
   /* ── SECTION LABELS ── */
-  .section-label { font-family: 'Cinzel', serif; font-size: 0.85rem; letter-spacing: 0.38em; color: var(--gold-bright); text-transform: uppercase; text-align: center; margin-bottom: 44px; opacity: 1.0; }
+  .section-label { font-family: 'Cinzel', serif; font-size: 0.85rem; letter-spacing: 0.38em; color: var(--gold); text-transform: uppercase; text-align: center; margin-bottom: 44px; opacity: 0.85; }
 
   /* ── CHAPTER HEADING — gold glint ── */
   .chapter-num { font-family: 'Cinzel', serif; font-size: 0.82rem; letter-spacing: 0.35em; color: var(--gold-light); text-transform: uppercase; text-align: center; margin-bottom: 14px; opacity: 0.8; }
@@ -137,14 +137,14 @@
   }
 
   /* ── INTRO QUOTE ── */
-  .intro-quote { font-style: italic; font-size: clamp(1.38rem, 2.9vw, 1.72rem); color: var(--gold-bright); line-height: 2.05; text-align: center; }
+  .intro-quote { font-style: italic; font-size: clamp(1.38rem, 2.9vw, 1.72rem); color: var(--ink-mid); line-height: 2.05; text-align: center; }
 
   /* ── BODY ── */
   .body-text { font-size: clamp(1.22rem, 2.3vw, 1.42rem); color: var(--ink); line-height: 1.98; text-align: justify; margin-bottom: 24px; hyphens: auto; }
   .body-text:last-child { margin-bottom: 0; }
 
   /* ── VOICE LABELS ── */
-  .voice-label { font-family: 'Cinzel', serif; font-size: 0.75rem; letter-spacing: 0.3em; color: var(--gold-bright); text-transform: uppercase; margin-bottom: 18px; opacity: 1.0; }
+  .voice-label { font-family: 'Cinzel', serif; font-size: 0.75rem; letter-spacing: 0.3em; color: var(--gold); text-transform: uppercase; margin-bottom: 18px; opacity: 0.75; }
 
   /* ── OVID BLOCK ── */
   .ovid-block { border-left: 3px solid var(--rule); padding: 26px 30px; margin: 0 0 38px; background: rgba(196,168,122,0.09); }
@@ -172,14 +172,14 @@
 
   /* ── CLOSING ── */
   .closing { background: var(--ink); text-align: center; padding: 72px 40px 88px; }
-  .closing-ornament { font-size: 1.2rem; color: var(--gold-bright); opacity: 0.9; letter-spacing: 0.2em; margin-bottom: 36px; }
+  .closing-ornament { font-size: 1.2rem; color: var(--rule); opacity: 0.5; letter-spacing: 0.2em; margin-bottom: 36px; }
   .closing-text { font-style: italic; font-size: clamp(1.2rem, 2.4vw, 1.45rem); color: #d4c4a8; line-height: 2.05; margin-bottom: 48px; max-width: 520px; margin-left: auto; margin-right: auto; }
-  .coming-soon { font-family: 'Cinzel', serif; font-size: 0.8rem; letter-spacing: 0.38em; color: var(--gold-bright); opacity: 0.95; text-transform: uppercase; margin-bottom: 20px; }
+  .coming-soon { font-family: 'Cinzel', serif; font-size: 0.8rem; letter-spacing: 0.38em; color: var(--rule); opacity: 0.6; text-transform: uppercase; margin-bottom: 20px; }
   .back-link { display: inline-block; font-family: 'Cinzel', serif; font-size: 0.8rem; letter-spacing: 0.25em; color: var(--rule); text-decoration: none; text-transform: uppercase; border-bottom: 1px solid rgba(196,168,122,0.35); padding-bottom: 3px; transition: opacity 0.3s; opacity: 0.65; }
   .back-link:hover { opacity: 1; }
 
   footer { background: var(--ink); text-align: center; padding: 28px 40px; border-top: 1px solid rgba(196,168,122,0.15); }
-  .footer-name { font-family: 'Cinzel', serif; font-size: 0.85rem; letter-spacing: 0.25em; color: var(--gold-bright); opacity: 0.8; text-transform: uppercase; }
+  .footer-name { font-family: 'Cinzel', serif; font-size: 0.85rem; letter-spacing: 0.25em; color: var(--rule); opacity: 0.4; text-transform: uppercase; }
 
   @keyframes fadeUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
   .cover { animation: fadeUp 1.2s ease both; }
