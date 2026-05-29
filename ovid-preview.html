@@ -20,7 +20,7 @@
     --gold-bright: #d4a030;
   }
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+  * { margin: 0; padding: 0; box-sizing: border-box; } html, body { overflow-x: hidden; width: 100%; }
 
   body {
     background: var(--page-dark);
@@ -100,8 +100,8 @@
   .cover-subtitle { font-style: italic; font-size: clamp(1.3rem, 2.6vw, 1.65rem); color: #c4a87a; letter-spacing: 0.06em; margin-bottom: 48px; }
   .cover-rule { width: 60px; height: 1px; background: var(--rule); opacity: 0.5; margin: 0 auto 48px; }
   .cover-author { font-size: 1.2rem; color: #f5ead8; opacity: 0.55; letter-spacing: 0.14em; }
-  .scroll-hint { position: absolute; bottom: 120px; font-family: 'Cinzel', serif; font-size: 0.62rem; letter-spacing: 0.3em; color: var(--rule); opacity: 0.45; text-transform: uppercase; animation: pulse 2.8s ease-in-out infinite; }
-  @keyframes pulse { 0%,100%{opacity:0.35} 50%{opacity:0.65} }
+  .scroll-hint { position: absolute; bottom: 120px; font-family: 'Cinzel', serif; font-size: 0.62rem; letter-spacing: 0.3em; color: #d4a030; opacity: 0.85; text-transform: uppercase; animation: pulse 2.8s ease-in-out infinite; }
+  @keyframes pulse { 0%,100%{opacity:0.70} 50%{opacity:1.0} }
 
   /* ── PAGE ── */
   .page { background: var(--page); max-width: 680px; margin: 0 auto; padding: 64px 56px; box-shadow: 0 2px 24px rgba(0,0,0,0.10); }
@@ -194,34 +194,22 @@
 <body>
 
 <!-- COVER -->
-<div style="
-     position:relative;
-     width:100vw;
-     margin-left:calc(-50vw + 50%);
-     min-height:100svh;
-     min-height:100vh;
-     overflow:hidden;
-     background:#08020e;">
+<div style="position:relative;width:100%;min-height:100vh;min-height:100svh;overflow:hidden;background:#08020e;margin:0;padding:0;">
   <img src="/images/cover-art-amore.jpeg"
        alt="The Subtle Art of Amore"
-       style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 8%;">
-  <!-- Fade into page below -->
-  <div style="position:absolute;bottom:0;left:0;right:0;height:120px;
-              background:linear-gradient(to bottom,transparent,var(--page-dark));
-              pointer-events:none;z-index:2;"></div>
-  <p class="scroll-hint" style="position:absolute;bottom:130px;width:100%;text-align:center;z-index:3;
-     font-family:'Cinzel',serif;font-size:0.85rem;letter-spacing:0.2em;color:rgba(245,234,216,0.55);">
-    ↓ &nbsp; Read &nbsp; ↓
-  </p>
+       style="display:block;width:100%;height:100vh;height:100svh;object-fit:cover;object-position:center 8%;">
+  <div style="position:absolute;bottom:0;left:0;right:0;height:140px;background:linear-gradient(to bottom,transparent,var(--page-dark));pointer-events:none;"></div>
+  <p class="scroll-hint">↓ &nbsp; Read &nbsp; ↓</p>
 </div>
 <!-- PREMISE -->
 <div class="page">
   <div class="page-rule"></div>
   <p class="intro-quote">
     What follows is a conversation across centuries —<br>
-    love's ancient practice, recalibrated for a new age<br>
-    that espouses the values of equality, individuality,<br>
-    and active assent.
+    love's ancient practice,<br>
+    recalibrated for a new age<br>
+    that espouses the values of equality,<br>
+    individuality, and active assent.
   </p>
   <div class="page-rule-bottom"></div>
 </div>
