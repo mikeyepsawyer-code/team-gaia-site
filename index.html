@@ -40,8 +40,8 @@
   .title { font-family: 'Cinzel', serif; font-size: clamp(2.4rem, 6vw, 4rem); font-weight: 400; letter-spacing: 0.15em; color: var(--gold-light); line-height: 1.2; margin-bottom: 16px; }
   .subtitle { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(1.1rem, 2.5vw, 1.4rem); color: var(--gold-pale); opacity: 0.85; letter-spacing: 0.05em; }
   .section { max-width: 720px; margin: 0 auto; padding: 56px 40px; text-align: center; }
-  .divider { width: 100px; height: 1.5px; background: linear-gradient(to right, transparent, var(--gold), transparent); opacity: 0.55; margin: 52px auto; }
-  .opening-quote { font-size: clamp(1.3rem, 2.9vw, 1.62rem); font-style: italic; color: var(--gold-pale); line-height: 1.95; opacity: 0.92; }
+  .divider { width: 160px; height: 3px; background: linear-gradient(to right, transparent, var(--gold), transparent); opacity: 0.75; margin: 52px auto; }
+  .opening-quote { font-size: clamp(1.6rem, 3.6vw, 2.1rem); font-style: italic; color: var(--gold-pale); line-height: 1.95; opacity: 0.92; }
   .gaia-heading { font-family: 'Cinzel', serif; font-size: clamp(5rem, 18vw, 11rem); font-weight: 400; letter-spacing: 0.08em; font-weight: 700; color: var(--gold-light); line-height: 1.05; margin-bottom: 10px; }
   .gaia-subheading { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(1.9rem, 4.2vw, 2.6rem); color: var(--gold-pale); opacity: 0.72; letter-spacing: 0.14em; }
   .section-label { font-family: 'Cinzel', serif; font-size: 1.1rem; font-weight: 600; letter-spacing: 0.28em; color: var(--gold); opacity: 0.65; text-align: center; text-transform: uppercase; margin-bottom: 48px; }
@@ -102,7 +102,7 @@
 <header>
   <p style="font-family:'Cinzel',serif;font-size:clamp(5rem,18vw,11rem);letter-spacing:0.08em;line-height:1;color:var(--gold);opacity:0.55;margin-bottom:0;">Michael</p>
   <h1 class="title" style="font-size:clamp(5rem,18vw,11rem);letter-spacing:0.08em;line-height:1;margin-bottom:24px;">agapé</h1>
-  <p class="subtitle" style="font-size:clamp(1rem,2.2vw,1.35rem);letter-spacing:0.1em;line-height:2;">the works of Michael Sawyer<br>Author &middot; Philosopher &middot; Shamanic Photographer</p>
+  <p class="subtitle" style="font-size:clamp(1.4rem,3.2vw,2rem);letter-spacing:0.1em;line-height:2.1;">the works of Michael Sawyer<br>Author &middot; Philosopher &middot; Shamanic Photographer</p>
 </header>
 
 <main>
@@ -125,7 +125,6 @@
 
   <!-- SHORTS — LIVE YOUTUBE API -->
   <div class="grid-wide a2">
-    <p class="section-label">Visions from the Field</p>
     <div class="shorts-grid" id="shorts-grid">
       <p class="short-views" style="grid-column:1/-1;text-align:center;opacity:0.45;letter-spacing:0.18em;font-family:'Cinzel',serif;font-size:0.65rem;">Loading…</p>
     </div>
@@ -181,8 +180,6 @@
 
   <div class="divider"></div>
 
-  <div class="divider"></div>
-
   <!-- MICHAEL COPY -->
   <section class="section a3" style="padding-top: 0;">
     <p class="body-intro">Michael writes at the intersection<br>of the sacred and the sensual.</p>
@@ -200,16 +197,9 @@
 
       <!-- The Art of Amōre — LIVE PREVIEW -->
       <a class="link-card" href="/ovid-preview.html" target="_blank" rel="noopener">
-        <div class="link-card-img sash-wrap ovid-cover">
+        <div class="link-card-img sash-wrap" style="background:#2a0a0a;border-color:rgba(180,100,60,0.4) !important;overflow:hidden;position:relative;">
           <div class="sash">Preview</div>
-          <img src="/images/cover-art-amore.jpeg" alt="The Art of Amōre" style="width:100%;height:100%;object-fit:cover;object-position:center 10%;opacity:0.82;">
-          <div class="ovid-cover-inner">
-            <div class="ovid-ornament">❧</div>
-            <p class="ovid-title-main">The Art<br>of Amōre</p>
-            <div class="ovid-divider"></div>
-            <p class="ovid-title-sub">Updating Ovid's Ars Amatoria</p>
-            <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.62rem;color:var(--gold-pale);opacity:0.5;letter-spacing:0.1em;margin-top:2px;">· Michael Sawyer ·</p>
-          </div>
+          <img src="/images/cover-art-amore.jpeg" alt="The Art of Amōre" style="width:100%;height:100%;object-fit:cover;object-position:center 10%;">
         </div>
       </a>
 
@@ -240,13 +230,7 @@
         </div>
       </a>
 
-      <!-- Radiant Vulnerability — Coming Soon -->
-      <a class="link-card" href="#" style="pointer-events: none; opacity: 0.82;">
-        <div class="link-card-img sash-wrap" style="background:#0d0d1a;overflow:hidden;">
-          <div class="sash">Coming Soon</div>
-          <img src="/images/cover-radiant-vulnerability.jpeg" alt="Radiant Vulnerability" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
-        </div>
-      </a>
+      
 
       <!-- Cultivating Chi — Under Construction -->
       <a class="link-card" href="#" style="pointer-events: none; opacity: 0.75;">
@@ -307,5 +291,6 @@
 
 </body>
 </html>
+
 
 
