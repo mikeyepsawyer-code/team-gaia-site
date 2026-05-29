@@ -194,14 +194,25 @@
 <body>
 
 <!-- COVER -->
-<div class="cover" style="background:#0a0208;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;">
-  <!-- Full-screen cover image -->
+<div style="
+     position:relative;
+     width:100vw;
+     margin-left:calc(-50vw + 50%);
+     min-height:100svh;
+     min-height:100vh;
+     overflow:hidden;
+     background:#08020e;">
   <img src="/images/cover-art-amore.jpeg"
        alt="The Subtle Art of Amore"
-       style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 10%;">
-  <!-- Subtle fade to content below -->
-  <div style="position:absolute;bottom:0;left:0;right:0;height:140px;background:linear-gradient(to bottom,transparent,var(--page-dark));pointer-events:none;z-index:2;"></div>
-  <p class="scroll-hint" style="z-index:3;">↓ &nbsp; Read &nbsp; ↓</p>
+       style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 8%;">
+  <!-- Fade into page below -->
+  <div style="position:absolute;bottom:0;left:0;right:0;height:120px;
+              background:linear-gradient(to bottom,transparent,var(--page-dark));
+              pointer-events:none;z-index:2;"></div>
+  <p class="scroll-hint" style="position:absolute;bottom:130px;width:100%;text-align:center;z-index:3;
+     font-family:'Cinzel',serif;font-size:0.85rem;letter-spacing:0.2em;color:rgba(245,234,216,0.55);">
+    ↓ &nbsp; Read &nbsp; ↓
+  </p>
 </div>
 <!-- PREMISE -->
 <div class="page">
