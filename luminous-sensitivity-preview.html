@@ -9,13 +9,12 @@
   :root {
     --near-black: #080a0d;
     --silver: #b8c4d4;
-    --silver-light: #d8e4f0;
-    --silver-pale: #eef3f8;
-    --warm-white: #f4f6fa;
-    --luminous: #9bb8d4;
-    --luminous-light: #c4d8ec;
-    --luminous-pale: #e4eef7;
-    --violet: #8890b8;
+    --silver-light: #d4e2f0;
+    --silver-pale: #eaf0f8;
+    --warm-white: #f2f5f9;
+    --lumen: #7aa8cc;
+    --lumen-light: #b8d4ec;
+    --lumen-pale: #deeaf6;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
@@ -23,7 +22,7 @@
     color: var(--warm-white);
     font-family: 'Cormorant Garamond', Georgia, serif;
     font-size: 18px;
-    line-height: 1.8;
+    line-height: 1.85;
     overflow-x: hidden;
   }
   body::before {
@@ -38,165 +37,174 @@
   .book-header {
     text-align: center;
     padding: 80px 40px 60px;
-    position: relative;
     animation: fadeUp 1.2s ease both;
   }
   .book-header::after {
     content: ''; display: block;
     width: 80px; height: 1px;
-    background: linear-gradient(to right, transparent, var(--luminous), transparent);
+    background: linear-gradient(to right, transparent, var(--lumen), transparent);
     margin: 40px auto 0;
   }
   .construction-banner {
     display: inline-block;
     font-family: 'Cinzel', serif;
-    font-size: 0.6rem;
-    letter-spacing: 0.22em;
+    font-size: 0.58rem;
+    letter-spacing: 0.24em;
     text-transform: uppercase;
-    color: var(--luminous-light);
-    border: 1px solid rgba(155,184,212,0.45);
+    color: var(--lumen-light);
+    border: 1px solid rgba(122,168,204,0.4);
     padding: 5px 16px;
     border-radius: 2px;
     margin-bottom: 32px;
     opacity: 0.8;
   }
   .book-ornament {
-    font-size: 1.8rem;
-    color: var(--luminous);
-    opacity: 0.4;
-    letter-spacing: 0.2em;
-    margin-bottom: 20px;
+    font-size: 1.6rem;
+    color: var(--lumen);
+    opacity: 0.35;
+    letter-spacing: 0.25em;
+    margin-bottom: 22px;
     display: block;
   }
   .book-title {
     font-family: 'Cinzel', serif;
-    font-size: clamp(2.2rem, 6vw, 3.8rem);
+    font-size: clamp(2rem, 5.5vw, 3.6rem);
     font-weight: 400;
-    letter-spacing: 0.18em;
-    color: var(--luminous-light);
-    line-height: 1.15;
-    margin-bottom: 16px;
+    letter-spacing: 0.16em;
+    color: var(--lumen-light);
+    line-height: 1.2;
+    margin-bottom: 14px;
   }
   .book-subtitle {
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
-    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
-    color: var(--luminous-pale);
-    opacity: 0.75;
-    letter-spacing: 0.06em;
-    margin-bottom: 12px;
+    font-size: clamp(1.05rem, 2.4vw, 1.35rem);
+    color: var(--lumen-pale);
+    opacity: 0.72;
+    letter-spacing: 0.05em;
+    margin-bottom: 10px;
   }
   .book-author {
     font-family: 'Cinzel', serif;
-    font-size: 0.72rem;
-    letter-spacing: 0.3em;
+    font-size: 0.68rem;
+    letter-spacing: 0.32em;
     color: var(--silver);
-    opacity: 0.6;
+    opacity: 0.55;
     text-transform: uppercase;
-    margin-top: 8px;
+    margin-top: 10px;
   }
 
-  .section { max-width: 680px; margin: 0 auto; padding: 48px 40px; }
+  .section { max-width: 680px; margin: 0 auto; padding: 52px 40px; }
   .divider {
-    width: 80px; height: 1px;
-    background: linear-gradient(to right, transparent, var(--luminous), transparent);
-    opacity: 0.4; margin: 48px auto;
+    width: 72px; height: 1px;
+    background: linear-gradient(to right, transparent, var(--lumen), transparent);
+    opacity: 0.35; margin: 0 auto;
   }
 
   .opening-quote {
-    font-size: clamp(1.25rem, 2.8vw, 1.55rem);
+    font-size: clamp(1.3rem, 2.9vw, 1.6rem);
     font-style: italic;
-    color: var(--luminous-pale);
+    color: var(--lumen-pale);
     line-height: 2;
     text-align: center;
-    opacity: 0.88;
+    opacity: 0.9;
   }
 
   .section-label {
     font-family: 'Cinzel', serif;
-    font-size: 0.62rem;
+    font-size: 0.6rem;
     letter-spacing: 0.3em;
-    color: var(--luminous);
-    opacity: 0.55;
+    color: var(--lumen);
+    opacity: 0.5;
     text-transform: uppercase;
     text-align: center;
-    margin-bottom: 36px;
+    margin-bottom: 40px;
   }
 
   .body-text {
     font-size: clamp(1.1rem, 2.3vw, 1.3rem);
     color: var(--warm-white);
-    opacity: 0.82;
+    opacity: 0.8;
     line-height: 2;
     margin-bottom: 1.6em;
   }
-  .body-text:last-child { margin-bottom: 0; }
 
   .pull-quote {
-    font-size: clamp(1.2rem, 2.6vw, 1.45rem);
+    font-size: clamp(1.2rem, 2.7vw, 1.48rem);
     font-style: italic;
-    color: var(--luminous-light);
-    line-height: 1.9;
+    color: var(--lumen-light);
+    line-height: 1.95;
     text-align: center;
-    padding: 8px 0;
-    opacity: 0.9;
-    margin: 1.2em 0;
+    opacity: 0.88;
+    padding: 6px 0;
+    margin: 0.6em 0 1.4em;
   }
 
-  .toc-list {
-    list-style: none;
-    max-width: 520px;
-    margin: 0 auto;
+  /* Excerpt blocks — matching SMT style */
+  .excerpt-block {
+    border-left: 1px solid rgba(122,168,204,0.3);
+    padding-left: 28px;
+    margin: 2em 0;
   }
+  .excerpt-block p {
+    font-size: clamp(1.1rem, 2.3vw, 1.28rem);
+    color: var(--silver-pale);
+    opacity: 0.85;
+    line-height: 2;
+    margin-bottom: 1.2em;
+    font-style: italic;
+  }
+  .excerpt-block p:last-child { margin-bottom: 0; }
+
+  .toc-list { list-style: none; max-width: 500px; margin: 0 auto; }
   .toc-list li {
-    font-size: clamp(1rem, 2.2vw, 1.2rem);
+    font-size: clamp(1rem, 2.1vw, 1.18rem);
     color: var(--silver-light);
-    opacity: 0.75;
-    padding: 10px 0;
-    border-bottom: 1px solid rgba(155,184,212,0.1);
-    letter-spacing: 0.03em;
+    opacity: 0.72;
+    padding: 9px 0;
+    border-bottom: 1px solid rgba(122,168,204,0.1);
     display: flex;
     align-items: baseline;
-    gap: 16px;
+    gap: 18px;
   }
   .toc-list li:last-child { border-bottom: none; }
   .toc-num {
     font-family: 'Cinzel', serif;
-    font-size: 0.6rem;
+    font-size: 0.58rem;
     letter-spacing: 0.2em;
-    color: var(--luminous);
+    color: var(--lumen);
     opacity: 0.5;
     min-width: 28px;
   }
 
-  .coming-soon {
+  .footer-area {
     text-align: center;
-    padding: 56px 40px 80px;
+    padding: 48px 40px 80px;
   }
-  .coming-soon p {
+  .footer-area p {
     font-family: 'Cinzel', serif;
-    font-size: 0.62rem;
+    font-size: 0.58rem;
     letter-spacing: 0.28em;
-    color: var(--luminous);
-    opacity: 0.5;
+    color: var(--lumen);
+    opacity: 0.45;
     text-transform: uppercase;
-    margin-bottom: 20px;
+    margin-bottom: 22px;
   }
   .back-link {
     display: inline-block;
     font-family: 'Cinzel', serif;
-    font-size: 0.58rem;
+    font-size: 0.56rem;
     letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: var(--luminous-light);
-    opacity: 0.6;
+    color: var(--lumen-light);
+    opacity: 0.55;
     text-decoration: none;
-    border: 1px solid rgba(155,184,212,0.3);
-    padding: 8px 20px;
+    border: 1px solid rgba(122,168,204,0.3);
+    padding: 8px 22px;
     border-radius: 2px;
     transition: opacity 0.2s;
   }
-  .back-link:hover { opacity: 1; }
+  .back-link:hover { opacity: 0.9; }
 
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(18px); }
@@ -208,7 +216,7 @@
 
 <header class="book-header">
   <div class="construction-banner">Preview — In Development</div>
-  <span class="book-ornament">✦</span>
+  <span class="book-ornament">✦ ✦ ✦</span>
   <h1 class="book-title">Luminous Sensitivity</h1>
   <p class="book-subtitle">Radiant Vulnerability &amp; the Empath's Path</p>
   <p class="book-author">Michael Sawyer</p>
@@ -228,19 +236,19 @@
   <div class="section">
     <p class="section-label">About the Book</p>
     <p class="body-text">
-      You feel everything. That has never been a flaw. It is a form of intelligence — one the world has not yet learned to name correctly.
+      You feel everything. That has never been the problem. The problem is that no one gave you a map.
     </p>
     <p class="body-text">
-      <em>Luminous Sensitivity</em> is a field guide for empaths: people who experience the emotional and energetic states of others as directly as their own. Not metaphorically. Not as a personality quirk. As a perceptual fact.
+      <em>Luminous Sensitivity</em> is that map — written for people who experience the emotional and energetic states of others as directly as their own. Not as metaphor. Not as sensitivity in the soft, general sense. As a perceptual fact that shapes every room you walk into, every conversation you have, every person who leaves you depleted or restored.
     </p>
     <p class="body-text">
-      This book will help you understand what you are, navigate the people who will drain you, find the ones who will restore you, and — finally — understand why your sensitivity is not a wound to be managed but a gift to be cultivated. The empath's capacity for attunement is, at its depth, a form of contact with the nature of consciousness itself.
+      This book names what you are, helps you recognize what drains you and what feeds you, and — finally — makes the case that your sensitivity is not a wound to manage but a form of consciousness to cultivate.
     </p>
     <p class="pull-quote">
-      "A Brighteyes will make you feel that life is worth the suffering."
+      "A Brighteyes will make you feel<br>that life is worth the suffering."
     </p>
     <p class="body-text">
-      Written from lived experience, philosophical depth, and a disarming honesty about both the beauty and the cost of radical openness, <em>Luminous Sensitivity</em> maps the territory that most books on empathy never reach.
+      Written from lived experience, philosophical depth, and a disarming honesty about both the beauty and the cost of radical openness.
     </p>
   </div>
 
@@ -250,8 +258,8 @@
     <p class="section-label">Contents</p>
     <ul class="toc-list">
       <li><span class="toc-num">I</span> What Is an Empath</li>
-      <li><span class="toc-num">II</span> The Vampath — Recognizing the Drain</li>
-      <li><span class="toc-num">III</span> Brighteyes — The Ones Who Restore</li>
+      <li><span class="toc-num">II</span> The Vampath</li>
+      <li><span class="toc-num">III</span> Brighteyes</li>
       <li><span class="toc-num">IV</span> The Sociopath in the Coffee Shop</li>
       <li><span class="toc-num">V</span> Gets You Out of Your Heart and Into Mind</li>
       <li><span class="toc-num">VI</span> Memento Mori / Memento Amore</li>
@@ -259,7 +267,7 @@
       <li><span class="toc-num">VIII</span> The Triple Bind</li>
       <li><span class="toc-num">IX</span> Tapestry of Emotions</li>
       <li><span class="toc-num">X</span> The Zipless Fuck</li>
-      <li><span class="toc-num">XI</span> Satchitananda — The Ground of It All</li>
+      <li><span class="toc-num">XI</span> Satchitananda</li>
       <li><span class="toc-num">XII</span> I Like to Catch God Dreaming</li>
     </ul>
   </div>
@@ -268,31 +276,37 @@
 
   <div class="section">
     <p class="section-label">From the Manuscript</p>
+
     <p class="body-text">
-      There is a person you will meet, once or twice in a lifetime, whose presence does something specific to the light. Not the room's light. Yours. They are what this book calls a Brighteyes — and the first thing they do is make you feel, with complete conviction, that life is worth the suffering.
+      There is a person you will meet, once or twice in a lifetime, whose presence does something specific to the quality of the air. Not the room's air — yours. These are what this book calls Brighteyes. Their faces melt into a shimmering verb when you look into their eyes. They radiate so strongly that their verb nature is obvious even without eye-gazing.
     </p>
+
     <p class="body-text">
-      You do not need to understand how they do this. You only need to recognize it when it happens, and understand that what you're experiencing is not romance, not delusion, and not projection. It is contact. Their frequency and yours are the same. The world, for a moment, makes sense.
+      The vampath is the other encounter. You recognize them by what happens in your body after an hour in their company — not tiredness, but depletion. Something has been taken. The simplest way to understand their dynamic is this:
     </p>
-    <p class="pull-quote">
-      "Under the edge of their dark, dark glasses,<br>I felt their eyes as black holes."
-    </p>
+
+    <div class="excerpt-block">
+      <p>It gets you out of your heart, and into mind — that way they can feed on your heart energy while you're distracted.</p>
+    </div>
+
     <p class="body-text">
-      The vampath is the other kind of encounter. You know them by what happens in your body after an hour in their company — the specific exhaustion that is not tiredness but depletion. Something has been taken. Not your energy in any mystical sense. Your attention. Your care. Your willingness to keep offering yourself. They took it without asking, without noticing, and without any intention of returning it.
+      And then there is the deeper territory — where the practical becomes philosophical, where surviving vampaths opens into something much larger:
     </p>
-    <p class="body-text">
-      The vampath is not always aware of what they are doing. That does not make it less costly for you.
-    </p>
+
+    <div class="excerpt-block">
+      <p>The educated say <em>memento mori</em> — remember death. Remember to live before we die. The lover adds <em>memento amore</em>: remember to love before you die. The wise know to die in every moment, so that we can be reborn in every moment. But remember to love first.</p>
+      <p>I particularly like the Indian concept of Satchitananda — sat, chit, ananda: thusness, consciousness, bliss. The meaning is that existence itself has the nature of consciousness, and all forms are part of that awareness. We each have a direct connection with source energy. It is not just some tenuous string. We are all inside of God.</p>
+      <p>As a Shamanic Photographer, I like to catch God dreaming.</p>
+    </div>
   </div>
 
   <div class="divider"></div>
 
-  <div class="coming-soon">
+  <div class="footer-area">
     <p>Full manuscript in development</p>
     <a href="/" class="back-link">← Return to Michael Sawyer</a>
   </div>
 
 </main>
-
 </body>
 </html>
