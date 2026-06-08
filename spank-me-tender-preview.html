@@ -73,9 +73,27 @@
     font-size: clamp(2.2rem, 6vw, 3.8rem);
     font-weight: 400;
     letter-spacing: 0.18em;
-    color: var(--ember-light);
     line-height: 1.15;
     margin-bottom: 16px;
+  }
+  .title-spank {
+    background: linear-gradient(to right, #faf6ef 0%, #ffd0cc 60%, #ff9999 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: block;
+    letter-spacing: 0.22em;
+  }
+  .title-tender {
+    color: #c87060;
+    display: block;
+    letter-spacing: 0.18em;
+    font-size: 0.92em;
+  }
+  .handprint-wrap {
+    margin: 18px auto 24px;
+    opacity: 0.55;
+    filter: drop-shadow(0 0 12px rgba(200,100,80,0.4));
   }
   .book-subtitle {
     font-family: 'Cormorant Garamond', serif;
@@ -299,7 +317,27 @@
 <header class="book-header">
   <div class="construction-banner">Preview &nbsp;&middot;&nbsp; Under Construction</div>
   <span class="book-ornament">&#10086;</span>
-  <h1 class="book-title">Spank Me<br>Tender</h1>
+  <!-- Handprint SVG -->
+  <div class="handprint-wrap">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 100" width="120" height="100" fill="none">
+      <!-- Palm -->
+      <ellipse cx="60" cy="72" rx="28" ry="22" fill="#d46050" opacity="0.85"/>
+      <!-- Thumb -->
+      <ellipse cx="30" cy="62" rx="7" ry="13" fill="#d46050" opacity="0.85" transform="rotate(-30 30 62)"/>
+      <!-- Index -->
+      <ellipse cx="42" cy="42" rx="6" ry="17" fill="#d46050" opacity="0.85" transform="rotate(-10 42 42)"/>
+      <!-- Middle -->
+      <ellipse cx="57" cy="38" rx="6" ry="19" fill="#d46050" opacity="0.85" transform="rotate(0 57 38)"/>
+      <!-- Ring -->
+      <ellipse cx="72" cy="40" rx="6" ry="18" fill="#d46050" opacity="0.85" transform="rotate(8 72 40)"/>
+      <!-- Pinky -->
+      <ellipse cx="85" cy="48" rx="5" ry="14" fill="#d46050" opacity="0.85" transform="rotate(18 85 48)"/>
+    </svg>
+  </div>
+  <h1 class="book-title">
+    <span class="title-spank">SPANK ME</span>
+    <span class="title-tender">Tender</span>
+  </h1>
   <p class="book-subtitle">An Introduction to Recreational Discipline</p>
   <p class="book-author">Michael Sawyer</p>
   <div><span class="adult-badge">18+ Only</span></div>
