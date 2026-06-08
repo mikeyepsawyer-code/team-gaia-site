@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enchanté Nike — A Preview</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:        #09070a;
+    --bg-mid:    #111018;
+    --text:      #e4d8c4;
+    --text-dim:  #9e907e;
+    --gold:      #c4922a;
+    --gold-lt:   #d8aa48;
+    --gold-br:   #f0cc70;
+    --rule:      rgba(196,146,42,0.35);
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; } html,body { overflow-x:hidden; width:100%; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 20px;
+    line-height: 1.95;
+  }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100svh;
+    overflow: hidden;
+    background: var(--bg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding-bottom: 80px;
+  }
+  .hero-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 18%;
+    filter: brightness(0.55) saturate(0.85);
+  }
+  .hero-gradient {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(to bottom,
+        rgba(9,7,10,0.60) 0%,
+        rgba(9,7,10,0.10) 35%,
+        rgba(9,7,10,0.10) 60%,
+        rgba(9,7,10,0.90) 100%);
+    pointer-events: none;
+  }
+  .hero-text {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 0 32px;
+  }
+  .hero-eyebrow {
+    font-family: 'Cinzel', serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.42em;
+    color: var(--gold);
+    text-transform: uppercase;
+    opacity: 0.85;
+    margin-bottom: 22px;
+  }
+  .hero-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(2.4rem, 8vw, 4rem);
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    color: #f0e8d4;
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+  .hero-subtitle {
+    font-style: italic;
+    font-size: clamp(1.15rem, 2.8vw, 1.45rem);
+    color: var(--gold-lt);
+    letter-spacing: 0.04em;
+    margin-bottom: 36px;
+    opacity: 0.9;
+  }
+  .hero-rule { width: 48px; height: 1px; background: var(--gold); opacity: 0.5; margin: 0 auto 36px; }
+  .hero-author {
+    font-family: 'Cinzel', serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.28em;
+    color: var(--text);
+    opacity: 0.5;
+    text-transform: uppercase;
+  }
+  .scroll-hint {
+    position: absolute;
+    bottom: 22px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Cinzel', serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.35em;
+    color: var(--gold);
+    text-transform: uppercase;
+    animation: pulse 3s ease-in-out infinite;
+    z-index: 2;
+  }
+  @keyframes pulse { 0%,100%{opacity:0.6} 50%{opacity:1} }
+
+  /* INVITATION */
+  .invitation {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 72px 40px 64px;
+    text-align: center;
+    border-bottom: 1px solid var(--rule);
+  }
+  .section-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.40em;
+    color: var(--gold);
+    text-transform: uppercase;
+    opacity: 0.75;
+    margin-bottom: 40px;
+  }
+  .invitation-text {
+    font-style: italic;
+    font-size: clamp(1.25rem, 2.8vw, 1.55rem);
+    line-height: 2.05;
+    color: #cdc0ac;
+  }
+
+  /* PICTURE SECTION */
+  .picture-section {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 72px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .picture-section:last-of-type { border-bottom: none; }
+
+  .section-number {
+    font-family: 'Cinzel', serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.45em;
+    color: var(--gold);
+    text-transform: uppercase;
+    opacity: 0.65;
+    text-align: center;
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    font-weight: 400;
+    text-align: center;
+    letter-spacing: 0.08em;
+    margin-bottom: 48px;
+    background: linear-gradient(135deg, #8a6020 0%, var(--gold-br) 45%, #f8e090 55%, var(--gold-br) 65%, #8a6020 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .photo-wrap {
+    width: 100%;
+    margin-bottom: 48px;
+    position: relative;
+    background: #050405;
+  }
+  .photo-wrap img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  .photo-caption {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    opacity: 0.45;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 16px 32px 0;
+  }
+
+  .passage {
+    padding: 0 40px;
+  }
+  .passage p {
+    font-size: clamp(1.18rem, 2.4vw, 1.40rem);
+    line-height: 2.05;
+    color: var(--text);
+    margin-bottom: 22px;
+    hyphens: auto;
+    text-align: justify;
+  }
+  .passage p:last-child { margin-bottom: 0; }
+  .passage em { color: var(--gold-lt); font-style: italic; }
+
+  /* PULL QUOTE */
+  .pull {
+    margin: 48px 40px;
+    padding: 32px 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    text-align: center;
+  }
+  .pull p {
+    font-style: italic;
+    font-size: clamp(1.35rem, 3.2vw, 1.72rem);
+    line-height: 1.85;
+    background: linear-gradient(135deg, #8a6020 0%, var(--gold-br) 50%, #8a6020 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* CLOSING */
+  .closing {
+    background: var(--bg-mid);
+    padding: 80px 40px 96px;
+    text-align: center;
+    border-top: 1px solid var(--rule);
+  }
+  .closing-ornament {
+    font-size: 1.1rem;
+    color: var(--gold);
+    opacity: 0.4;
+    letter-spacing: 0.3em;
+    margin-bottom: 40px;
+  }
+  .closing p {
+    font-style: italic;
+    font-size: clamp(1.18rem, 2.5vw, 1.42rem);
+    line-height: 2.1;
+    color: #b8aa98;
+    max-width: 520px;
+    margin: 0 auto 28px;
+    text-align: left;
+  }
+  .coming-soon {
+    font-family: 'Cinzel', serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.42em;
+    color: var(--gold);
+    opacity: 0.5;
+    text-transform: uppercase;
+    margin: 48px 0 18px;
+  }
+  .back-link {
+    display: inline-block;
+    font-family: 'Cinzel', serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.28em;
+    color: var(--gold-lt);
+    text-decoration: none;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 4px;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+  }
+  .back-link:hover { opacity: 1; }
+
+  footer {
+    background: var(--bg);
+    padding: 28px 40px;
+    text-align: center;
+    border-top: 1px solid rgba(196,146,42,0.12);
+  }
+  .footer-name {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.28em;
+    color: var(--gold);
+    opacity: 0.3;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 600px) {
+    .invitation { padding: 56px 28px 48px; }
+    .picture-section { padding: 56px 0; }
+    .passage { padding: 0 28px; }
+    .pull { margin: 40px 28px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <img class="hero-img" src="/images/nike-staircase-louvre.jpg" alt="The approach to Nike of Samothrace, Louvre">
+  <div class="hero-gradient"></div>
+  <div class="hero-text">
+    <p class="hero-eyebrow">In devotion to the sacred feminine</p>
+    <h1 class="hero-title">Enchanté<br>Nike</h1>
+    <p class="hero-subtitle">a shamanic encounter</p>
+    <div class="hero-rule"></div>
+    <p class="hero-author">Michael Sawyer</p>
+  </div>
+  <p class="scroll-hint">↓ &nbsp; The Approach &nbsp; ↓</p>
+</div>
+
+<!-- INVITATION -->
+<div class="invitation">
+  <p class="section-label">Author's Invitation</p>
+  <p class="invitation-text">
+    This is an invitation to participate in an ecstatic relationship
+    of living spirit embodied in physical places.
+    At the Louvre, I experienced Nike — the Winged Victory of Samothrace.
+    Ever since, I often see through shamanic eyes.
+  </p>
+</div>
+
+<!-- SECTION I: THE CORRIDOR -->
+<div class="picture-section">
+  <p class="section-number">I</p>
+  <h2 class="section-title">The Corridor</h2>
+
+  <div class="photo-wrap">
+    <img src="/images/nike-corridor-louvre.jpg" alt="Looking through the Louvre archway toward Nike of Samothrace">
+  </div>
+  <p class="photo-caption">The Denon Wing, Louvre, Paris</p>
+
+  <div class="passage">
+    <p>
+      Past the arch, up the stairs, something luminous waits at the end of the hall.
+      You don't know yet what draws you. The Louvre is designed to make you small —
+      every pillar, every deliberate recession of stone — so that she can make you large.
+    </p>
+    <p>
+      You have been walking toward her since you entered.
+    </p>
+  </div>
+</div>
+
+<!-- SECTION II: THE ASCENT -->
+<div class="picture-section">
+  <p class="section-number">II</p>
+  <h2 class="section-title">The Ascent</h2>
+
+  <div class="photo-wrap">
+    <img src="/images/nike-staircase-louvre.jpg" alt="The grand staircase ascending toward Nike of Samothrace">
+  </div>
+  <p class="photo-caption">Escalier Daru, Louvre</p>
+
+  <div class="passage">
+    <p>
+      She reigns over the central landing — larger than life, spectacular in deportment.
+      Shoulders back. Wings raised. All these people ascending toward her — tourists,
+      students, honeymooners — none of them know they are in a procession.
+    </p>
+    <p>
+      But they are. The camera sees what the eye misses.
+      This is what shamanic photography reveals: the sacred event
+      hiding inside the ordinary one. The pilgrimage that doesn't know it's a pilgrimage.
+    </p>
+    <p>
+      Every person on those stairs is approaching something older than the building,
+      older than France, older than the Rome that named her <em>Victoria</em>.
+    </p>
+  </div>
+</div>
+
+<!-- PULL QUOTE -->
+<div class="pull" style="margin:0 40px 0;">
+  <p>She is not waiting for you.<br>She is already in motion.</p>
+</div>
+
+<!-- SECTION III: THE ENCOUNTER -->
+<div class="picture-section">
+  <p class="section-number">III</p>
+  <h2 class="section-title">The Encounter</h2>
+
+  <div class="photo-wrap">
+    <img src="/images/nike-victory-louvre.jpg" alt="Nike of Samothrace — the Winged Victory — on her ship prow">
+  </div>
+  <p class="photo-caption">Nike of Samothrace, c. 200–190 BC</p>
+
+  <div class="passage">
+    <p>
+      She stands on the prow of her ship and she is <em>moving</em>.
+      Her sea-legs meet the water's challenge. Wings thrust upward and fore,
+      engaging the wind. The breeze rustles her dress and snaps it taut.
+    </p>
+    <p>
+      She is leading Samothracian warriors into naval battle.
+      She pre-ordains victory. She celebrates freedom.
+    </p>
+    <p>
+      The Louvre shimmers and we are on a hillside above the Aegean —
+      the prow of her ship grown from native grey marble,
+      the white of her skin glowing in the sun.
+    </p>
+    <p>
+      Her heart-light is so powerful that I am impelled to ascend the inner staircase,
+      and dare to not hide my lamp under a bushel.
+      Now with the radiance of our dual suns, agapé moves through marble and flesh alike,
+      distilling both to mercurial spirit.
+    </p>
+    <p>
+      Now we are Anahata — that which is unhurt —
+      and our thought-intentions become wing-ed messengers of future forms.
+    </p>
+  </div>
+</div>
+
+<!-- CLOSING -->
+<div class="closing">
+  <p class="closing-ornament">✦ &nbsp; ✦ &nbsp; ✦</p>
+
+  <p>
+    In this celebration of the sacred feminine, Michael presents
+    photography, mythology, and personal spiritual practice.
+  </p>
+  <p>
+    Spiritual seekers will recognize the practice of devotion.
+    People hungry for re-enchantment find permission to re-image the world, anew.
+  </p>
+  <p>
+    The author lives in genuine relationship with place in a way that most of us
+    have lost access to. This is how people related to landscape for most of human
+    history — not as scenery or property, but as living presence, as sacred being.
+  </p>
+  <p>
+    The Greeks didn't just imagine deities in their mountains and springs —
+    they experienced them there. And we can do the same thing,
+    as an affection, not as affectation; as authentic perception, not metaphor.
+  </p>
+
+  <p class="coming-soon">Coming Soon</p>
+  <a class="back-link" href="/">← Gaia Ridge</a>
+</div>
+
+<footer>
+  <p class="footer-name">gaiaridge.com &nbsp;·&nbsp; Michael Sawyer</p>
+</footer>
+
+</body>
+</html>
