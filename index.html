@@ -78,7 +78,7 @@
   .short-thumb { width: 100%; aspect-ratio: 9 / 16; border: 1px solid rgba(201,168,76,0.3); border-radius: 6px; background: #111009; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; position: relative; box-shadow: 0 4px 24px rgba(0,0,0,0.5); flex-shrink: 0; }
   .short-thumb img { width:100%; height:100%; object-fit:cover; display:block; position:relative; z-index:1; }
   .short-thumb::after { content: '▶'; position: absolute; font-size: 1.6rem; color: rgba(201,168,76,0.6); pointer-events: none; z-index: 0; }
-  .short-views { font-family: 'Cinzel', serif; font-size: 0.85rem; letter-spacing: 0.15em; color: var(--gold); opacity: 0.8; text-transform: uppercase; margin-bottom: 6px; }
+  .short-views { font-family: 'Cinzel', serif; font-size: 1.15rem; letter-spacing: 0.15em; color: var(--gold); opacity: 1; text-transform: uppercase; margin-bottom: 6px; }
   .short-title { font-family: 'Cinzel', serif; font-size: 1.1rem; letter-spacing: 0.12em; color: var(--gold-light); text-align: center; text-transform: uppercase; line-height: 1.5; max-width: 180px; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
   .view-all-link { font-family: 'Cinzel', serif; font-size: 1.4rem; font-weight: 600; letter-spacing: 0.22em; color: var(--gold); opacity: 0.7; text-decoration: none; text-transform: uppercase; border-bottom: 1px solid rgba(201,168,76,0.3); padding-bottom: 3px; display: inline-block; margin-top: 40px; }
   footer { text-align: center; padding: 48px 40px; border-top: 1px solid rgba(201,168,76,0.12); }
@@ -98,21 +98,21 @@
   }
 </style>
 <!-- redeploy trigger -->
-<!-- cache-bust:1781130282 -->
+<!-- cache-bust:1781133352 -->
 </head>
 <body>
 
 <header>
   <p style="width:100%;text-align:center;font-family:'Cinzel',serif;font-size:clamp(5rem,18vw,11rem);letter-spacing:0.08em;line-height:1;background:linear-gradient(135deg,#7a5500 0%,#a07010 15%,#d4a830 32%,#fff0a0 48%,#ffd700 58%,#d4a830 70%,#a07010 85%,#7a5500 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 2px 4px rgba(0,0,0,1.0)) drop-shadow(0 8px 32px rgba(0,0,0,0.9));margin-bottom:0;">Michael,</p>
   <h1 class="title" style="font-size:clamp(5rem,18vw,11rem);letter-spacing:0.08em;line-height:1;margin-bottom:24px;">agapé</h1>
-  <p class="subtitle" style="font-size:clamp(1.9rem,3.2vw,2.4rem);letter-spacing:0.1em;line-height:2.1;">the works of<br><span style="font-size:1.18em;letter-spacing:0.12em;">Michael Sawyer</span><br>Author<br>Painter &nbsp;&bull;&nbsp; Philosopher<br>Shamanic Photographer</p>
+  <p class="subtitle" style="font-size:clamp(1.9rem,3.2vw,2.4rem);letter-spacing:0.1em;line-height:2.1;">the works of<br><span style="font-size:1.18em;letter-spacing:0.12em;">Michael Sawyer</span><br><br>Author<br>Painter &nbsp;&bull;&nbsp; Philosopher<br>Shamanic Photographer</p>
 </header>
 
 <main>
 
   <section class="section a2" style="padding-bottom: 28px;">
     <p class="gaia-heading" style="background:linear-gradient(135deg,#1a3a0a 0%,#2d5c12 15%,#4a8c1e 32%,#82c940 48%,#5aab28 58%,#3d8016 70%,#245c0a 85%,#142e05 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 2px 4px rgba(0,0,0,1.0)) drop-shadow(0 8px 32px rgba(0,0,0,0.9));">Gaia</p>
-    <p class="gaia-subheading" style="font-size:clamp(2.6rem,5.5vw,3.8rem);letter-spacing:0.18em;opacity:1;font-style:normal;font-family:'Cinzel',serif;background:linear-gradient(135deg,#7a5500 0%,#a07010 15%,#d4a830 32%,#fff0a0 48%,#ffd700 58%,#d4a830 70%,#a07010 85%,#7a5500 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 2px 4px rgba(0,0,0,1.0)) drop-shadow(0 8px 32px rgba(0,0,0,0.9));">Earth Goddess</p>
+    <p class="gaia-subheading" style="font-size:clamp(2.6rem,5.5vw,3.8rem);letter-spacing:0.18em;opacity:1;font-style:normal;font-family:'Cinzel',serif;background:linear-gradient(135deg,#7a5500 0%,#a07010 15%,#d4a830 32%,#fff0a0 48%,#ffd700 58%,#d4a830 70%,#a07010 85%,#7a5500 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 2px 4px rgba(0,0,0,1.0)) drop-shadow(0 8px 32px rgba(0,0,0,0.9));" white-space:nowrap;">Earth Goddess</p>
   </section>
 
   <!-- SHORTS — LIVE YOUTUBE API -->
@@ -122,7 +122,7 @@
     </div>
     <div style="text-align:center;">
       <a class="view-all-link" href="https://www.youtube.com/@michaelsawyer627/shorts" target="_blank" rel="noopener">
-        View All Shorts on YouTube
+        All YouTube Shorts
       </a>
     </div>
   </div>
@@ -263,7 +263,7 @@
   <!-- GAIA JOURNAL — after Shamanic Photography -->
   <div class="divider"></div>
   <div class="grid-mid" style="padding-top:0; padding-bottom: 64px;">
-    <p class="section-label" style="margin-bottom:40px;font-size:clamp(1.8rem,3.5vw,2.6rem);white-space:nowrap;">Gaia Journal 2027</p>
+    <p class="section-label" style="margin-bottom:40px;font-size:clamp(2.2rem,4.5vw,3.4rem);white-space:nowrap;letter-spacing:0.2em;">Gaia Journal 2027</p>
     <div class="links-grid" style="max-width: 420px; margin: 0 auto;">
       <a class="link-card" href="#" style="pointer-events: none; opacity: 0.75;">
         <div class="link-card-img" style="border-color:rgba(201,168,76,0.2);overflow:hidden;background:#0d1018;">
@@ -278,7 +278,7 @@
   <!-- 18+ SECTION BREAK -->
   <div style="text-align:center;padding:52px 32px;border-top:1px solid rgba(196,146,42,0.22);border-bottom:1px solid rgba(196,146,42,0.22);margin:0 0 8px;">
     <p style="font-family:'Cinzel',serif;font-size:2.8rem;letter-spacing:0.22em;color:#c4922a;opacity:0.88;margin-bottom:10px;">18+</p>
-    <p style="font-family:'Cinzel',serif;font-size:1.35rem;letter-spacing:0.42em;text-transform:uppercase;color:rgba(196,146,42,0.75);margin-bottom:14px;">Adult Titles</p>
+    <p style="font-family:'Cinzel',serif;font-size:2.2rem;letter-spacing:0.42em;text-transform:uppercase;color:rgba(196,146,42,0.9);margin-bottom:14px;">Adult Titles</p>
     <p style="font-family:'Cormorant Garamond',Georgia,serif;font-size:1.25rem;color:rgba(200,190,172,0.82);font-style:italic;letter-spacing:0.04em;">The following books contain mature content intended for adult readers.</p>
   </div>
 
