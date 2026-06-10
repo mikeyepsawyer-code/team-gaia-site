@@ -72,13 +72,13 @@
   .ovid-title-main { font-family: 'Cinzel', serif; font-size: 0.72rem; letter-spacing: 0.2em; color: var(--gold-light); opacity: 0.85; text-transform: uppercase; line-height: 1.7; }
   .ovid-title-sub { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 0.78rem; color: var(--gold-pale); opacity: 0.55; letter-spacing: 0.08em; }
   .ovid-divider { width: 32px; height: 1px; background: var(--gold); opacity: 0.3; }
-  .shorts-grid { display: grid; grid-template-columns: 1fr; gap: 20px; align-items: start; min-height: 60px; max-width: 310px; margin: 0 auto; grid-auto-rows: auto; }
+  .shorts-grid { display: flex; flex-direction: row; flex-wrap: nowrap; gap: 20px; align-items: start; min-height: 60px; max-width: 100%; margin: 0 auto; overflow-x: auto; grid-auto; }
   .short-card { display: flex; flex-direction: column; align-items: center; text-decoration: none; color: inherit; cursor: pointer; transition: transform 0.4s ease, opacity 0.4s ease; height: 100%; }
   .short-card:hover { transform: translateY(-4px); opacity: 0.92; }
   .short-thumb { width: 100%; aspect-ratio: 9 / 16; border: 1px solid rgba(201,168,76,0.3); border-radius: 6px; background: #111009; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; position: relative; box-shadow: 0 4px 24px rgba(0,0,0,0.5); flex-shrink: 0; }
   .short-thumb img { width:100%; height:100%; object-fit:cover; display:block; position:relative; z-index:1; }
   .short-thumb::after { content: '▶'; position: absolute; font-size: 1.6rem; color: rgba(201,168,76,0.6); pointer-events: none; z-index: 0; }
-  .short-views { font-family: 'Cinzel', serif; font-size: 0.58rem; letter-spacing: 0.15em; color: var(--gold); opacity: 0.6; text-transform: uppercase; margin-bottom: 6px; }
+  .short-views { font-family: 'Cinzel', serif; font-size: 0.85rem; letter-spacing: 0.15em; color: var(--gold); opacity: 0.8; text-transform: uppercase; margin-bottom: 6px; }
   .short-title { font-family: 'Cinzel', serif; font-size: 1.1rem; letter-spacing: 0.12em; color: var(--gold-light); text-align: center; text-transform: uppercase; line-height: 1.5; max-width: 180px; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
   .view-all-link { font-family: 'Cinzel', serif; font-size: 1.4rem; font-weight: 600; letter-spacing: 0.22em; color: var(--gold); opacity: 0.7; text-decoration: none; text-transform: uppercase; border-bottom: 1px solid rgba(201,168,76,0.3); padding-bottom: 3px; display: inline-block; margin-top: 40px; }
   footer { text-align: center; padding: 48px 40px; border-top: 1px solid rgba(201,168,76,0.12); }
@@ -105,14 +105,14 @@
 <header>
   <p style="width:100%;text-align:center;font-family:'Cinzel',serif;font-size:clamp(5rem,18vw,11rem);letter-spacing:0.08em;line-height:1;background:linear-gradient(135deg,#7a5500 0%,#a07010 15%,#d4a830 32%,#fff0a0 48%,#ffd700 58%,#d4a830 70%,#a07010 85%,#7a5500 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 2px 4px rgba(0,0,0,1.0)) drop-shadow(0 8px 32px rgba(0,0,0,0.9));margin-bottom:0;">Michael,</p>
   <h1 class="title" style="font-size:clamp(5rem,18vw,11rem);letter-spacing:0.08em;line-height:1;margin-bottom:24px;">agapé</h1>
-  <p class="subtitle" style="font-size:clamp(1.9rem,3.2vw,2.4rem);letter-spacing:0.1em;line-height:2.1;">the works of<br><span style="font-size:1.18em;letter-spacing:0.12em;">Michael Sawyer</span><br><br>Author &middot; Philosopher &middot; Shamanic Photographer</p>
+  <p class="subtitle" style="font-size:clamp(1.9rem,3.2vw,2.4rem);letter-spacing:0.1em;line-height:2.1;">the works of<br><span style="font-size:1.18em;letter-spacing:0.12em;">Michael Sawyer</span><br>Author<br>Painter &nbsp;&bull;&nbsp; Philosopher<br>Shamanic Photographer</p>
 </header>
 
 <main>
 
   <section class="section a2" style="padding-bottom: 28px;">
-    <p class="gaia-heading">Gaia</p>
-    <p class="gaia-subheading">the Earth goddess</p>
+    <p class="gaia-heading" style="background:linear-gradient(135deg,#1a3a0a 0%,#2d5c12 15%,#4a8c1e 32%,#82c940 48%,#5aab28 58%,#3d8016 70%,#245c0a 85%,#142e05 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 2px 4px rgba(0,0,0,1.0)) drop-shadow(0 8px 32px rgba(0,0,0,0.9));">Gaia</p>
+    <p class="gaia-subheading" style="font-size:clamp(2.6rem,5.5vw,3.8rem);letter-spacing:0.18em;opacity:1;font-style:normal;font-family:'Cinzel',serif;background:linear-gradient(135deg,#7a5500 0%,#a07010 15%,#d4a830 32%,#fff0a0 48%,#ffd700 58%,#d4a830 70%,#a07010 85%,#7a5500 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 2px 4px rgba(0,0,0,1.0)) drop-shadow(0 8px 32px rgba(0,0,0,0.9));">Earth Goddess</p>
   </section>
 
   <!-- SHORTS — LIVE YOUTUBE API -->
@@ -174,9 +174,38 @@
 
   <!-- MICHAEL COPY -->
   <section class="section a3" style="padding-top: 0;">
-    <p class="body-intro" style="margin-bottom:2em;">Michael writes at the intersection<br>of the sacred and the sensual.</p>
+    <p class="body-intro" style="margin-bottom:1.2em;">Michael writes<br>at the intersection<br>of sacred and sensual.</p>
+    <p class="body-intro" style="margin-bottom:1.2em;">Leverage sacred intelligence<br>in our bodies and the earth.</p>
+    <p class="body-intro" style="margin-bottom:1.2em;">Ground the numinous<br>in the imminent.</p>
+    <p class="body-quote" style="margin-bottom:1.5em;">
+      Potential moves, chi forms.<br>
+      Pump verb into noun;<br>
+      matter is an after-image.
+    </p>
+    <p class="body-quote" style="margin-bottom:1.5em;">
+      heart-ember glows,<br>
+      fingers sensitize.<br>
+      Luminesce, incandesce.
+    </p>
+    <p class="body-quote" style="margin-bottom:1.5em;">
+      Open anahata fully,<br>
+      Spinnaker sail entrains us<br>
+      behind it like a ragdoll.
+    </p>
+    <p class="body-quote" style="margin-bottom:1.5em;">
+      Nike, skimming waves.<br>
+      Wings held high<br>
+      reclaiming the air.
+    </p>
+    <p class="body-quote" style="margin-bottom:1.5em;">
+      In spite of the wind,<br>
+      in the face of opposition.
+    </p>
     <p class="body-quote">
-      &ldquo;We can leverage the sacred intelligence of our body and the earth, liberating pleasure and ecstasy from dogmatic shame and generational trauma.&rdquo;
+      Pleasure, joy and ecstasy<br>
+      released from<br>
+      dogmatic shame and<br>
+      generational trauma.
     </p>
   </section>
 
@@ -265,7 +294,7 @@
   <!-- GAIA JOURNAL — after Shamanic Photography -->
   <div class="divider"></div>
   <div class="grid-mid" style="padding-top:0; padding-bottom: 64px;">
-    <p class="section-label" style="margin-bottom:40px;">Gaia Journal 2027</p>
+    <p class="section-label" style="margin-bottom:40px;font-size:clamp(1.8rem,3.5vw,2.6rem);white-space:nowrap;">Gaia Journal 2027</p>
     <div class="links-grid" style="max-width: 420px; margin: 0 auto;">
       <a class="link-card" href="#" style="pointer-events: none; opacity: 0.75;">
         <div class="link-card-img" style="border-color:rgba(201,168,76,0.2);overflow:hidden;background:#0d1018;">
