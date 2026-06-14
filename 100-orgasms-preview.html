@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>100 Orgasms an Hour — Michael Sawyer</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --near-black: #0a0706;
+    --deep-warm: #120c08;
+    --ember: #8a3a10;
+    --ember-mid: #c45a20;
+    --gold: #c9904c;
+    --gold-light: #e8b97a;
+    --gold-pale: #f5e0c4;
+    --warm-white: #f5f0e8;
+    --cream: #ede5d4;
+    --muted: #b8a090;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { overflow-x: hidden; max-width: 100%; }
+  body {
+    background-color: var(--near-black);
+    color: var(--warm-white);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 19px;
+    line-height: 1.85;
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+  .ember-line {
+    width: 100%; height: 2px;
+    background: linear-gradient(to right, transparent, var(--ember), var(--gold-light), var(--ember), transparent);
+    opacity: 0.65;
+  }
+  header {
+    text-align: center;
+    padding: 72px 24px 56px;
+    position: relative;
+    animation: fadeUp 1.2s ease both;
+  }
+  header::after {
+    content: '';
+    display: block;
+    width: 60px; height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    margin: 36px auto 0;
+  }
+  .back-link {
+    position: absolute; top: 32px; left: 24px;
+    font-family: 'Cinzel', serif;
+    font-size: 0.6rem; letter-spacing: 0.22em;
+    color: var(--gold); opacity: 0.5;
+    text-decoration: none; text-transform: uppercase;
+    transition: opacity 0.3s;
+  }
+  .back-link:hover { opacity: 0.85; }
+  .section-tag {
+    font-family: 'Cinzel', serif;
+    font-size: 0.62rem; letter-spacing: 0.3em;
+    color: var(--ember-mid);
+    background: rgba(138,58,16,0.15);
+    border: 1px solid rgba(138,58,16,0.35);
+    padding: 4px 14px; border-radius: 2px;
+    text-transform: uppercase;
+    display: inline-block; margin-bottom: 24px;
+  }
+  .title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(2rem, 6vw, 3.6rem);
+    font-weight: 400; letter-spacing: 0.1em;
+    color: var(--warm-white); line-height: 1.15; margin-bottom: 8px;
+  }
+  .title em { color: var(--gold-light); font-style: normal; }
+  .subtitle {
+    font-style: italic;
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: var(--gold-pale); opacity: 0.75;
+    letter-spacing: 0.06em; margin-bottom: 12px;
+  }
+  .author {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem; letter-spacing: 0.28em;
+    color: var(--gold); opacity: 0.55; text-transform: uppercase;
+  }
+  .cover-section {
+    max-width: 860px; margin: 0 auto;
+    padding: 0 24px 72px;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 48px; align-items: start;
+    animation: fadeUp 1.2s ease 0.2s both;
+  }
+  .cover-img {
+    width: 100%; aspect-ratio: 2/3;
+    border: 1px solid rgba(138,58,16,0.35);
+    border-radius: 2px; overflow: hidden;
+    box-shadow: 0 16px 56px rgba(0,0,0,0.85);
+  }
+  .cover-img img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+  .cover-text p {
+    font-size: clamp(1rem, 1.8vw, 1.12rem);
+    color: var(--cream); opacity: 0.88;
+    line-height: 2; margin-bottom: 22px;
+  }
+  .cover-text .pull {
+    font-style: italic; color: var(--gold-pale);
+    font-size: clamp(1.05rem, 2vw, 1.2rem);
+    border-left: 2px solid rgba(201,144,76,0.4);
+    padding-left: 20px; margin: 28px 0; line-height: 1.75;
+  }
+  .amazon-btn {
+    display: inline-block;
+    font-family: 'Cinzel', serif;
+    font-size: 0.62rem; letter-spacing: 0.22em;
+    color: var(--near-black);
+    background: linear-gradient(135deg, var(--gold), var(--ember-mid));
+    padding: 12px 28px; border-radius: 2px;
+    text-decoration: none; text-transform: uppercase;
+    margin-top: 8px;
+    transition: opacity 0.3s;
+  }
+  .amazon-btn:hover { opacity: 0.85; }
+  .chapter {
+    max-width: 720px; margin: 0 auto;
+    padding: 0 24px 72px;
+    animation: fadeUp 1.2s ease 0.3s both;
+  }
+  .chapter-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.58rem; letter-spacing: 0.32em;
+    color: var(--ember-mid); text-transform: uppercase;
+    margin-bottom: 10px; opacity: 0.85;
+  }
+  .chapter-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1.3rem, 3vw, 2rem);
+    font-weight: 400; letter-spacing: 0.1em;
+    color: var(--warm-white); margin-bottom: 36px; line-height: 1.3;
+  }
+  .chapter p {
+    font-size: clamp(1rem, 1.8vw, 1.1rem);
+    color: var(--cream); opacity: 0.88;
+    line-height: 2; margin-bottom: 24px;
+  }
+  .chapter .pull {
+    font-style: italic;
+    font-size: clamp(1.1rem, 2.2vw, 1.3rem);
+    color: var(--gold-pale); opacity: 0.92;
+    border-left: 2px solid rgba(201,144,76,0.4);
+    padding-left: 22px; margin: 36px 0; line-height: 1.75;
+  }
+  .chapter .section-head {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem; letter-spacing: 0.22em;
+    color: var(--gold); text-transform: uppercase;
+    margin: 48px 0 20px; opacity: 0.75;
+  }
+  /* FAQ block */
+  .faq-block {
+    max-width: 720px; margin: 0 auto;
+    padding: 0 24px 72px;
+  }
+  .faq-item { margin-bottom: 36px; }
+  .faq-q {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(0.85rem, 1.8vw, 1rem);
+    letter-spacing: 0.08em;
+    color: var(--gold-light); margin-bottom: 12px;
+    line-height: 1.5;
+  }
+  .faq-a {
+    font-size: clamp(1rem, 1.8vw, 1.1rem);
+    color: var(--cream); opacity: 0.88;
+    line-height: 2;
+  }
+  /* Definition cards */
+  .def-grid {
+    max-width: 720px; margin: 0 auto 64px;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(200px,100%), 1fr));
+    gap: 16px;
+  }
+  .def-card {
+    background: rgba(18,12,8,0.8);
+    border: 1px solid rgba(138,58,16,0.25);
+    border-radius: 3px; padding: 22px 18px;
+    transition: border-color 0.3s;
+  }
+  .def-card:hover { border-color: rgba(201,144,76,0.4); }
+  .def-name {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem; letter-spacing: 0.2em;
+    color: var(--gold-light); text-transform: uppercase; margin-bottom: 10px;
+  }
+  .def-text {
+    font-size: 0.95rem; color: var(--cream);
+    opacity: 0.8; line-height: 1.75;
+  }
+  .divider {
+    width: 48px; height: 1px;
+    background: var(--ember); opacity: 0.4;
+    margin: 56px auto;
+  }
+  .divider-gold {
+    width: 48px; height: 1px;
+    background: var(--gold); opacity: 0.35;
+    margin: 56px auto;
+  }
+  footer {
+    text-align: center;
+    padding: 40px 24px 56px;
+    border-top: 1px solid rgba(138,58,16,0.2);
+    margin-top: 24px;
+  }
+  footer p {
+    font-family: 'Cinzel', serif;
+    font-size: 0.6rem; letter-spacing: 0.22em;
+    color: var(--gold); opacity: 0.4;
+    text-transform: uppercase; margin-bottom: 18px;
+  }
+  footer a {
+    font-family: 'Cinzel', serif;
+    font-size: 0.6rem; letter-spacing: 0.22em;
+    color: var(--gold); opacity: 0.5;
+    text-decoration: none; text-transform: uppercase;
+    transition: opacity 0.3s; margin: 0 12px;
+  }
+  footer a:hover { opacity: 0.85; }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @media (max-width: 600px) {
+    .cover-section { grid-template-columns: 1fr; gap: 28px; }
+    .cover-img { max-width: 180px; margin: 0 auto; }
+    header { padding: 56px 16px 40px; }
+    .chapter, .faq-block, .def-grid { padding-left: 16px; padding-right: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="ember-line"></div>
+
+<header>
+  <a href="/" class="back-link">← Gaiaridge</a>
+  <div class="section-tag">Somatic Ecstasy</div>
+  <h1 class="title">100 Orgasms <em>an Hour</em></h1>
+  <p class="subtitle">The Polygasm Series — Book One</p>
+  <p class="author">Michael Sawyer</p>
+</header>
+
+<!-- Cover + intro -->
+<div class="cover-section">
+  <div class="cover-img">
+    <img src="/images/cover-100-orgasms.jpeg" alt="100 Orgasms an Hour">
+  </div>
+  <div class="cover-text">
+    <p>This is a book about a skill. A skill that most people don't know exists, that takes time to learn, and that — once learned — changes what you understand about pleasure, presence, and the human nervous system.</p>
+    <div class="pull">The skill is called polygasm. It is the ability to sustain continuous multiple orgasms in women — not two or three, but dozens, cascading one into the next, at rates that eventually make counting irrelevant.</div>
+    <p>100 orgasms an hour is not a boast. It's a benchmark. A threshold past which something different begins to happen.</p>
+    <a href="https://a.co/02pRcOFo" target="_blank" rel="noopener" class="amazon-btn">Read on Kindle →</a>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- FAQ -->
+<div class="faq-block">
+  <div style="font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.3em;color:var(--ember-mid);text-transform:uppercase;text-align:center;margin-bottom:40px;opacity:0.85;">Frequently Asked Questions</div>
+
+  <div class="faq-item">
+    <p class="faq-q">Is this real? Can women actually orgasm a hundred times an hour?</p>
+    <p class="faq-a">Yes. The female orgasmic system has no mandatory refractory period. The ceiling most people experience is a ceiling of technique and attention, not biology. Once you understand the anatomy and develop the sensitivity the practice requires, the rate becomes almost beside the point — the state becomes the thing.</p>
+  </div>
+
+  <div class="faq-item">
+    <p class="faq-q">Is this about her pleasure or about the practitioner's performance?</p>
+    <p class="faq-a">Her pleasure, entirely. The practitioner who approaches this practice as a performance will hit a ceiling quickly. The ones who go furthest are the ones who become genuinely interested in her — in her specific responses, her specific anatomy, the specific quality of her attention in any given moment. The practice is a school in paying attention.</p>
+  </div>
+
+  <div class="faq-item">
+    <p class="faq-q">Does this require a particular kind of relationship?</p>
+    <p class="faq-a">It requires trust, communication, and genuine mutual interest. Beyond that, the container varies. What doesn't vary is consent — explicit, informed, ongoing. The practice goes deep into the nervous system. That requires a corresponding depth of care.</p>
+  </div>
+
+  <div class="faq-item">
+    <p class="faq-q">What's the difference between this and ordinary multiple orgasm?</p>
+    <p class="faq-a">Rate and duration. Ordinary multiples are sequential — a brief recovery between each one. Polygasm is continuous — the recovery period dissolves and the orgasms run together into a sustained wave. The neurological and psychological effects of the two states are quite different. Polygasm produces states of consciousness that ordinary multiples don't reach.</p>
+  </div>
+
+  <div class="faq-item">
+    <p class="faq-q">Is there a cost to not learning this?</p>
+    <p class="faq-a">I'll let you decide. Consider a life in which the person you love most has never experienced what her nervous system is actually capable of. In which the most available path to genuine neurological renewal — to the literal defunding of chronic stress and habitual anxiety — has been sitting untried, because nobody mentioned it was possible. That's the cost of inaction. It's not dramatic. It's just a life lived inside a smaller map than the territory required.</p>
+  </div>
+</div>
+
+<div class="divider-gold"></div>
+
+<!-- Definitions -->
+<div style="max-width:720px;margin:0 auto;padding:0 24px 16px;">
+  <p style="font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.3em;color:var(--ember-mid);text-transform:uppercase;margin-bottom:10px;opacity:0.85;">A Vocabulary</p>
+  <h2 style="font-family:'Cinzel',serif;font-size:clamp(1.3rem,3vw,2rem);font-weight:400;letter-spacing:0.1em;color:var(--warm-white);margin-bottom:36px;line-height:1.3;">The Polygasm Spectrum</h2>
+  <p style="font-size:clamp(1rem,1.8vw,1.1rem);color:var(--cream);opacity:0.88;line-height:2;margin-bottom:32px;">A spectrum of orgasmic states, from the familiar to the extraordinary. Each builds on the previous. Rate is not the goal — it is the indicator that the right conditions have been established.</p>
+</div>
+
+<div class="def-grid">
+  <div class="def-card">
+    <div class="def-name">Monogasm</div>
+    <div class="def-text">A single orgasm. The baseline. Complete in itself — but the baseline, not the ceiling.</div>
+  </div>
+  <div class="def-card">
+    <div class="def-name">Serialgasm</div>
+    <div class="def-text">Sequential orgasms with brief recovery between each. The refractory period is still present but shortening. 3–15 per hour.</div>
+  </div>
+  <div class="def-card">
+    <div class="def-name">Multigasm</div>
+    <div class="def-text">Rapid sequential orgasms. The refractory period is vestigial. 15–60 per hour. The practitioner is learning to stay in the wave rather than recreate it.</div>
+  </div>
+  <div class="def-card">
+    <div class="def-name">Polygasm</div>
+    <div class="def-text">Continuous orgasmic state. The refractory period has failed. 60–120 per hour. Neurological entrainment begins. The brain reorganizes around the rhythm.</div>
+  </div>
+  <div class="def-card">
+    <div class="def-name">Supragasm</div>
+    <div class="def-text">120–180 per hour. The four phases of orgasm collapse into a continuous wave. State-altering. Self-concept begins to soften. Not for beginners.</div>
+  </div>
+  <div class="def-card">
+    <div class="def-name">Hypergasm</div>
+    <div class="def-text">Above 180. Counting has become meaningless. Neurological reorganization is significant. Integration work is essential. The territory of the third book.</div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- Chapter: Be Present -->
+<div class="chapter">
+  <p class="chapter-label">The Heart of the Practice</p>
+  <h2 class="chapter-title">Don't Make Her Orgasm</h2>
+
+  <p>This is the most important instruction in the book, and it sounds like a paradox:</p>
+
+  <div class="pull">Don't try to make her orgasm. Encourage her arousal.</div>
+
+  <p>The practitioner who is focused on producing orgasm has made themselves the subject of the sentence. They are performing. And performance — however skilled — creates a subtle pressure that the nervous system reads correctly as pressure, and responds to by tightening.</p>
+
+  <p>The practitioner who is focused on her arousal has made her the subject. They are attending. Attending creates space. Space is what the nervous system needs to do what it already knows how to do.</p>
+
+  <p class="section-head">Consent vs Assent</p>
+  <p>Consent is what she says before. Assent is what her body says during. Both matter, and they are not the same thing.</p>
+
+  <p>A woman can consent to something that her body, in the moment, is not ready for. She can assent — through her physical responses — to something she hadn't consciously decided she wanted. Pay attention to both. When they diverge, pause. Check in. The session is not a contract that requires completion.</p>
+
+  <p class="section-head">Know When to Stop</p>
+  <p>This is the skill that separates the good practitioners from the rest: knowing when enough is enough before she does.</p>
+
+  <p>At high frequencies, her capacity to regulate the session is diminished. The same neurological entrainment that produces the extraordinary states also reduces executive function — her ability to assess her own state and make calibrated decisions about it. She may want to continue past the point that is good for her. She may not have the resources to notice that she's past that point.</p>
+
+  <p>You have to notice for her. Watch for: a quality of absence (not presence) in her expression; a rigidity in the pelvic floor that has stopped being productive and started being protective; a change in her breathing that suggests she is managing rather than experiencing. When you see any of these: slow down. Come down gently. Don't stop abruptly. Land her.</p>
+
+  <p>The practitioner who knows how to end a session well is as valuable as the one who knows how to begin it.</p>
+</div>
+
+<div class="divider-gold"></div>
+
+<!-- Closing -->
+<div class="chapter" style="text-align:center;padding-bottom:48px;">
+  <p style="font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.3em;color:var(--ember-mid);text-transform:uppercase;opacity:0.8;margin-bottom:40px;">This book is available now</p>
+  <p style="font-size:clamp(1rem,1.8vw,1.1rem);color:var(--cream);opacity:0.85;line-height:2;margin-bottom:20px;max-width:520px;margin-left:auto;margin-right:auto;">The full book — including detailed technique, anatomy, erotica, and aftercare — is live on Kindle. The second and third books in the Polygasm Series are in development.</p>
+  <div style="margin-top:36px;">
+    <a href="https://a.co/02pRcOFo" target="_blank" rel="noopener" class="amazon-btn">Read on Kindle →</a>
+  </div>
+  <p style="margin-top:48px;font-style:italic;font-size:clamp(0.95rem,1.8vw,1.08rem);color:var(--gold-pale);opacity:0.7;line-height:1.9;max-width:480px;margin-left:auto;margin-right:auto;">Followed by: Slow the Fuck Down · Fountain of Youth</p>
+</div>
+
+<footer>
+  <p>100 Orgasms an Hour — available on Kindle</p>
+  <a href="/">← Gaiaridge</a>
+  <a href="https://a.co/02pRcOFo" target="_blank" rel="noopener">Buy on Amazon →</a>
+</footer>
+
+</body>
+</html>
