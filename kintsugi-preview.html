@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kintsugi Raku — Michael Sawyer</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --near-black: #0a0806;
+    --dark-warm: #100e0b;
+    --clay-dark: #1a1208;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --gold-pale: #f5e8c4;
+    --gold-deep: #8a6820;
+    --warm-white: #f5f0e8;
+    --cream: #ede5d4;
+    --muted: #b8a890;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { overflow-x: hidden; max-width: 100%; }
+  body {
+    background-color: var(--near-black);
+    color: var(--warm-white);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 19px;
+    line-height: 1.85;
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+
+  /* Gold crack line at top */
+  .crack-line {
+    width: 100%; height: 2px;
+    background: linear-gradient(to right, transparent 0%, var(--gold-deep) 20%, var(--gold-light) 50%, var(--gold-deep) 80%, transparent 100%);
+    opacity: 0.7;
+  }
+
+  header {
+    text-align: center;
+    padding: 72px 24px 56px;
+    position: relative;
+    animation: fadeUp 1.2s ease both;
+  }
+  header::after {
+    content: '';
+    display: block;
+    width: 60px; height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    margin: 36px auto 0;
+  }
+
+  .back-link {
+    position: absolute;
+    top: 32px; left: 24px;
+    font-family: 'Cinzel', serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.22em;
+    color: var(--gold);
+    opacity: 0.5;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: opacity 0.3s;
+  }
+  .back-link:hover { opacity: 0.85; }
+
+  .section-tag {
+    font-family: 'Cinzel', serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.3em;
+    color: var(--gold-deep);
+    background: rgba(138,104,32,0.15);
+    border: 1px solid rgba(138,104,32,0.35);
+    padding: 4px 14px;
+    border-radius: 2px;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 24px;
+  }
+  .title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(2rem, 6vw, 3.6rem);
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    color: var(--warm-white);
+    line-height: 1.15;
+    margin-bottom: 8px;
+  }
+  .title em { color: var(--gold-light); font-style: normal; }
+  .subtitle {
+    font-style: italic;
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: var(--gold-pale);
+    opacity: 0.75;
+    letter-spacing: 0.06em;
+    margin-bottom: 12px;
+  }
+  .author {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.28em;
+    color: var(--gold);
+    opacity: 0.55;
+    text-transform: uppercase;
+  }
+
+  /* Cover + intro */
+  .cover-section {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px 72px;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 48px;
+    align-items: start;
+    animation: fadeUp 1.2s ease 0.2s both;
+  }
+  .cover-img {
+    width: 100%;
+    aspect-ratio: 2/3;
+    border: 1px solid rgba(138,104,32,0.3);
+    border-radius: 2px;
+    overflow: hidden;
+    box-shadow: 0 16px 56px rgba(0,0,0,0.85), 0 0 0 3px rgba(138,104,32,0.1);
+  }
+  .cover-img img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+  .cover-text p {
+    font-size: clamp(1rem, 1.8vw, 1.12rem);
+    color: var(--cream);
+    opacity: 0.88;
+    line-height: 2;
+    margin-bottom: 22px;
+  }
+  .cover-text .pull {
+    font-style: italic;
+    color: var(--gold-pale);
+    font-size: clamp(1.05rem, 2vw, 1.2rem);
+    border-left: 2px solid rgba(201,168,76,0.35);
+    padding-left: 20px;
+    margin: 28px 0;
+    line-height: 1.75;
+  }
+
+  /* Epigraph suite */
+  .epigraph-suite {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 24px 64px;
+    animation: fadeUp 1.2s ease 0.3s both;
+  }
+  .epigraph-suite-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.58rem;
+    letter-spacing: 0.3em;
+    color: var(--gold-deep);
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 40px;
+    opacity: 0.8;
+  }
+  .epigraph-item {
+    margin-bottom: 36px;
+    padding-left: 24px;
+    border-left: 1px solid rgba(201,168,76,0.2);
+  }
+  .epigraph-item p {
+    font-style: italic;
+    color: var(--cream);
+    opacity: 0.82;
+    font-size: clamp(0.95rem, 1.8vw, 1.08rem);
+    line-height: 1.8;
+    margin-bottom: 8px;
+  }
+  .epigraph-item cite {
+    font-style: normal;
+    font-family: 'Cinzel', serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    color: var(--gold-light);
+    opacity: 0.85;
+    text-transform: uppercase;
+  }
+
+  /* Movement chapters */
+  .movement {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+    animation: fadeUp 1.2s ease 0.35s both;
+  }
+  .movement-number {
+    font-family: 'Cinzel', serif;
+    font-size: 0.58rem;
+    letter-spacing: 0.35em;
+    color: var(--gold-deep);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    opacity: 0.85;
+  }
+  .movement-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1.4rem, 3.5vw, 2.2rem);
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    color: var(--warm-white);
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+  .movement-subtitle {
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--muted);
+    margin-bottom: 40px;
+    letter-spacing: 0.04em;
+  }
+  .movement-epigraph {
+    font-style: italic;
+    color: var(--cream);
+    opacity: 0.78;
+    font-size: clamp(0.95rem, 1.8vw, 1.08rem);
+    border-left: 2px solid rgba(201,168,76,0.3);
+    padding-left: 20px;
+    margin-bottom: 40px;
+    line-height: 1.8;
+  }
+  .movement-epigraph cite {
+    display: block;
+    font-style: normal;
+    font-family: 'Cinzel', serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    color: var(--gold-light);
+    opacity: 0.85;
+    margin-top: 10px;
+    text-transform: uppercase;
+  }
+  .movement p {
+    font-size: clamp(1rem, 1.8vw, 1.1rem);
+    color: var(--cream);
+    opacity: 0.88;
+    line-height: 2;
+    margin-bottom: 24px;
+  }
+  .movement .pull {
+    font-style: italic;
+    font-size: clamp(1.1rem, 2.2vw, 1.3rem);
+    color: var(--gold-pale);
+    opacity: 0.92;
+    border-left: 2px solid rgba(201,168,76,0.4);
+    padding-left: 22px;
+    margin: 36px 0;
+    line-height: 1.75;
+  }
+  .movement .seed {
+    font-style: italic;
+    color: var(--gold-pale);
+    opacity: 0.8;
+    font-size: clamp(0.95rem, 1.8vw, 1.08rem);
+    line-height: 1.9;
+    margin-bottom: 36px;
+    padding: 20px 24px;
+    background: rgba(138,104,32,0.07);
+    border-radius: 2px;
+    border-left: 2px solid rgba(201,168,76,0.25);
+  }
+  .chapter-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(0.9rem, 2vw, 1.15rem);
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin: 48px 0 20px;
+    opacity: 0.8;
+  }
+
+  /* Crossing point section */
+  .crossing-grid {
+    max-width: 720px;
+    margin: 0 auto 64px;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(200px,100%), 1fr));
+    gap: 16px;
+  }
+  .crossing-card {
+    background: rgba(26,18,8,0.7);
+    border: 1px solid rgba(138,104,32,0.25);
+    border-radius: 3px;
+    padding: 22px 18px;
+    transition: border-color 0.3s;
+  }
+  .crossing-card:hover { border-color: rgba(201,168,76,0.4); }
+  .crossing-name {
+    font-family: 'Cinzel', serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    color: var(--gold-light);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .crossing-desc {
+    font-size: 0.95rem;
+    color: var(--cream);
+    opacity: 0.78;
+    line-height: 1.75;
+  }
+
+  .divider {
+    width: 48px; height: 1px;
+    background: var(--gold-deep);
+    opacity: 0.5;
+    margin: 56px auto;
+  }
+  .divider-bright {
+    width: 48px; height: 1px;
+    background: var(--gold);
+    opacity: 0.4;
+    margin: 56px auto;
+  }
+
+  /* Closing */
+  .closing {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+    text-align: center;
+  }
+  .closing p {
+    font-size: clamp(1rem, 1.8vw, 1.1rem);
+    color: var(--cream);
+    opacity: 0.85;
+    line-height: 2;
+    margin-bottom: 20px;
+  }
+  .closing .final-line {
+    font-style: italic;
+    font-size: clamp(1.15rem, 2.5vw, 1.45rem);
+    color: var(--gold-pale);
+    opacity: 0.92;
+    line-height: 1.8;
+    margin-top: 40px;
+  }
+
+  footer {
+    text-align: center;
+    padding: 40px 24px 56px;
+    border-top: 1px solid rgba(138,104,32,0.2);
+    margin-top: 24px;
+  }
+  footer p {
+    font-family: 'Cinzel', serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.22em;
+    color: var(--gold);
+    opacity: 0.4;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  footer a {
+    font-family: 'Cinzel', serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.22em;
+    color: var(--gold);
+    opacity: 0.5;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: opacity 0.3s;
+  }
+  footer a:hover { opacity: 0.85; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @media (max-width: 600px) {
+    .cover-section { grid-template-columns: 1fr; gap: 28px; }
+    .cover-img { max-width: 180px; margin: 0 auto; }
+    header { padding: 56px 16px 40px; }
+    .movement, .epigraph-suite, .crossing-grid, .closing { padding-left: 16px; padding-right: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="crack-line"></div>
+
+<header>
+  <a href="/" class="back-link">← Gaiaridge</a>
+  <div class="section-tag">Anahata</div>
+  <h1 class="title">Kintsugi <em>Raku</em></h1>
+  <p class="subtitle">Thriving After Trauma</p>
+  <p class="author">Michael Sawyer</p>
+</header>
+
+<!-- Cover + intro -->
+<div class="cover-section">
+  <div class="cover-img">
+    <img src="/images/cover-kintsugi-v1.jpeg" alt="Kintsugi Raku">
+  </div>
+  <div class="cover-text">
+    <p>In Japanese kintsugi, a broken bowl is repaired with gold lacquer. The break is not hidden — it is illuminated. The crack becomes a line of distinction: the specific, unrepeatable record of this vessel's history.</p>
+    <div class="pull">The break, filled with gold, becomes the most interesting thing about the vessel.</div>
+    <p>This book applies that logic to the self. Not healing as concealment. Thriving as a practice of illuminating what broke — and discovering that the gold belongs exactly there.</p>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- Epigraph suite -->
+<div class="epigraph-suite">
+  <p class="epigraph-suite-label">Five voices. Multiple centuries. One truth.</p>
+
+  <div class="epigraph-item">
+    <p>The world breaks everyone, and afterward many are strong in the broken places.</p>
+    <cite>— Ernest Hemingway, A Farewell to Arms</cite>
+  </div>
+  <div class="epigraph-item">
+    <p>The wound is the place where the Light enters you.</p>
+    <cite>— Rumi</cite>
+  </div>
+  <div class="epigraph-item">
+    <p>The cracks are where the light gets in.</p>
+    <cite>— Leonard Cohen</cite>
+  </div>
+  <div class="epigraph-item">
+    <p>As they pass through the Valley of Baka, they make it a place of springs.</p>
+    <cite>— Psalm 84:6</cite>
+  </div>
+  <div class="epigraph-item">
+    <p>We move from perfection to perfect perfection.</p>
+    <cite>— Sri Chinmoy</cite>
+  </div>
+</div>
+
+<div class="divider-bright"></div>
+
+<!-- Movement I -->
+<div class="movement">
+  <p class="movement-number">Movement I</p>
+  <h2 class="movement-title">To Be or Not To Be</h2>
+  <p class="movement-subtitle">The decision. The break.</p>
+
+  <div class="movement-epigraph">
+    The world breaks everyone, and afterward many are strong in the broken places.
+    <cite>— Ernest Hemingway</cite>
+  </div>
+
+  <div class="seed">
+    To be or not to be.<br>
+    First you must decide that it is worthwhile to fix the container, to care for the self.<br>
+    Worthwhile to continue the play of becoming; even in the face of suffering and death.<br>
+    Start where you are. The past is gone. The future is not yet here.
+  </div>
+
+  <p class="chapter-title">The Moment of Shattering</p>
+  <p>Kintsugi begins not with gold but with breaking. The bowl doesn't break gently, and neither do we. There is a moment — sometimes sudden, sometimes arriving slowly like a tide — when the container we have built around our identity can no longer hold. A relationship ends. A diagnosis arrives. A belief we organized our life around turns out to be false. A grief we thought we'd processed returns at 3am, fully alive.</p>
+
+  <p>The traditional response to this moment is concealment. Modern life is structured around the performance of wholeness. We glue ourselves back together invisibly and get on with it.</p>
+
+  <p>Kintsugi proposes something stranger: don't hide it. The break is real. The break is information. The break, treated honestly, becomes the most interesting thing about the vessel.</p>
+
+  <p class="chapter-title">To Be or Not To Be</p>
+  <p>Shakespeare's question has been misread for four centuries as a question about death. It is, more precisely, a question about continuation under suffering. Not: should I cease to exist? But: should I continue to become, given how much becoming costs?</p>
+
+  <p>Viktor Frankl, writing from inside a Nazi concentration camp, gave the most precise answer to this question that the twentieth century produced. He called it tragic optimism: the capacity to say yes to life in spite of pain, guilt, and death. Not because the suffering wasn't real — but because meaning can be made from it, and the making of meaning is itself the act of survival.</p>
+
+  <div class="pull">"The last of human freedoms is to choose one's attitude in any given set of circumstances." Not to choose the circumstances. Not to choose whether the break happens. But to choose what you do with it.</div>
+
+  <p>This is the first task of kintsugi: the decision that the vessel is worth repairing. That the self is worth caring for. That the play of becoming, even in the face of suffering and death, is worth continuing. This decision cannot be argued into. It has to be chosen.</p>
+</div>
+
+<div class="divider"></div>
+
+<!-- Movement II -->
+<div class="movement">
+  <p class="movement-number">Movement II</p>
+  <h2 class="movement-title">No More Hurt</h2>
+  <p class="movement-subtitle">Filing the edges. Preparation.</p>
+
+  <div class="movement-epigraph">
+    The wound is the place where the Light enters you.
+    <cite>— Rumi</cite>
+  </div>
+
+  <div class="seed">
+    No more hurt.<br>
+    Smoothen the edges — no more pain and no more danger.
+  </div>
+
+  <p class="chapter-title">The Sharp Edges</p>
+  <p>The kintsugi craftsman's first physical task, before any lacquer is mixed, is to file the edges of the broken pieces. This is purely protective. Broken ceramic is dangerous. Unfiled edges cut the hands that try to hold the pieces together.</p>
+
+  <p>When we are freshly broken, we have sharp edges. We cut the people who come close. We cut ourselves. The sharpness is not malice — it is the natural state of a break. But it must be addressed before repair can begin.</p>
+
+  <p>What are your sharp edges? A defensive anger that activates faster than thought. A way of withdrawing before you can be left. A sarcasm that keeps intimacy at a safe distance. A story you tell about why you don't need anyone.</p>
+
+  <p>None of these are flaws. They were adaptations. They kept you functional during the break. But they are preventing the repair.</p>
+
+  <p class="chapter-title">The Reed Flute</p>
+  <p>And here Rumi's reed flute enters. The Masnavi opens with the image of the ney — the reed flute — cut from the reed bed and crying for its origin. The wound is the music. The hollow that the cutting made is precisely what allows the instrument to sing. Without the separation, without the break, there is no sound.</p>
+
+  <div class="pull">But the reed must first stop bleeding before it can be played.</div>
+
+  <p>There is a stage in the processing of grief and trauma that has no glamour. It is not catharsis. It is not insight. It is simply: stop. Stop reopening the wound. Stop rehearsing the story in a way that keeps the break fresh and bleeding. Stop using the break as currency. This is the filing of the edges — the decision, made actively, often daily, that no more harm will be done. Not to others. Not to oneself.</p>
+</div>
+
+<div class="divider-bright"></div>
+
+<!-- Movement III: The Gold -->
+<div class="movement">
+  <p class="movement-number">Movement III</p>
+  <h2 class="movement-title">The Gold</h2>
+  <p class="movement-subtitle">Repair. Meaning. The crossing point.</p>
+
+  <div class="movement-epigraph">
+    The cracks are where the light gets in.<br>
+    <cite>— Leonard Cohen</cite>
+  </div>
+
+  <div class="seed">
+    Repair the broken. So that it is better than before.<br>
+    Observe the lines of joinery and extract some meaning or feeling from them.<br>
+    Coat the joints with gold, and the phoenix takes wing.<br>
+    Patience as the bond dries.
+  </div>
+
+  <p class="chapter-title">What the Gold Is</p>
+  <p>The gold does not disguise the break. It illuminates it. The break, filled with gold, becomes a line of distinction. No two kintsugi bowls are the same, because no two breaks are the same. The gold makes the break a signature — the specific, unrepeatable record of this vessel's history.</p>
+
+  <p>Cohen saw it. Rumi saw it. The Psalmist saw it: the valley of tears becomes a place of springs. The wound becomes generative — not just healed, but now a source. The cracks are not failures in the vessel. They are the places the light gets in, and also — look closely — the places the light gets out.</p>
+
+  <p class="chapter-title">The Lines of Joinery</p>
+  <p>After the bond has set, the craftsman steps back and looks at the lines. They follow the exact path of the break. They are a map. And if you look long enough, they begin to suggest something — a river system, a constellation, a calligraphy you almost recognize.</p>
+
+  <p>The invitation: do the same with your own breaks. Not while the wound is fresh. But in time — to look at the lines and ask: what did this reveal? What capacity did this break open that was not accessible before?</p>
+
+  <div class="pull">Often, in the patient looking, a thread of meaning appears. A line of gold that, followed, leads somewhere the unbroken self could never reach.</div>
+</div>
+
+<!-- The Crossing Point -->
+<div class="movement">
+  <p class="chapter-title" style="text-align:center;margin-bottom:32px;">Chapter Nine — The Crossing Point</p>
+  <p style="text-align:center;font-style:italic;color:var(--muted);margin-bottom:40px;font-size:0.95rem;">Five models, across craft, mythology, scripture, and philosophy. One truth.</p>
+</div>
+
+<div class="crossing-grid">
+  <div class="crossing-card">
+    <div class="crossing-name">Nike — The Ankle</div>
+    <div class="crossing-desc">In the oldest tradition, Nike is wing-ed at the ankle — the point of maximum athletic stress. The tendon that, when it fails, ends everything. Victory lives exactly where the strain is greatest. Not away from the pressure — inside it.</div>
+  </div>
+  <div class="crossing-card">
+    <div class="crossing-name">Winged Victory of Samothrace</div>
+    <div class="crossing-desc">She stands in the Louvre, headless, armless, and more alive than anything in the room. Her wings sweep from the chest — heart-centered, enormous, catching the wind of arrival. She has come through. Ankle first, then heart. These are sequential, not competing.</div>
+  </div>
+  <div class="crossing-card">
+    <div class="crossing-name">Mercury — Wing-ed &amp; Caped</div>
+    <div class="crossing-desc">Wings at feet and helm both. The cape streams behind him: movement made visible, the slipstream of a being who crosses thresholds as his nature. Where Nike is victory at the stress point, Mercury is traversal — the messenger who carries meaning across the threshold of the break.</div>
+  </div>
+  <div class="crossing-card">
+    <div class="crossing-name">The Seal of Solomon</div>
+    <div class="crossing-desc">Two triangles interpenetrating — one toward the divine, one toward the earth. Their most charged point is the center, where both are simultaneously present. Not a compromise. An interpenetration. Heaven and earth most fully themselves, most fully in contact, exactly there.</div>
+  </div>
+  <div class="crossing-card">
+    <div class="crossing-name">The Feather and the Shadow</div>
+    <div class="crossing-desc">Carbon shadow burned into clay — 2D, a ghost. Three-dimensional feather glued over it — 3D, the living form. Metallic paint bridging them — 2.5D, the crossing point made visible. Shadow of who you were. Gold of how you mended. Feather of who you have become.</div>
+  </div>
+</div>
+
+<div class="movement" style="text-align:center;padding-top:0;">
+  <div class="pull" style="text-align:left;">
+    The place where you were most pressured, most stressed, most at risk —<br>
+    that is where your wings are.<br>
+    That is where the gold belongs.<br>
+    That is where the most interesting thing about you lives.
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- Movement IV -->
+<div class="movement">
+  <p class="movement-number">Movement IV</p>
+  <h2 class="movement-title">Redecorate Your Life</h2>
+  <p class="movement-subtitle">The bowl in use. Unjustified happiness.</p>
+
+  <div class="movement-epigraph">
+    We move from perfection to perfect perfection.
+    <cite>— Sri Chinmoy</cite>
+  </div>
+
+  <div class="seed">
+    Redecorate your life.<br>
+    Paint the pot.<br>
+    Arrange the flowers.
+  </div>
+
+  <p class="chapter-title">The Bowl in Use</p>
+  <p>The repaired kintsugi bowl is not a museum piece. It is put back into use. You put flowers in it. You brew tea in it. You fill it with light.</p>
+
+  <p>After the repair, you have to actually live in the repaired self. Many people achieve genuine repair and then spend the rest of their lives relating to themselves primarily as people who were broken. The break becomes the organizing principle of the identity, even after the gold has set.</p>
+
+  <p>The instruction is simpler and harder: redecorate your life. You are a vessel. The question is not: how did I break? The question is: what will I hold?</p>
+
+  <p>Sri Chinmoy's formulation reframes the entire arc. We did not move from broken to fixed. We moved from one expression of perfection, through its breaking, into a more refined perfection. The bowl was perfect before. It is perfect now. The gold didn't repair a flawed thing — it revealed a deeper perfection the unbroken bowl wasn't yet capable of expressing.</p>
+
+  <p class="chapter-title">Unjustified Happiness</p>
+  <p>There is a quality of happiness that requires no justification. Not happiness because of the repair. Not happiness in spite of the break. Not happiness earned by suffering correctly or healing thoroughly or arriving at the right insights.</p>
+
+  <div class="pull">Happiness that simply is — arising in the repaired vessel the way spring arises, the way the fountain arises in the valley of Baka, not because the valley earned it but because this is what happens when the pilgrim passes through with their heart set on the journey.</div>
+
+  <p>This is not naivety. The breaks were real. The gold is real. The lines of joinery are permanent and visible. But the bowl does not exist to commemorate its own repair. It exists to hold whatever it is given next — with the particular depth that only a vessel that has been broken and mended in gold can offer.</p>
+
+  <p class="chapter-title">Arrange the Flowers</p>
+  <p>The Japanese tea ceremony includes chabana: the arrangement of a single flower in a simple vessel. Not elaborate ikebana. One flower. Honestly placed. This is the end of the kintsugi process: not the gold, not the repair, not even the insight — but the living thing placed inside the mended vessel.</p>
+
+  <p>What are the flowers in your life? Not achievements. Not validations. The actual living things: the people you love, the work that calls you, the quality of light at a certain time of day in a place that matters. The moments of ichi-go ichi-e — this moment, once and never again.</p>
+
+  <p>The repaired bowl arranges these. This, finally, is what kintsugi raku is for. Not just healing. Not just recovery. Thriving: the art of filling the mended vessel with something worth holding.</p>
+</div>
+
+<div class="divider-bright"></div>
+
+<!-- Closing -->
+<div class="closing">
+  <p style="font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.3em;color:var(--gold-deep);text-transform:uppercase;opacity:0.8;margin-bottom:40px;">Closing</p>
+
+  <p>The world breaks everyone. This is Hemingway's observation — unsentimental, accurate, offered without consolation.</p>
+  <p>But Sri Chinmoy's line completes it: the breaking is not an interruption of perfection. It is part of the movement from one perfection to a more refined one. The bowl was already perfect. The break was already part of the journey. The gold was always going to go here.</p>
+
+  <div class="final-line">
+    The world breaks everyone.<br>
+    What you do with the break is the art.<br>
+    And the art, done well, is a movement from perfection<br>
+    to perfect perfection.
+  </div>
+</div>
+
+<footer>
+  <p>Kintsugi Raku — coming soon</p>
+  <a href="/">← Return to Gaiaridge</a>
+</footer>
+
+</body>
+</html>
