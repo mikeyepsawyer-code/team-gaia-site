@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slow the Fuck Down — Michael Sawyer</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --near-black: #0d0a07;
+    --gold: #c9a84c;
+    --coral: #e8896a;
+    --coral-light: #f3b49a;
+    --coral-pale: #f7d8c8;
+    --sea: #4fa39a;
+    --sea-light: #7fc9c0;
+    --warm-white: #faf6ef;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background-color: var(--near-black);
+    color: var(--warm-white);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 18px; line-height: 1.8;
+    overflow-x: hidden;
+  }
+  body::before {
+    content: ''; position: fixed; inset: 0;
+    pointer-events: none; z-index: 100; opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-size: 256px 256px;
+  }
+
+  /* HERO */
+  .hero {
+    position: relative; height: 100vh; min-height: 600px;
+    display: flex; align-items: flex-end; justify-content: center;
+    overflow: hidden;
+  }
+  .hero img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%; object-fit: cover;
+    object-position: center;
+  }
+  .hero::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(to bottom, rgba(13,10,7,0) 55%, rgba(13,10,7,0.85) 100%);
+  }
+  .hero-scroll {
+    position: relative; z-index: 2;
+    margin-bottom: 36px; text-align: center;
+    font-family: 'Cinzel', serif; font-size: 0.62rem;
+    letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--coral-pale); opacity: 0.85;
+    animation: pulse 2.4s ease-in-out infinite;
+  }
+  .hero-scroll span { display: block; font-size: 1.3rem; margin-top: 6px; }
+  @keyframes pulse { 0%,100%{opacity:.4} 50%{opacity:.9} }
+
+  /* INTRO HEADER */
+  .book-header {
+    text-align: center; padding: 80px 40px 40px;
+    animation: fadeUp 1.2s ease both;
+  }
+  .construction-banner {
+    display: inline-block; font-family: 'Cinzel', serif;
+    font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--coral-light); border: 1px solid rgba(232,137,106,0.45);
+    padding: 5px 16px; border-radius: 2px; margin-bottom: 28px; opacity: 0.85;
+  }
+  .book-ornament { font-size: 1.6rem; color: var(--coral); opacity: 0.45; letter-spacing: 0.2em; margin-bottom: 18px; display: block; }
+  .book-title {
+    font-family: 'Cinzel', serif; font-size: clamp(2rem, 5.5vw, 3.4rem);
+    font-weight: 400; letter-spacing: 0.14em; color: var(--coral-light);
+    line-height: 1.15; margin-bottom: 16px;
+  }
+  .book-subtitle {
+    font-style: italic; font-size: clamp(1rem, 2.2vw, 1.3rem);
+    color: var(--coral-pale); opacity: 0.8; letter-spacing: 0.06em; margin-bottom: 10px;
+  }
+  .book-author {
+    font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: 0.22em;
+    color: var(--coral); opacity: 0.75; text-transform: uppercase;
+  }
+  .adult-badge {
+    display: inline-block; font-family: 'Cinzel', serif; font-size: 0.55rem;
+    letter-spacing: 0.16em; padding: 4px 12px; border-radius: 2px;
+    text-transform: uppercase; color: var(--near-black);
+    background: var(--coral); margin-top: 20px;
+  }
+
+  /* SECTIONS */
+  .section { max-width: 680px; margin: 0 auto; padding: 48px 40px; text-align: center; }
+  .divider { width: 60px; height: 1px; background: var(--coral); opacity: 0.5; margin: 0 auto 40px; }
+  .lead { font-size: 1.35rem; font-style: italic; color: var(--coral-pale); line-height: 1.7; }
+  .section p { margin-bottom: 22px; }
+  .section p:last-child { margin-bottom: 0; }
+
+  .chapter-num {
+    font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 0.26em;
+    text-transform: uppercase; color: var(--sea-light); opacity: 0.8; margin-bottom: 10px;
+  }
+  .chapter-title {
+    font-family: 'Cinzel', serif; font-size: clamp(1.4rem, 3.5vw, 2rem);
+    font-weight: 400; letter-spacing: 0.08em; color: var(--coral-light); margin-bottom: 28px;
+  }
+  .excerpt { color: var(--warm-white); opacity: 0.92; }
+  .excerpt em { color: var(--coral-pale); }
+  .part-marker {
+    font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: 0.3em;
+    text-transform: uppercase; color: var(--sea); opacity: 0.7;
+    padding: 60px 40px 0; text-align: center;
+  }
+  .pullquote {
+    font-style: italic; font-size: 1.5rem; color: var(--sea-light);
+    line-height: 1.6; max-width: 620px; margin: 12px auto;
+  }
+
+  /* FOOTER */
+  .book-footer { text-align: center; padding: 70px 40px 90px; }
+  .book-footer .divider { margin-bottom: 30px; }
+  .footer-note {
+    font-size: 0.95rem; font-style: italic; color: var(--coral-pale);
+    opacity: 0.6; margin-bottom: 30px;
+  }
+  .back-link {
+    display: inline-block; font-family: 'Cinzel', serif; font-size: 0.65rem;
+    letter-spacing: 0.2em; text-transform: uppercase; color: var(--coral);
+    text-decoration: none; border: 1px solid rgba(232,137,106,0.4);
+    padding: 12px 28px; border-radius: 2px; transition: all 0.3s ease;
+  }
+  .back-link:hover { background: var(--coral); color: var(--near-black); }
+
+  @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:none} }
+  .section, .part-marker { animation: fadeUp 1s ease both; }
+</style>
+</head>
+<body>
+
+  <div class="hero">
+    <img src="/images/cover-slow-the-fuck-down.jpeg" alt="Slow the Fuck Down — Michael Sawyer">
+    <div class="hero-scroll">Read an excerpt<span>&#8964;</span></div>
+  </div>
+
+  <div class="book-header">
+    <span class="construction-banner">Preview &middot; Working Draft</span>
+    <span class="book-ornament">&#10086;</span>
+    <h1 class="book-title">Slow the Fuck Down</h1>
+    <p class="book-subtitle">Extending Sexual Ecstasy</p>
+    <p class="book-author">Michael Sawyer</p>
+    <div><span class="adult-badge">18+ &middot; Polygasm Series, Book II</span></div>
+  </div>
+
+  <div class="section">
+    <div class="divider"></div>
+    <p class="lead">The first book was about rate. This one asks you to forget rate for a while.</p>
+    <p>Not because rate doesn't matter — it does, and you'll return to it. But because the practitioner who only knows how to go faster has learned half the instrument. The other half is depth. Subtlety. The kind of attention that finds things that speed cannot.</p>
+    <p><em>Slow the Fuck Down</em> is the advanced practicum of polygasm. Advanced not in the sense of more orgasms per minute, but in the sense of going further in — into the anatomy you haven't mapped yet, into the energetic sensitivity that makes technique almost irrelevant, into the psychology of connection that can open a shared erotic space at a distance.</p>
+  </div>
+
+  <div class="part-marker">Part I — The Upper Kingdom</div>
+
+  <div class="section">
+    <p class="chapter-num">Chapter 2</p>
+    <h2 class="chapter-title">The Gush Spot</h2>
+    <div class="excerpt">
+      <p>Just past the G-sponge, on the anterior wall of the upper vagina — the same wall you've already been working, just further in — there is a spot that feels like an impression left by a coin.</p>
+      <p>It doesn't respond to the same stimulation as the G. The G-sponge wants firm, rhythmic pressure. The Gush spot wants to be summoned more gently. Less command, more invitation. <em>Rub it like a magic lamp, not like you're trying to start a fire.</em></p>
+      <p>Spend time here. Map it. Learn what happens to her face and her breathing when you make contact. Explore before you employ.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <p class="chapter-num">Chapter 4</p>
+    <h2 class="chapter-title">Bing and Bong</h2>
+    <div class="excerpt">
+      <p>The inner lips, in a state of genuine, sustained, full-body arousal, transform. They extend and thin until they are as delicate as fine porcelain, as translucent as a pressed flower.</p>
+      <p>In their fully aroused state, they form what I think of as a crystal goblet — the same geometry, the same resonant potential. When you touch them with the barest possible contact at the outermost edge of the petal, <em>they sing.</em></p>
+      <p>We are not tapping the goblet with a spoon, not striking a bell with a clapper. A wine glass does not need to be struck to sound — a wet fingertip circling the rim, and it sings its own pure tone. This is <em>Anahata</em> — the heart chakra; the word means unstruck. Treated with that same delicacy, circled and invited rather than struck, her inner lips produce the most intimate vibration in the whole catalogue.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <p class="chapter-num">Chapter 5</p>
+    <h2 class="chapter-title">The Cervix</h2>
+    <div class="excerpt">
+      <p>If you take one thing from this book, let it be this: if she's not having cervical orgasms, she's missing the main course.</p>
+      <p>They are not the sharp electrical spark of the clit or the throbbing pulse of the G. They are seismic. They begin deep in the pelvic floor and spread upward through the abdomen, the chest, sometimes the throat.</p>
+      <p><em>Go slow getting here. Once you've arrived, go slower.</em></p>
+    </div>
+  </div>
+
+  <div class="part-marker">Part II — The Subtle Kingdom</div>
+
+  <div class="section">
+    <div class="divider"></div>
+    <p class="chapter-num">Chapter 11</p>
+    <h2 class="chapter-title">The Zipless Fuck</h2>
+    <div class="excerpt">
+      <p>Erica Jong gave us the phrase in 1973 — a stranger on a train, no names, no histories, the zippers falling away as if by magic. What made it zipless was the absence of everything that usually comes attached: power, ulterior motive, the quiet ledger of who owes whom. She called it <em>"as rare as a unicorn."</em></p>
+      <p>I want to take her word somewhere she didn't. What Jong located in the absence of history, I locate in the fullness of presence. The zippers still come undone by themselves — but not because the two people are nothing to each other. Because, for the length of the encounter, they are <em>nothing but each other.</em></p>
+      <p>And I hear a second meaning in her word. Zip-less: not only without zippers, but <em>touch-less</em> — a meeting that can happen at a distance, feeling across the gap, no contact required. The clothes were never the point. Neither, it turns out, is the touch.</p>
+      <p>An encounter entire in itself, the way a piece of music is entire in itself. It begins, it unfolds, it resolves, and it is over. And it was enough. It was more than enough. It was everything.</p>
+    </div>
+  </div>
+
+  <div class="book-footer">
+    <div class="divider"></div>
+    <p class="footer-note">A work in progress. More chapters as the book takes shape.</p>
+    <a href="/" class="back-link">&#8592; Back to the Library</a>
+  </div>
+
+</body>
+</html>
