@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shamanic Photography — Preview</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            width: 100%;
+            height: 100%;
+            font-family: Georgia, serif;
+            background: #0a0a0a;
+            color: #f5f5f5;
+        }
+        
+        .hero {
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(135deg, #2a1a0a 0%, #1a0a00 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 40px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><filter id="glow"><feGaussianBlur stdDeviation="3" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><circle cx="300" cy="200" r="150" fill="%23dd9955" opacity="0.2" filter="url(%23glow)"/><circle cx="900" cy="600" r="200" fill="%23bb6633" opacity="0.15" filter="url(%23glow)"/></svg>');
+            opacity: 0.4;
+            pointer-events: none;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 600px;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            font-weight: normal;
+            letter-spacing: 3px;
+            margin-bottom: 16px;
+            color: #dd9955;
+            text-shadow: 0 2px 10px rgba(221, 153, 85, 0.3);
+        }
+        
+        .hero .subtitle {
+            font-size: 18px;
+            font-style: italic;
+            color: #ccaa99;
+            margin-bottom: 24px;
+            letter-spacing: 1px;
+        }
+        
+        .hero .author {
+            font-size: 18px;
+            color: #ccbbaa;
+            margin-bottom: 40px;
+        }
+        
+        .scroll-hint {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #dd9955;
+            opacity: 0.6;
+            font-size: 14px;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(8px); }
+        }
+        
+        .content {
+            background: #0f0f0f;
+            color: #f5f5f5;
+            padding: 40px 24px;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+        
+        .content h2 {
+            font-size: 24px;
+            font-weight: normal;
+            margin: 48px 0 32px 0;
+            color: #dd9955;
+            border-top: 1px solid #333;
+            padding-top: 32px;
+            letter-spacing: 2px;
+        }
+        
+        .content h2:first-child {
+            border-top: none;
+            padding-top: 0;
+            margin-top: 0;
+        }
+        
+        .content p {
+            font-size: 18px;
+            margin-bottom: 24px;
+            text-align: justify;
+            color: #e8e8e8;
+        }
+        
+        .content .passage-marker {
+            font-style: italic;
+            color: #ccaa99;
+            font-size: 16px;
+            margin: 32px 0 24px 0;
+        }
+        
+        .back-link {
+            display: block;
+            text-align: center;
+            padding: 40px 0;
+            font-size: 16px;
+        }
+        
+        .back-link a {
+            color: #dd9955;
+            text-decoration: none;
+            border-bottom: 1px solid #dd9955;
+            transition: opacity 0.3s;
+        }
+        
+        .back-link a:hover {
+            opacity: 0.7;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .content {
+                padding: 32px 20px;
+            }
+            
+            .content p {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <div class="hero-content">
+            <h1>SHAMANIC PHOTOGRAPHY</h1>
+            <p class="subtitle">Meeting Nike, Victoria, Regina</p>
+            <p class="author">Michael Sawyer</p>
+        </div>
+        <div class="scroll-hint">↓ Scroll to read ↓</div>
+    </div>
+    
+    <div class="content">
+        <h2>Seeing Her</h2>
+        
+        <p>When you stand on the ridge and face the valley, the land is not a landscape. It is a body. The shoulders of the hills curve up on both sides. The creek runs down the middle like a spine. The darker patches of spruce on the north face are ribs.</p>
+        
+        <p>This is how the earth looks when you are not looking at it. When you are looking at it — photographing it — the conventions of landscape painting demand a certain abstraction. You are supposed to notice the play of light and shadow, the composition, the aesthetic distance. You are supposed to stay out of it, remain outside of it, let it be a thing that you are observing.</p>
+        
+        <p>But there is another way to look. There is the way that the shamanic traditions have always seen: the earth is not a thing. The earth is a being. And when you see her that way, everything changes.</p>
+        
+        <p>The ridge is not a formation. It is a woman standing up. The valley is not a depression. It is her opening. The creek is not water. It is her blood moving through her.</p>
+        
+        <p>Gaia stands. Always. Portrait. Never landscape.</p>
+        
+        <h2>Co-Creation: The Universe Dreams Itself</h2>
+        
+        <p class="passage-marker">From the Philosophy of Being</p>
+        
+        <p>All the world's a stage and we are actors upon it. In a very real sense, any given scene in the universal dream, is not only acted out by all participants; but co-authored by all, as well. Some consciously author their part, while others are swept along by the confluence of their karmic momentum.</p>
+        
+        <p>The earth is not passive. The landscape is not inert. Every being that has walked on it, every creature that has nested in it, every root that has grown in it — all of them have written themselves into her story. The earth carries the memory of every footfall. The ridge holds the history of every being that has stood upon it.</p>
+        
+        <p>Matter is an amalgam of past impressions, imaged out by all perspectives.</p>
+        
+        <p>When you photograph Gaia, you are not capturing her. You cannot capture her. What you are doing is meeting her. You are standing in the stream of impressions that she is, and you are adding your own seeing to that stream. Your eye becomes part of the geological record. Your care, your attention, your love — these become part of her body.</p>
+        
+        <p>This is why photography can be shamanic. Because the photographer is not outside the scene, observing it. The photographer is inside the scene, being observed by it, being shaped by it, even as the photograph shapes how it will be seen by others.</p>
+        
+        <p>Gaia is not carved out of. Gaia is an accumulation of impressions. The woman you photograph is composed of all the eyes that have ever seen her, all the hands that have ever touched her, all the hearts that have ever loved her.</p>
+        
+        <p>To photograph her with care is to add to her. To see her truly is to become part of what she is.</p>
+        
+        <h2>The Sacred Marriage</h2>
+        
+        <p>There are moments when the boundary between the photographer and the photographed dissolves. When you are no longer holding the camera, but the camera is holding you. When your eye is not separate from what it is seeing, but is part of the seeing itself.</p>
+        
+        <p>These are the moments of shamanic photography. These are the moments when Gaia and the one who sees her become a single being, a single act of creation, a sacred marriage enacted in light and shadow.</p>
+        
+        <p>This cannot be forced. It cannot be planned for. It can only be allowed. And it happens most readily when you come to the land not as a tourist, not as a consumer of beauty, but as a devotee. As one who has come to serve, not to take. To witness, not to possess.</p>
+        
+        <p>To meet the sacred in the body of the earth, and to let the earth meet the sacred in your own body. This is the practice. This is the prayer. This is the pathway home.</p>
+    </div>
+    
+    <div class="back-link">
+        <a href="/">← Back to catalog</a>
+    </div>
+</body>
+</html>
