@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unjustified Happiness — Preview</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            width: 100%;
+            height: 100%;
+            font-family: Georgia, serif;
+            background: #0a0a0a;
+            color: #f5f5f5;
+        }
+        
+        .hero {
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(135deg, #2a1a1a 0%, #1a0f0a 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 40px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><filter id="glow"><feGaussianBlur stdDeviation="3" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><circle cx="300" cy="200" r="150" fill="%23dd8899" opacity="0.2" filter="url(%23glow)"/><circle cx="900" cy="600" r="200" fill="%23bb4488" opacity="0.15" filter="url(%23glow)"/></svg>');
+            opacity: 0.4;
+            pointer-events: none;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 600px;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            font-weight: normal;
+            letter-spacing: 3px;
+            margin-bottom: 16px;
+            color: #dd9999;
+            text-shadow: 0 2px 10px rgba(221, 153, 153, 0.3);
+        }
+        
+        .hero .subtitle {
+            font-size: 18px;
+            font-style: italic;
+            color: #ccaaaa;
+            margin-bottom: 24px;
+            letter-spacing: 1px;
+        }
+        
+        .hero .author {
+            font-size: 18px;
+            color: #ccbbaa;
+            margin-bottom: 40px;
+        }
+        
+        .scroll-hint {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #dd9999;
+            opacity: 0.6;
+            font-size: 14px;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(8px); }
+        }
+        
+        .content {
+            background: #0f0f0f;
+            color: #f5f5f5;
+            padding: 40px 24px;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+        
+        .content h2 {
+            font-size: 24px;
+            font-weight: normal;
+            margin: 48px 0 32px 0;
+            color: #dd9999;
+            border-top: 1px solid #333;
+            padding-top: 32px;
+            letter-spacing: 2px;
+        }
+        
+        .content h2:first-child {
+            border-top: none;
+            padding-top: 0;
+            margin-top: 0;
+        }
+        
+        .content p {
+            font-size: 18px;
+            margin-bottom: 24px;
+            text-align: justify;
+            color: #e8e8e8;
+        }
+        
+        .content .passage-marker {
+            font-style: italic;
+            color: #ccaaaa;
+            font-size: 16px;
+            margin: 32px 0 24px 0;
+        }
+        
+        .back-link {
+            display: block;
+            text-align: center;
+            padding: 40px 0;
+            font-size: 16px;
+        }
+        
+        .back-link a {
+            color: #dd9999;
+            text-decoration: none;
+            border-bottom: 1px solid #dd9999;
+            transition: opacity 0.3s;
+        }
+        
+        .back-link a:hover {
+            opacity: 0.7;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .content {
+                padding: 32px 20px;
+            }
+            
+            .content p {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <div class="hero-content">
+            <h1>UNJUSTIFIED HAPPINESS</h1>
+            <p class="subtitle">In Spite of Trauma, Grief, and Death</p>
+            <p class="author">Michael Sawyer</p>
+        </div>
+        <div class="scroll-hint">↓ Scroll to read ↓</div>
+    </div>
+    
+    <div class="content">
+        <h2>Opening: The Premise</h2>
+        
+        <p>Instead of waiting for perfection to arrive, if we see the perfection in each moment, we don't need to wait for the world to justify our happiness.</p>
+        
+        <p>Most of us have been taught that we must earn happiness. We must accomplish something, fix something, achieve something, before we deserve to feel good. We are taught that happiness is conditional — that it arrives when circumstances are right, or when we have done enough, or when we have suffered sufficiently.</p>
+        
+        <p>This teaching is almost universally believed, and it is almost universally destructive.</p>
+        
+        <p>It makes happiness the reward for a life completed well, rather than the ground on which a life can be lived. It defers joy indefinitely, because circumstances are never fully right, we are never entirely accomplished, and there is always more to suffer through before the gates of happiness are supposedly opened.</p>
+        
+        <p>But what if the premises are wrong?</p>
+        
+        <p>What if happiness is not something we earn, but something we discover? Not a destination, but a quality already present — buried under the weight of expectation, waiting to be recognized?</p>
+        
+        <h2>Esprit de Corps: The Sacred in the Body</h2>
+        
+        <p class="passage-marker">From the Philosophical Spine</p>
+        
+        <p>There is a phrase the military kept and the mystics lost: esprit de corps. We use it now to mean morale, unit pride, the warm fellow-feeling of people who have suffered together. But read it plainly. Spirit, of the body. Not spirit despite the body. Not spirit visiting the body from elsewhere. The spirit that the body is, when it is fully inhabited.</p>
+        
+        <p>This is the fountain of youth in miniature, the verb living inside the noun rather than escaping it.</p>
+        
+        <p>The Christians kept an instinct for this too, buried inside a word they use so often it has gone numb: Christ, Khristos, the anointed one. Anointing is not a metaphor. Oil on skin. A verb done to a body, marking it as the place where the sacred crosses over into matter. You do not anoint an idea. You anoint flesh.</p>
+        
+        <p>The Greeks told the same story slower, with more tenderness. Psyche — the word means breath, means soul — lies inert, sleeping the sleep that is nearly death, until Cupid's kiss reaches her. Not a vision. Not a doctrine. A mouth on a mouth. The soul is revived by the most bodily act available, and there is no version of the myth where she wakes up some other way.</p>
+        
+        <p>And then there is the woman with no head and no arms, standing at the top of the stairs at the Louvre, her wings still catching wind that stopped blowing three thousand years ago. The Winged Victory of Samothrace. She has lost everything a face could tell you and everything hands could do, and she is still, by general agreement, one of the most alive objects ever carved from stone. What's left, once you take the head and the arms away? Only the lean. Only the forward motion. Only the verb. Nike is what a body looks like when nothing remains but its esprit — and it turns out that is not a diminishment. It is the distillation.</p>
+        
+        <p>None of these four achieved the sacred alone. The oil is poured on; it does not rise up from within. The kiss arrives from outside; Psyche does not wake herself. Victory descends onto the ship she stands on — that's why she has wings instead of legs that ran there. Esprit de corps is not pride a body manufactures by itself, either; it is what happens when the verb finds the noun and the noun, astonishingly, lets it in.</p>
+        
+        <p>This is the same door Augustine found at the window in Ostia, and the same one this book finds in the body kept at the edge of dissolution for an hour. The spirit was never elsewhere, waiting to be reached. It was always of the body — anointed onto it, kissed into it, descending to crown it — waiting only for the noun to stop clutching long enough to let the verb come home.</p>
+        
+        <h2>The Ground State</h2>
+        
+        <p>Unjustified happiness is the recognition that the verb — the aliveness, the presence, the sacred ground of being — has always been here. It does not require justification from circumstances. It does not require you to become someone else, or to fix something, or to achieve some state before you are permitted to feel it.</p>
+        
+        <p>It requires only the willingness to stop waiting. To notice that what you have been looking for is not ahead of you, or above you, or somewhere you have to travel to reach. It is here. It has always been here.</p>
+        
+        <p>The happiness is unjustified because it needs no justification.</p>
+    </div>
+    
+    <div class="back-link">
+        <a href="/">← Back to catalog</a>
+    </div>
+</body>
+</html>
