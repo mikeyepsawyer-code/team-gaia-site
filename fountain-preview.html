@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fountain of Youth — Preview</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            width: 100%;
+            height: 100%;
+            font-family: Georgia, serif;
+            background: #0a0a0a;
+            color: #f5f5f5;
+        }
+        
+        .hero {
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(135deg, #1a3a3a 0%, #0f2828 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 40px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><filter id="glow"><feGaussianBlur stdDeviation="3" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><circle cx="300" cy="200" r="150" fill="%23448899" opacity="0.3" filter="url(%23glow)"/><circle cx="900" cy="600" r="200" fill="%232288bb" opacity="0.2" filter="url(%23glow)"/></svg>');
+            opacity: 0.4;
+            pointer-events: none;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 600px;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            font-weight: normal;
+            letter-spacing: 3px;
+            margin-bottom: 16px;
+            color: #88ddcc;
+            text-shadow: 0 2px 10px rgba(136, 221, 204, 0.3);
+        }
+        
+        .hero .subtitle {
+            font-size: 18px;
+            font-style: italic;
+            color: #aabbcc;
+            margin-bottom: 24px;
+            letter-spacing: 1px;
+        }
+        
+        .hero .author {
+            font-size: 18px;
+            color: #ccbbaa;
+            margin-bottom: 40px;
+        }
+        
+        .scroll-hint {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #88ddcc;
+            opacity: 0.6;
+            font-size: 14px;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(8px); }
+        }
+        
+        .content {
+            background: #0f0f0f;
+            color: #f5f5f5;
+            padding: 40px 24px;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+        
+        .content h2 {
+            font-size: 24px;
+            font-weight: normal;
+            margin: 48px 0 32px 0;
+            color: #88ddcc;
+            border-top: 1px solid #333;
+            padding-top: 32px;
+            letter-spacing: 2px;
+        }
+        
+        .content h2:first-child {
+            border-top: none;
+            padding-top: 0;
+            margin-top: 0;
+        }
+        
+        .content p {
+            font-size: 18px;
+            margin-bottom: 24px;
+            text-align: justify;
+            color: #e8e8e8;
+        }
+        
+        .content .passage-marker {
+            font-style: italic;
+            color: #aabbcc;
+            font-size: 16px;
+            margin: 32px 0 24px 0;
+        }
+        
+        .back-link {
+            display: block;
+            text-align: center;
+            padding: 40px 0;
+            font-size: 16px;
+        }
+        
+        .back-link a {
+            color: #88ddcc;
+            text-decoration: none;
+            border-bottom: 1px solid #88ddcc;
+            transition: opacity 0.3s;
+        }
+        
+        .back-link a:hover {
+            opacity: 0.7;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .content {
+                padding: 32px 20px;
+            }
+            
+            .content p {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <div class="hero-content">
+            <h1>FOUNTAIN OF YOUTH</h1>
+            <p class="subtitle">The Healing Power of Ecstasy</p>
+            <p class="author">Michael Sawyer</p>
+        </div>
+        <div class="scroll-hint">↓ Scroll to read ↓</div>
+    </div>
+    
+    <div class="content">
+        <h2>Opening Passage: What Is Real</h2>
+        
+        <p class="passage-marker">From the Philosophical Spine</p>
+        
+        <p>There are two ways to understand what you are.</p>
+        
+        <p>In the first, you are a physical being who occasionally glimpses something larger — matter as home, spirit as visitor, transcendence as going upstairs.</p>
+        
+        <p>In the second, matter is the afterimage. The universe is a single action, and matter is what that act leaves behind — the way a sparkler leaves a trail in a long-exposure photograph. The trail is real. But it is not where the light is. The Sanskrit word karma means action and the results of action; perhaps more precisely, action and its afterimage.</p>
+        
+        <p>If this is true, then what we experience as the physical world is not the world itself but our model of it — a high-draw process, like rendering video. Feel the warmth of your phone after shooting footage for ten minutes. The same heat budget applies to the human brain. Creating the world around you in real time is metabolically expensive, so the brain does it at the minimum refresh rate required — updating the model only as often as necessary to navigate, not at the rate things actually occur.</p>
+        
+        <p>Sometimes the budget tightens and the mechanism becomes visible. Panning slowly across a room, the head moves in a reciprocal sprinkler effect — ticking rather than flowing, blinking in sync with each stop, receiving still images rather than continuous motion. The stitching comes apart just enough to reveal the stitching. You catch your own visual cortex taking photographs and calling it a Tuesday afternoon.</p>
+        
+        <h2>Chapter 1: Entrainment</h2>
+        
+        <p>The mind is something like a hall of mirrors. Each of us dedicates a significant portion of our neurons to mirroring — part of our brain becomes a copy of the person we are mirroring.</p>
+        
+        <p>The brain reflects and entrains. This is its nature, its deepest habit, its most fundamental economy.</p>
+        
+        <p>Faced with a strong, rhythmic, sensory signal, the brain does not maintain its independence from that signal. It synchronizes with it; entrains itself to the signal. Neural oscillations — the electrical patterns that constitute thought, emotion, sensation, identity — adjust their frequency to match the dominant input. The brain is a resonant instrument; it harmonizes like a tuning fork.</p>
+        
+        <p>Social relationships do this. Think of the way that birds flock, and fish school.</p>
+        
+        <p>Music does this. It is why a rhythm section can move a body against its own preference for stillness, why a chord change can produce grief, joy, or excitement in someone who did not expect to feel these emotions. Why people at a club move as one being.</p>
+        
+        <p>Meditation does this. The instruction to place attention on the breath or on a mantra is an instruction to present the brain with a rhythmic, low-amplitude signal. This entrainment gradually moves resources away from the default oscillatory activity — the mental chatter, the associative chains, the self-referential loops. Other energy centers turn on or up. The heart chakra is an excellent instrument, opening the other centers in a balanced way. After sufficient practice, the meditator can enter deep states of synchrony in which ordinary thought becomes genuinely sparse.</p>
+        
+        <p>Orgasm does this too — and does it with a force and an immediacy that neither music nor meditation can match.</p>
+        
+        <p>The orgasmic signal is not subtle. It is the most urgent and insistent biological event most people ever experience. When it runs at polygasm frequencies — not once, not twice, but almost continuously for hours — the brain's resources are organized around it in the way that a city organizes itself around an emergency or a desirable neighborhood.</p>
+        
+        <p>The analytical functions — the prefrontal processing that maintains the self-concept, that runs the inner commentary, that sustains worry and rumination and the persistent evaluation of the self against imagined standards — these are expensive. They require glucose and oxygen, for sustained neural activity. When orgasm runs at sufficient frequency and duration, these supplies are all requisitioned in its service. Resources are redirected away from most neural programs except life-support.</p>
+        
+        <p>With this defunding of everyday cognition, the narrative self-identity goes quiet. Not unconscious, not absent; quiet. The habitual overlay of thought on experience becomes more transparent. The constant stream of narration recedes.</p>
+        
+        <p>What remains is experience itself — unmediated by thought, unencumbered by the inner critic. Here and now, present in the body rather than in some imaginary past or future.</p>
+        
+        <p>This is what meditators spend years learning to access. It is what shamans access through ritual trance and psychedelics. It is what grief, love, terror and ecstasy produce through the body's natural chemistry.</p>
+        
+        <p>And it is what polygasm makes reliably available, when practiced with skill and care.</p>
+        
+        <p>Like any physical exercise, multigasm tones the body; and that itself is youth-enhancing. But the physical dimension is just the beginning, not the end of the story.</p>
+        
+        <p>The intense rhythm of polygasm — 60 to 120 orgasms per hour — leaves no resources available for the brain's higher-order subroutines. Spatial mapping, orientation, the maintenance of the egoic construct — these are the first things to go because they are expensive. Their cognitive budget is defunded by the intensity of polygasm, as it requisitions all available resources.</p>
+        
+        <p>The useful illusion of matter begins to break down. Self-other boundaries soften. The concept of a self, and the appearance of an "other," lose their usual prominence and solidity.</p>
+        
+        <p>The local self-construct becomes less relevant. The narrative self — the one that is always telling the story of who we are — is temporarily abandoned. She may temporarily forget her name.</p>
+        
+        <p>The light of her heart opens to its full aperture. The luminous glow in her chest moves toward incandescence and then radiance.</p>
+        
+        <p>Her mind leaves all its habitual stress and fear on the dance floor.</p>
+        
+        <p>The lovers dissolve into each other, heart, mind, and loins. We become anima and animus of a shared self.</p>
+    </div>
+    
+    <div class="back-link">
+        <a href="/">← Back to catalog</a>
+    </div>
+</body>
+</html>
