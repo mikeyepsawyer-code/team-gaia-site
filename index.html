@@ -131,8 +131,6 @@
 
   <script>
   (function() {
-    var API_KEY   = "AIzaSyDhFgaL27lmqORuZgigzoZucmjZK4QJB0c";
-    var HANDLE    = "michaelsawyer627";
     var MIN_VIEWS = 1500;
     function fmt(n) { return n >= 1000 ? (n / 1000).toFixed(1).replace(/\.0$/, "") + "k" : String(n); }
     function parseDuration(iso) {
@@ -152,12 +150,11 @@
     }
     async function loadShorts() {
       try {
-        var ch = await fetch("https://www.googleapis.com/youtube/v3/channels?part=contentDetails&forHandle=" + HANDLE + "&key=" + API_KEY).then(function (r) { return r.json(); });
-        var uploadsId = ch.items[0].contentDetails.relatedPlaylists.uploads;
-        var pl = await fetch("https://www.googleapis.com/youtube/v3/playlistItems?part=contentDetails&maxResults=50&playlistId=" + uploadsId + "&key=" + API_KEY).then(function (r) { return r.json(); });
-        var ids = pl.items.map(function (i) { return i.contentDetails.videoId; });
-        var vd = await fetch("https://www.googleapis.com/youtube/v3/videos?part=contentDetails,statistics,snippet&id=" + ids.join(",") + "&key=" + API_KEY).then(function (r) { return r.json(); });
-        var allShorts = vd.items.filter(function (v) { return parseDuration(v.contentDetails.duration) <= 180; }).map(function (v) { return { id: v.id, title: v.snippet.title, thumbnails: v.snippet.thumbnails, viewCount: parseInt(v.statistics.viewCount || 0), publishedAt: v.snippet.publishedAt }; }).sort(function (a, b) { return b.viewCount - a.viewCount; });
+        // Calls our own Pages Function — the YouTube API key lives server-side
+        // as a Cloudflare secret, never in this HTML. See /functions/api/shorts.js
+        var data = await fetch("/api/shorts").then(function (r) { return r.json(); });
+        if (data.error) throw new Error(data.error);
+        var allShorts = data.items.filter(function (v) { return parseDuration(v.duration) <= 180; }).sort(function (a, b) { return b.viewCount - a.viewCount; });
         if (!allShorts.length) { renderCards([]); return; }
         var latest = allShorts.slice().sort(function (a, b) { return new Date(b.publishedAt) - new Date(a.publishedAt); })[0];
         var filtered = allShorts.filter(function (s) { return s.viewCount >= MIN_VIEWS; });
@@ -195,7 +192,7 @@
       <!-- The Art of Amōre — Preview -->
       <a class="link-card" href="/ovid-preview.html" target="_blank" rel="noopener">
         <div class="link-card-img sash-wrap" style="background:#2a0a0a;border-color:rgba(180,100,60,0.4) !important;overflow:hidden;position:relative;">
-          <div class="sash">Preview<span style="display:block;font-size:0.45rem;letter-spacing:0.12em;opacity:0.8;margin-top:2px;">Under Construction</span></div>
+          <div class="sash">Preview</div>
           <img src="/images/cover-art-amore-v9.jpeg" alt="The Art of Amōre" style="width:100%;height:100%;object-fit:cover;object-position:center 10%;">
         </div>
       </a>
@@ -204,7 +201,7 @@
       <!-- Oceans of Love — Preview -->
       <a class="link-card" href="/oceans-of-love-preview.html" target="_blank" rel="noopener">
         <div class="link-card-img sash-wrap" style="background:linear-gradient(160deg,#060e1a 0%,#0d1f35 50%,#060e1a 100%);border-color:rgba(26,58,92,0.45) !important;position:relative;overflow:hidden;">
-          <div class="sash">Preview<span style="display:block;font-size:0.45rem;letter-spacing:0.12em;opacity:0.8;margin-top:2px;">Under Construction</span></div>
+          <div class="sash">Preview</div>
           <img src="/images/cover-oceans-of-love.jpeg" alt="Oceans of Love" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
         </div>
       </a>
@@ -222,7 +219,7 @@
       <!-- Radiant Sensitivity — Preview -->
       <a class="link-card" href="/radiant-sensitivity-preview.html" target="_blank" rel="noopener">
         <div class="link-card-img sash-wrap" style="background:#080a0d;border-color:rgba(100,140,180,0.25) !important;overflow:hidden;position:relative;">
-          <div class="sash">Preview<span style="display:block;font-size:0.45rem;letter-spacing:0.12em;opacity:0.8;margin-top:2px;">Under Construction</span></div>
+          <div class="sash">Preview</div>
           <img src="/images/cover-radiant-sensitivity-v7.jpeg" alt="Radiant Sensitivity" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
         </div>
       </a>
@@ -320,7 +317,7 @@
       <a class="link-card" href="/fountain-preview.html" target="_blank" rel="noopener">
         <div class="link-card-img sash-wrap" style="background:#0a1a10;border-color:rgba(80,160,100,0.3) !important;overflow:hidden;position:relative;">
           <div class="sash">Preview</div>
-          <img src="/images/cover-fountain-of-youth-v4.jpeg" alt="Fountain of Youth" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
+          <img src="/images/cover-fountain-of-youth-v3.jpeg" alt="Fountain of Youth" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
         </div>
       </a>
 
