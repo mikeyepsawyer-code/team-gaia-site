@@ -1,0 +1,285 @@
+GAIA JOURNAL 2027 — COVER BUILD SPEC
+Status: APPROVED — front v2, back v4
+Approved: June 27, 2026
+Format: Two flat panels (front + back), NO SPINE — book is ~15 pages, too thin for a spine
+
+This file is the complete, deterministic rebuild spec. Follow it exactly to
+reproduce the approved covers, or use it as the base to make further edits.
+
+════════════════════════════════════════════════════════════════════════════
+
+SECTION 0 — SOURCE PHOTOS (mandatory rebuild rule: always start here)
+
+FRONT — ridge/sun photo
+  Original filename: 1000065906.jpg
+  Archived as: source_ridge_1000065906.jpg (EXIF-corrected, in this package)
+  EXIF-corrected dimensions: 800 x 1421px (portrait)
+  Content: ridge silhouette, sun flare at peak, blue sky, fence line in foreground
+  Text-free: YES
+
+BACK — Michael portrait
+  Original filename: 1000053190.jpg
+  Archived as: source_portrait_1000053190.jpg (EXIF-corrected, in this package)
+  EXIF-corrected dimensions: 1078 x 1421px (portrait)
+  Content: close-up face, beaded/feathered hat, glasses, grey beard
+  Text-free: YES
+
+Both photos require ImageOps.exif_transpose() before any layout work
+(Samsung Galaxy photos carry EXIF rotation tags that PIL/Pillow pipelines
+ignore unless explicitly corrected).
+
+════════════════════════════════════════════════════════════════════════════
+
+SECTION 1 — CANVAS SPEC
+
+Trim: 5.5" x 8.5" (Blurb Trade Book — fits in a purse, intentional)
+Bleed: 0.125" all sides
+Full canvas: 5.75" x 8.75" @ 300dpi = 1725 x 2625px
+Color: RGB (convert to CMYK at Blurb upload stage, not before)
+
+NO SPINE. Front and back are built and uploaded as two separate flat panels.
+
+MARGIN: 112px on all sides (used for text/element placement, not a hard crop)
+
+════════════════════════════════════════════════════════════════════════════
+
+SECTION 2 — FONTS USED
+
+Parisienne (script):
+  Source: npm install @fontsource/parisienne
+  CRITICAL: convert from .woff, NOT .woff2 (woff2 → TTF has broken vertical
+  metrics, PIL renders nothing). File used:
+  node_modules/@fontsource/parisienne/files/parisienne-latin-400-normal.woff
+  Converted via fontTools: TTFont(woff_path).save('parisienne.ttf')
+
+Cinzel 600 (SemiBold, caps):
+  Source: npm install @fontsource/cinzel
+  File: cinzel-latin-600-normal.woff2 (woff2 is fine for Cinzel)
+  Converted via fontTools to cinzel-600.ttf
+
+Cormorant Garamond 600 Italic (back cover author name):
+  Source: npm install @fontsource/cormorant-garamond
+  File: cormorant-garamond-latin-600-italic.woff2
+  Converted via fontTools to cormorant-garamond-600italic.ttf
+
+Liberation Serif Regular (back cover bio body text):
+  System font, already present:
+  /usr/share/fonts/truetype/liberation/LiberationSerif-Regular.ttf
+
+════════════════════════════════════════════════════════════════════════════
+
+SECTION 3 — FRONT COVER (v2 — APPROVED)
+
+STEP 1 — Background
+  Load source_ridge_1000065906.jpg, EXIF-correct.
+  Scale to canvas width 1725px → resized height becomes 3064px.
+  Crop to final canvas height 2625px:
+    excess = 3064 - 2625 = 439px
+    crop_top = int(439 * 0.15) = 65px (small trim off top)
+    crop box: (0, 65, 1725, 65+2625)
+  Save as front_bg.jpg, quality=95.
+
+STEP 2 — Bottom darkening overlay (legibility for text)
+  Vertical gradient starting at y = int(2625 * 0.60) = 1575
+  For each y from 1575 to 2625:
+    t = (y - 1575) / (2625 - 1575)
+    alpha = int(150 * (t ** 1.3))
+    fill (5,5,8,alpha) across full width
+  Composite (alpha_composite) onto background.
+
+STEP 3 — Title text block
+  Three elements, all left-aligned at x = MARGIN + 20 = 132px,
+  stacked bottom-up, anchored above bottom margin.
+
+  GODDESS OF TERRA (anchor — sets the target width for the other two lines):
+    Font: Cinzel 600, pt=64
+    Render as spaced caps, letter_spacing=10px (manual per-character spacing,
+    not font tracking — render each char, advance by char_width + spacing)
+    Color: SAGE (150, 185, 140, 255)
+    Ink size at this spec: 814 x 48px  ← TARGET_WIDTH = 814px
+
+  Gaia (gold script):
+    Font: Parisienne, pt=340 (base render)
+    Render ink, then SCALE UP via LANCZOS so width = TARGET_WIDTH (814px)
+      scale factor = 814 / raw_ink_width (raw was 635px → scale ≈1.282)
+    Apply metallic gold gradient (see SECTION 5 — gradient function)
+      GOLD_BASE=(210,160,50), GOLD_HI=(255,235,150)
+    Final size: ~813 x 410px
+
+  JOURNAL 2027 (white caps):
+    Font: Cinzel 600, pt=78
+    Render as spaced caps, letter_spacing=14px
+    Color: WHITE (245,245,242,255) — flat, no gradient
+    Render ink (raw ≈740px wide), then scale via LANCZOS to TARGET_WIDTH (814px)
+      scale factor ≈1.10
+    Final size: ~814 x 80px
+
+  LAYOUT (bottom-up):
+    bottom_y = 2625 - 112 - 40 = 2473  (baseline anchor)
+    sub_y (GODDESS OF TERRA top)  = bottom_y - sub_height(48)        = 2425
+    gap2 = 30px
+    journal_y (top) = sub_y - gap2 - journal_scaled_height(80)       ≈ 2315
+    gap1 = 55px
+    gaia_y (top) = journal_y - gap1 - gaia_scaled_height(410)        ≈ 1850
+
+  Paste order: Gaia, then JOURNAL 2027, then GODDESS OF TERRA, each at
+  x = 132 (Gaia/Journal nudged +4px for optical alignment: x=136).
+
+STEP 4 — Export
+  Flatten to RGB, save as JPEG quality=95 for archive.
+  Web/print-ready export: re-save at required DPI/format when uploading to Blurb.
+
+════════════════════════════════════════════════════════════════════════════
+
+SECTION 4 — BACK COVER (v4 — APPROVED)
+
+STEP 1 — Photo zone
+  Load source_portrait_1000053190.jpg, EXIF-correct.
+  Scale to canvas width 1725px → resized height becomes 2273px.
+  Photo zone height = int(2625 * 0.56) = 1470px
+  Crop top offset = int((2273 - 1470) * 0.35) ≈ 281px
+  Crop box: (0, 281, 1725, 281+1470)
+  This crop is biased to keep the hat brim, eyes/glasses, and beard balanced
+  in frame (centers slightly above the geometric middle of the resized image).
+  Save as back_photo.jpg, quality=95.
+
+STEP 2 — Dark panel base
+  Canvas background color: (13, 10, 7) — near-black warm tone, matches the
+  brand's existing dark palette (#0d0a07 from GAIA_JOURNAL_CHARTER §4… though
+  note JOURNAL_CHARTER's old detailed brand-system section used HEX; this
+  build used the RGB equivalent directly).
+  Paste photo at (0,0). Panel begins at panel_top = photo.height = 1470.
+
+STEP 3 — Name (Michael Sawyer)
+  Font: Cormorant Garamond 600 Italic, pt=195 (upsized from initial pt=150
+  per Michael's request in this session)
+  Render ink (no caps, sentence case "Michael Sawyer")
+  Apply metallic gold gradient: GOLD_BASE=(210,160,50), GOLD_HI=(255,235,150)
+  Final ink size: 1117 x 197px
+  Position: horizontally centered, name_y = panel_top + 70 = 1540
+
+STEP 4 — Bio paragraph (justified, upsized)
+  Font: Liberation Serif Regular, pt=44 (upsized from initial pt=36)
+  Color: CREAM (225, 218, 200)
+  Max width: CANVAS_W - 2*MARGIN - 40 = 1725 - 224 - 40 = 1461px
+  Text:
+    "Michael Sawyer is a philosopher, author, painter and photographer based
+    in the Alberta badlands, where the land itself shapes his work on
+    consciousness and divine feminine energy in the sacred everyday.
+    Shamanic photography and writing trace a single thread — seeing the
+    numinous hiding in plain sight, in rock and river and the turning of
+    seasons."
+  NOTE: this bio text was reconstructed from a partial mockup screenshot —
+  Michael has not explicitly confirmed this exact final wording. Re-confirm
+  before treating as permanently locked.
+
+  Wrap algorithm: greedy word-wrap to max_width using textlength() per line.
+  Justification: for every line EXCEPT the last line (and except any
+  single-word line), distribute extra space evenly between words so the
+  line spans exactly max_width:
+    natural_width = sum(word_widths) + space_width * (num_gaps)
+    extra = max_width - natural_width
+    extra_per_gap = extra / num_gaps
+    draw each word, advancing by (word_width + space_width + extra_per_gap)
+  Last line: render at natural width, horizontally centered (not stretched).
+  Block x-origin for justified lines: MARGIN + 20 = 132px
+  Line height: 60px
+  bio_top = name_y + name_height(197) + 65 ≈ 1802
+
+STEP 5 — Bottom row: barcode (left) / QR (center) / Gaiaridge script (right)
+  All three bottom-aligned on a shared row:
+    row_bottom = CANVAS_H - MARGIN - 30 = 2625 - 112 - 30 = 2483
+
+  BARCODE (placeholder — NOT a real scannable ISBN, see note below):
+    Generated via python-barcode, EAN-13, dummy digits "000000000000"
+    Rendered at module_height=8.0, module_width=0.25, font_size=8
+    Scaled to target height 150px, then placed on a white panel:
+      padding = 18px each side
+      panel = white_panel (250,248,244), size = (barcode_w+36, 150+36)
+    Panel position: x = MARGIN + 20 = 132, y = row_bottom - panel_height
+    ACTION NEEDED: replace with a real ISBN/barcode image once Michael has
+    one (from Bowker or via Blurb's print/distribute service). Swap the
+    PNG, keep the same panel position and white backing (barcodes must sit
+    on a light background to remain scannable).
+
+  QR CODE:
+    Asset: qr-team-gaia-site.png (archived in this package and at GitHub
+    assets/qr-team-gaia-site.png) — decodes to team-gaia-site.pages.dev
+    Resized to 220 x 220px
+    Position: horizontally centered, x = (1725-220)//2 = 752
+    y = row_bottom - 220 = 2263
+    NOTE: gaiaridge.com is a dead domain (unresolved at Namecheap, abandoned
+    per Michael's decision). Do NOT regenerate a QR pointing there. Always
+    use the team-gaia-site.pages.dev QR asset above.
+
+  GAIARIDGE (script, right):
+    Font: Parisienne, pt=110
+    Render ink, apply same metallic gold gradient as Gaia/name elements
+    Final size: 396 x 127px
+    Position: right-aligned, x = CANVAS_W - MARGIN - 20 - width = 1197
+    y = row_bottom - height - 20 = 2336 (sits slightly higher than QR/barcode
+    baseline — visually balanced rather than pixel-bottom-aligned, because
+    script descenders read differently than the QR/barcode hard edges)
+
+STEP 6 — Explicitly removed (per Michael's instructions, do not re-add
+  unless asked):
+    - "scan for more" instruction text
+    - any "gaiaridge.com" text label
+    - spine panel (book is too thin for a spine at this page count)
+
+STEP 7 — Export
+  Flatten to RGB, save as JPEG quality=95.
+
+════════════════════════════════════════════════════════════════════════════
+
+SECTION 5 — METALLIC GOLD GRADIENT FUNCTION (shared by all gold elements)
+
+5-stop vertical gradient applied to the alpha mask of rendered text ink.
+GOLD_BASE = (210, 160, 50)
+GOLD_HI   = (255, 235, 150)
+dark_mult = 0.48   (dark = GOLD_BASE * 0.48)
+deep_mult = 0.35   (deep = GOLD_BASE * 0.35)
+
+For each row y in the ink image (t = y / height, 0.0 top → 1.0 bottom):
+  t < 0.18:  lerp(dark, base, t/0.18)
+  t < 0.42:  lerp(base, hi, (t-0.18)/0.24)
+  t < 0.54:  flat hi (highlight plateau)
+  t < 0.72:  lerp(hi, base, (t-0.54)/0.18)
+  else:      lerp(base, deep, (t-0.72)/0.28)
+
+Apply this RGB gradient as a solid color image, then use the original
+ink's alpha channel as the mask (paste with itself as mask) so only the
+glyph shapes receive the gradient — background stays transparent.
+
+This is the same gradient system used in COVER_PRODUCTION_STANDARD_v3 §3C,
+applied here to: front cover "Gaia", back cover "Michael Sawyer" name,
+back cover "Gaiaridge" script.
+
+════════════════════════════════════════════════════════════════════════════
+
+SECTION 6 — OPEN ITEMS / FOLLOW-UP
+
+1. Bio paragraph wording on back cover is a reconstruction from a partial
+   screenshot — get Michael's explicit confirmation on final wording.
+2. Barcode is a non-functional placeholder (dummy EAN-13 digits). Needs a
+   real ISBN before print. Check whether Blurb assigns one automatically
+   for their print/distribute service, or whether Michael needs to acquire
+   one separately (e.g. Bowker, ~$125 USD for a single ISBN in Canada/US).
+3. These are RGB builds. Blurb requires CMYK at 300dpi for print — convert
+   at final upload stage, not before (color shifts are easier to manage
+   once, at the end, against Blurb's actual color profile).
+4. No spine was built — confirm this is fine with Blurb's binding option
+   for a ~15-page journal (some platforms still want a nominal spine file
+   even for thin perfect-bound books; check Blurb's cover template tool
+   when ready to upload).
+
+════════════════════════════════════════════════════════════════════════════
+
+SECTION 7 — FILES IN THIS PACKAGE
+
+  gaia_journal_2027_cover_FRONT_v2.jpg   — approved front cover, 1725x2625
+  gaia_journal_2027_cover_BACK_v4.jpg    — approved back cover, 1725x2625
+  source_ridge_1000065906.jpg            — EXIF-corrected front source photo
+  source_portrait_1000053190.jpg         — EXIF-corrected back source photo
+  qr-team-gaia-site.png                  — QR asset used on back cover
+  GAIA_JOURNAL_2027_COVER_BUILD_SPEC.txt — this file
