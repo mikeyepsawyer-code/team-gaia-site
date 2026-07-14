@@ -14,10 +14,11 @@ jobs:
       CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
     steps:
       - uses: actions/checkout@v4
-      - name: Build site directory
+      - name: Build site directory (exclude repo internals and oversized files)
         run: |
           mkdir -p /tmp/site
           rsync -a --exclude='.git' --exclude='.github' --exclude='hook-response.txt' --exclude='deploy-log.txt' . /tmp/site/
+          find /tmp/site -type f -size +24M -print -delete
       - name: Direct upload via wrangler
         run: |
           npx wrangler@3 pages deploy /tmp/site --project-name=team-gaia-site --branch=main --commit-dirty=true > deploy-log.txt 2>&1 || true
