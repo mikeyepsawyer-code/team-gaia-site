@@ -1,0 +1,10 @@
+name: Deploy to Cloudflare Pages
+on:
+  push:
+    branches: [main]
+jobs:
+  trigger-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fire Cloudflare deploy hook
+        run: curl -s -X POST "${{ secrets.DEPLOY_HOOK_URL }}"
