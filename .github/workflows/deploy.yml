@@ -7,4 +7,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Fire Cloudflare deploy hook
-        run: curl -s -X POST "${{ secrets.DEPLOY_HOOK_URL }}"
+        run: |
+          echo "HTTP response:"
+          curl -s -w "\nstatus: %{http_code}\n" -X POST "${{ secrets.DEPLOY_HOOK_URL }}"
