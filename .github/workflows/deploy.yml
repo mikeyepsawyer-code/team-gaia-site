@@ -2,20 +2,18 @@ name: Deploy to Cloudflare Pages
 on:
   push:
     branches: [main]
-permissions:
-  contents: write
+  workflow_dispatch:
 jobs:
-  trigger-deploy:
+  deploy:
     if: "!contains(github.event.head_commit.message, '[skip ci]')"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Fire Cloudflare deploy hook and record response
-        run: |
-          curl -s -w "\nstatus: %{http_code}\n" -X POST "${{ secrets.DEPLOY_HOOK_URL }}" > hook-response.txt
-          cat hook-response.txt
-          git config user.name "deploy-bot"
-          git config user.email "deploy-bot@users.noreply.github.com"
-          git add hook-response.txt
-          git commit -m "Record deploy hook response [skip ci]" || true
-          git push
+      - name: Remove non-site files from upload
+        run: rm -rf .github hook-response.txt
+      - name: Direct upload to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy . --project-name=team-gaia-site --branch=main --commit-dirty=true
