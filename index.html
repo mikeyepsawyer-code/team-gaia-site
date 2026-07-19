@@ -45,6 +45,11 @@
   .subtitle { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(1.9rem, 2.5vw, 2.2rem); color: var(--gold-pale); opacity: 0.85; letter-spacing: 0.05em; }
   .section { max-width: 720px; margin: 0 auto; padding: 56px 24px; text-align: center; }
   .divider { width: 160px; height: 3px; background: linear-gradient(to right, transparent, var(--gold), transparent); opacity: 0.75; margin: 52px auto; }
+  .rule-flourish { display: flex; align-items: center; justify-content: center; gap: 14px; width: 400px; max-width: 62%; margin: 0 auto 30px; }
+  .rule-flourish::before, .rule-flourish::after { content: ""; flex: 1; height: 3px; }
+  .rule-flourish::before { background: linear-gradient(to right, transparent, rgba(212,178,84,0.9)); }
+  .rule-flourish::after { background: linear-gradient(to left, transparent, rgba(212,178,84,0.9)); }
+  .rule-flourish span { width: 9px; height: 9px; flex: 0 0 auto; transform: rotate(45deg); background: linear-gradient(135deg,#fff1a0,#c9a84c); box-shadow: 0 0 7px rgba(255,215,94,0.55); }
   .opening-quote { font-size: clamp(1.9rem, 3.6vw, 2.4rem); font-style: italic; color: var(--gold-pale); line-height: 1.95; opacity: 0.92; }
   .gaia-heading { font-family: 'Cinzel', serif; font-size: clamp(5rem, 18vw, 11rem); font-weight: 400; letter-spacing: 0.08em; font-weight: 700; line-height: 1.05; margin-bottom: 10px; background: linear-gradient(135deg,#7a5500 0%,#a07010 15%,#d4a830 32%,#fff0a0 48%,#ffd700 58%,#d4a830 70%,#a07010 85%,#7a5500 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; filter: drop-shadow(0 2px 4px rgba(0,0,0,1.0)) drop-shadow(0 8px 32px rgba(0,0,0,0.9)); }
   .gaia-subheading { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(1.9rem, 4.2vw, 2.6rem); color: var(--gold-pale); opacity: 0.72; letter-spacing: 0.14em; }
@@ -294,11 +299,11 @@
     <p style="font-family:'Cinzel',serif;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:-10px;line-height:1.1;background:linear-gradient(180deg,#fff1a0 0%,#f0c22e 44%,#a3720f 58%,#ffd75e 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:#c9a84c;"><span style="font-size:5.6rem;">Adult</span><br><span style="font-size:5.83rem;">Titles</span></p>
     <p style="font-family:'Cinzel',serif;font-weight:700;font-size:6.1rem;letter-spacing:0.08em;opacity:0.92;margin-bottom:18px;background:linear-gradient(180deg,#fff1a0 0%,#f0c22e 44%,#a3720f 58%,#ffd75e 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:#c9a84c;position:relative;left:0.125em;"><span style="position:relative;left:0.03em;top:-0.17em;font-size:1.04em;">18</span><span style="position:relative;left:0.02em;top:-0.40em;">+</span></p>
     <p style="font-family:'Cormorant Garamond',Georgia,serif;font-size:2.3rem;line-height:1.5;color:rgba(200,190,172,0.9);letter-spacing:0.03em;max-width:640px;margin:0 auto 26px;">For adults 18+ (or the age of majority where you live).</p>
-    <div style="width:352px;max-width:55%;height:3px;background:rgba(201,168,76,0.75);margin:0 auto 30px;"></div>
+    <div class="rule-flourish"><span></span></div>
     <p style="font-family:'Cormorant Garamond',Georgia,serif;line-height:1.55;letter-spacing:0.03em;max-width:640px;text-align:justify;font-size:2.0rem;color:rgba(201,168,76,0.95);margin:0 auto 22px;">These books are sex-positive and instructional by design. I don&rsquo;t intend them to be pornographic, however they may contain explicit or erotic passages.</p>
     <p style="font-family:'Cormorant Garamond',Georgia,serif;line-height:1.55;letter-spacing:0.03em;max-width:640px;text-align:justify;font-size:2.15rem;color:rgba(216,206,188,0.95);margin:0 auto 22px;">Their purpose is to explore the depths of empathy, pleasure and ecstasy. Especially the potential for female transfiguration through the Fountain of Youth.</p>
     <p style="font-family:'Cormorant Garamond',Georgia,serif;line-height:1.55;letter-spacing:0.03em;max-width:640px;text-align:justify;font-size:2.0rem;color:rgba(201,168,76,0.95);margin:0 auto 38px;">I created a lexicon of terms so that we can talk about the stages of multigasm &mdash; an adventure that can be taken as recreational or as psychotherapeutic.</p>
-    <div style="width:352px;max-width:55%;height:3px;background:rgba(201,168,76,0.75);margin:0 auto 30px;"></div>
+    <div class="rule-flourish"><span></span></div>
     <p style="font-family:'Cormorant Garamond',Georgia,serif;font-size:2.5rem;line-height:1.5;font-style:italic;letter-spacing:0.04em;background:linear-gradient(180deg,#fff1a0 0%,#f0c22e 44%,#a3720f 58%,#ffd75e 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:#c9a84c;">Ecstasy is not hedonism;<br>nor is it the enemy of wisdom.<br>True pleasure is nature&rsquo;s<br>oldest language and catharsis.</p>
   </div>
 
