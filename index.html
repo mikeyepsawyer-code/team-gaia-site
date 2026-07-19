@@ -84,7 +84,9 @@
   .short-thumb::after { content: '▶'; position: absolute; font-size: 1.6rem; color: rgba(201,168,76,0.6); pointer-events: none; z-index: 0; }
   .short-views { font-family: 'Cinzel', serif; font-size: 1.15rem; letter-spacing: 0.15em; color: var(--gold); opacity: 1; text-transform: uppercase; margin-bottom: 6px; }
   .short-title { font-family: 'Cinzel', serif; font-size: 1.1rem; letter-spacing: 0.12em; color: var(--gold-light); text-align: center; text-transform: uppercase; line-height: 1.5; max-width: 180px; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
-  .view-all-link { font-family: 'Cinzel', serif; font-size: 1.4rem; font-weight: 600; letter-spacing: 0.22em; color: var(--gold); opacity: 0.7; text-decoration: none; text-transform: uppercase; border-bottom: 1px solid rgba(201,168,76,0.3); padding-bottom: 3px; display: inline-block; margin-top: 40px; }
+  .view-all-link { display:inline-block; font-family:'Cinzel',serif; font-weight:700; font-size:1.05rem; letter-spacing:0.14em; text-transform:uppercase; text-decoration:none; color:#141008; background:linear-gradient(180deg,#f5d97a 0%,#d4a830 55%,#b8860b 100%); padding:16px 34px; border-radius:8px; border:1px solid rgba(255,240,160,0.9); box-shadow:0 4px 16px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,250,210,0.8); transition:transform 0.15s ease, box-shadow 0.15s ease; }
+  .view-all-link:active { transform:scale(0.97); }
+  .view-all-link:hover { box-shadow:0 6px 22px rgba(212,168,48,0.35), inset 0 1px 0 rgba(255,250,210,0.8); }
   footer { text-align: center; padding: 48px 40px; border-top: 1px solid rgba(201,168,76,0.12); }
   .footer-name { font-family: 'Cinzel', serif; font-size: 1.4rem; letter-spacing: 0.25em; color: var(--gold); opacity: 0.5; text-transform: uppercase; }
   @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
@@ -138,9 +140,7 @@
       <p class="short-views" style="grid-column:1/-1;text-align:center;opacity:0.45;letter-spacing:0.18em;font-family:'Cinzel',serif;font-size:0.65rem;">Loading…</p>
     </div>
     <div style="text-align:center;">
-      <a class="view-all-link" href="https://www.youtube.com/@michaelsawyer627/shorts" target="_blank" rel="noopener">
-        All YouTube Shorts
-      </a>
+      <a class="view-all-link" href="https://www.youtube.com/@michaelsawyer627/shorts" target="_blank" rel="noopener"><span style="display:inline-block;margin-right:12px;position:relative;top:1px;">&#9654;</span>Gaia YouTube Shorts</a>
     </div>
   </div>
 
