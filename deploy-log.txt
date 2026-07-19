@@ -9,4 +9,4 @@ Uploading... (115/115)
 ✨ Uploading _headers
 ✨ Uploading Functions bundle
 🌎 Deploying...
-✨ Deployment complete! Take a peek over at https://2c127952.team-gaia-site.pages.dev
+✨ Deployment complete! Take a peek over at https://d086be35.team-gaia-site.pages.dev
