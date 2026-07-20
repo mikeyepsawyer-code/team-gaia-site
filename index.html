@@ -58,6 +58,33 @@
   .link-card:hover { transform: translateY(-4px); opacity: 0.92; }
   .link-card-img { width: 100%; aspect-ratio: 2 / 3; border: 1px solid rgba(201,168,76,0.25); border-radius: 4px; overflow: hidden; background: #1a130c; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
   .link-card-img img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+  /* HARDCOVER BOOK TREATMENT — 45-degree oblique, depth 10px (approved July 20) */
+  .hardcover { position: relative; margin-top: 17px; margin-left: 12px; width: calc(100% - 12px); }
+  .hardcover .link-card-img { position: relative; z-index: 2; top: -7px; left: -2px; width: calc(100% + 4px);
+    border-top: 3px solid var(--spine,#3a2d14);
+    border-left: 1px solid rgba(201,168,76,0.4);
+    border-right: 1px solid rgba(201,168,76,0.2);
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+    border-radius: 0 4px 4px 4px;
+    box-shadow: 0 -1px 0 rgba(201,168,76,0.55), 2px 5px 12px rgba(0,0,0,0.45);
+    margin-bottom: 13px; }
+  .hardcover::before { content:''; position:absolute; top:-17px; height:10px; left:-2px; right:-4px; z-index:1;
+    transform: skewX(45deg); transform-origin: bottom left;
+    border-radius: 2px 4px 2px 2px;
+    background:
+      linear-gradient(180deg, rgba(201,168,76,0.7) 0 1px, var(--spine2,#241b10) 1px 3.5px, rgba(240,231,205,0) 3.5px),
+      linear-gradient(0deg, rgba(50,38,16,0.45) 0, rgba(50,38,16,0) 65%),
+      linear-gradient(0deg, transparent 0 2px, rgba(175,160,120,0.5) 2px 2.6px, transparent 2.6px 4.5px, rgba(175,160,120,0.4) 4.5px 5.1px, transparent 5.1px),
+      linear-gradient(#ece3c8,#ece3c8);
+    background-size: 100% 100%, calc(100% - 7px) 100%, calc(100% - 7px) 100%, calc(100% - 7px) 100%;
+    background-position: left top; background-repeat: no-repeat; }
+  .hardcover::after { content:''; position:absolute; left:-12px; width:10px; top:-12px; bottom:12px;
+    border-radius: 2px 3px 3px 0 / 2px 2px 2px 0;
+    transform: rotate(180deg) skewY(45deg); transform-origin: center;
+    background:
+      linear-gradient(0deg, rgba(201,168,76,0.7) 0 1px, color-mix(in srgb, var(--spine,#3a2d14) 72%, #cdbd8e) 1px 3px, transparent 3px),
+      linear-gradient(90deg, rgba(20,14,6,0.9) 0 1.5px, var(--spine,#3a2d14) 1.5px 3px, color-mix(in srgb, var(--spine,#3a2d14) 78%, #fff8e0) 4.5px 6.5px, var(--spine,#3a2d14) 7px 9px, rgba(201,168,76,0.45) 9px 10px);
+    box-shadow: -4px 8px 18px rgba(0,0,0,0.55); }
   .placeholder-label { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.18em; color: var(--gold); opacity: 0.5; text-align: center; padding: 24px; line-height: 2; text-transform: uppercase; }
   .link-caption-main { font-family: 'Cinzel', serif; font-size: 1rem; letter-spacing: 0.18em; color: var(--gold-light); text-align: center; margin-bottom: 8px; text-transform: uppercase; }
   .link-caption-sub { font-size: 1.1rem; font-style: italic; color: var(--warm-white); opacity: 0.7; text-align: center; line-height: 1.6; max-width: 240px; }
@@ -207,80 +234,80 @@
       </p>
       <!-- The Art of Amōre — Preview -->
       <a class="link-card" href="/ovid-preview.html" target="_blank" rel="noopener">
-        <div class="link-card-img sash-wrap" style="background:#2a0a0a;border-color:rgba(180,100,60,0.4) !important;overflow:hidden;position:relative;">
+        <div class="hardcover" style="--spine:#625c5f;--spine2:#2c292a"><div class="link-card-img sash-wrap" style="background:#2a0a0a;overflow:hidden;position:relative;">
           <div class="sash">Preview</div>
           <img src="/images/cover-art-amore-v9.jpeg" alt="The Art of Amōre" style="width:100%;height:100%;object-fit:cover;object-position:center 10%;">
-        </div>
+        </div></div>
       </a>
 
       <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.9rem,6.5vw,3.2rem);font-style:italic;color:var(--gold-bright);opacity:0.88;text-align:center;letter-spacing:0.06em;line-height:1.55;margin-top:22px;margin-bottom:2px;padding:0 8px;">What is love?</p>
       <!-- Oceans of Love — Preview -->
       <a class="link-card" href="/oceans-of-love-preview.html" target="_blank" rel="noopener">
-        <div class="link-card-img sash-wrap" style="background:linear-gradient(160deg,#060e1a 0%,#0d1f35 50%,#060e1a 100%);border-color:rgba(26,58,92,0.45) !important;position:relative;overflow:hidden;">
+        <div class="hardcover" style="--spine:#354a66;--spine2:#17212d"><div class="link-card-img sash-wrap" style="background:linear-gradient(160deg,#060e1a 0%,#0d1f35 50%,#060e1a 100%);position:relative;overflow:hidden;">
           <div class="sash">Preview</div>
           <img src="/images/cover-oceans-of-love.jpeg" alt="Oceans of Love" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
-        </div>
+        </div></div>
       </a>
 
       <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.9rem,6.5vw,3.2rem);font-style:italic;color:var(--gold-bright);opacity:0.88;text-align:center;letter-spacing:0.06em;line-height:1.55;margin-top:22px;margin-bottom:2px;padding:0 8px;">Don&rsquo;t wait for a reason.</p>
       <!-- Unjustified Happiness — Preview -->
       <a class="link-card" href="/unjustified-happiness-preview.html" target="_blank" rel="noopener">
-        <div class="link-card-img sash-wrap" style="background:#0a0c18;border-color:rgba(180,155,80,0.3) !important;overflow:hidden;position:relative;">
+        <div class="hardcover" style="--spine:#3e668f;--spine2:#1b2d40"><div class="link-card-img sash-wrap" style="background:#0a0c18;overflow:hidden;position:relative;">
           <div class="sash">Preview</div>
           <img src="/images/cover-unjustified-happiness-v3.jpeg" alt="Unjustified Happiness" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
-        </div>
+        </div></div>
       </a>
 
       <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.9rem,6.5vw,3.2rem);font-style:italic;color:var(--gold-bright);opacity:0.88;text-align:center;letter-spacing:0.06em;line-height:1.55;margin-top:22px;margin-bottom:2px;padding:0 8px;">Thriving as an empath.</p>
       <!-- Radiant Sensitivity — Preview -->
       <a class="link-card" href="/radiant-sensitivity-preview.html" target="_blank" rel="noopener">
-        <div class="link-card-img sash-wrap" style="background:#080a0d;border-color:rgba(100,140,180,0.25) !important;overflow:hidden;position:relative;">
+        <div class="hardcover" style="--spine:#26293e;--spine2:#11121b"><div class="link-card-img sash-wrap" style="background:#080a0d;overflow:hidden;position:relative;">
           <div class="sash">Preview</div>
           <img src="/images/cover-radiant-sensitivity-v7.jpeg" alt="Radiant Sensitivity" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
-        </div>
+        </div></div>
       </a>
 
       <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.9rem,6.5vw,3.2rem);font-style:italic;color:var(--gold-bright);opacity:0.88;text-align:center;letter-spacing:0.06em;line-height:1.55;margin-top:22px;margin-bottom:2px;padding:0 8px;">The Geometry of Chi.</p>
       <!-- Cultivating Spiritual Energy — Preview -->
       <a class="link-card" href="/cultivating-chi-preview.html" target="_blank" rel="noopener">
-        <div class="link-card-img sash-wrap" style="background:#05080a;border-color:rgba(80,180,80,0.25) !important;overflow:hidden;position:relative;">
+        <div class="hardcover" style="--spine:#111a1f;--spine2:#070b0d"><div class="link-card-img sash-wrap" style="background:#05080a;overflow:hidden;position:relative;">
           <div class="sash">Preview</div>
           <img src="/images/cover-cse-v2.jpeg" alt="Cultivating Spiritual Energy" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
-        </div>
+        </div></div>
       </a>
 
       <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.9rem,6.5vw,3.2rem);font-style:italic;color:var(--gold-bright);opacity:0.88;text-align:center;letter-spacing:0.06em;line-height:1.55;margin-top:22px;margin-bottom:2px;padding:0 8px;">The field is as divine as the source.</p>
       <!-- Restoring the Divine Feminine — Preview -->
       <a class="link-card" href="/restoring-divine-feminine-preview.html" target="_blank" rel="noopener">
-        <div class="link-card-img sash-wrap" style="background:#0c0b18;border-color:rgba(200,160,60,0.3) !important;overflow:hidden;position:relative;">
+        <div class="hardcover" style="--spine:#2a2e56;--spine2:#14172c"><div class="link-card-img sash-wrap" style="background:#0c0b18;overflow:hidden;position:relative;">
           <div class="sash">Preview</div>
           <img src="/images/cover-restoring-divine-feminine-v3.jpeg" alt="Restoring the Divine Feminine" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
-        </div>
+        </div></div>
       </a>
 
       <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.9rem,6.5vw,3.2rem);font-style:italic;color:var(--gold-bright);opacity:0.88;text-align:center;letter-spacing:0.06em;line-height:1.55;margin-top:22px;margin-bottom:2px;padding:0 8px;">Meeting the goddess.</p>
       <!-- Enchanté Nike — Preview -->
       <a class="link-card" href="/enchante-nike-preview.html" target="_blank" rel="noopener">
-        <div class="link-card-img" style="background:#08060a;overflow:hidden;position:relative;">
+        <div class="hardcover" style="--spine:#655d53;--spine2:#2d2925"><div class="link-card-img" style="background:#08060a;overflow:hidden;position:relative;">
           <img src="/images/nike-corridor-louvre-card.jpeg" alt="Enchanté Nike" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
-        </div>
+        </div></div>
       </a>
 
       <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.9rem,6.5vw,3.2rem);font-style:italic;color:var(--gold-bright);opacity:0.88;text-align:center;letter-spacing:0.06em;line-height:1.55;margin-top:22px;margin-bottom:2px;padding:0 8px;">A shamanic worldview.</p>
       <!-- Shamanic Photography — Preview -->
       <a class="link-card" href="/shamanic-photography-preview.html" target="_blank" rel="noopener">
-        <div class="link-card-img" style="background:#080a08;overflow:hidden;position:relative;">
+        <div class="hardcover" style="--spine:#54534a;--spine2:#252521"><div class="link-card-img" style="background:#080a08;overflow:hidden;position:relative;">
           <img src="/images/cover-shamanic-photography-v1.jpeg" alt="Shamanic Photography" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
-        </div>
+        </div></div>
       </a>
 
       <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.9rem,6.5vw,3.2rem);font-style:italic;color:var(--gold-bright);opacity:0.88;text-align:center;letter-spacing:0.06em;line-height:1.55;margin-top:22px;margin-bottom:2px;padding:0 8px;">Healing pottery.</p>
       <!-- the psychological art of Kintsugi — Preview -->
       <a class="link-card" href="/kintsugi-preview.html" target="_blank" rel="noopener">
-        <div class="link-card-img sash-wrap" style="background:#08090c;border-color:rgba(196,146,42,0.3) !important;overflow:hidden;position:relative;">
+        <div class="hardcover" style="--spine:#505258;--spine2:#242427"><div class="link-card-img sash-wrap" style="background:#08090c;overflow:hidden;position:relative;">
           <div class="sash">Preview</div>
           <img src="/images/cover-kintsugi-v1.jpeg" alt="The Psychological Art of Kintsugi" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
-        </div>
+        </div></div>
       </a>
 
     </div>
@@ -323,35 +350,35 @@
       <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.9rem,6.5vw,3.2rem);font-style:italic;color:var(--gold-bright);opacity:0.88;text-align:center;letter-spacing:0.06em;line-height:1.55;margin-top:22px;margin-bottom:2px;padding:0 8px;">Exceptional pleasure.</p>
       <!-- 100 Orgasms an Hour — Preview -->
       <a class="link-card" href="/100-orgasms-preview.html" target="_blank" rel="noopener">
-        <div class="link-card-img sash-wrap" style="background:#1a0e08;overflow:hidden;">
+        <div class="hardcover" style="--spine:#6e4c33;--spine2:#312216"><div class="link-card-img sash-wrap" style="background:#1a0e08;overflow:hidden;">
           <div class="sash" style="width:210px;right:-47px;line-height:1.6;">Free Preview<br>Full Book on Amazon</div>
           <img src="/images/cover-100-orgasms.jpeg" alt="100 Orgasms an Hour" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
-        </div>
+        </div></div>
       </a>
 
       <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.9rem,6.5vw,3.2rem);font-style:italic;color:var(--gold-bright);opacity:0.88;text-align:center;letter-spacing:0.06em;line-height:1.55;margin-top:22px;margin-bottom:2px;padding:0 8px;">Deeper techniques.</p>
       <!-- Slow the Fuck Down — Preview -->
       <a class="link-card" href="/slow-the-fuck-down-preview.html" target="_blank" rel="noopener">
-        <div class="link-card-img sash-wrap" style="background:#1a0808;overflow:hidden;">
+        <div class="hardcover" style="--spine:#77583e;--spine2:#35271b"><div class="link-card-img sash-wrap" style="background:#1a0808;overflow:hidden;">
           <img src="/images/cover-slow-the-fuck-down.jpeg" alt="Slow the Fuck Down" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
-        </div>
+        </div></div>
       </a>
 
       <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.9rem,6.5vw,3.2rem);font-style:italic;color:var(--gold-bright);opacity:0.88;text-align:center;letter-spacing:0.06em;line-height:1.55;margin-top:22px;margin-bottom:2px;padding:0 8px;">Sex as psychotherapy.</p>
       <!-- Fountain of Youth — Preview -->
       <a class="link-card" href="/fountain-preview.html" target="_blank" rel="noopener">
-        <div class="link-card-img sash-wrap" style="background:#0a1a10;border-color:rgba(80,160,100,0.3) !important;overflow:hidden;position:relative;">
+        <div class="hardcover" style="--spine:#576164;--spine2:#272b2d"><div class="link-card-img sash-wrap" style="background:#0a1a10;overflow:hidden;position:relative;">
           <div class="sash">Preview</div>
           <img src="/images/cover-fountain-of-youth-v4.jpeg" alt="Fountain of Youth" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
-        </div>
+        </div></div>
       </a>
 
       <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.9rem,6.5vw,3.2rem);font-style:italic;color:var(--gold-bright);opacity:0.88;text-align:center;letter-spacing:0.06em;line-height:1.55;margin-top:22px;margin-bottom:2px;padding:0 8px;">Intense sensations.</p>
       <!-- Spank Me Tender — Preview -->
       <a class="link-card" href="/spank-me-tender-preview.html" target="_blank" rel="noopener">
-        <div class="link-card-img sash-wrap" style="background:#1a0808;overflow:hidden;">
+        <div class="hardcover" style="--spine:#725b3e;--spine2:#33281b"><div class="link-card-img sash-wrap" style="background:#1a0808;overflow:hidden;">
           <img src="/images/cover-spank-me-tender.jpeg" alt="Spank Me Tender" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
-        </div>
+        </div></div>
       </a>
 
     </div>
