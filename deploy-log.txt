@@ -2,11 +2,18 @@ npm warn exec The following package was not found and will be installed: wrangle
 npm warn deprecated rollup-plugin-inject@3.0.2: This package has been deprecated and is no longer maintained. Please use @rollup/plugin-inject.
 npm warn deprecated sourcemap-codec@1.4.8: Please use @jridgewell/sourcemap-codec instead
 ✨ Compiled Worker successfully
-Uploading... (118/119)
-Uploading... (119/119)
-✨ Success! Uploaded 1 files (118 already uploaded) (0.78 sec)
+Uploading... (118/120)
+Uploading... (119/120)
+Uploading... (120/120)
+✨ Success! Uploaded 2 files (118 already uploaded) (1.57 sec)
 
 ✨ Uploading _headers
 ✨ Uploading Functions bundle
 🌎 Deploying...
-✨ Deployment complete! Take a peek over at https://8282f7af.team-gaia-site.pages.dev
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mDeployment failed![0m
+
+  Failed to publish your Function. Got error: Unknown internal error occurred.
+
+
+🪵  Logs were written to "/home/runner/.config/.wrangler/logs/wrangler-2026-07-20_14-32-41_688.log"
