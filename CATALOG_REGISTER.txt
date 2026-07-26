@@ -1,0 +1,46 @@
+CATALOG REGISTER — fast-lookup index
+Last updated: July 26, 2026 (session: charter v5.3 consolidation)
+Format per line: TITLE | STATUS | DRIVE_FOLDER_ID | COVER_VERSION | CARD_PATH | PREVIEW_URL
+
+Do not treat this file as narrative. It is a lookup table only. Full status
+detail, decisions, and history live in charter/vX.X_INNER_COUNCIL_CHARTER.txt
+Section 5. Update this file every time a book's status, cover version, or
+Drive folder changes. If a field is unknown, it says CONFIRM — do not guess.
+
+── SECTION 1: SOMATIC ECSTASY (18+) ──
+100 Orgasms an Hour | LIVE — Kindle published, ASIN B0F6KBFJ8Y | CONFIRM | CONFIRM | /100-orgasms-preview.html
+Slow the Fuck Down | working draft v0.1 | 1qRyoZep_1TGSf9tJgfP_-ezdg3547W9V | CONFIRM | /slow-the-fuck-down-preview.html
+Fountain of Youth | working draft v0.4; cover rebuild blocked on painting re-upload | 1ImbONb8WcpMpwtL8aMcddlvt0rX1PU3h | v2 (stone arch) live; watercolor rebuild pending | /images/cover-fountain-of-youth-v2.jpeg | /fountain-preview.html
+Spank Me Tender | working draft v0.1 | CONFIRM | v17 approved | /images/cover-spank-me-tender.jpeg | /spank-me-tender-preview.html
+
+── SECTION 2: ANAHATA ──
+The Art of Amōre | v3 manuscript with Michael for review | 1PMX6vL7S5ihKOFdqnGtQtMtEZ3vZZF4l | v16 approved | /images/cover-art-amore-v9.jpeg | /ovid-preview.html
+Oceans of Love | in development | 14nyWMhxiwAf-vE1JfVPYQB4r3DK7GNHT | v12 approved | /images/cover-oceans-of-love.jpeg | /oceans-of-love-preview.html
+Unjustified Happiness | new, active | 1msk2X08jzOOOIeZCi-cRYAcGhaA5-HCn | v13 approved | /images/cover-unjustified-happiness-v1.jpeg | /unjustified-happiness-preview.html
+Radiant Sensitivity | early stage, active drafting | 1JzSjVAP1KmCsBAbayfWDrORVnSo70YwT | v11 approved | /images/cover-radiant-sensitivity-v7.jpeg | /radiant-sensitivity-preview.html (still shows old cover ref — Task 23 open)
+The Psychological Art of Kintsugi | working draft v0.3 | 1pFSMV5SIvAlzIgCwqiDJ_Lu2a_YYLEQ7 | v5 approved | /images/cover-kintsugi-v1.jpeg | /kintsugi-preview.html
+
+── SECTION 3: THE BODY IN MOTION ──
+Cultivating Spiritual Energy (Chi) | outline v0.3 edits drafted, pending Drive save | 1chdDBt_6_Ua_Ifz9TaiKIFUjDkM8KYS0 | v2 (Victoria goblet) live | CONFIRM | /cultivating-chi-preview.html
+Enchanté Nike | preview live, dark sacred aesthetic | CONFIRM (Nike folder) | CONFIRM | CONFIRM | /enchante-nike-preview.html
+
+── SECTION 4: MIND & SPIRIT ──
+Jnana and Bhakti | outline + preface drafted | CONFIRM | not built (wolf/aurora painting pending) | — | —
+Post Sapiens | concept/outline stage | CONFIRM | — | — | —
+
+── SECTION 5: THE EARTH ──
+Restoring the Divine Feminine | manuscript seeded, 19 chapters; cover v3 live | 1jCARhuAk0C1iAgsqZrhJt5u9XfumgTLo | v3 (angel collage) live | CONFIRM | /restoring-divine-feminine-preview.html
+Gaia Journal 2027 | HIGHEST PRIORITY — 12 spreads assembled; blockers: Aug photo, ISBN, bio wording | 111lvxJS6UQ9zAlnb9gI0aqqsZa921T37 | v4 approved | CONFIRM | — (PDF, not a preview page)
+Gaia Calendar 2027 | in development | CONFIRM | placeholder card live | CONFIRM | —
+Shamanic Photography | new preview live; source photos (Fraser Lake "sacred marriage" set) live at /shamanic-photography/sacred-marriage/ — NOTE: this is a source-photo folder, not a duplicate page. Naming coincidence with the preview page, not a conflict. | 10t7_QAgrybJtAeN6TSJxlWiuewTkqOhd | goblet cover approved | CONFIRM | /shamanic-photography-preview.html
+
+── GATEWAY ──
+Let's All Go to the Lobby | elevated from intro page to standalone book, 7 chapters | CONFIRM | not built | — | —
+
+── CLINICAL / IN CATALOG ──
+A Case for Polygasm Therapy | Ch.1-7, 9-13 drafted across 3 Drive docs; Ch.14 + Parts V/VI + appendices remaining; voice-consistency pass needed Ch.9-12 | 1RisGpx55K_Yn_kmawaXUaGCv7msm989R | not built | — | —
+
+── INFRASTRUCTURE (not books, but tracked here for fast lookup) ──
+functions/api/shorts.js | Cloudflare Pages Function — server-side YouTube Data API proxy, keeps API key off the client. Requires YOUTUBE_API_KEY secret set in Cloudflare dashboard (Workers & Pages → team-gaia-site → Settings → Variables and Secrets). Wired into index.html (confirmed referenced). Channel handle hardcoded: michaelsawyer627.
+assets/effects/ | Reusable animated visual effects (gold shimmer title treatment), approved July 26 2026. See assets/effects/README.md.
+CONFIRM = value not found in charter or memory; verify with Michael or Drive before relying on it.
