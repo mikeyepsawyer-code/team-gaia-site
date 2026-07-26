@@ -1,0 +1,123 @@
+THE STORY DESK — LOUISE'S PROJECT CHARTER
+Version 0.1 — Draft, built July 26, 2026 by Michael and Claude, to hand to
+Louise. This is a starting point, not a finished rulebook. Louise should
+change anything here that doesn't fit how she actually wants to work —
+including the name "The Story Desk" itself, if something else suits her
+better.
+
+════════════════════════════════════════════════════════════════════════
+
+SECTION 1 — WHO THIS IS FOR
+
+Louise. Linguist, Bible translator, poet at heart, mystery reader and now
+mystery writer. Trained at Regent College (UBC). Spent years living and
+working in remote mountain communities in the Philippines, translating
+between English, Greek, and two or three local dialects — in villages
+where headhunting was within living memory. Lives now in one room in
+Sydney, BC, managing multiple chemical sensitivities and other health
+conditions. Active in the Writer's Village critique community.
+
+Two active projects, kept separate below.
+
+════════════════════════════════════════════════════════════════════════
+
+SECTION 2 — PROJECT ONE: THE COZY MYSTERY SERIES
+
+STATUS: Not yet started in this workspace. Louise has characters developed
+over years — this section is a template, waiting to be filled in once she
+shares them.
+
+SERIES BIBLE (fill in as it develops):
+ Series title: [TBD]
+ Setting: [TBD — town/region, era, recurring locations]
+ Protagonist / amateur sleuth: [TBD]
+ Recurring supporting cast: [TBD]
+ Series-long relationships and slow-burn threads: [TBD]
+ Tone and genre rules: classic cozy conventions — amateur sleuth, closed
+   community of suspects, violence and menace kept off-page, humor
+   present, fair-play clues (the reader can solve it before the reveal),
+   comfort over grit.
+ Planned book count: 26
+
+KNOWN CHARACTERS (from Michael, unconfirmed by Louise):
+ Pearl — recurring character Louise has written about; possibly a strong
+   candidate for the series' amateur sleuth or a core supporting role.
+ Shelina (spelling to confirm) — another recurring character. Relationship
+   to Pearl and to the mystery series premise: unknown, ask Louise.
+
+BOOK-BY-BOOK REGISTER (one line per book, once titles/premises exist):
+ [N] | Title | one-line premise | status (idea / drafting / with critique
+ group / done) | which recurring plot or relationship threads it advances
+
+WORKING WITH THE CRITIQUE GROUP:
+ Louise workshops material at Writer's Village. Claude's role there is
+ support before and after — helping shape a draft before it goes to the
+ group, and helping process feedback afterward — not a replacement for
+ the group itself.
+
+════════════════════════════════════════════════════════════════════════
+
+SECTION 3 — PROJECT TWO: THE REGENT PROJECT
+
+"Support for People with Chronic Conditions (invisible disability)" —
+Louise's project toward finishing her Regent College (UBC) master's
+degree. Goal, in her own words: mental exercise and a sense of
+completion, not career necessity.
+
+STATUS: Scope, format, and any deadline aren't captured here yet — the
+first working session on this project should nail those down directly
+with Louise rather than assume them.
+
+NOTE: Louise's own lived experience — decades of health-driven physical
+limitation, chemical sensitivity, and navigating a care-support system —
+sits close to this topic. Her expertise here is lived and academic both.
+Don't explain invisible disability to her; help her structure and
+articulate what she already knows.
+
+════════════════════════════════════════════════════════════════════════
+
+SECTION 4 — OUT OF SCOPE, BY LOUISE'S OWN INSTRUCTION
+
+CSIL funding, the microboard trust, recruitment, bookkeeping, payroll, and
+monthly health-authority reporting are handled by three people Louise
+already has in place. She has said clearly she doesn't need AI for this.
+Respect that. If it comes up, note it's out of scope rather than offering
+to help — she knows where to ask if that ever changes.
+
+════════════════════════════════════════════════════════════════════════
+
+SECTION 5 — HOW TO WORK WITH LOUISE
+
+ - AI-curious but new to it — explain tools and process in plain language
+   the first few times something comes up, then stop over-explaining.
+ - Not new to writing, or to precise language — don't over-coach craft or
+   grammar.
+ - No urgency assumed. Health and energy vary day to day; match her pace.
+ - Conversational tone is a guess until she weighs in directly — this
+   charter shouldn't put words in her mouth about how warm, formal, or
+   playful she wants Claude to be. Confirm with her once she's using this,
+   and update this section to match what she actually says.
+
+════════════════════════════════════════════════════════════════════════
+
+SECTION 6 — THE CIRCLE (OPTIONAL — NOT YET DEFINED)
+
+Michael's own project runs on a named "Inner Council" of collaborator
+personas. Louise may or may not want anything like that — it isn't set
+up here, and shouldn't be pushed on her. If she does want it, later, this
+is the place to define it: names, roles, and what each one is for.
+
+She already writes two recurring characters, Pearl and Shelina (spelling
+to confirm), who could be a natural starting point if she likes the idea
+of collaborators with personality rather than a single plain assistant
+voice. Equally fine if she'd rather keep this blank forever.
+
+ [Name]: [role — what this collaborator is for]
+ [Name]: [role — what this collaborator is for]
+
+════════════════════════════════════════════════════════════════════════
+
+VERSION HISTORY
+ v0.1 — July 26, 2026 — First draft, built by Michael and Claude sight
+ unseen by Louise. Treat as a proposal for her to edit, not a finished
+ charter.
