@@ -125,7 +125,7 @@
   .a4 { animation: fadeUp 1.2s ease 0.60s both; }
   @media (max-width: 600px) {
     header { padding: 60px 16px 48px; }
-    header p:first-child { letter-spacing: 0.01em !important; font-size: clamp(3.8rem,15vw,10rem) !important; }
+    header p:first-child { letter-spacing: 0.01em !important; font-size: clamp(3.8rem,15vw,11.5rem) !important; }
     .section, .grid-wide, .grid-mid { padding-left: 16px; padding-right: 16px; }
     .links-grid { grid-template-columns: 1fr; max-width: 100%; margin: 0 auto; }
     .shorts-grid { grid-template-columns: 1fr; gap: 12px; }
@@ -151,7 +151,7 @@
       radial-gradient(circle at 8% 85%, rgba(216, 130, 55, 0.4) 0%, transparent 4%),
       linear-gradient(25deg,#4a2418 0%,#7a4a1e 6%,#e6b64c 18%,#fff2c0 24%,#f2a13c 28%,#c99435 36%,#7a4a1e 42%,#e6b64c 48%,#fff2c0 52%,#f2a13c 56%,#c99435 62%,#6e4218 68%,#c99435 76%,#fff2c0 80%,#f2a13c 84%,#6e4218 94%,#4a2418 100%);
     background-repeat: no-repeat;
-    background-attachment: scroll, scroll, scroll, scroll, scroll, scroll, fixed;
+    background-attachment: scroll, scroll, scroll, scroll, scroll, scroll, scroll;
     background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 1200px 220px;
     -webkit-background-clip: text;
     background-clip: text;
@@ -198,12 +198,24 @@
     requestAnimationFrame(frame);
   })();
 </script>
+
+<style>
+  .dimensional { position: relative; display: inline-block; }
+  .dimensional .face { position: relative; z-index: 10; }
+  .dimensional .shadow-copy, .dimensional .rim-copy { position: absolute; top: 0; left: 0; white-space: nowrap; }
+  .shadow-1 { color: rgba(110, 65, 24, 0.55);  transform: translate(1.5px, 1.5px); z-index: 4; }
+  .shadow-2 { color: rgba(74, 36, 24, 0.8);    transform: translate(3px, 3px);     z-index: 3; }
+  .shadow-3 { color: rgba(16, 8, 3, 0.9);      transform: translate(4.3px, 4.3px); z-index: 2; }
+  .rim-1 { color: rgba(240, 195, 90, 0.45);  transform: translate(-0.7px, -0.7px); z-index: 5; }
+  .rim-2 { color: rgba(250, 210, 110, 0.65); transform: translate(-1.4px, -1.4px); z-index: 6; }
+  .rim-3 { color: rgba(255, 225, 130, 0.85); transform: translate(-2.1px, -2.1px); z-index: 7; }
+</style>
 </head>
 <body>
 
 <header>
-  <p class="shimmer-final" style="width:100%;text-align:center;font-family:'Cinzel',serif;font-size:clamp(5.9rem,24vw,14.5rem);letter-spacing:0.08em;line-height:1;margin-bottom:0;">Human</p>
-  <h1 class="title shimmer-final" style="font-size:clamp(5rem,18vw,11rem);letter-spacing:0.08em;line-height:1;margin-bottom:20px;">Thriving</h1>
+  <p class="dimensional" style="width:100%;text-align:center;font-family:'Cinzel',serif;font-size:clamp(5.9rem,24vw,14.5rem);letter-spacing:0.08em;line-height:1;margin-bottom:0;"><span class="shadow-copy shadow-3">Human</span><span class="shadow-copy shadow-2">Human</span><span class="shadow-copy shadow-1">Human</span><span class="rim-copy rim-1">Human</span><span class="rim-copy rim-2">Human</span><span class="rim-copy rim-3">Human</span><span class="face shimmer-final">Human</span></p>
+  <h1 class="title dimensional" style="font-size:clamp(5rem,18vw,11rem);letter-spacing:0.08em;line-height:1;margin-bottom:20px;"><span class="shadow-copy shadow-3">Thriving</span><span class="shadow-copy shadow-2">Thriving</span><span class="shadow-copy shadow-1">Thriving</span><span class="rim-copy rim-1">Thriving</span><span class="rim-copy rim-2">Thriving</span><span class="rim-copy rim-3">Thriving</span><span class="face shimmer-final">Thriving</span></h1>
   <p style="font-family:'Cinzel',serif;font-size:clamp(0.95rem,3.3vw,1.8rem);letter-spacing:0.12em;line-height:1.6;white-space:nowrap;text-align:center;margin-bottom:56px;"><span style="color:rgba(247,240,221,0.96);">Philosophy</span><span style="display:inline-block;width:8px;height:8px;transform:rotate(45deg);background:linear-gradient(135deg,#ffffff 0%,#fff3c4 100%);box-shadow:0 0 8px rgba(255,246,210,0.85);margin:0 14px;vertical-align:middle;position:relative;top:-2px;"></span><span style="color:rgba(247,240,221,0.96);">Psychology</span><span style="display:inline-block;width:8px;height:8px;transform:rotate(45deg);background:linear-gradient(135deg,#ffffff 0%,#fff3c4 100%);box-shadow:0 0 8px rgba(255,246,210,0.85);margin:0 14px;vertical-align:middle;position:relative;top:-2px;"></span><span style="color:rgba(247,240,221,0.96);">Sexuality</span></p>
   <p class="subtitle" style="font-size:clamp(1.9rem,3.2vw,2.4rem);letter-spacing:0.1em;line-height:2.1;"><span style="display:block;line-height:1.2;font-size:1.5em;letter-spacing:0.295em;margin-top:96px;background:linear-gradient(135deg,#7a5500 0%,#a07010 15%,#d4a830 32%,#fff0a0 48%,#ffd700 58%,#d4a830 70%,#a07010 85%,#7a5500 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 2px 4px rgba(0,0,0,1.0)) drop-shadow(0 8px 32px rgba(0,0,0,0.9));">the works of</span><span style="display:block;line-height:1.2;font-size:1.6em;letter-spacing:0.12em;margin-top:4px;margin-bottom:14px;background:linear-gradient(135deg,#7a5500 0%,#a07010 15%,#d4a830 32%,#fff0a0 48%,#ffd700 58%,#d4a830 70%,#a07010 85%,#7a5500 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 2px 4px rgba(0,0,0,1.0)) drop-shadow(0 8px 32px rgba(0,0,0,0.9));">Michael Sawyer</span><span style="display:block;line-height:1.9;color:rgba(247,240,221,0.96);">Author<span style="display:inline-block;width:8px;height:8px;transform:rotate(45deg);background:linear-gradient(135deg,#ffffff 0%,#fff3c4 100%);box-shadow:0 0 8px rgba(255,246,210,0.85);margin:0 12px;vertical-align:middle;position:relative;top:-2px;"></span>Philosopher</span><span style="display:block;line-height:1.9;color:rgba(247,240,221,0.96);">Painter<span style="display:inline-block;width:8px;height:8px;transform:rotate(45deg);background:linear-gradient(135deg,#ffffff 0%,#fff3c4 100%);box-shadow:0 0 8px rgba(255,246,210,0.85);margin:0 12px;vertical-align:middle;position:relative;top:-2px;"></span>Photographer</span></p>
   <div class="rule-flourish" style="margin:76px auto 0;"><span></span></div>
@@ -212,7 +224,7 @@
 <main>
 
   <section class="section a2" style="padding-bottom: 28px;">
-    <p class="gaia-heading shimmer-green">Gaia</p>
+    <p class="gaia-heading dimensional"><span class="shadow-copy shadow-3" style="color:rgba(5,15,2,0.9);">Gaia</span><span class="shadow-copy shadow-2" style="color:rgba(15,40,5,0.8);">Gaia</span><span class="shadow-copy shadow-1" style="color:rgba(30,70,10,0.55);">Gaia</span><span class="rim-copy rim-1" style="color:rgba(160,220,90,0.45);">Gaia</span><span class="rim-copy rim-2" style="color:rgba(190,235,120,0.65);">Gaia</span><span class="rim-copy rim-3" style="color:rgba(210,245,150,0.85);">Gaia</span><span class="face shimmer-green">Gaia</span></p>
     <p class="gaia-subheading" style="font-size:clamp(2.6rem,5.5vw,3.8rem);letter-spacing:0.18em;opacity:1;font-style:normal;font-family:'Cinzel',serif;background:linear-gradient(135deg,#7a5500 0%,#a07010 15%,#d4a830 32%,#fff0a0 48%,#ffd700 58%,#d4a830 70%,#a07010 85%,#7a5500 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 2px 4px rgba(0,0,0,1.0)) drop-shadow(0 8px 32px rgba(0,0,0,0.9));" white-space:nowrap;">Earth Goddess</p>
   </section>
 
@@ -250,7 +262,7 @@
 
   <!-- BOOKS -->
   <div class="grid-mid a4" style="padding-top: 0;">
-    <p class="section-label shimmer-final" style="font-size:clamp(5rem,18vw,11rem);letter-spacing:0.08em;font-weight:400;margin-bottom:56px;">Books</p>
+    <p class="section-label dimensional" style="font-size:clamp(5rem,18vw,11rem);letter-spacing:0.08em;font-weight:400;margin-bottom:56px;"><span class="shadow-copy shadow-3">Books</span><span class="shadow-copy shadow-2">Books</span><span class="shadow-copy shadow-1">Books</span><span class="rim-copy rim-1">Books</span><span class="rim-copy rim-2">Books</span><span class="rim-copy rim-3">Books</span><span class="face shimmer-final">Books</span></p>
     <div class="links-grid">
 
       <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.9rem,6.5vw,3.2rem);font-style:italic;color:var(--gold-bright);opacity:1;text-align:center;letter-spacing:0.06em;line-height:1.55;margin-bottom:28px;padding:0 8px;text-shadow:0 2px 18px rgba(212,160,48,0.18);">
@@ -338,7 +350,7 @@
 
   <!-- 18+ SECTION BREAK -->
   <div style="text-align:center;padding:76px 32px;border-top:1px solid rgba(196,146,42,0.22);border-bottom:1px solid rgba(196,146,42,0.22);margin:0 0 8px;">
-    <p class="shimmer-final" style="font-family:'Cinzel',serif;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:-10px;line-height:1.1;"><span style="font-size:5.6rem;">Adult</span><br><span style="font-size:5.83rem;">Titles</span></p>
+    <div style="text-align:center;"><p class="dimensional" style="font-family:'Cinzel',serif;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;line-height:1.1;font-size:5.6rem;margin-bottom:0;"><span class="shadow-copy shadow-3">Adult</span><span class="shadow-copy shadow-2">Adult</span><span class="shadow-copy shadow-1">Adult</span><span class="rim-copy rim-1">Adult</span><span class="rim-copy rim-2">Adult</span><span class="rim-copy rim-3">Adult</span><span class="face shimmer-final">Adult</span></p><p class="dimensional" style="font-family:'Cinzel',serif;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;line-height:1.1;font-size:5.83rem;margin-top:-8px;margin-bottom:-10px;"><span class="shadow-copy shadow-3">Titles</span><span class="shadow-copy shadow-2">Titles</span><span class="shadow-copy shadow-1">Titles</span><span class="rim-copy rim-1">Titles</span><span class="rim-copy rim-2">Titles</span><span class="rim-copy rim-3">Titles</span><span class="face shimmer-final">Titles</span></p></div>
     <p style="font-family:'Cinzel',serif;font-weight:700;font-size:6.1rem;letter-spacing:0.08em;opacity:0.92;margin-bottom:18px;background:linear-gradient(135deg,#7a5500 0%,#a07010 15%,#d4a830 32%,#fff0a0 48%,#ffd700 58%,#d4a830 70%,#a07010 85%,#7a5500 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 2px 4px rgba(0,0,0,1.0)) drop-shadow(0 8px 32px rgba(0,0,0,0.9));position:relative;left:0.125em;"><span style="position:relative;left:0.03em;top:-0.17em;font-size:1.04em;">18</span><span style="position:relative;left:0.02em;top:-0.40em;">+</span></p>
     <p style="font-family:'Cormorant Garamond',Georgia,serif;font-size:2.3rem;line-height:1.5;color:rgba(200,190,172,0.9);letter-spacing:0.03em;max-width:640px;margin:0 auto 26px;">For adults 18+ (or the age of majority where you live).</p>
     <div class="rule-flourish"><span></span></div>
