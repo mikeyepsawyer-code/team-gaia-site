@@ -1,0 +1,162 @@
+<!--
+  GOLD SHIMMER TITLE EFFECT — reusable snippet
+  Approved version, saved [session date] after extensive iteration.
+  Reference: gold-shimmer-demo.html (Drive/GitHub, full history of what was tried).
+
+  WHAT THIS IS:
+  A dimensional, shimmering gold text treatment for book titles. Face layer
+  sweeps a warm gold gradient back-and-forth (never resets/loops, so there's
+  no seam); shadow + rim layers behind it fake a beveled edge in solid tones.
+
+  HOW TO USE:
+  1. Copy the <style> block into the page's CSS (or an included stylesheet).
+  2. Copy the markup pattern below for each title, swapping the text.
+  3. Copy the <script> block once per page (it applies to every .shimmer-final
+     element automatically — no per-title setup needed).
+  4. .big is for large single-word display (e.g. cover-style treatment).
+     Drop it for a title-sized default (52px).
+
+  MARKUP PATTERN (7 layers: 3 shadow, 3 rim, 1 face — in this exact order):
+
+    <div class="dimensional">
+      <span class="shadow-copy shadow-3">TITLE TEXT</span>
+      <span class="shadow-copy shadow-2">TITLE TEXT</span>
+      <span class="shadow-copy shadow-1">TITLE TEXT</span>
+      <span class="rim-copy rim-1">TITLE TEXT</span>
+      <span class="rim-copy rim-2">TITLE TEXT</span>
+      <span class="rim-copy rim-3">TITLE TEXT</span>
+      <span class="face shimmer-final">TITLE TEXT</span>
+    </div>
+
+  For a plain single-layer sweep with no bevel (lighter weight, still nice):
+    <h1 class="shimmer-final">TITLE TEXT</h1>
+
+  KNOWN LIMITS / THINGS NOT TO RE-BREAK:
+  - Do NOT re-add background-repeat / repeating-linear-gradient to chase a
+    one-directional loop. Tried three different ways; all produced a visible
+    seam (likely a GPU texture-wrap artifact on Samsung Internet, not fixable
+    from CSS). Back-and-forth motion is the stable, seamless choice — it
+    never wraps, so there's structurally nothing to cause a seam.
+  - Do NOT put the shimmer-final class (or any animated background) on more
+    than one layer per title. Combining it with the glow animation's `filter`
+    on multiple stacked layers caused all layers to sync and flash/glitch —
+    filter values don't merge across animations, the last one wins.
+  - background-attachment: fixed on the face layer is required for titles
+    that wrap to two lines — without it, some mobile browsers paint the
+    background separately per line and the shimmer desyncs between lines.
+-->
+<style>
+  .dimensional {
+    position: relative;
+    display: inline-block;
+    line-height: 1.15;
+    font-size: 52px;
+    letter-spacing: 1px;
+    font-family: Georgia, serif;
+  }
+
+  .dimensional .face {
+    position: relative;
+    z-index: 10;
+  }
+
+  .dimensional .shadow-copy,
+  .dimensional .rim-copy {
+    position: absolute;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+  }
+
+  .shadow-1 { color: rgba(110, 65, 24, 0.55);  transform: translate(1.5px, 1.5px); z-index: 4; }
+  .shadow-2 { color: rgba(74, 36, 24, 0.8);    transform: translate(3px, 3px);     z-index: 3; }
+  .shadow-3 { color: rgba(16, 8, 3, 0.9);      transform: translate(4.3px, 4.3px); z-index: 2; }
+
+  .rim-1 { color: rgba(240, 195, 90, 0.45);  transform: translate(-0.7px, -0.7px); z-index: 5; }
+  .rim-2 { color: rgba(250, 210, 110, 0.65); transform: translate(-1.4px, -1.4px); z-index: 6; }
+  .rim-3 { color: rgba(255, 225, 130, 0.85); transform: translate(-2.1px, -2.1px); z-index: 7; }
+
+  .big { font-size: 88px; }
+
+  .shimmer-final {
+    background:
+      radial-gradient(circle at 15% 30%, rgba(255, 224, 180, 0.55) 0%, transparent 6%),
+      radial-gradient(circle at 62% 12%, rgba(232, 146, 60, 0.45) 0%, transparent 5%),
+      radial-gradient(circle at 82% 58%, rgba(255, 240, 200, 0.4) 0%, transparent 4%),
+      radial-gradient(circle at 34% 78%, rgba(180, 80, 50, 0.45) 0%, transparent 5%),
+      radial-gradient(circle at 92% 88%, rgba(255, 200, 140, 0.35) 0%, transparent 4%),
+      radial-gradient(circle at 8% 85%, rgba(216, 130, 55, 0.4) 0%, transparent 4%),
+      linear-gradient(
+        25deg,
+        #4a2418 0%,
+        #7a4a1e 6%,
+        #e6b64c 18%,
+        #fff2c0 24%,
+        #f2a13c 28%,
+        #c99435 36%,
+        #7a4a1e 42%,
+        #e6b64c 48%,
+        #fff2c0 52%,
+        #f2a13c 56%,
+        #c99435 62%,
+        #6e4218 68%,
+        #c99435 76%,
+        #fff2c0 80%,
+        #f2a13c 84%,
+        #6e4218 94%,
+        #4a2418 100%
+      );
+    background-repeat: no-repeat;
+    background-attachment: scroll, scroll, scroll, scroll, scroll, scroll, fixed;
+    background-size:
+      100% 100%, 100% 100%, 100% 100%,
+      100% 100%, 100% 100%, 100% 100%,
+      1200px 220px;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    line-height: 1.15;
+    animation: gold-shimmer-glow 5s ease-in-out infinite;
+  }
+
+  @keyframes gold-shimmer-glow {
+    0%   { filter: drop-shadow(0 0 3px rgba(210, 160, 80, 0.15)) drop-shadow(0 0 6px rgba(210, 160, 80, 0.08)); }
+    50%  { filter: drop-shadow(0 0 6px rgba(240, 195, 110, 0.28)) drop-shadow(0 0 12px rgba(240, 195, 110, 0.13)); }
+    100% { filter: drop-shadow(0 0 3px rgba(210, 160, 80, 0.15)) drop-shadow(0 0 6px rgba(210, 160, 80, 0.08)); }
+  }
+</style>
+
+<!-- Example markup -->
+<div style="background:#0a0806; padding:60px 20px; text-align:center;">
+  <div class="dimensional big">
+    <span class="shadow-copy shadow-3">GOLD</span>
+    <span class="shadow-copy shadow-2">GOLD</span>
+    <span class="shadow-copy shadow-1">GOLD</span>
+    <span class="rim-copy rim-1">GOLD</span>
+    <span class="rim-copy rim-2">GOLD</span>
+    <span class="rim-copy rim-3">GOLD</span>
+    <span class="face shimmer-final">GOLD</span>
+  </div>
+</div>
+
+<script>
+  // Drives the gold sweep with a smooth back-and-forth (never wraps,
+  // so it's structurally seamless — see notes above on why this
+  // replaced an earlier one-directional-loop attempt).
+  (function () {
+    var travel = 300;   // px of back-and-forth motion within the image
+    var period = 6000;  // ms for one full there-and-back cycle
+    var els = document.querySelectorAll('.shimmer-final');
+
+    function frame(timestamp) {
+      var pos = -(travel / 2) * (1 - Math.cos((2 * Math.PI * timestamp) / period));
+      var value = '0 0, 0 0, 0 0, 0 0, 0 0, 0 0, ' + pos + 'px 0';
+      for (var i = 0; i < els.length; i++) {
+        els[i].style.backgroundPosition = value;
+      }
+      requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  })();
+</script>
