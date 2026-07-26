@@ -125,7 +125,7 @@
   .a4 { animation: fadeUp 1.2s ease 0.60s both; }
   @media (max-width: 600px) {
     header { padding: 60px 16px 48px; }
-    header p:first-child { letter-spacing: 0.01em !important; font-size: clamp(3.8rem,15vw,11.5rem) !important; }
+    header p:first-child { letter-spacing: 0.01em !important; font-size: clamp(4.3rem,15vw,11.5rem) !important; }
     .section, .grid-wide, .grid-mid { padding-left: 16px; padding-right: 16px; }
     .links-grid { grid-template-columns: 1fr; max-width: 100%; margin: 0 auto; }
     .shorts-grid { grid-template-columns: 1fr; gap: 12px; }
@@ -202,7 +202,7 @@
 <style>
   .dimensional { position: relative; display: inline-block; }
   .dimensional .face { position: relative; z-index: 10; }
-  .dimensional .shadow-copy, .dimensional .rim-copy { position: absolute; top: 0; left: 0; white-space: nowrap; }
+  .dimensional .shadow-copy, .dimensional .rim-copy { position: absolute; top: 0; left: 0; white-space: nowrap; -webkit-text-fill-color: currentColor; }
   .shadow-1 { color: rgba(110, 65, 24, 0.55);  transform: translate(0.0168em, 0.0168em); z-index: 4; }
   .shadow-2 { color: rgba(74, 36, 24, 0.8);    transform: translate(0.0335em, 0.0335em); z-index: 3; }
   .shadow-3 { color: rgba(16, 8, 3, 0.9);      transform: translate(0.048em, 0.048em);   z-index: 2; }
@@ -262,7 +262,7 @@
 
   <!-- BOOKS -->
   <div class="grid-mid a4" style="padding-top: 0;">
-    <p class="section-label dimensional" style="font-size:clamp(5rem,18vw,11rem);letter-spacing:0.08em;font-weight:400;margin-bottom:56px;"><span class="shadow-copy shadow-3">Books</span><span class="shadow-copy shadow-2">Books</span><span class="shadow-copy shadow-1">Books</span><span class="rim-copy rim-1">Books</span><span class="rim-copy rim-2">Books</span><span class="rim-copy rim-3">Books</span><span class="face shimmer-final">Books</span></p>
+    <div style="text-align:center;"><p class="section-label dimensional" style="font-size:clamp(5rem,18vw,11rem);letter-spacing:0.08em;font-weight:400;margin-bottom:56px;"><span class="shadow-copy shadow-3">Books</span><span class="shadow-copy shadow-2">Books</span><span class="shadow-copy shadow-1">Books</span><span class="rim-copy rim-1">Books</span><span class="rim-copy rim-2">Books</span><span class="rim-copy rim-3">Books</span><span class="face shimmer-final">Books</span></p></div>
     <div class="links-grid">
 
       <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.9rem,6.5vw,3.2rem);font-style:italic;color:var(--gold-bright);opacity:1;text-align:center;letter-spacing:0.06em;line-height:1.55;margin-bottom:28px;padding:0 8px;text-shadow:0 2px 18px rgba(212,160,48,0.18);">
