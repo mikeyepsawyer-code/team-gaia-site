@@ -698,13 +698,15 @@ TASK 31 — INDEX.HTML SIZE                                        OPEN
   natural redesign session comes up — candidate fix: shared CSS class for
   the repeated inline gradients instead of per-element inline styles.
 
-TASK 32 — CLOUDFLARE WORKERS MIGRATION                    SCHEDULED, NOT NOW
+TASK 32 — CLOUDFLARE WORKERS MIGRATION              HIGH PRIORITY, SCHEDULED
   Migrating team-gaia-site from Cloudflare Pages to Workers would bring the
   site fully under the MCP connector's reach, removing the recurring failure
   mode where a stuck deploy needs Michael to manually tap through the
   Cloudflare dashboard. Confirmed July 28: Michael wants this as its own
-  dedicated session, not folded into a working session on something else.
-  Do not start this opportunistically — wait to be asked.
+  dedicated session (not folded into other work), and ranks it high
+  priority — should be one of the next few sessions, not indefinitely
+  deferred. Still do not start opportunistically mid-task — wait to be
+  asked to open that dedicated session.
 
 ════════════════════════════════════════════════════════════════════════════════
 
