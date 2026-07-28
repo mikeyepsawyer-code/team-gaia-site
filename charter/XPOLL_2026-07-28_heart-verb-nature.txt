@@ -1,0 +1,39 @@
+XPOLL ENTRY — July 28, 2026
+Status: RED — pending Michael's review before integration into any manuscript.
+
+PASSAGE:
+"More than holding stillness at bay, an open, activated heart chakra
+revives our verb-nature, burns off our standing waveforms of noun-
+centricism. From heart to skin aflame."
+
+Context: grew directly out of the corrected bell/bowl physics exchange this
+session (rim-excited vs struck: sustained tending vs one honest ring, decay
+as a property of the object's own Q, not the excitation method). The heart
+chakra here plays the role of continuous rim contact, revival of verb-nature
+rather than protection from noun-decay.
+
+DESTINATIONS (Michael specified, this session):
+  1. Cultivating Spiritual Energy (Chi) — fits directly: geometry as verb
+     inhabiting noun; this passage gives the somatic/heart-centered version
+     of the same principle. Candidate placement: near the existing
+     "Why Geometry" material or Ch.7B Three Vehicles.
+  2. Radiant Sensitivity (empowering the empath) — the empath's core
+     vulnerability reframed as verb-nature revival rather than noun-fragility.
+     Candidate placement: near "Tapestry of Emotions" or "The Ledger".
+  3. Oceans of Love — the "burns off standing waveforms" image fits an
+     ocean/wave register naturally. Candidate: wherever love-as-motion vs
+     love-as-possession is already being contrasted.
+  4. The Art of Amōre (Ovid) — pairs with the Krishna's-three-faces material
+     already folded into v3 (knower/known/knowing as noun/verb dynamic).
+  5. Slow the Fuck Down — verb-nature revival is close kin to the book's
+     core thesis; likely near wherever "stillness" is currently discussed,
+     since this passage explicitly reframes activation as more than
+     stillness-preservation.
+  6. Fountain of Youth — esprit de corps spine (body as locus of sacred);
+     "heart to skin aflame" is a strong image for that book's register.
+
+ACTION NEEDED: Drive access failed this session (search_files and
+get_file_metadata both returned "No approval received" — connector likely
+needs reconnecting on Michael's end). Once Drive is reachable, mark this
+passage red in each of the six manuscript docs above at the candidate
+placements noted, per standard XPOLL protocol (Section 4 catalog note).
