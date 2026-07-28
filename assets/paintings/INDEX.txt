@@ -1,0 +1,50 @@
+PAINTINGS INDEX — v3 (July 27, 2026)
+Canonical copy, colocated with the files it describes.
+Supersedes Drive files v2_PAINTINGS_INDEX and v1_PAINTINGS_INDEX_JULY (delete both).
+URL pattern: https://raw.githubusercontent.com/mikeyepsawyer-code/team-gaia-site/main/assets/paintings/[filename]
+
+ORIENTATION RULE (extends "she stands"): record intended orientation per painting;
+never rotate without artist confirmation. [UNVERIFIED] = v1 description pending
+visual re-audit — two v1 descriptions have already proven wrong.
+
+THE TWO GOLD BUDDHAS (corrected July 27, artist-confirmed LANDSCAPE):
+1000002270.jpg — THE JEWELED BUDDHA. Gold-on-gold face, eyes closed, right of
+  canvas; mosaic chakra-spectrum petals + faceted gems raining down the left.
+  Vault updated to corrected orientation this date.
+  Candidates: Lobby cover / Indra's Net chapter art.
+1000002310.jpg — THE DISSOLVING BUDDHA (v1 "chalice/dove" description WRONG).
+  Face nearly dissolved into gold: one great closed eye, sweeping brow, orbs of
+  light at crown. Companion to 1000002270 — the jeweled and the dissolving.
+OPEN QUESTION: if a chalice/goblet-with-dove painting exists (Victoria goblet),
+it is NOT in this vault. Michael: separate file needing archiving?
+
+REMAINING ORIGINALS [UNVERIFIED]:
+1000002307.png — galaxy/nebula, planet, starfield
+1000002216.png — wolf howling at moon, aurora — JNANA AND BHAKTI cover source
+1000002306.png — Earth from orbit
+1000002312.jpg — golden swirl (sun/moon disc, tree form)
+1000002195.png — golden swirl series
+1000002266.jpg — purple/blue fluid-pour face
+1000002260.jpg — rainy street, umbrella figure
+1000002207.png — Milky Way over treeline
+1000002308.jpg — black hole, accretion disk
+1000000156.png — golden swirl series
+1000002225.png — grey watercolor tall ship, moonlit sea
+1000000141.png — golden swirl series
+1000002315.jpg — blue butterfly, bubbles
+
+ADDED JULY 27 (verified):
+1000019432.jpg — DIA DE LOS MUERTOS ANCESTORS (full). Restaurant commission;
+  the ancestors returning. PORTRAIT.
+1000071630.jpg — DIA DE LOS MUERTOS SKULL (detail). PORTRAIT.
+1000002257.jpg — THE BELL FLOWER (watercolor). PORTRAIT. ASSIGNED: ANAHATA
+  cover source. (Bellflower = Campanula = "little bell.")
+1000002157.png — THE BLUE WATERFALL. PORTRAIT. ASSIGNED: FOUNTAIN OF YOUTH
+  cover source.
+
+PENDING: vajra portrait (composed re-shoot on plain ground, then archive);
+visual re-audit of the 13 [UNVERIFIED] paintings.
+
+COVER SOURCE STATUS:
+Anahata -> 1000002257.jpg (ready) | Fountain -> 1000002157.png (ready)
+Jnana -> 1000002216.png (ready, unverified desc) | Lobby -> 1000002270.jpg (candidate)
