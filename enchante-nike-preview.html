@@ -42,8 +42,8 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center 18%;
-    filter: brightness(0.55) saturate(0.85);
+    object-position: center center;
+    filter: brightness(0.82) saturate(0.92);
   }
   .hero-gradient {
     position: absolute;
@@ -128,6 +128,40 @@
     z-index: 2;
   }
   @keyframes pulse { 0%,100%{opacity:0.6} 50%{opacity:1} }
+
+  /* GOLD SHIMMER TITLE EFFECT — from assets/effects/gold-shimmer-snippet.html, approved July 26 2026 */
+  .dimensional { position: relative; display: inline-block; line-height: 1.15; letter-spacing: 1px; font-family: 'Cinzel', serif; text-align: center; }
+  .dimensional .face { position: relative; z-index: 10; }
+  .dimensional .shadow-copy, .dimensional .rim-copy { position: absolute; top: 0; left: 0; width: 100%; }
+  .shadow-1 { color: rgba(110,65,24,0.55); transform: translate(1.5px,1.5px); z-index: 4; }
+  .shadow-2 { color: rgba(74,36,24,0.8); transform: translate(3px,3px); z-index: 3; }
+  .shadow-3 { color: rgba(16,8,3,0.9); transform: translate(4.3px,4.3px); z-index: 2; }
+  .rim-1 { color: rgba(240,195,90,0.45); transform: translate(-0.7px,-0.7px); z-index: 5; }
+  .rim-2 { color: rgba(250,210,110,0.65); transform: translate(-1.4px,-1.4px); z-index: 6; }
+  .rim-3 { color: rgba(255,225,130,0.85); transform: translate(-2.1px,-2.1px); z-index: 7; }
+  .dimensional.big { font-size: clamp(2.6rem, 9vw, 4.6rem); }
+  .shimmer-final {
+    background:
+      radial-gradient(circle at 15% 30%, rgba(255,224,180,0.55) 0%, transparent 6%),
+      radial-gradient(circle at 62% 12%, rgba(232,146,60,0.45) 0%, transparent 5%),
+      radial-gradient(circle at 82% 58%, rgba(255,240,200,0.4) 0%, transparent 4%),
+      radial-gradient(circle at 34% 78%, rgba(180,80,50,0.45) 0%, transparent 5%),
+      radial-gradient(circle at 92% 88%, rgba(255,200,140,0.35) 0%, transparent 4%),
+      radial-gradient(circle at 8% 85%, rgba(216,130,55,0.4) 0%, transparent 4%),
+      linear-gradient(25deg,#4a2418 0%,#7a4a1e 6%,#e6b64c 18%,#fff2c0 24%,#f2a13c 28%,#c99435 36%,#7a4a1e 42%,#e6b64c 48%,#fff2c0 52%,#f2a13c 56%,#c99435 62%,#6e4218 68%,#c99435 76%,#fff2c0 80%,#f2a13c 84%,#6e4218 94%,#4a2418 100%);
+    background-repeat: no-repeat;
+    background-attachment: scroll, scroll, scroll, scroll, scroll, scroll, fixed;
+    background-size: 100% 100%,100% 100%,100% 100%,100% 100%,100% 100%,100% 100%,1200px 220px;
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; color: transparent;
+    line-height: 1.15;
+    animation: gold-shimmer-glow 5s ease-in-out infinite;
+  }
+  @keyframes gold-shimmer-glow {
+    0%   { filter: drop-shadow(0 0 3px rgba(210,160,80,0.15)) drop-shadow(0 0 6px rgba(210,160,80,0.08)); }
+    50%  { filter: drop-shadow(0 0 6px rgba(240,195,110,0.28)) drop-shadow(0 0 12px rgba(240,195,110,0.13)); }
+    100% { filter: drop-shadow(0 0 3px rgba(210,160,80,0.15)) drop-shadow(0 0 6px rgba(210,160,80,0.08)); }
+  }
 
   /* INVITATION */
   .invitation {
@@ -314,16 +348,23 @@
 
 <!-- HERO -->
 <div class="hero">
-  <img class="hero-img" src="/images/nike-staircase-louvre.jpg" alt="The approach to Nike of Samothrace, Louvre">
+  <img class="hero-img" src="/images/nike-cover-bg-v2.jpg" alt="The grand staircase to Nike of Samothrace, Louvre">
   <div class="hero-gradient"></div>
-  <div class="hero-text">
-    <p class="hero-eyebrow">In devotion to the sacred feminine</p>
-    <h1 class="hero-title">Enchanté<br>Nike</h1>
+
+  <div class="dimensional big" style="position:absolute; top:30%; left:53.5%; transform:translate(-50%,-50%); z-index:2;">
+    <span class="shadow-copy shadow-3">Enchanté<br>Nike</span>
+    <span class="shadow-copy shadow-2">Enchanté<br>Nike</span>
+    <span class="shadow-copy shadow-1">Enchanté<br>Nike</span>
+    <span class="rim-copy rim-1">Enchanté<br>Nike</span>
+    <span class="rim-copy rim-2">Enchanté<br>Nike</span>
+    <span class="rim-copy rim-3">Enchanté<br>Nike</span>
+    <span class="face shimmer-final">Enchanté<br>Nike</span>
   </div>
-  <p class="hero-subtitle line-1">A shamanic encounter</p>
-  <p class="hero-subtitle line-2">in adoration of the divine feminine.</p>
-  <p class="hero-author">Michael Sawyer</p>
-  <div class="rule-flourish" style="top:94%;"><span></span></div>
+
+  <p class="hero-subtitle" style="top:70%; left:53.5%; transform:translate(-50%,0);">A shamanic encounter</p>
+  <p class="hero-subtitle" style="top:74.5%; left:53.5%; transform:translate(-50%,0);">in adoration of the divine feminine.</p>
+  <p class="hero-author" style="top:86%; left:53.5%; transform:translate(-50%,0);">Michael Sawyer</p>
+  <div class="rule-flourish" style="top:89.5%; left:53.5%;"><span></span></div>
   <p class="scroll-hint">↓ &nbsp; The Approach &nbsp; ↓</p>
 </div>
 
@@ -468,5 +509,20 @@
   <p class="footer-name">gaiaridge.com &nbsp;·&nbsp; Michael Sawyer</p>
 </footer>
 
+<script>
+  // Gold shimmer driver — from assets/effects/gold-shimmer-snippet.html
+  (function () {
+    var travel = 300;
+    var period = 6000;
+    var els = document.querySelectorAll('.shimmer-final');
+    function frame(timestamp) {
+      var pos = -(travel / 2) * (1 - Math.cos((2 * Math.PI * timestamp) / period));
+      var value = '0 0, 0 0, 0 0, 0 0, 0 0, 0 0, ' + pos + 'px 0';
+      for (var i = 0; i < els.length; i++) { els[i].style.backgroundPosition = value; }
+      requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  })();
+</script>
 </body>
 </html>
