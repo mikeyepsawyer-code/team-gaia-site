@@ -4,9 +4,9 @@ npm warn deprecated rollup-plugin-inject@3.0.2: This package has been deprecated
 ✨ Compiled Worker successfully
 Uploading... (152/153)
 Uploading... (153/153)
-✨ Success! Uploaded 1 files (152 already uploaded) (1.11 sec)
+✨ Success! Uploaded 1 files (152 already uploaded) (0.94 sec)
 
 ✨ Uploading _headers
 ✨ Uploading Functions bundle
 🌎 Deploying...
-✨ Deployment complete! Take a peek over at https://a2eb7ca4.team-gaia-site.pages.dev
+✨ Deployment complete! Take a peek over at https://7caa7042.team-gaia-site.pages.dev
