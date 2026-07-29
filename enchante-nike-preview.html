@@ -86,20 +86,33 @@
   }
   .hero-subtitle {
     font-style: italic;
-    font-size: clamp(1.15rem, 2.8vw, 1.45rem);
+    font-size: clamp(1.05rem, 2.6vw, 1.35rem);
     color: var(--gold-lt);
     letter-spacing: 0.04em;
-    margin-bottom: 36px;
     opacity: 0.9;
+    position: absolute;
+    left: 50%;
+    white-space: nowrap;
   }
-  .hero-rule { width: 48px; height: 1px; background: var(--gold); opacity: 0.5; margin: 0 auto 36px; }
+  .hero-subtitle.line-1 { top: 66%; transform: translate(-62%, 0); }
+  .hero-subtitle.line-2 { top: 72.5%; transform: translate(-42%, 0); }
+  .rule-flourish { display: flex; align-items: center; justify-content: center; gap: 14px; width: 240px; max-width: 60%; margin: 0 auto; position: absolute; left: 50%; transform: translate(-50%, 0); }
+  .rule-flourish::before, .rule-flourish::after { content: ""; flex: 1; height: 3px; }
+  .rule-flourish::before { background: linear-gradient(to right, transparent, rgba(212,178,84,0.9)); }
+  .rule-flourish::after { background: linear-gradient(to left, transparent, rgba(212,178,84,0.9)); }
+  .rule-flourish span { width: 9px; height: 9px; flex: 0 0 auto; transform: rotate(45deg); background: linear-gradient(135deg,#fff1a0,#c9a84c); box-shadow: 0 0 7px rgba(255,215,94,0.55); }
   .hero-author {
     font-family: 'Cinzel', serif;
-    font-size: 0.82rem;
-    letter-spacing: 0.28em;
+    font-size: clamp(1.3rem, 3.4vw, 1.9rem);
+    letter-spacing: 0.24em;
     color: var(--text);
-    opacity: 0.5;
+    opacity: 0.85;
     text-transform: uppercase;
+    position: absolute;
+    top: 88%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    white-space: nowrap;
   }
   .scroll-hint {
     position: absolute;
@@ -306,10 +319,11 @@
   <div class="hero-text">
     <p class="hero-eyebrow">In devotion to the sacred feminine</p>
     <h1 class="hero-title">Enchanté<br>Nike</h1>
-    <p class="hero-subtitle">a shamanic encounter</p>
-    <div class="hero-rule"></div>
-    <p class="hero-author">Michael Sawyer</p>
   </div>
+  <p class="hero-subtitle line-1">A shamanic encounter</p>
+  <p class="hero-subtitle line-2">in adoration of the divine feminine.</p>
+  <p class="hero-author">Michael Sawyer</p>
+  <div class="rule-flourish" style="top:94%;"><span></span></div>
   <p class="scroll-hint">↓ &nbsp; The Approach &nbsp; ↓</p>
 </div>
 
