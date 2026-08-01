@@ -33,7 +33,10 @@
         <animateTransform attributeName="gradientTransform" type="translate"
           values="-0.4 0; 0.4 0; -0.4 0" dur="6s" repeatCount="indefinite" additive="sum"/>
       </linearGradient>
-      <linearGradient id="bevelHuman" x1="0%" y1="0%" x2="100%" y2="100%">
+      <pattern id="bevelPatHuman" patternUnits="userSpaceOnUse" width="26" height="26" patternTransform="rotate(0)">
+        <rect width="26" height="26" fill="url(#bevelTileHuman)"/>
+      </pattern>
+      <linearGradient id="bevelTileHuman" x1="0%" y1="0%" x2="100%" y2="100%">
         <stop offset="0%"  stop-color="#fff6d8"/>
         <stop offset="42%" stop-color="#c99435"/>
         <stop offset="58%" stop-color="#3a2010"/>
@@ -41,7 +44,7 @@
       </linearGradient>
     </defs>
     <text x="450" y="115" font-size="110" text-anchor="middle"
-          fill="url(#goldFillHuman)" stroke="url(#bevelHuman)" stroke-width="3">Human</text>
+          fill="url(#goldFillHuman)" stroke="url(#bevelPatHuman)" stroke-width="3">Human</text>
   </svg>
   </div>
 
@@ -60,7 +63,10 @@
         <animateTransform attributeName="gradientTransform" type="translate"
           values="-0.4 0; 0.4 0; -0.4 0" dur="6s" repeatCount="indefinite" additive="sum"/>
       </linearGradient>
-      <linearGradient id="bevelThriving" x1="0%" y1="0%" x2="100%" y2="100%">
+      <pattern id="bevelPatThriving" patternUnits="userSpaceOnUse" width="20" height="20">
+        <rect width="20" height="20" fill="url(#bevelTileThriving)"/>
+      </pattern>
+      <linearGradient id="bevelTileThriving" x1="0%" y1="0%" x2="100%" y2="100%">
         <stop offset="0%"  stop-color="#fff6d8"/>
         <stop offset="42%" stop-color="#c99435"/>
         <stop offset="58%" stop-color="#3a2010"/>
@@ -68,7 +74,7 @@
       </linearGradient>
     </defs>
     <text x="450" y="100" font-size="80" text-anchor="middle"
-          fill="url(#goldFillThriving)" stroke="url(#bevelThriving)" stroke-width="2.5">Thriving</text>
+          fill="url(#goldFillThriving)" stroke="url(#bevelPatThriving)" stroke-width="2.5">Thriving</text>
   </svg>
   </div>
 
@@ -87,7 +93,10 @@
         <animateTransform attributeName="gradientTransform" type="translate"
           values="-0.4 0; 0.4 0; -0.4 0" dur="6s" repeatCount="indefinite" additive="sum"/>
       </linearGradient>
-      <linearGradient id="bevelBooks" x1="0%" y1="0%" x2="100%" y2="100%">
+      <pattern id="bevelPatBooks" patternUnits="userSpaceOnUse" width="16" height="16">
+        <rect width="16" height="16" fill="url(#bevelTileBooks)"/>
+      </pattern>
+      <linearGradient id="bevelTileBooks" x1="0%" y1="0%" x2="100%" y2="100%">
         <stop offset="0%"  stop-color="#fff6d8"/>
         <stop offset="42%" stop-color="#c99435"/>
         <stop offset="58%" stop-color="#3a2010"/>
@@ -95,7 +104,7 @@
       </linearGradient>
     </defs>
     <text x="250" y="70" font-size="60" text-anchor="middle"
-          fill="url(#goldFillBooks)" stroke="url(#bevelBooks)" stroke-width="2">Books</text>
+          fill="url(#goldFillBooks)" stroke="url(#bevelPatBooks)" stroke-width="2">Books</text>
   </svg>
   </div>
 
