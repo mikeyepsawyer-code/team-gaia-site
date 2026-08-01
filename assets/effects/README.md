@@ -8,15 +8,21 @@ Dimensional, animated gold text treatment for book titles. Clean,
 drop-in code with full usage instructions and known-issue notes
 written directly into the file — read it before touching this effect.
 
-REGRESSED July 26, FIXED Aug 1 2026 — before changing background-attachment
-or background-size on the face layer, read the "KNOWN LIMITS" block inside
-the file in full. A same-day fix for one bug (titles going blank below the
-fold) deleted `background-attachment: fixed` outright instead of just
-enlarging that layer's background-size, which silently reopened a
-different, already-solved bug (two-line shimmer desync). It went live and
-sat broken for 6 days before anyone caught it visually. The two known bugs
-share one root cause and one correct fix — do not "solve" one by removing
-`fixed`.
+DO NOT change background-attachment or background-size on the face layer
+without reading the "KNOWN LIMITS" block inside the file in full first —
+this effect has been broken twice by well-intentioned edits to those two
+properties:
+  1. July 26 2026: `fixed` was removed to fix a scroll-position cutoff
+     bug. Not currently an issue (no title wraps to two lines), but if
+     it recurs, don't do this — see fix #2 below.
+  2. Aug 1 2026: background-size was enlarged from 1200px 220px to
+     1200px 100vh to try to fix the same cutoff concern. This actually
+     broke the gradient — stretching the box compressed the visible
+     color range down to the dark end, making every title look dark
+     and muddy. Reverted same day.
+The correct fix for a below-the-fold cutoff, if one ever shows up again,
+is to compute each element's own background-position-y in JS from its
+live getBoundingClientRect().top — not to touch background-size.
 
 See also `gold-shimmer-demo.html` for the full comparison of variants
 that were tried and rejected along the way (useful if revisiting any
