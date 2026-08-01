@@ -44,6 +44,17 @@
   - background-attachment: fixed on the face layer is required for titles
     that wrap to two lines — without it, some mobile browsers paint the
     background separately per line and the shimmer desyncs between lines.
+  - REGRESSION LOGGED July 26 2026, FIXED Aug 1 2026: fixed anchors the
+    gradient band to viewport coordinates, not the page. With the old
+    background-size (1200px 220px) that band only covers the TOP of the
+    viewport, so any shimmer title further down the page — off the top
+    220px when scrolled into view — rendered blank. A same-day session
+    "fixed" that by deleting `fixed` outright, which silently reopened the
+    two-line desync bug above and went unnoticed for 6 days. Do NOT repeat
+    that trade. The actual fix is to keep `fixed` and enlarge that layer's
+    background-size to 1200px 100vh, so the band always covers the full
+    viewport regardless of scroll position. Always use 1200px 100vh (not
+    220px) for the fixed layer's height going forward.
 -->
 <style>
   .dimensional {
@@ -111,7 +122,7 @@
     background-size:
       100% 100%, 100% 100%, 100% 100%,
       100% 100%, 100% 100%, 100% 100%,
-      1200px 220px;
+      1200px 100vh;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
