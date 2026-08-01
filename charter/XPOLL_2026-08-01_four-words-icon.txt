@@ -1,0 +1,49 @@
+XPOLL — 2026-08-01 — "Authenticity, Empathy, Affection, Reciprocity" icon
+
+STATUS: RED — pending Michael's review before merge into any manuscript.
+
+SOURCE: Michael, session 2026-08-01. Identified as an icon (recurring motif,
+re-inflected per book) rather than a single argued chapter.
+
+ROUTING — approved by Michael for these three books:
+
+1. LET'S ALL GO TO THE LOBBY — opening threshold passage, Nike's voice.
+   Positions the four words as the gateway crossed before the book begins.
+
+2. THE SUBTLE ART OF AMORE — Ovidian mechanics reading. Ties the four words
+   to the existing "conversation about love, across 2000 years" frame.
+
+3. SLOW THE FUCK DOWN — embodied pacing reading. Reframes the four words as
+   sequential stages that cannot be rushed, rather than simultaneous traits.
+
+DRAFT TEXT (Claude-drafted, color convention: treat as red pending approval
+despite being Claude-authored, per XPOLL protocol):
+
+--- LOBBY ---
+Before the doors open, four words. Not virtues to practice -- a sequence to
+fall through. Authenticity: stop performing, even for yourself. Empathy: let
+someone else's field become visible. Affection: let the visibility warm you.
+Reciprocity: let the warmth move both directions until you can't find the
+seam. This is the lobby. Everything past this point assumes you've already
+crossed it once.
+
+--- AMORE ---
+Ovid never used these words, but he built his seductions on their order.
+Authenticity first -- the mask slips before anything real can pass between
+two people. Then empathy, the labor of imagining her hunger as vividly as
+your own. Affection follows empathy the way heat follows friction; it
+cannot be summoned first. And reciprocity is the whole argument of the Ars
+stripped of its cynicism: love that only flows one way isn't love, it's
+harvesting.
+
+--- SLOW THE FUCK DOWN ---
+You cannot rush any of these. Authenticity takes as long as it takes to
+stop lying to your own body. Empathy takes longer -- you have to actually
+wait for another person's signal instead of assuming it. Affection arrives
+on its own schedule, never yours. Reciprocity is the slowest of all,
+because it requires two nervous systems finding the same tempo. Try to
+speed through this list and you get its counterfeit: transaction wearing
+intimacy's clothes.
+
+NEXT STEP: awaiting Michael's approval to merge each passage into its
+respective manuscript (Drive Google Docs, native format).
