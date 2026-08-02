@@ -1,0 +1,570 @@
+COVER PRODUCTION STANDARD
+Version 4.0
+Last updated: August 2, 2026
+Migrated to GitHub as canonical location (project-knowledge/), superseding
+Project Knowledge copy. Changes from v3.0: Bleed increased from 0.125" to
+0.25" as new canon (all sides) -- affects full canvas size and all margin
+math derived from it. Section 8 added: Composite/Ghosted Cover Art, learnings
+from the Enchante Nike cover project (silhouette anatomy accuracy, sourced
+(not improvised) color palettes, honest tool-limitation accounting).
+
+════════════════════════════════════════════════════════════════════════════════
+
+SECTION 0 — MANDATORY BUILD RULE (NEW — ALWAYS FOLLOW)
+
+EVERY COVER BUILD STARTS FROM THE DRIVE SOURCE PHOTO. NO EXCEPTIONS.
+
+Rationale: Working from an already-exported JPEG and re-exporting causes
+cumulative lossy compression artifacts and text-edge degradation. Each
+re-export cycle compounds this loss. The only correct workflow is:
+
+  source photo (lossless original) → one build pipeline → one export
+
+NEVER:
+ - Fetch an existing cover JPEG from GitHub and modify it
+ - Patch text over an exported cover
+ - Layer new text onto a previous version's output file
+ - Use any file in images/ or covers/ as a source for a new build
+
+ALWAYS:
+ 1. STATE the source photo filename and Drive file ID before starting
+ 2. FETCH the photo fresh from Drive
+ 3. VERIFY it is text-free (raw photo, no baked-in text)
+ 4. Run the full build pipeline from that raw photo
+ 5. Export once to the final JPEG
+
+If you cannot locate the source photo, STOP and ask Michael.
+Do not improvise from a cover archive file.
+
+SOURCE PHOTO VERIFICATION GATE (mandatory pre-build check):
+ Before writing any build code, state:
+ "Source photo: [filename], Drive ID: [id], dimensions: [WxH], text-free: YES"
+ If the answer is not "YES, text-free" — do not proceed.
+
+════════════════════════════════════════════════════════════════════════════════
+
+SECTION 1 — PHYSICAL SPEC
+
+ Trim: 6" x 9" paperback
+ Bleed: 0.25" all sides
+ Full canvas: 6.5" x 9.5" = 1950 x 2850px @ 300dpi
+ Color: RGB
+
+MARGINS
+ All sides: 3/8" = 112px
+ TEXT_MARGIN (bleed + 1/4" clearance): 187px
+ Usable text width (TEXT_W): 1651px = 5.50"
+
+════════════════════════════════════════════════════════════════════════════════
+
+SECTION 2 — LAYOUT ZONES
+
+ TOP TEXT ZONE: from margin (y=112) downward
+ - Title dominant word: ~2–2.5" tall, visually centered
+ - Title secondary line: ~3/8" tall, same visual width
+ - Gap between title lines: ~0.28" (85px)
+ - Title text sits directly on photo — NO dark overlay on top
+
+ CENTER IMAGE: pure photo, no overlays, no text
+ - This is the majority of the cover
+ - Uninterrupted is the goal; aim for 4–5" minimum
+
+ BOTTOM TEXT ZONE: ~1.35" from bottom margin
+ - Subtitle (italic): visually centered
+ - Gap above rule = gap below rule (symmetric, ~0.18" each)
+ - Rule: 55% of TEXT_W, centered, 3–4px tall, warm gold
+ - Author name: visually centered
+ - Bottom overlay: dark band fading up from bottom — YES, keep this
+
+════════════════════════════════════════════════════════════════════════════════
+
+SECTION 3 — TYPOGRAPHY PREFERENCES
+
+ TITLE — two distinct fonts expressing the contrast between words:
+ - Aggressive/marker word (e.g. "Spank Me"): rough brush/marker feel,
+   energetic, physical. Michael does NOT like clean geometric fonts here.
+   Overheat Reckless, Fight Back, Bad Habits are the aesthetic target.
+   These must be uploaded as TTF — font sites block direct download.
+ - Script/calligraphic word (e.g. "Tender"): genuine calligraphic feel,
+   ribbon-like, wispy, high contrast thick/thin strokes. Michael wants
+   more calligraphic than Carattere but hasn't found the perfect font yet.
+   Corinthia, Carattere, Imperial Script are close. Upload TTF if found.
+ - Script word: red (210, 50, 50), bigger than the aggressive word
+ - Aggressive word: white/cream (255, 250, 242)
+
+ AUTHOR NAME: "Michael Sawyer" — title case (NOT all caps)
+ Font: Lora Variable or similar quality serif
+ Color: white/cream or metallic gold
+
+ SUBTITLE: italic serif, natural proportions. Center visually.
+
+ RULE: warm gold (215, 175, 130)
+
+════════════════════════════════════════════════════════════════════════════════
+
+SECTION 3B — WIDTH PAIRING SYSTEM (approved Session 18)
+
+ The approved width-pairing approach creates visual harmony between
+ the top title block and the bottom text block:
+
+ TOP BLOCK:
+ Line 1 (dominant word): render at specified pt, scale to Line 1 target width
+ Line 2 (secondary word): render at specified pt, scale to Line 2 target width
+
+ BOTTOM BLOCK — MIRRORS THE TOP:
+ Subtitle: scale to same pixel width as Line 2
+ Author: scale to same pixel width as Line 1
+
+ The cover reads as two mirrored typographic anchors framing the image.
+
+ HOW TO IMPLEMENT:
+ 1. Render each text element at its specified pt size via ink_size()
+ 2. Scale to exact target width using LANCZOS
+ 3. Paste at visual center (find leftmost/rightmost non-transparent column)
+ Never use canvas-center calculations — always find actual ink extents.
+
+ VISUAL CENTERING — CRITICAL:
+ Find leftmost and rightmost non-transparent pixel columns of the rendered
+ text image. Center based on those, not on bbox or canvas midpoint.
+
+════════════════════════════════════════════════════════════════════════════════
+
+SECTION 3C — METALLIC GRADIENT SYSTEM (approved Session 18)
+
+ Use a 5-stop center-bright vertical gradient for metallic text.
+ Light source perceived as coming from front/center of the letterform.
+
+ GRADIENT STOPS (t = 0.0 top → 1.0 bottom):
+ t=0.00–0.18  shadow → midtone (top shadow, lighter than bottom)
+ t=0.18–0.42  midtone → highlight
+ t=0.42–0.54  highlight plateau (brightest band, center of letterform)
+ t=0.54–0.72  highlight → midtone
+ t=0.72–1.00  midtone → deep shadow (bottom shadow, heavier than top)
+
+ dark_mult = 0.48 (midtone from base)
+ deep_mult = 0.35 (deep shadow from base — heavier at bottom)
+
+ PALETTE — Radiant Sensitivity (approved):
+ GOLD   base=(225,170,45)  hi=(255,248,170) → RADIANT + author
+ COPPER base=(210,105,30)  hi=(255,200,90)  → Sensitivity + subtitle
+
+ General rule: dominant title word gets gold; secondary/italic gets copper.
+ Subtitle matches secondary title color. Author matches dominant title color.
+
+════════════════════════════════════════════════════════════════════════════════
+
+SECTION 3D — GOLD TEXT FUNCTION (Kintsugi standard — approved Session ~22)
+
+ Use actual ink pixel extents (NOT bbox) so descenders always receive gold.
+ Sine curve peaks at 35% of ink height, eases to flat mid-gold by 70%,
+ holds flat from 70% to 100%. NO shadow stop ever.
+
+ gold_gradient(y_rel):  # y_rel = 0.0 top → 1.0 bottom of ink extent
+   if y_rel < 0.35:
+     t = sin(y_rel / 0.35 * pi/2)       # ease in
+   elif y_rel < 0.70:
+     t = 1.0 - (y_rel - 0.35) / 0.35   # ease out to mid-gold
+   else:
+     t = 0.0                             # flat mid-gold
+   return lerp(mid_gold, highlight_gold, t)
+
+════════════════════════════════════════════════════════════════════════════════
+
+SECTION 4 — PHOTO TREATMENT
+
+ - Use original photo, ZERO brightness/contrast/saturation adjustments
+   EXCEPTION: Art Amore v16 reduced brightness by 15% to make gold pop —
+   see §5A for that cover's specific treatment.
+ - EXIF correction: ImageOps.exif_transpose() mandatory for all Samsung Galaxy
+   photos before any layout work
+ - Crop to include vivid colors
+ - Resize to fill full canvas (1875x2775) using LANCZOS
+
+ CANVAS EXTENSION (when photo is too short):
+ Always use the right-side background strip (x=1468+ of the 1875px canvas)
+ to avoid subject bleed. Never sample from the subject area.
+
+ BOTTOM GRADIENT:
+ Cubic ease-in (t^3) starting at 65% canvas height avoids visible banding.
+ color=(8,4,1), max alpha=180
+
+════════════════════════════════════════════════════════════════════════════════
+
+SECTION 4B — FONT ACQUISITION
+
+ Preferred method: @fontsource npm registry
+ Install: npm install @fontsource/[fontname] --prefix /home/claude
+ Convert: use fontTools TTFont
+
+ CRITICAL — PARISIENNE CONVERSION:
+ Convert from .woff (NOT .woff2) — the woff2 conversion produces a broken
+ TTF with zero vertical metrics. PIL renders nothing from the woff2-derived TTF.
+ Correct file: node_modules/@fontsource/parisienne/files/parisienne-latin-400-normal.woff
+ Command: TTFont("...parisienne-latin-400-normal.woff").save("parisienne.ttf")
+
+ CINZEL CONVERSION:
+ Both .woff and .woff2 work correctly.
+ File: node_modules/@fontsource/cinzel/files/cinzel-latin-400-normal.woff2
+
+ System fonts (no install needed):
+ Liberation Serif Italic: /usr/share/fonts/truetype/liberation/LiberationSerif-Italic.ttf
+ Lora Variable: /usr/share/fonts/truetype/google-fonts/Lora-Variable.ttf
+
+════════════════════════════════════════════════════════════════════════════════
+
+SECTION 5 — APPROVED BUILD SPECS
+
+Each subsection contains the complete, deterministic build spec for an
+approved cover. All pixel values are EXACT and LOCKED. Do not approximate.
+Rebuild from source photo + these exact values → identical output.
+
+───────────────────────────────────────────────────────────────────────────────
+SECTION 5A — THE SUBTLE ART OF AMORE (v16 — APPROVED)
+
+Status: v16 approved and live. Card: /images/cover-art-amore-v9.jpeg
+Archive: /covers/art-amore/cover_art_amore_v16.jpg
+
+SOURCE PHOTO
+ Drive folder: Books/Art Amore/
+ Drive file ID: 1cz3eiH0_v_Bc-oTis4V3U-9-ptnIzT_0
+ Dimensions: verify on fetch — original is high-res statue/arch photo
+ Text-free: YES (raw photo, no baked text)
+ Crop: y=0 to y=80% of original height (retains medallion/arch top)
+ Brightness: reduce by 15% (enhanceBrightness factor=0.85) so gold pops
+
+CANVAS: 1875x2775px
+
+FONTS
+ Cinzel 400:   /home/claude/cinzel-400.ttf   (npm @fontsource/cinzel, woff2->ttf)
+ Parisienne:   /home/claude/parisienne.ttf   (npm @fontsource/parisienne, WOFF->ttf — see §4B)
+
+BOTTOM GRADIENT
+ Start: 58% canvas height (y=1610)
+ Alpha: 205 * (t ** 0.52) where t = (y - 1610) / (2775 - 1610)
+
+FROZEN PARAMETERS — DO NOT APPROXIMATE
+
+"THE SUBTLE ART OF" — BLACK GRANITE + GOLD HIGHLIGHT
+ Font: Cinzel 400, pt=160
+ Manual letter spacing: 10px between each character
+   (sum of char widths at pt=160 = 1566px; +10px x 16 gaps = 1726px total)
+ Visual center x: compute from ink extents
+ y: 112 (top margin)
+ Layer stack (bottom to top, draw in this order):
+   (8,6,4)      offset +6,+6  — darkest shadow
+   (22,20,18)   offset +4,+4
+   (38,34,30)   offset +2,+2  — granite body
+   (52,48,44)   offset  0, 0  — granite face
+   (195,162,85) offset -2,-2  — gold highlight
+   (240,210,130) offset -4,-4 — bright gold tip
+
+"Amore" — BURNISHED GOLD (7-layer + 2 overlay composites)
+ Font: Parisienne, pt=540
+ Rendered ink size: 1507x395px
+ Visual center x: 184px  (canvas center 937 - ink_half 753 = 184)
+ y: 310
+ Layer stack (draw in order):
+   (20,12,0)     offset +18,+18 — WORD-LEVEL deep shadow
+   (55,33,0)     offset  +8, +8 — per-stroke deep shadow
+   (130,95,25)   offset  +4, +4 — per-stroke mid shadow
+   (200,162,42)  offset  +1, +1 — per-stroke base gold
+   (218,182,55)  offset   0,  0 — main gold face
+   (252,228,125) offset  -3, -3 — per-stroke highlight
+   (255,242,175) offset  -5, -5 — per-stroke bright highlight
+ THEN composite on RGBA canvas:
+   draw.text((184,310), "Amore", fill=(180,138,38,120)) — warm burnish
+   draw.text((176,302), "Amore", fill=(255,248,195,80))  — sheen
+   draw.text((172,298), "Amore", fill=(255,252,215,255)) — WORD-LEVEL highlight top
+   (final layer offset is -12,-12 from main position 184,310)
+
+"a conversation about love, across 2000 years."
+ Font: Parisienne, pt=85
+ Rendered ink size: 1402x102px
+ Visual center x: 236px
+ y: 2067  (= H x 0.745 = 2775 x 0.745)
+ Color: (200,185,158)
+ Dark backing pill: draw rounded rect behind subtitle for legibility
+   pill rect: (cx-20, y-8, cx+ink_w+20, y+ink_h+8), fill=(0,0,0,140)
+
+Gold rule
+ y: 2197  (= subtitle_y + 130 = 2067 + 130)
+ Width: 908px  (= 55% of TEXT_W 1651px)
+ x: 483px  (= (1875 - 908) // 2)
+ Thickness: 5px
+ Color: (192,155,48)
+
+"Publius Ovidius Naso"
+ Font: Cinzel 400, pt=155
+ Rendered ink size: 1714x113px
+ Visual center x: 80px
+ y: 2247  (= rule_y + 50 = 2197 + 50)
+ Color: (228,216,192)
+
+"& Michael Sawyer"
+ Font: Cinzel 400, pt=155
+ Rendered ink size: 1443x113px
+ Visual center x: 216px
+ y: 2392  (= rule_y + 195 = 2197 + 195)
+ Color: (228,216,192)
+
+"II B.C. · MMXXVI C.E."
+ Font: Cinzel 400, pt=110
+ Rendered ink size: 1035x83px
+ Visual center x: 420px
+ y: 2549  (= rule_y + 352 = 2197 + 352)
+ Layer 1: (155,115,35) offset +2,+2
+ Layer 2: (218,178,52) offset 0,0
+
+CARD OUTPUT
+ Size: 650x962px, Quality: 74
+ GitHub: /images/cover-art-amore-v9.jpeg  (current live slot)
+ Full archive: /covers/art-amore/cover_art_amore_v16.jpg
+ Update both: index.html AND ovid-preview.html
+
+───────────────────────────────────────────────────────────────────────────────
+SECTION 5B — RADIANT SENSITIVITY (v11 — APPROVED)
+
+Status: v11 approved. Pushed June 3, 2026.
+Card: /images/cover-radiant-sensitivity-v7.jpeg (live)
+Archive: /covers/radiant-sensitivity/cover_radiant_sensitivity_v11.jpg
+NOTE: luminous-sensitivity-preview.html still references old cover — update next build.
+
+SOURCE PHOTO
+ File: 1000055577.jpg (uploaded Session 18 + 21)
+ Original dimensions: 1024x1024px (square with grey side padding)
+ Text-free: YES
+ Preparation:
+   Content crop: x=215 to x=811 (597px wide, full 1024 height)
+   Scale to canvas width 1875px → height becomes 3216px
+   Final crop: y=220 to y=2995 → 2775px tall
+   Resize to 1875x2775 via LANCZOS
+
+CANVAS: 1875x2775px
+
+FONTS
+ RADIANT:     Cinzel 400              /home/claude/cinzel-400.ttf          pt=300, then scale
+ Sensitivity: Liberation Serif Italic LiberationSerif-Italic.ttf           pt=265, then scale
+ subtitle:    Liberation Serif Italic same                                  pt=98, then scale
+ author:      Lora Variable           Lora-Variable.ttf                    pt=124, then scale
+
+BOTTOM GRADIENT
+ Color: (8,4,1), start y=1804 (65% of 2775), cubic ease-in t^3, max alpha=180
+
+FROZEN PARAMETERS — DO NOT APPROXIMATE
+
+WIDTH TARGETS (exact pixels):
+ RADIANT target width:      1485px  (90% of TEXT_W 1651px)
+ Sensitivity target width:  1386px  (84% of TEXT_W 1651px)
+ subtitle target width:     1386px  (matches Sensitivity)
+ author target width:       1485px  (matches RADIANT)
+
+RENDER SIZES (at specified pt) — scale to target width via LANCZOS:
+ "RADIANT" at pt=300:             ink=1373x220px → scale to 1485px wide (scale=1.082)
+   scaled height: 238px
+ "Sensitivity" at pt=265:         ink=1087x232px → scale to 1386px wide (scale=1.275)
+   scaled height: 296px
+ "The Power of Empathy" at pt=98: ink=895x91px   → scale to 1386px wide
+ "Michael Sawyer" at pt=124 Lora: ink=898x128px  → scale to 1485px wide
+
+METALLIC GRADIENT (5-stop center-bright — see §3C)
+ GOLD   base=(225,170,45) hi=(255,248,170) → RADIANT + author
+ COPPER base=(210,105,30) hi=(255,200,90)  → Sensitivity + subtitle
+ dark_mult=0.48, deep_mult=0.35
+
+LAYOUT (y positions are top edge of ink, after scaling)
+ RADIANT:     y=120
+ Sensitivity: y=382  (= 120 + scaled_h 238 + gap 24)
+ Author:      bottom edge at y=2663  (= H - MARGIN = 2775 - 112)
+              top edge at y=2535     (= 2663 - scaled_h 128)
+ Rule:        y=2496  (= author_top 2535 - gap 36 - thickness 3)
+              width=891px, x=492px, color=(210,155,60,210)
+ Subtitle:    y=2369  (= rule_top 2496 - gap 36 - scaled_h 91)
+
+SUBTITLE TEXT: "The Power of Empathy"
+
+CARD OUTPUT
+ Size: 650x962px, Quality: 74
+ GitHub card: /images/cover-radiant-sensitivity-v7.jpeg
+ Full archive: /covers/radiant-sensitivity/cover_radiant_sensitivity_v11.jpg
+
+───────────────────────────────────────────────────────────────────────────────
+SECTION 5C — FOUNTAIN OF YOUTH (v2 — APPROVED)
+
+Status: v2 approved. Live at gaiaridge.com.
+Card: /images/cover-fountain-of-youth-v2.jpeg
+
+SOURCE PHOTO
+ File: 1000066961.jpg (uploaded June 2, 2026)
+ Original dimensions: 3664x2304px (landscape)
+ Description: classical stone arch, statues, figures, blue water
+ Text-free: YES
+ Treatment: scale to canvas width 1875px → height 1179px
+   Place as horizontal band: band_y=798, band_h=1179
+   Top and bottom edges fade to near-black: quadratic fade, depth=260px
+
+CANVAS: 1875x2775px
+
+FONTS
+ FOUNTAIN:  Cinzel 400               /home/claude/cinzel-400.ttf  pt=280
+ of Youth:  Liberation Serif Italic  LiberationSerif-Italic.ttf   pt=428
+ Subtitle:  Liberation Serif Italic  same                          pt=102
+ Author:    Cinzel 400               /home/claude/cinzel-400.ttf  pt=280
+
+FROZEN PARAMETERS — DO NOT APPROXIMATE
+
+TITLE TREATMENT — DAPPLED WATER LIGHT
+ Vertical gradient stops (t=0.0 top → 1.0 bottom):
+   t=0.00: (28,110,130)   deep teal
+   t=0.18: (45,155,175)
+   t=0.40: (120,220,230)
+   t=0.52: (180,245,250)  near-white caustic peak
+   t=0.65: (100,200,215)
+   t=0.80: (40,140,160)
+   t=1.00: (18,80,100)    deep teal
+ Caustic blobs: 18 dappled ellipses, seed=42, alpha 60-140
+   Colors: bright aqua/white range R=(160-255), G=(230-255), B=(235-255)
+   Apply GaussianBlur after blobs
+
+WIDTH TARGETS (exact pixels):
+ FOUNTAIN target width:  1482px  (renders naturally at pt=280, ink=1482x206px — no scaling needed)
+ of Youth target width:  1371px  (renders at pt=428, ink=1371px — no scaling needed)
+ Subtitle target width:  1445px  (renders at pt=102, ink=1445x95px — no scaling needed)
+ Author target width:    1482px  (scale "Michael Sawyer" to match FOUNTAIN)
+   "Michael Sawyer" at pt=280 renders ink=2360px → scale DOWN to 1482px
+
+COLOUR SYSTEM
+ Title:    dappled blue-green water (see gradient above)
+ Subtitle: copper metallic — stops (100,50,15) → (255,200,90) → (80,38,10)
+ Author:   gold metallic — stops (108,81,22) → (255,248,170) → (91,62,12)
+ Rule:     warm gold (215,175,130), 55% TEXT_W = 908px, 3px thick
+
+LAYOUT
+ FOUNTAIN:  y=112  (top margin), ink_h=206px
+ of Youth:  y=388  (= 112 + 206 + 70)
+ Bottom block built upward from y=2663 (H - MARGIN):
+   Author bottom edge: y=2663
+   Author top:         y=2580  (= 2663 - scaled_h ~83px at 1482/2360 scale)
+   Gap:                55px
+   Rule y:             y=2470  (= author_top - 55 - 3)
+   Gap:                55px
+   Subtitle bottom:    y=2412  (= rule_y - 55)
+   Subtitle top:       y=2317  (= 2412 - ink_h 95)
+
+CARD OUTPUT
+ Size: 650x962px, Quality: 74
+ GitHub card: /images/cover-fountain-of-youth-v2.jpeg
+ Full archive: /covers/fountain-of-youth/ (create if needed)
+
+───────────────────────────────────────────────────────────────────────────────
+SECTION 5D — SPANK ME TENDER (v17 — APPROVED)
+
+Status: v17 approved and live.
+Card: /images/cover-spank-me-tender.jpeg
+Archive: /covers/spank-me-tender/SMT_cover_v17.jpg
+NOTE: "Tender" font acknowledged as "good enough for now" — revisit when better
+calligraphic font is found. Current font: Qwitcher Grypen.
+
+SOURCE PHOTO
+ Drive folder: Books/Spank Me Tender/
+ Drive file ID: 1G6y1iZJaVCvapJPDLMRM_dReFT6SD4w-
+ Text-free: YES
+ Crop: rows 2%–84% of original
+
+FONTS
+ SPANK ME:  Permanent Marker    (npm @fontsource/permanent-marker)
+ Tender:    Qwitcher Grypen     (npm @fontsource/qwitcher-grypen, WOFF->ttf)
+ Subtitle:  Liberation Serif Italic
+ Author:    Lora Variable
+
+APPROVED TREATMENT
+ "SPANK ME": horizontal flesh-to-blush gradient, left=(255,228,210) → right=(238,178,185)
+ "Tender":   lilac dimensional layers — revisit font in future session
+ Subtitle:   "soft recreational discipline", lilac with dark glow shadow, pt=130 Lora
+ Author:     "Michael Sawyer", light blue dimensional layers, pt=192 Lora
+ No whip-strike lash effect (permanently abandoned)
+
+NOTE: Full exact frozen parameters for SMT are pending a clean rebuild session.
+When rebuilding, fetch source photo fresh from Drive (file ID above), do not
+use the archived cover from covers/spank-me-tender/ as a source.
+
+───────────────────────────────────────────────────────────────────────────────
+SECTION 5E — KINTSUGI (v5 — APPROVED)
+
+Status: v5 approved and live.
+Card: /images/cover-kintsugi-v1.jpeg
+Archive: /covers/kintsugi/kintsugi_cover_v5.jpg
+
+SOURCE PHOTO
+ File: 1000000270.jpg (Venus de Milo painting — upload to Drive if not there)
+ Drive folder: Books/Kintsugi Raku/
+ Text-free: YES
+ Canvas extension: use right-side background strip only (x=1468+) to avoid
+   Venus bleed when extending canvas above her head
+
+GOLD TEXT FUNCTION
+ Use §3D gold_text function — ink pixel extents, sine curve, no shadow stop.
+ Verified working in v5.
+
+NOTE: Full exact frozen parameters for Kintsugi are pending capture in a
+dedicated session. When rebuilding, state source photo first, fetch fresh,
+verify text-free, then run full pipeline from scratch.
+
+════════════════════════════════════════════════════════════════════════════════
+
+SECTION 6 — REBUILD CHECKLIST
+
+Use this every time a cover needs to be rebuilt or updated.
+
+ [ ] 1. State source photo filename + Drive file ID
+ [ ] 2. Fetch photo from Drive — save to /home/claude/[filename]
+ [ ] 3. Verify dimensions and that it is text-free
+ [ ] 4. Install fonts (pip + npm + convert — see §4B for Parisienne note)
+ [ ] 5. Run full build pipeline using FROZEN PARAMETERS from §5x
+ [ ] 6. present_files() the output for Michael's approval before pushing
+ [ ] 7. On approval: push card to /images/ and full cover to /covers/[slug]/
+ [ ] 8. Update index.html AND any preview HTML referencing that cover
+ [ ] 9. Trigger Cloudflare deploy (push trivial index.html commit if needed)
+
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+
+SECTION 8 — COMPOSITE / GHOSTED COVER ART (new, v4.0)
+
+For covers built from a photo with additional ghosted/composited symbolic
+elements layered in (as opposed to a straight photo + title treatment), per
+the Enchante Nike cover project (Aug 2 2026):
+
+TOOL HONESTY:
+ No image-generation/diffusion AI is available in this environment. Every
+ composite element (silhouettes, radiance, glow figures) is built from direct
+ pixel manipulation -- PIL compositing, gradients, masks, screen-blend, not
+ AI generation. State this plainly if asked to "sub out" work to a
+ specialized image AI -- there isn't one available here. Do the best
+ achievable version with direct compositing and say clearly where the tool's
+ ceiling is (e.g., true mesh-warping to conform a shape to an architectural
+ curve is NOT achievable convincingly with row-shear approximation -- say so
+ rather than deliver an unconvincing fake).
+
+ANATOMY / SOURCE ACCURACY:
+ When ghosting a real photographed subject (a statue, a real object) into a
+ composite more than once, do NOT create a mirrored duplicate to fill a
+ second position unless the subject is genuinely symmetric. A mirrored human
+ or statue silhouette is not the real subject -- it's an invented reversed
+ version. Check reference photos for the subject's true, asymmetric details
+ (e.g., which leg is forward, which side drapes) before duplicating. Default
+ to reusing the true orientation twice over inventing a mirror.
+
+PALETTE SOURCING:
+ Don't improvise gradient/glow colors from imagination. Sample actual pixel
+ values from: the source photo itself, the established gold-title gradient
+ stops (see assets/effects/), and any reference mood images the person
+ provides. Build the working palette from those sampled values. This produces
+ a cohesive result and gives the person concrete numbers to react to and
+ correct, rather than a vibe.
+
+FILE NAMING:
+ Do not use "FINAL" in cover/image work-in-progress filenames (matches the
+ existing Drive naming rule, extended here to cover art generally). Use
+ version numbers (v1, v2, v3...) instead. Nothing in this iterative process
+ is presented as a last word.
