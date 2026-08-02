@@ -56,3 +56,15 @@ one-directional loop).
 
 Referenced in: v5.2_INNER_COUNCIL_CHARTER (or later), Section 6A —
 Website Operations, under REPO STRUCTURE.
+
+## TAGGED FOR A LATER SESSION (Aug 2 2026)
+Add a creamier radiance-palette color option to the gold-metallic-title
+toolset — both the static baked cover-text method and the animated shimmer
+pipeline — as an alternate/substitute palette. Purpose: give a ready option
+for light-mode vs. dark-mode contrast situations (the current warm-dark gold
+stops read differently depending on the surrounding page background). Not
+started yet. Related: this surfaced during the Enchanté Nike cover art
+project (see nike_cover_package.zip in that session) which sourced its
+palette partly from a cream Art Deco radiance reference — that reference's
+tones (~(185,180,165) through near-white ~(190,188,180)) are a reasonable
+starting point for this.
