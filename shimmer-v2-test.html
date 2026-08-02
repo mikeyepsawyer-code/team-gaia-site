@@ -27,32 +27,6 @@
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
-
-    /* bevel: two STATIC drop-shadows (echo, not copies) + the existing animated glow, same property */
-    animation: gold-shimmer-glow 5s ease-in-out infinite;
-  }
-  @keyframes gold-shimmer-glow {
-    0% {
-      filter:
-        drop-shadow(0.035em 0.035em 0 rgba(20, 10, 5, 0.85))
-        drop-shadow(-0.022em -0.022em 0 rgba(255, 235, 180, 0.85))
-        drop-shadow(0 0 3px rgba(210, 160, 80, 0.15))
-        drop-shadow(0 0 6px rgba(210, 160, 80, 0.08));
-    }
-    50% {
-      filter:
-        drop-shadow(0.035em 0.035em 0 rgba(20, 10, 5, 0.85))
-        drop-shadow(-0.022em -0.022em 0 rgba(255, 235, 180, 0.85))
-        drop-shadow(0 0 6px rgba(240, 195, 110, 0.28))
-        drop-shadow(0 0 12px rgba(240, 195, 110, 0.13));
-    }
-    100% {
-      filter:
-        drop-shadow(0.035em 0.035em 0 rgba(20, 10, 5, 0.85))
-        drop-shadow(-0.022em -0.022em 0 rgba(255, 235, 180, 0.85))
-        drop-shadow(0 0 3px rgba(210, 160, 80, 0.15))
-        drop-shadow(0 0 6px rgba(210, 160, 80, 0.08));
-    }
   }
 
   h1 { letter-spacing:0.08em; line-height:1.3; margin: 0 0 20px 0; font-size: 4.5rem; }
