@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gold Shimmer Demo</title>
+<style>
+  body {
+    background: #0a0806;
+    margin: 0;
+    padding: 60px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    font-family: Georgia, serif;
+  }
+
+  .block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #221c12;
+    width: 100%;
+    max-width: 420px;
+  }
+
+  .label {
+    color: #776a55;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 52px;
+    margin: 0;
+    text-align: center;
+    letter-spacing: 1px;
+  }
+
+  /* Shimmer 2: subtle shifting metallic (slower, more elegant) —
+     kept as the "previous version" comparison at the bottom of the page. */
+  .shimmer-slow-glow {
+    background: linear-gradient(
+      95deg,
+      #6b5218 10%,
+      #c9a84c 30%,
+      #fdf3c4 42%,
+      #ffffff 48%,
+      #fdf3c4 54%,
+      #c9a84c 66%,
+      #6b5218 85%
+    );
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    animation: sweep-slow 6s ease-in-out infinite, glow-pulse 6s ease-in-out infinite;
+  }
+
+  @keyframes glow-pulse {
+    0%   { filter: drop-shadow(0 0 6px rgba(230, 190, 90, 0.25)) drop-shadow(0 0 14px rgba(230, 190, 90, 0.12)); }
+    50%  { filter: drop-shadow(0 0 16px rgba(255, 235, 170, 0.55)) drop-shadow(0 0 32px rgba(255, 235, 170, 0.3)); }
+    100% { filter: drop-shadow(0 0 6px rgba(230, 190, 90, 0.25)) drop-shadow(0 0 14px rgba(230, 190, 90, 0.12)); }
+  }
+
+  @keyframes sweep-slow {
+    0%   { background-position: 250% 0; }
+    100% { background-position: -150% 0; }
+  }
+
+  /* FINAL: deeper shadow range, 25deg angle (matches approved foil angle),
+     seamless diagonal loop (no snap-back), works across multi-line titles */
+  .shimmer-final {
+    background:
+      radial-gradient(circle at 15% 30%, rgba(255, 224, 180, 0.55) 0%, transparent 6%),
+      radial-gradient(circle at 62% 12%, rgba(232, 146, 60, 0.45) 0%, transparent 5%),
+      radial-gradient(circle at 82% 58%, rgba(255, 240, 200, 0.4) 0%, transparent 4%),
+      radial-gradient(circle at 34% 78%, rgba(180, 80, 50, 0.45) 0%, transparent 5%),
+      radial-gradient(circle at 92% 88%, rgba(255, 200, 140, 0.35) 0%, transparent 4%),
+      radial-gradient(circle at 8% 85%, rgba(216, 130, 55, 0.4) 0%, transparent 4%),
+      linear-gradient(
+        25deg,
+        #4a2418 0%,
+        #7a4a1e 6%,
+        #e6b64c 18%,
+        #fff2c0 24%,
+        #f2a13c 28%,
+        #c99435 36%,
+        #7a4a1e 42%,
+        #e6b64c 48%,
+        #fff2c0 52%,
+        #f2a13c 56%,
+        #c99435 62%,
+        #6e4218 68%,
+        #c99435 76%,
+        #fff2c0 80%,
+        #f2a13c 84%,
+        #6e4218 94%,
+        #4a2418 100%
+      );
+    background-repeat: no-repeat;
+    background-attachment: scroll, scroll, scroll, scroll, scroll, scroll, fixed;
+    background-size:
+      100% 100%, 100% 100%, 100% 100%,
+      100% 100%, 100% 100%, 100% 100%,
+      1200px 220px;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    line-height: 1.15;
+    animation: glow-pulse-final 5s ease-in-out infinite;
+  }
+
+  @keyframes glow-pulse-final {
+    0%   { filter: drop-shadow(0 0 3px rgba(210, 160, 80, 0.15)) drop-shadow(0 0 6px rgba(210, 160, 80, 0.08)); }
+    50%  { filter: drop-shadow(0 0 6px rgba(240, 195, 110, 0.28)) drop-shadow(0 0 12px rgba(240, 195, 110, 0.13)); }
+    100% { filter: drop-shadow(0 0 3px rgba(210, 160, 80, 0.15)) drop-shadow(0 0 6px rgba(210, 160, 80, 0.08)); }
+  }
+
+  .sub {
+    color: #55503f;
+    font-size: 14px;
+    text-align: center;
+    max-width: 320px;
+    font-family: -apple-system, sans-serif;
+  }
+
+  /* BEVEL MODIFIER — stack of offset shadows to fake a raised, lit edge.
+     Dark shadows pulled down-right (the edge falling into shade),
+     light "rim" shadows pushed up-left (the edge catching light).
+     Works alongside the existing gradient fill/animation. */
+  /* LAYERED BEVEL — real separate elements instead of text-shadow.
+     text-shadow doesn't reliably stay BEHIND a background-clip:text
+     fill on mobile browsers — it was compositing over the gradient
+     and greying it out. This guarantees paint order: shadow copy at
+     the bottom, rim copy above it, face gradient on top untouched. */
+  .dimensional {
+    position: relative;
+    display: inline-block;
+    line-height: 1.15;
+    font-size: 52px;
+    letter-spacing: 1px;
+  }
+
+  .dimensional .face {
+    position: relative;
+    z-index: 10;
+  }
+
+  .dimensional .shadow-copy,
+  .dimensional .rim-copy {
+    position: absolute;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+  }
+
+  /* Shadow side: solid tones sampled from the gradient's dark/orange
+     range (not animated — animating every layer caused a filter
+     conflict with the glow animation and made everything flash). */
+  .shadow-1 { color: rgba(110, 65, 24, 0.55);  transform: translate(1.5px, 1.5px); z-index: 4; }
+  .shadow-2 { color: rgba(74, 36, 24, 0.8);    transform: translate(3px, 3px);     z-index: 3; }
+  .shadow-3 { color: rgba(16, 8, 3, 0.9);      transform: translate(4.3px, 4.3px); z-index: 2; }
+
+  /* Rim side: warm yellow-gold rather than pale cream/white. */
+  .rim-1 { color: rgba(240, 195, 90, 0.45);  transform: translate(-0.7px, -0.7px); z-index: 5; }
+  .rim-2 { color: rgba(250, 210, 110, 0.65); transform: translate(-1.4px, -1.4px); z-index: 6; }
+  .rim-3 { color: rgba(255, 225, 130, 0.85); transform: translate(-2.1px, -2.1px); z-index: 7; }
+
+  .big {
+    font-size: 88px;
+  }
+
+  /* TWO-PLANE TREATMENT — face and edge are separate text layers.
+     Face: the existing one-direction gold sweep (25deg).
+     Edge: a second copy offset diagonally behind it, with its own
+     gradient at a different angle, moving the opposite direction —
+     so the "side" of the letter catches light independently of the face. */
+  .dimensional {
+    position: relative;
+    display: inline-block;
+    line-height: 1.15;
+    font-size: 52px;
+    letter-spacing: 1px;
+  }
+
+  .dimensional .face {
+    position: relative;
+    z-index: 10;
+  }
+
+  .dimensional .edge {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    white-space: nowrap;
+    background: linear-gradient(
+      115deg,
+      #3a1c12 0%,
+      #6e4a1a 14%,
+      #b8862e 32%,
+      #e8c67a 46%,
+      #fff2c8 50%,
+      #e8c67a 54%,
+      #b8862e 68%,
+      #6e4a1a 86%,
+      #3a1c12 100%
+    );
+    background-repeat: no-repeat;
+    background-size: 220% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    animation: plane-edge-move 7s linear infinite reverse;
+  }
+
+  .e1 { transform: translate(2px, 2px); z-index: 4; filter: brightness(1); }
+  .e2 { transform: translate(4px, 4px); z-index: 3; filter: brightness(0.85); }
+  .e3 { transform: translate(6px, 6px); z-index: 2; filter: brightness(0.7); }
+
+  @keyframes plane-edge-move {
+    0%   { background-position: 0% 0; }
+    100% { background-position: 100% 0; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="block">
+    <div class="label">Layered bevel — stable version</div>
+    <div class="dimensional big">
+      <span class="shadow-copy shadow-3">GOLD</span>
+      <span class="shadow-copy shadow-2">GOLD</span>
+      <span class="shadow-copy shadow-1">GOLD</span>
+      <span class="rim-copy rim-1">GOLD</span>
+      <span class="rim-copy rim-2">GOLD</span>
+      <span class="rim-copy rim-3">GOLD</span>
+      <span class="face shimmer-final">GOLD</span>
+    </div>
+    <div class="sub">Fixed the glitch — that came from putting the animated gradient on every layer, which conflicted with the glow animation's filter and made all 7 layers sync into overlapping flashing copies. Back to stable solid tones (sampled from the same palette) for the shadow/rim steps, only the face shimmers.</div>
+  </div>
+
+  <div class="block">
+    <div class="label">Layered bevel — two-line title</div>
+    <div class="dimensional">
+      <span class="shadow-copy shadow-3">FOUNTAIN<br>of Youth</span>
+      <span class="shadow-copy shadow-2">FOUNTAIN<br>of Youth</span>
+      <span class="shadow-copy shadow-1">FOUNTAIN<br>of Youth</span>
+      <span class="rim-copy rim-1">FOUNTAIN<br>of Youth</span>
+      <span class="rim-copy rim-2">FOUNTAIN<br>of Youth</span>
+      <span class="rim-copy rim-3">FOUNTAIN<br>of Youth</span>
+      <span class="face shimmer-final">FOUNTAIN<br>of Youth</span>
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="label">For comparison — no bevel</div>
+    <h1 class="shimmer-final big">GOLD</h1>
+  </div>
+
+  <div class="block">
+    <div class="label">Final — deeper shadow, angled, seamless loop</div>
+    <h1 class="shimmer-final">FOUNTAIN<br>of Youth</h1>
+    <div class="sub">Slowed down, and the dark edges were stretched 4x wider than intended (a scaling mismatch) — that's what was reading as a black field. Tightened the scale and the dark stops so it's brief, not a dwell.</div>
+  </div>
+
+  <div class="block">
+    <div class="label">Final — on a single word</div>
+    <h1 class="shimmer-final">RADIANT</h1>
+  </div>
+
+  <div class="block">
+    <div class="label">Previous version (for comparison)</div>
+    <h1 class="shimmer-slow-glow">Amōre</h1>
+  </div>
+
+</body>
+
+<script>
+  // Drives the gradient position continuously frame-by-frame instead of
+  // using a CSS @keyframes reset. A repeating background is mathematically
+  // periodic, so the position value can just grow indefinitely (wrapped
+  // with modulo purely to keep the number small — not to "reset" a visual
+  // state). This avoids the sub-pixel rounding snap that a hard CSS
+  // keyframe restart can produce on real devices.
+  (function () {
+    var travel = 300;       // px of back-and-forth motion within the single image
+    var period = 6000;      // ms for one full there-and-back cycle
+    var els = document.querySelectorAll('.shimmer-final');
+
+    function frame(timestamp) {
+      var pos = -(travel / 2) * (1 - Math.cos((2 * Math.PI * timestamp) / period));
+      var value = '0 0, 0 0, 0 0, 0 0, 0 0, 0 0, ' + pos + 'px 0';
+      for (var i = 0; i < els.length; i++) {
+        els[i].style.backgroundPosition = value;
+      }
+      requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  })();
+</script>
+</html>
