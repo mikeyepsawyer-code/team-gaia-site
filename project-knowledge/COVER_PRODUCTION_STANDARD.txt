@@ -568,3 +568,21 @@ FILE NAMING:
  existing Drive naming rule, extended here to cover art generally). Use
  version numbers (v1, v2, v3...) instead. Nothing in this iterative process
  is presented as a last word.
+
+═══════════════════════════════════════════════════════════
+COLORWAYS (added Aug 2, 2026 -- Chronic Bliss build session)
+═══════════════════════════════════════════════════════════
+
+COLORWAY: "Chronic Bliss Purple"
+- Base: hue-varied mid-purple/lavender, anchored on RGB(152,104,212),
+  organic per-pixel hue drift (~14deg) + brightness drift, not a flat swatch.
+- Highlight: tight point-source beam, color RGB(238,220,255), cool-white-lavender.
+  Beam computed from a virtual light source placed off-canvas upper-right,
+  aimed at the cover's center, ~7deg angular width (tight). Every letter's
+  highlight angle is computed from its true position relative to that single
+  light point, so highlights land differently across title vs. subtitle
+  blocks but stay physically consistent with one shared source.
+- Approved for: title + subtitle treatment, Chronic Bliss / A Case for
+  Polygasm Therapy cover.
+- NOTE FROM MICHAEL: try a variant with lilac highlights and lavender
+  low-lights (shadow/deep tones) -- not yet built, flagged for a future pass.
