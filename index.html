@@ -56,6 +56,7 @@
   .link-card { display: flex; flex-direction: column; align-items: center; text-decoration: none; color: inherit; cursor: pointer; transition: transform 0.4s ease, opacity 0.4s ease; }
   .link-card:hover { transform: translateY(-4px); opacity: 0.92; }
   .link-card-img { width: 100%; aspect-ratio: 2 / 3; border: 1px solid rgba(201,168,76,0.25); border-radius: 4px; overflow: hidden; background: #1a130c; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
+  .read-badge { position: absolute; bottom: 10px; right: 10px; width: 34px; height: 34px; border-radius: 50%; background: rgba(10,8,4,0.6); border: 1.5px solid rgba(212,178,84,0.85); color: #f0cc70; display: flex; align-items: center; justify-content: center; font-size: 0.78rem; z-index: 3; box-shadow: 0 0 8px rgba(255,215,94,0.35); padding-left: 2px; pointer-events: none; }
   .link-card-img img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
   /* HARDCOVER BOOK TREATMENT — 45-degree oblique, depth 10px (approved July 20) */
   .hardcover { position: relative; margin-top: 17px; margin-left: 12px; width: calc(100% - 12px); }
@@ -203,61 +204,70 @@
         <div class="hardcover" style="--spine:#625c5f;--spine2:#2c292a"><div class="link-card-img sash-wrap" style="background:#2a0a0a;overflow:hidden;position:relative;">
           <div class="sash">Free Preview</div>
           <img src="/images/cover-art-amore-v9.jpeg" alt="The Art of Amōre" style="width:100%;height:100%;object-fit:cover;object-position:center 10%;">
-        </div></div>
+        <span class="read-badge">&#9654;</span>
+                </div></div>
       </a>
       <!-- Oceans of Love — Preview -->
       <a class="link-card" href="/oceans-of-love-preview.html" target="_blank" rel="noopener">
         <div class="hardcover" style="--spine:#354a66;--spine2:#17212d"><div class="link-card-img sash-wrap" style="background:linear-gradient(160deg,#060e1a 0%,#0d1f35 50%,#060e1a 100%);position:relative;overflow:hidden;">
           <div class="sash">Free Preview</div>
           <img src="/images/cover-oceans-of-love.jpeg" alt="Oceans of Love" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
-        </div></div>
+        <span class="read-badge">&#9654;</span>
+                </div></div>
       </a>
       <!-- Unjustified Happiness — Preview -->
       <a class="link-card" href="/unjustified-happiness-preview.html" target="_blank" rel="noopener">
         <div class="hardcover" style="--spine:#3e668f;--spine2:#1b2d40"><div class="link-card-img sash-wrap" style="background:#0a0c18;overflow:hidden;position:relative;">
           <div class="sash">Free Preview</div>
           <img src="/images/cover-unjustified-happiness-v4.jpeg" alt="Unjustified Happiness" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
-        </div></div>
+        <span class="read-badge">&#9654;</span>
+                </div></div>
       </a>
       <!-- Radiant Sensitivity — Preview -->
       <a class="link-card" href="/radiant-sensitivity-preview.html" target="_blank" rel="noopener">
         <div class="hardcover" style="--spine:#26293e;--spine2:#11121b"><div class="link-card-img sash-wrap" style="background:#080a0d;overflow:hidden;position:relative;">
           <div class="sash">Free Preview</div>
           <img src="/images/cover-radiant-sensitivity-v7.jpeg" alt="Radiant Sensitivity" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
-        </div></div>
+        <span class="read-badge">&#9654;</span>
+                </div></div>
       </a>
       <!-- Cultivating Spiritual Energy — Preview -->
       <a class="link-card" href="/cultivating-chi-preview.html" target="_blank" rel="noopener">
         <div class="hardcover" style="--spine:#111a1f;--spine2:#070b0d"><div class="link-card-img sash-wrap" style="background:#05080a;overflow:hidden;position:relative;">
           <div class="sash">Free Preview</div>
           <img src="/images/cover-cse-v3.jpeg" alt="Cultivating Spiritual Energy" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
-        </div></div>
+        <span class="read-badge">&#9654;</span>
+                </div></div>
       </a>
       <!-- Restoring the Divine Feminine — Preview -->
       <a class="link-card" href="/restoring-divine-feminine-preview.html" target="_blank" rel="noopener">
         <div class="hardcover" style="--spine:#2a2e56;--spine2:#14172c"><div class="link-card-img sash-wrap" style="background:#0c0b18;overflow:hidden;position:relative;">
           <div class="sash">Free Preview</div>
           <img src="/images/cover-restoring-divine-feminine-v3.jpeg" alt="Restoring the Divine Feminine" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
-        </div></div>
+        <span class="read-badge">&#9654;</span>
+                </div></div>
       </a>
       <!-- Enchanté Nike — Preview -->
       <a class="link-card" href="/enchante-nike-preview.html" target="_blank" rel="noopener">
         <div class="hardcover" style="--spine:#655d53;--spine2:#2d2925"><div class="link-card-img" style="background:#08060a;overflow:hidden;position:relative;aspect-ratio:1875/2775;">
           <video src="/images/nike-card-shimmer.mp4" poster="/images/nike-card-shimmer-poster.jpg" autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;object-position:center center;"></video>
-        </div></div>
+        <span class="read-badge">&#9654;</span>
+                </div></div>
       </a>
       <!-- Shamanic Photography — Preview -->
       <a class="link-card" href="/shamanic-photography-preview.html" target="_blank" rel="noopener">
         <div class="hardcover" style="--spine:#54534a;--spine2:#252521"><div class="link-card-img" style="background:#080a08;overflow:hidden;position:relative;">
           <img src="/images/cover-shamanic-photography-v1.jpeg" alt="Shamanic Photography" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
-        </div></div>
+        <span class="read-badge">&#9654;</span>
+                </div></div>
       </a>
       <!-- the psychological art of Kintsugi — Preview -->
       <a class="link-card" href="/kintsugi-preview.html" target="_blank" rel="noopener">
         <div class="hardcover" style="--spine:#505258;--spine2:#242427"><div class="link-card-img sash-wrap" style="background:#08090c;overflow:hidden;position:relative;">
           <div class="sash">Free Preview</div>
           <img src="/images/cover-kintsugi-v1.jpeg" alt="The Psychological Art of Kintsugi" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
-        </div></div>
+        <span class="read-badge">&#9654;</span>
+                </div></div>
       </a>
 
       <!-- Post Sapiens -->
@@ -307,21 +317,24 @@
         <div class="hardcover" style="--spine:#6e4c33;--spine2:#312216"><div class="link-card-img sash-wrap" style="background:#1a0e08;overflow:hidden;">
           <div class="sash" style="width:236px;right:-54px;top:30px;line-height:1.55;font-size:0.68rem;">Free Preview<br>Full Book on Amazon</div>
           <img src="/images/cover-100-orgasms.jpeg" alt="100 Orgasms an Hour" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
-        </div></div>
+        <span class="read-badge">&#9654;</span>
+                </div></div>
       </a>
       <!-- Slow the Fuck Down — Preview -->
       <a class="link-card" href="/slow-the-fuck-down-preview.html" target="_blank" rel="noopener">
         <div class="hardcover" style="--spine:#77583e;--spine2:#35271b"><div class="link-card-img sash-wrap" style="background:#1a0808;overflow:hidden;">
           <div class="sash">Free Preview</div>
           <img src="/images/cover-slow-the-fuck-down.jpeg" alt="Slow the Fuck Down" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
-        </div></div>
+        <span class="read-badge">&#9654;</span>
+                </div></div>
       </a>
       <!-- Fountain of Youth — Preview -->
       <a class="link-card" href="/fountain-preview.html" target="_blank" rel="noopener">
         <div class="hardcover" style="--spine:#576164;--spine2:#272b2d"><div class="link-card-img sash-wrap" style="background:#0a1a10;overflow:hidden;position:relative;">
           <div class="sash">Free Preview</div>
           <img src="/images/cover-fountain-of-youth-v4.jpeg" alt="Fountain of Youth" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
-        </div></div>
+        <span class="read-badge">&#9654;</span>
+                </div></div>
       </a>
       <!-- Chronic Pleasure: A Study Proposal for Polygasm Therapy — Placeholder -->
       <div class="hardcover" style="--spine:#3d1f5c;--spine2:#180b26"><div class="link-card-img sash-wrap" style="background:#150a22;overflow:hidden;position:relative;">
@@ -333,7 +346,8 @@
         <div class="hardcover" style="--spine:#725b3e;--spine2:#33281b"><div class="link-card-img sash-wrap" style="background:#1a0808;overflow:hidden;">
           <div class="sash">Free Preview</div>
           <img src="/images/cover-spank-me-tender.jpeg" alt="Spank Me Tender" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
-        </div></div>
+        <span class="read-badge">&#9654;</span>
+                </div></div>
       </a>
 
     </div>
