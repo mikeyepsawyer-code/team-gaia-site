@@ -4,7 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shamanic Photography — Preview</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --gold: #c4922a;
+            --gold-lt: #d8aa48;
+            --gold-br: #f0cc70;
+        }
+        html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
         * {
             margin: 0;
             padding: 0;
@@ -20,69 +27,117 @@
         }
         
         .hero {
-            width: 100%;
-            height: 100vh;
-            background: linear-gradient(135deg, #2a1a0a 0%, #1a0a00 100%);
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            align-items: center;
-            padding: 40px 20px;
             position: relative;
+            width: 100%;
+            min-height: 100vh;
+            min-height: 100svh;
             overflow: hidden;
+            background: #0a0a0a;
         }
-        
-        .hero::before {
-            content: '';
+        .hero-img {
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><filter id="glow"><feGaussianBlur stdDeviation="3" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><circle cx="300" cy="200" r="150" fill="%23dd9955" opacity="0.2" filter="url(%23glow)"/><circle cx="900" cy="600" r="200" fill="%23bb6633" opacity="0.15" filter="url(%23glow)"/></svg>');
-            opacity: 0.4;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            filter: brightness(0.82) saturate(0.92);
+        }
+        .hero-gradient {
+            position: absolute;
+            inset: 0;
+            background:
+              linear-gradient(to bottom,
+                rgba(10,10,10,0.55) 0%,
+                rgba(10,10,10,0.10) 35%,
+                rgba(10,10,10,0.10) 60%,
+                rgba(10,10,10,0.90) 100%);
             pointer-events: none;
         }
-        
         .hero-content {
-            position: relative;
-            z-index: 10;
+            position: absolute;
+            top: 56%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            z-index: 2;
             text-align: center;
             max-width: 600px;
         }
-        
-        .hero h1 {
-            font-size: 48px;
-            font-weight: normal;
-            letter-spacing: 3px;
-            margin-bottom: 16px;
-            color: #dd9955;
-            text-shadow: 0 2px 10px rgba(221, 153, 85, 0.3);
+
+        /* GOLD SHIMMER TITLE — same system as enchante-nike-preview.html, approved */
+        .dimensional { position: relative; display: inline-block; line-height: 1.15; letter-spacing: 1px; font-family: 'Cinzel', serif; text-align: center; }
+        .dimensional .face { position: relative; z-index: 10; }
+        .dimensional .shadow-copy, .dimensional .rim-copy { position: absolute; top: 0; left: 0; width: 100%; }
+        .shadow-1 { color: rgba(110,65,24,0.55); transform: translate(1.5px,1.5px); z-index: 4; }
+        .shadow-2 { color: rgba(74,36,24,0.8); transform: translate(3px,3px); z-index: 3; }
+        .shadow-3 { color: rgba(16,8,3,0.9); transform: translate(4.3px,4.3px); z-index: 2; }
+        .rim-1 { color: rgba(240,195,90,0.45); transform: translate(-0.7px,-0.7px); z-index: 5; }
+        .rim-2 { color: rgba(250,210,110,0.65); transform: translate(-1.4px,-1.4px); z-index: 6; }
+        .rim-3 { color: rgba(255,225,130,0.85); transform: translate(-2.1px,-2.1px); z-index: 7; }
+        .dimensional.big { font-size: 1.85rem; overflow: hidden; max-width: 100%; }
+        @media (min-width: 420px) { .dimensional.big { font-size: 2.15rem; } }
+        @media (min-width: 600px) { .dimensional.big { font-size: 2.8rem; } }
+        @media (min-width: 900px) { .dimensional.big { font-size: 3.5rem; } }
+        .shimmer-final {
+            background:
+              radial-gradient(circle at 15% 30%, rgba(255,224,180,0.55) 0%, transparent 6%),
+              radial-gradient(circle at 62% 12%, rgba(232,146,60,0.45) 0%, transparent 5%),
+              radial-gradient(circle at 82% 58%, rgba(255,240,200,0.4) 0%, transparent 4%),
+              radial-gradient(circle at 34% 78%, rgba(180,80,50,0.45) 0%, transparent 5%),
+              radial-gradient(circle at 92% 88%, rgba(255,200,140,0.35) 0%, transparent 4%),
+              radial-gradient(circle at 8% 85%, rgba(216,130,55,0.4) 0%, transparent 4%),
+              linear-gradient(25deg,#4a2418 0%,#7a4a1e 6%,#e6b64c 18%,#fff2c0 24%,#f2a13c 28%,#c99435 36%,#7a4a1e 42%,#e6b64c 48%,#fff2c0 52%,#f2a13c 56%,#c99435 62%,#6e4218 68%,#c99435 76%,#fff2c0 80%,#f2a13c 84%,#6e4218 94%,#4a2418 100%);
+            background-repeat: no-repeat;
+            background-attachment: scroll, scroll, scroll, scroll, scroll, scroll, fixed;
+            background-size: 100% 100%,100% 100%,100% 100%,100% 100%,100% 100%,100% 100%,1200px 220px;
+            -webkit-background-clip: text; background-clip: text;
+            -webkit-text-fill-color: transparent; color: transparent;
+            line-height: 1.15;
+            animation: gold-shimmer-glow 5s ease-in-out infinite;
         }
-        
+        @keyframes gold-shimmer-glow {
+            0%   { filter: drop-shadow(0 0 3px rgba(210,160,80,0.15)) drop-shadow(0 0 6px rgba(210,160,80,0.08)); }
+            50%  { filter: drop-shadow(0 0 6px rgba(240,195,110,0.28)) drop-shadow(0 0 12px rgba(240,195,110,0.13)); }
+            100% { filter: drop-shadow(0 0 3px rgba(210,160,80,0.15)) drop-shadow(0 0 6px rgba(210,160,80,0.08)); }
+        }
+
         .hero .subtitle {
-            font-size: 18px;
+            font-size: 0.95rem;
             font-style: italic;
-            color: #ccaa99;
-            margin-bottom: 24px;
-            letter-spacing: 1px;
+            color: var(--gold-lt);
+            margin-top: 18px;
+            letter-spacing: 0.04em;
+            opacity: 0.9;
         }
-        
+        @media (min-width: 420px) { .hero .subtitle { font-size: 1.05rem; } }
+        @media (min-width: 600px) { .hero .subtitle { font-size: 1.2rem; } }
+
         .hero .author {
-            font-size: 18px;
-            color: #ccbbaa;
-            margin-bottom: 40px;
+            font-family: 'Cinzel', serif;
+            font-size: 1.05rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #e4d8c4;
+            opacity: 0.85;
+            margin-top: 20px;
         }
+        @media (min-width: 420px) { .hero .author { font-size: 1.2rem; } }
+        @media (min-width: 600px) { .hero .author { font-size: 1.4rem; } }
         
         .scroll-hint {
             position: absolute;
-            bottom: 30px;
+            bottom: 22px;
             left: 50%;
             transform: translateX(-50%);
-            color: #dd9955;
+            font-family: 'Cinzel', serif;
+            color: var(--gold);
             opacity: 0.6;
-            font-size: 14px;
+            font-size: 0.62rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
             animation: bounce 2s infinite;
+            z-index: 2;
         }
         
         @keyframes bounce {
@@ -148,10 +203,6 @@
         }
         
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 36px;
-            }
-            
             .content {
                 padding: 32px 20px;
             }
@@ -164,8 +215,18 @@
 </head>
 <body>
     <div class="hero">
+        <img class="hero-img" src="/images/cover-shamanic-photography-v1.jpeg" alt="Shamanic Photography cover">
+        <div class="hero-gradient"></div>
         <div class="hero-content">
-            <h1>SHAMANIC PHOTOGRAPHY</h1>
+            <div class="dimensional big">
+                <span class="shadow-copy shadow-3">Shamanic<br>Photography</span>
+                <span class="shadow-copy shadow-2">Shamanic<br>Photography</span>
+                <span class="shadow-copy shadow-1">Shamanic<br>Photography</span>
+                <span class="rim-copy rim-1">Shamanic<br>Photography</span>
+                <span class="rim-copy rim-2">Shamanic<br>Photography</span>
+                <span class="rim-copy rim-3">Shamanic<br>Photography</span>
+                <span class="face shimmer-final">Shamanic<br>Photography</span>
+            </div>
             <p class="subtitle">Meeting Nike, Victoria, Regina</p>
             <p class="author">Michael Sawyer</p>
         </div>
