@@ -1,0 +1,81 @@
+ADDENDUM to COVER_PRODUCTION_STANDARD_v3 -- Post Sapiens build (Section 5F)
+
+This is a standalone addendum, staged to GitHub because Drive writes failed
+this session (known intermittent issue). Push to Drive as
+v3.1_COVER_PRODUCTION_STANDARD_ADDENDUM_POST_SAPIENS next session, then
+merge into v3.0 as a proper Section 5F in a dedicated consolidation pass.
+
+===============================================================================
+
+SECTION 5F -- POST SAPIENS (v1 -- APPROVED August 4, 2026)
+
+Card: /images/cover-post-sapiens-v1.jpeg
+Archive: /covers/post-sapiens/post_sapiens_cover_v1.jpg
+
+SOURCE PHOTO
+ File: source_chandelier_v3.jpg (Michael's high-res close crop of the
+   chandelier/lotus painting; signature already repositioned so the
+   flourish rises into the gold above the jewels)
+ GitHub: /covers/post-sapiens/source_chandelier_v3.jpg
+ Original dimensions: 1243x1866px
+ Text-free: YES
+
+CANVAS: 1875x2775px, centered crop to canvas ratio, LANCZOS resize.
+
+NEW TOOL -- ANGLED GOLD FOIL WITH CENTERED HIGHLIGHT
+(distinct from Section 3C metallic gradient and Section 3D Kintsugi sine
+ function -- this is a new addition to the gold effects toolkit)
+
+ apply_gold_foil_centered(ink_img, angle_deg, deep, base, hi, grain, seed, peak, spread):
+  - Angled sweep (default 28 degrees): each pixel projected onto the angle's
+    direction vector rather than a pure vertical gradient.
+  - Highlight (hi) peaks at peak (0.5 = center of sweep), falls off
+    symmetrically to base by spread, then to deep at the far edge.
+    Reads as light catching the middle of the letterform -- closer to real
+    foil behavior than a one-directional edge-to-edge ramp.
+  - Gaussian crinkle grain, seed held constant at 42, default grain=0.05.
+  - Needs ~100px+ ink height for the grain to read as texture, not noise.
+
+SCRIM -- tuned to painting palette, not neutral:
+ Deep teal-black (9, 26, 24), sampled from this painting's own cool
+   register. Top scrim: 0-42% canvas height, max alpha 160, t^2 falloff.
+   Bottom scrim: 80%-100% canvas height, max alpha 200, t^2.2 falloff.
+
+GOLD EFFECTS PALETTE (colorways captured this session):
+ CLASSIC GOLD  deep=(96,66,16)   base=(212,158,42)  hi=(255,250,190)
+ SHADOW GOLD   deep=(120,70,20)  base=(190,110,35)  hi=(255,210,120)
+ PAINTED GOLD  deep=(154,117,63) base=(176,152,100) hi=(208,182,113)
+   -- sampled directly from this painting's own metallic gold paint
+ OLIVE SHADOW  (109,109,93) -- darkest 3% of this canvas (no true blacks
+   anywhere in the piece). Captured, not used in v1 (too light for
+   contrast here); candidate DEEP tone for a future muted variant.
+
+FROZEN PARAMETERS
+
+TITLE -- "POST SAPIENS" (one line)
+ Cinzel 600, pt=300, tracking=14px
+ Colorway: CLASSIC GOLD, angle=28, peak=0.5, spread=0.45, grain=0.05, seed=42
+ Scaled to width=1600px, y=112, horizontally centered
+
+SUBTITLE -- "Human-Machine Integration"
+ Liberation Serif Italic, pt=150
+ Colorway: SHADOW GOLD, same angle/peak/spread/grain/seed
+ Scaled to match title's exact rendered width (1600px)
+ y = title_y + title_height + 35px gap, horizontally centered
+
+AUTHOR -- "Michael Sawyer"
+ Lora Variable, pt=160
+ Colorway: PAINTED GOLD (intentional distinct choice -- signed in the
+   painting's own paint rather than idealized foil)
+ Scaled to width=1150px
+ Bottom edge at y = H - MARGIN (2663), horizontally centered
+
+RULE: (212,158,42), 4px thick, width=578px (35% TEXT_W), centered,
+ 45px gap above author's top edge
+
+WEB CARD: 650x962px, quality=68 (83,402 bytes)
+
+BUILD LIBRARY: gold_foil_lib2.py -- written this session (render_text_mask,
+ apply_gold_foil_centered, scale_to_width). Not yet in a shared/permanent
+ tools location. Recommend promoting if the angled-sweep approach becomes
+ the new default over Section 3D's vertical sine function.
