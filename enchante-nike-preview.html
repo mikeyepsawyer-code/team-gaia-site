@@ -88,7 +88,7 @@
   }
   .hero-subtitle {
     font-style: italic;
-    font-size: clamp(1.05rem, 2.6vw, 1.35rem);
+    font-size: 0.95rem;
     color: var(--gold-lt);
     letter-spacing: 0.04em;
     opacity: 0.9;
@@ -96,6 +96,9 @@
     left: 50%;
     white-space: nowrap;
   }
+  @media (min-width: 420px) { .hero-subtitle { font-size: 1.05rem; } }
+  @media (min-width: 600px) { .hero-subtitle { font-size: 1.2rem; } }
+  @media (min-width: 900px) { .hero-subtitle { font-size: 1.35rem; } }
   .hero-subtitle.line-1 { top: 66%; transform: translate(-62%, 0); }
   .hero-subtitle.line-2 { top: 72.5%; transform: translate(-42%, 0); }
   .rule-flourish { display: flex; align-items: center; justify-content: center; gap: 14px; width: 240px; max-width: 60%; margin: 0 auto; position: absolute; left: 50%; transform: translate(-50%, 0); }
@@ -105,7 +108,7 @@
   .rule-flourish span { width: 9px; height: 9px; flex: 0 0 auto; transform: rotate(45deg); background: linear-gradient(135deg,#fff1a0,#c9a84c); box-shadow: 0 0 7px rgba(255,215,94,0.55); }
   .hero-author {
     font-family: 'Cinzel', serif;
-    font-size: clamp(1.3rem, 3.4vw, 1.9rem);
+    font-size: 1.15rem;
     letter-spacing: 0.24em;
     color: var(--text);
     opacity: 0.85;
@@ -116,6 +119,9 @@
     transform: translate(-50%, 0);
     white-space: nowrap;
   }
+  @media (min-width: 420px) { .hero-author { font-size: 1.35rem; } }
+  @media (min-width: 600px) { .hero-author { font-size: 1.6rem; } }
+  @media (min-width: 900px) { .hero-author { font-size: 1.9rem; } }
   .scroll-hint {
     position: absolute;
     bottom: 22px;
