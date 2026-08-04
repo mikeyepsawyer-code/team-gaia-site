@@ -1,0 +1,38 @@
+SITE BUILD STANDARD — MOBILE HERO TITLE TEXT SIZING
+Added August 4, 2026, after the Enchanté Nike oversized-title incident.
+
+THE PROBLEM
+Hero/preview page titles sized with `font-size: clamp(MIN, Nvw, MAX)` alone
+rendered inconsistently across page loads on mobile — sometimes correctly
+sized, sometimes dramatically oversized and clipped at both screen edges.
+
+ROOT CAUSES (both must be fixed together — neither alone is sufficient):
+ 1. Missing `text-size-adjust`. Without it, mobile browsers (especially
+    Android WebViews and in-app browsers) apply their own automatic font
+    "boosting" heuristics on top of the computed CSS size, inconsistently,
+    across sessions.
+ 2. No hard width constraint on the title container. An absolutely-positioned,
+    transform-centered text block with only a font-size clamp has nothing
+    stopping it from overflowing the viewport if the effective font size is
+    larger than expected for ANY reason (boosting, browser zoom, a future
+    font swap with different metrics, etc).
+
+THE FIX — apply BOTH, every time, to any hero/preview title text:
+ 1. Global reset, once per page:
+      html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+ 2. Conservative clamp() — bias toward the MIN holding flat on phones rather
+    than the vw term doing real work below ~480px viewport width. Rule of
+    thumb: pick MIN/MAX such that `Nvw` only exceeds MIN above roughly
+    tablet-width viewports. Example that worked: clamp(2.0rem, 6.5vw, 3.2rem).
+ 3. Hard width cap on the title's own container (not just the font-size):
+      width: 88%; max-width: 420px;  (tune max-width to the actual word length)
+    This is defense-in-depth — even if font-size somehow renders larger than
+    intended, the text is far less likely to blow past the screen edges.
+
+APPLIES TO: any preview/landing page with a large absolutely-positioned or
+transform-centered title over a hero image (the pattern used across the
+Team Gaia preview pages). Check existing preview pages for this same gap:
+ - enchante-nike-preview.html (fixed August 4, 2026)
+ - kintsugi-preview.html — NOT YET AUDITED, check next session
+ - any future preview page — apply both rules from the start, don't wait
+   for a bug report.
