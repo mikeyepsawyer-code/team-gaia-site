@@ -17,7 +17,9 @@
     --rule:      rgba(196,146,42,0.35);
   }
 
-  * { margin:0; padding:0; box-sizing:border-box; } html,body { overflow-x:hidden; width:100%; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  html,body { overflow-x:hidden; width:100%; }
 
   body {
     background: var(--bg);
@@ -139,7 +141,7 @@
   .rim-1 { color: rgba(240,195,90,0.45); transform: translate(-0.7px,-0.7px); z-index: 5; }
   .rim-2 { color: rgba(250,210,110,0.65); transform: translate(-1.4px,-1.4px); z-index: 6; }
   .rim-3 { color: rgba(255,225,130,0.85); transform: translate(-2.1px,-2.1px); z-index: 7; }
-  .dimensional.big { font-size: clamp(2.6rem, 9vw, 4.6rem); }
+  .dimensional.big { font-size: clamp(2.2rem, 7.5vw, 3.8rem); }
   .shimmer-final {
     background:
       radial-gradient(circle at 15% 30%, rgba(255,224,180,0.55) 0%, transparent 6%),
