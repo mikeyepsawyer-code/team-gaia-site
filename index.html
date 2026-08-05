@@ -44,14 +44,22 @@
   .rule-flourish::before, .rule-flourish::after { content: ""; flex: 1; height: 3px; }
   .rule-flourish::before { background: linear-gradient(to right, transparent, rgba(212,178,84,0.9)); }
   .rule-flourish::after { background: linear-gradient(to left, transparent, rgba(212,178,84,0.9)); }
-  .rule-flourish span { width: 9px; height: 9px; flex: 0 0 auto; transform: rotate(45deg); background: linear-gradient(135deg,#fff1a0,#c9a84c); box-shadow: 0 0 7px rgba(255,215,94,0.55); }
+  .rule-flourish span { width: 9px; height: 9px; flex: 0 0 auto; transform: rotate(45deg); background: linear-gradient(135deg,#ffd278,#be6e23); box-shadow: 0 0 7px rgba(255,180,90,0.55); }
   .eyebrow-line { font-family: 'Cinzel', serif; font-size: 1.5rem; letter-spacing: 0.1em; text-align: center; color: rgba(247,240,221,0.96); margin-bottom: 0; }
   @media (min-width: 420px) { .eyebrow-line { font-size: 1.7rem; } }
   @media (min-width: 600px) { .eyebrow-line { font-size: 2.0rem; } }
   @media (min-width: 900px) { .eyebrow-line { font-size: 2.3rem; } }
+  .gaia-line-1 { font-size: 9.2rem; }
+  @media (min-width: 420px) { .gaia-line-1 { font-size: 9.6rem; } }
+  @media (min-width: 600px) { .gaia-line-1 { font-size: 13.8rem; } }
+  @media (min-width: 900px) { .gaia-line-1 { font-size: 17.9rem; } }
+  .gaia-line-2 { font-size: 2.85rem; }
+  @media (min-width: 420px) { .gaia-line-2 { font-size: 3.0rem; } }
+  @media (min-width: 600px) { .gaia-line-2 { font-size: 4.3rem; } }
+  @media (min-width: 900px) { .gaia-line-2 { font-size: 5.5rem; } }
   .opening-quote { font-size: clamp(1.9rem, 3.6vw, 2.4rem); font-style: italic; color: var(--gold-pale); line-height: 1.95; opacity: 0.92; }
   .gaia-subheading { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(1.9rem, 4.2vw, 2.6rem); color: var(--gold-pale); opacity: 0.72; letter-spacing: 0.14em; }
-  .section-label { font-family: 'Cinzel', serif; font-size: 1.4rem; font-weight: 600; letter-spacing: 0.28em; text-align: center; text-transform: uppercase; margin-bottom: 48px; background: linear-gradient(135deg,#7a5500 0%,#a07010 15%,#d4a830 32%,#fff0a0 48%,#ffd700 58%,#d4a830 70%,#a07010 85%,#7a5500 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; filter: drop-shadow(0 2px 4px rgba(0,0,0,1.0)) drop-shadow(0 8px 32px rgba(0,0,0,0.9)); }
+  .section-label { font-family: 'Cinzel', serif; font-size: 1.4rem; font-weight: 600; letter-spacing: 0.28em; text-align: center; text-transform: uppercase; margin-bottom: 48px; background: linear-gradient(135deg,#784614 0%,#be6e23 10%,#ffd278 35%,#fff2c0 50%,#ffd278 65%,#be6e23 90%,#784614 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; filter: drop-shadow(0 0 3px rgba(255,180,90,0.35)) drop-shadow(0 4px 20px rgba(0,0,0,0.5)); }
   .body-intro { font-size: clamp(1.9rem, 2.5vw, 2.1rem); color: var(--warm-white); opacity: 0.82; line-height: 1.95; margin-bottom: 20px; }
   .body-quote { font-size: clamp(1.9rem, 2.7vw, 2.2rem); font-style: italic; color: var(--gold-pale); opacity: 0.9; line-height: 1.9; }
   .grid-wide { max-width: 1100px; margin: 0 auto; padding: 0 24px 72px; }
@@ -60,7 +68,7 @@
   .link-card { display: flex; flex-direction: column; align-items: center; text-decoration: none; color: inherit; cursor: pointer; transition: transform 0.4s ease, opacity 0.4s ease; }
   .link-card:hover { transform: translateY(-4px); opacity: 0.92; }
   .link-card-img { width: 100%; aspect-ratio: 2 / 3; border: 1px solid rgba(201,168,76,0.25); border-radius: 4px; overflow: hidden; background: #1a130c; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
-  .read-badge { position: absolute; top: 8px; right: 8px; width: 30px; height: 30px; border-radius: 50%; background: rgba(10,8,4,0.6); border: 1.5px solid rgba(212,178,84,0.85); color: #f0cc70; display: flex; align-items: center; justify-content: center; font-size: 0.72rem; z-index: 4; box-shadow: 0 0 8px rgba(255,215,94,0.35); padding-left: 2px; pointer-events: none; }
+  .read-badge { position: absolute; top: 8px; right: 8px; width: 30px; height: 30px; border-radius: 50%; background: rgba(10,8,4,0.6); border: 1.5px solid #be6e23; color: #ffd278; display: flex; align-items: center; justify-content: center; font-size: 0.72rem; z-index: 4; box-shadow: 0 0 8px rgba(255,180,90,0.4); padding-left: 2px; pointer-events: none; }
   .link-card-img img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
   /* HARDCOVER BOOK TREATMENT — 45-degree oblique, depth 10px (approved July 20) */
   .hardcover { position: relative; margin-top: 17px; margin-left: 12px; width: calc(100% - 12px); }
@@ -130,7 +138,8 @@
   @media (max-width: 600px) {
     header { padding: 60px 16px 48px; }
     header p:first-child { letter-spacing: 0.01em !important; font-size: clamp(5rem,15vw,11.5rem) !important; }
-    .section, .grid-wide, .grid-mid { padding-left: 16px; padding-right: 16px; }
+    .section { padding-left: 16px; padding-right: 16px; }
+    .grid-wide, .grid-mid { padding-left: 0; padding-right: 0; }
     .links-grid { grid-template-columns: 1fr; max-width: 100%; margin: 0 auto; }
     .shorts-grid { grid-template-columns: 1fr; gap: 12px; }
   }
@@ -150,13 +159,13 @@
 
 <header>
   <p style="text-align:center;margin-bottom:0;"><video src="/images/shimmer-human.mp4" poster="/images/shimmer-human-poster.png" autoplay loop muted playsinline style="width:90%;max-width:700px;height:auto;"></video></p>
-  <p style="text-align:center;margin-bottom:20px;"><video src="/images/shimmer-thriving.mp4" poster="/images/shimmer-thriving-poster.png" autoplay loop muted playsinline style="width:85%;max-width:650px;height:auto;"></video></p>
+  <p style="text-align:center;margin-bottom:20px;"><video src="/images/shimmer-thriving.mp4" poster="/images/shimmer-thriving-poster.png" autoplay loop muted playsinline style="width:90%;max-width:700px;height:auto;"></video></p>
   <p class="eyebrow-line">Eclectic philosophy</p>
   <div class="rule-flourish" style="margin:22px auto;"><span></span></div>
   <p class="eyebrow-line">Empathic psychology</p>
   <div class="rule-flourish" style="margin:22px auto;"><span></span></div>
-  <p class="eyebrow-line" style="margin-bottom:56px;">Numinous sexuality</p>
-  <p class="subtitle" style="font-size:clamp(1.9rem,3.2vw,2.4rem);letter-spacing:0.1em;line-height:2.1;"><span style="display:block;margin-top:96px;text-align:center;"><img src="/images/subtitle-works-of.png" alt="the works of" style="width:74%;max-width:520px;height:auto;"></span><span style="display:block;margin-top:4px;margin-bottom:14px;text-align:center;"><img src="/images/subtitle-michael-sawyer.png" alt="Michael Sawyer" style="width:76%;max-width:540px;height:auto;"></span><span style="display:block;line-height:1.9;color:rgba(247,240,221,0.96);">Author<span style="display:inline-block;width:8px;height:8px;transform:rotate(45deg);background:linear-gradient(135deg,#ffffff 0%,#fff3c4 100%);box-shadow:0 0 8px rgba(255,246,210,0.85);margin:0 12px;vertical-align:middle;position:relative;top:-2px;"></span>Philosopher</span><span style="display:block;line-height:1.9;color:rgba(247,240,221,0.96);">Painter<span style="display:inline-block;width:8px;height:8px;transform:rotate(45deg);background:linear-gradient(135deg,#ffffff 0%,#fff3c4 100%);box-shadow:0 0 8px rgba(255,246,210,0.85);margin:0 12px;vertical-align:middle;position:relative;top:-2px;"></span>Photographer</span></p>
+  <p class="eyebrow-line" style="margin-bottom:56px;">Luminous sexuality</p>
+  <p class="subtitle" style="font-size:clamp(1.9rem,3.2vw,2.4rem);letter-spacing:0.1em;line-height:2.1;"><span style="display:block;margin-top:96px;text-align:center;"><img src="/images/subtitle-works-of.png" alt="the works of" style="width:90%;max-width:700px;height:auto;"></span><span style="display:block;margin-top:4px;margin-bottom:14px;text-align:center;"><img src="/images/subtitle-michael-sawyer.png" alt="Michael Sawyer" style="width:90%;max-width:700px;height:auto;"></span><span style="display:block;line-height:1.9;color:rgba(247,240,221,0.96);">Author<span style="display:inline-block;width:8px;height:8px;transform:rotate(45deg);background:linear-gradient(135deg,#ffffff 0%,#fff3c4 100%);box-shadow:0 0 8px rgba(255,246,210,0.85);margin:0 12px;vertical-align:middle;position:relative;top:-2px;"></span>Philosopher</span><span style="display:block;line-height:1.9;color:rgba(247,240,221,0.96);">Painter<span style="display:inline-block;width:8px;height:8px;transform:rotate(45deg);background:linear-gradient(135deg,#ffffff 0%,#fff3c4 100%);box-shadow:0 0 8px rgba(255,246,210,0.85);margin:0 12px;vertical-align:middle;position:relative;top:-2px;"></span>Photographer</span></p>
   <div class="rule-flourish" style="margin:76px auto 0;"><span></span></div>
 </header>
 
@@ -164,12 +173,12 @@
 
   <section class="section a2" style="padding-bottom: 28px;">
     <p style="text-align:center;margin-bottom:10px;"><video src="/images/shimmer-gaia.mp4" poster="/images/shimmer-gaia-poster.png" autoplay loop muted playsinline style="width:75%;max-width:500px;height:auto;"></video></p>
-    <p class="gaia-subheading" style="font-size:clamp(1.6rem,3.2vw,2.2rem);letter-spacing:0.22em;opacity:1;font-style:normal;font-family:'Cinzel',serif;margin-bottom:8px;background:linear-gradient(135deg,#2D7869 0%,#3F8F73 15%,#6BB87E 32%,#B8DC8C 48%,#D8E878 58%,#B8DC8C 70%,#3F8F73 85%,#2D7869 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 4px rgba(120,220,150,0.3)) drop-shadow(0 4px 20px rgba(0,0,0,0.6));">Gaia</p>
-    <p class="gaia-subheading" style="font-size:clamp(2.6rem,5.5vw,3.8rem);letter-spacing:0.18em;opacity:1;font-style:normal;font-family:'Cinzel',serif;background:linear-gradient(135deg,#2D7869 0%,#3F8F73 15%,#6BB87E 32%,#B8DC8C 48%,#D8E878 58%,#B8DC8C 70%,#3F8F73 85%,#2D7869 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 4px rgba(120,220,150,0.3)) drop-shadow(0 4px 20px rgba(0,0,0,0.6));white-space:nowrap;">Earth Goddess</p>
+    <p class="gaia-subheading gaia-line-1" style="letter-spacing:0.22em;opacity:1;font-style:normal;font-family:'Cinzel',serif;margin-bottom:8px;background:linear-gradient(135deg,#2D7869 0%,#3F8F73 15%,#6BB87E 32%,#B8DC8C 48%,#D8E878 58%,#B8DC8C 70%,#3F8F73 85%,#2D7869 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 4px rgba(120,220,150,0.3)) drop-shadow(0 4px 20px rgba(0,0,0,0.6));">Gaia</p>
+    <p class="gaia-subheading gaia-line-2" style="letter-spacing:0.18em;opacity:1;font-style:normal;font-family:'Cinzel',serif;background:linear-gradient(135deg,#2D7869 0%,#3F8F73 15%,#6BB87E 32%,#B8DC8C 48%,#D8E878 58%,#B8DC8C 70%,#3F8F73 85%,#2D7869 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 4px rgba(120,220,150,0.3)) drop-shadow(0 4px 20px rgba(0,0,0,0.6));white-space:nowrap;">Earth Goddess</p>
   </section>
 
   <!-- CALLING CARDS -->
-  <div class="grid-wide a2" style="text-align:center;margin:0 auto 8px;max-width:900px;padding:0 16px;">
+  <div class="grid-wide a2" style="text-align:center;margin:0 auto 8px;max-width:900px;padding:0;">
     <img src="/images/card-gaiaridge-v1.jpeg" alt="Gaiaridge calling card" style="width:100%;max-width:820px;height:auto;display:block;margin:0 auto 20px;border-radius:8px;opacity:1;">
     <img src="/images/card-gaia-v1.jpeg" alt="Gaia goddess of Terra calling card" style="width:100%;max-width:440px;height:auto;display:block;margin:0 auto;border-radius:8px;opacity:1;">
   </div>
@@ -306,7 +315,7 @@
   <!-- 18+ SECTION BREAK -->
   <div style="text-align:center;padding:76px 32px;border-top:1px solid rgba(196,146,42,0.22);border-bottom:1px solid rgba(196,146,42,0.22);margin:0 0 8px;">
     <div style="text-align:center;"><video src="/images/shimmer-adult.mp4" poster="/images/shimmer-adult-poster.png" autoplay loop muted playsinline style="width:85%;max-width:480px;height:auto;display:block;margin:0 auto;"></video><video src="/images/shimmer-titles.mp4" poster="/images/shimmer-titles-poster.png" autoplay loop muted playsinline style="width:87%;max-width:490px;height:auto;display:block;margin:-8px auto -10px auto;"></video></div>
-    <p style="font-family:'Cinzel',serif;font-weight:700;font-size:6.1rem;letter-spacing:0.08em;opacity:0.92;margin-bottom:18px;background:linear-gradient(135deg,#7a5500 0%,#a07010 15%,#d4a830 32%,#fff0a0 48%,#ffd700 58%,#d4a830 70%,#a07010 85%,#7a5500 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 2px 4px rgba(0,0,0,1.0)) drop-shadow(0 8px 32px rgba(0,0,0,0.9));position:relative;left:0.125em;"><span style="position:relative;left:0.03em;top:-0.17em;font-size:1.04em;">18</span><span style="position:relative;left:0.02em;top:-0.40em;">+</span></p>
+    <p style="font-family:'Cinzel',serif;font-weight:700;font-size:6.1rem;letter-spacing:0.08em;opacity:0.92;margin-bottom:18px;background:linear-gradient(135deg,#784614 0%,#be6e23 10%,#ffd278 35%,#fff2c0 50%,#ffd278 65%,#be6e23 90%,#784614 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 3px rgba(255,180,90,0.35)) drop-shadow(0 4px 20px rgba(0,0,0,0.5));position:relative;left:0.125em;"><span style="position:relative;left:0.03em;top:-0.17em;font-size:1.04em;">18</span><span style="position:relative;left:0.02em;top:-0.40em;">+</span></p>
     <p style="font-family:'Cormorant Garamond',Georgia,serif;font-size:2.3rem;line-height:1.5;color:rgba(200,190,172,0.9);letter-spacing:0.03em;max-width:640px;margin:0 auto 26px;">For adults 18+ (or the age of majority where you live).</p>
     <div class="rule-flourish"><span></span></div>
     <p style="font-family:'Cormorant Garamond',Georgia,serif;line-height:1.55;letter-spacing:0.03em;max-width:640px;text-align:justify;font-size:2.0rem;color:rgba(201,168,76,0.95);margin:0 auto 22px;">These books are sex-positive and instructional by design. I don&rsquo;t intend them to be pornographic, however they may contain explicit or erotic passages.</p>
