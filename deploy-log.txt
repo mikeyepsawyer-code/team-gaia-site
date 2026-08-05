@@ -3,9 +3,9 @@ npm warn deprecated rollup-plugin-inject@3.0.2: This package has been deprecated
 npm warn deprecated sourcemap-codec@1.4.8: Please use @jridgewell/sourcemap-codec instead
 ✨ Compiled Worker successfully
 Uploading... (192/192)
-✨ Success! Uploaded 0 files (192 already uploaded) (0.21 sec)
+✨ Success! Uploaded 0 files (192 already uploaded) (0.36 sec)
 
 ✨ Uploading _headers
 ✨ Uploading Functions bundle
 🌎 Deploying...
-✨ Deployment complete! Take a peek over at https://ae2318c2.team-gaia-site.pages.dev
+✨ Deployment complete! Take a peek over at https://6df027fc.team-gaia-site.pages.dev
