@@ -124,7 +124,10 @@
   .link-card { display: flex; flex-direction: column; align-items: center; text-decoration: none; color: inherit; cursor: pointer; transition: transform 0.4s ease, opacity 0.4s ease; }
   .link-card:hover { transform: translateY(-4px); opacity: 0.92; }
   .link-card-img { width: 100%; aspect-ratio: 2 / 3; border: 1px solid rgba(201,168,76,0.25); border-radius: 4px; overflow: hidden; background: #1a130c; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
-  .read-badge { position: absolute; top: 8px; right: 8px; width: 30px; height: 30px; border-radius: 50%; background: rgba(10,8,4,0.6); border: 1.5px solid #be6e23; color: #ffd278; display: flex; align-items: center; justify-content: center; font-size: 0.72rem; z-index: 4; box-shadow: 0 0 8px rgba(255,180,90,0.4); padding-left: 2px; pointer-events: none; }
+  .play-corner { position: absolute; top: 0; right: 0; width: 84px; height: 84px; z-index: 4; pointer-events: none;
+    clip-path: polygon(100% 0, 100% 100%, 0 0);
+    background: linear-gradient(135deg, rgba(244,232,198,0.32) 0%, rgba(212,178,84,0.48) 100%); }
+  .play-corner .glyph { position: absolute; top: 15px; right: 15px; font-size: 1.3rem; color: #3a2d14; }
   .link-card-img img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
   /* HARDCOVER BOOK TREATMENT — 45-degree oblique, depth 10px (approved July 20) */
   .hardcover { position: relative; margin-top: 17px; margin-left: 12px; width: calc(100% - 12px); }
@@ -278,7 +281,7 @@
         <div class="hardcover" style="--spine:#625c5f;--spine2:#2c292a"><div class="link-card-img sash-wrap" style="background:#2a0a0a;overflow:hidden;position:relative;">
           <div class="sash">Free Preview</div>
           <img src="/images/cover-art-amore-v9.jpeg" alt="The Art of Amōre" style="width:100%;height:100%;object-fit:cover;object-position:center 10%;">
-        <span class="read-badge">&#9654;</span>
+        <div class="play-corner"><span class="glyph">&#9654;</span></div>
                 </div></div>
       </a>
       <!-- Oceans of Love — Preview -->
@@ -286,7 +289,7 @@
         <div class="hardcover" style="--spine:#354a66;--spine2:#17212d"><div class="link-card-img sash-wrap" style="background:linear-gradient(160deg,#060e1a 0%,#0d1f35 50%,#060e1a 100%);position:relative;overflow:hidden;">
           <div class="sash">Free Preview</div>
           <img src="/images/cover-oceans-of-love.jpeg" alt="Oceans of Love" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
-        <span class="read-badge">&#9654;</span>
+        <div class="play-corner"><span class="glyph">&#9654;</span></div>
                 </div></div>
       </a>
       <!-- Unjustified Happiness — Preview -->
@@ -294,7 +297,7 @@
         <div class="hardcover" style="--spine:#3e668f;--spine2:#1b2d40"><div class="link-card-img sash-wrap" style="background:#0a0c18;overflow:hidden;position:relative;">
           <div class="sash">Free Preview</div>
           <img src="/images/cover-unjustified-happiness-v4.jpeg" alt="Unjustified Happiness" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
-        <span class="read-badge">&#9654;</span>
+        <div class="play-corner"><span class="glyph">&#9654;</span></div>
                 </div></div>
       </a>
       <!-- Radiant Sensitivity — Preview -->
@@ -302,7 +305,7 @@
         <div class="hardcover" style="--spine:#26293e;--spine2:#11121b"><div class="link-card-img sash-wrap" style="background:#080a0d;overflow:hidden;position:relative;">
           <div class="sash">Free Preview</div>
           <img src="/images/cover-radiant-sensitivity-v7.jpeg" alt="Radiant Sensitivity" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
-        <span class="read-badge">&#9654;</span>
+        <div class="play-corner"><span class="glyph">&#9654;</span></div>
                 </div></div>
       </a>
       <!-- Cultivating Spiritual Energy — Preview -->
@@ -310,7 +313,7 @@
         <div class="hardcover" style="--spine:#111a1f;--spine2:#070b0d"><div class="link-card-img sash-wrap" style="background:#05080a;overflow:hidden;position:relative;">
           <div class="sash">Free Preview</div>
           <img src="/images/cover-cse-v3.jpeg" alt="Cultivating Spiritual Energy" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
-        <span class="read-badge">&#9654;</span>
+        <div class="play-corner"><span class="glyph">&#9654;</span></div>
                 </div></div>
       </a>
       <!-- Restoring the Divine Feminine — Preview -->
@@ -318,21 +321,21 @@
         <div class="hardcover" style="--spine:#2a2e56;--spine2:#14172c"><div class="link-card-img sash-wrap" style="background:#0c0b18;overflow:hidden;position:relative;">
           <div class="sash">Free Preview</div>
           <img src="/images/cover-restoring-divine-feminine-v3.jpeg" alt="Restoring the Divine Feminine" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
-        <span class="read-badge">&#9654;</span>
+        <div class="play-corner"><span class="glyph">&#9654;</span></div>
                 </div></div>
       </a>
       <!-- Enchanté Nike — Preview -->
       <a class="link-card" href="/enchante-nike-preview.html" target="_blank" rel="noopener">
         <div class="hardcover" style="--spine:#655d53;--spine2:#2d2925"><div class="link-card-img" style="background:#08060a;overflow:hidden;position:relative;aspect-ratio:1875/2775;">
           <video src="/images/nike-card-shimmer.mp4" poster="/images/nike-card-shimmer-poster.jpg" autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;object-position:center center;"></video>
-        <span class="read-badge">&#9654;</span>
+        <div class="play-corner"><span class="glyph">&#9654;</span></div>
                 </div></div>
       </a>
       <!-- Shamanic Photography — Preview -->
       <a class="link-card" href="/shamanic-photography-preview.html" target="_blank" rel="noopener">
         <div class="hardcover" style="--spine:#54534a;--spine2:#252521"><div class="link-card-img" style="background:#080a08;overflow:hidden;position:relative;">
           <img src="/images/cover-shamanic-photography-v1.jpeg" alt="Shamanic Photography" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
-        <span class="read-badge">&#9654;</span>
+        <div class="play-corner"><span class="glyph">&#9654;</span></div>
                 </div></div>
       </a>
       <!-- the psychological art of Kintsugi — Preview -->
@@ -340,7 +343,7 @@
         <div class="hardcover" style="--spine:#505258;--spine2:#242427"><div class="link-card-img sash-wrap" style="background:#08090c;overflow:hidden;position:relative;">
           <div class="sash">Free Preview</div>
           <img src="/images/cover-kintsugi-v1.jpeg" alt="The Psychological Art of Kintsugi" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
-        <span class="read-badge">&#9654;</span>
+        <div class="play-corner"><span class="glyph">&#9654;</span></div>
                 </div></div>
       </a>
 
@@ -370,17 +373,9 @@
 
   <!-- 18+ SECTION BREAK -->
   <div style="text-align:center;padding:76px 32px;border-top:1px solid rgba(196,146,42,0.22);border-bottom:1px solid rgba(196,146,42,0.22);margin:0 0 8px;">
-    <div style="text-align:center;"><video src="/images/shimmer-adult.mp4" poster="/images/shimmer-adult-poster.png" autoplay loop muted playsinline style="width:90%;max-width:700px;height:auto;display:block;margin:0 auto;"></video><video src="/images/shimmer-titles.mp4" poster="/images/shimmer-titles-poster.png" autoplay loop muted playsinline style="width:90%;max-width:700px;height:auto;display:block;margin:-8px auto 0 auto;"></video></div>
-    <div class="dimensional big18" style="margin-top:28px;margin-bottom:6px;">
-      <span class="shadow-copy shadow-3">18+</span>
-      <span class="shadow-copy shadow-2">18+</span>
-      <span class="shadow-copy shadow-1">18+</span>
-      <span class="rim-copy rim-1">18+</span>
-      <span class="rim-copy rim-2">18+</span>
-      <span class="rim-copy rim-3">18+</span>
-      <span class="face shimmer-final">18+</span>
-    </div>
-    <p style="font-family:'Cormorant Garamond',Georgia,serif;font-size:2.3rem;line-height:1.5;color:rgba(200,190,172,0.9);letter-spacing:0.03em;max-width:640px;margin:0 auto 26px;">For adults 18+ (or the age of majority where you live).</p>
+    <div style="text-align:center;"><video src="/images/shimmer-adult.mp4" poster="/images/shimmer-adult-poster.png" autoplay loop muted playsinline style="width:90%;max-width:700px;height:auto;display:block;margin:0 auto;"></video><video src="/images/shimmer-titles.mp4" poster="/images/shimmer-titles-poster.png" autoplay loop muted playsinline style="width:90%;max-width:700px;height:auto;display:block;margin:14px auto 0 auto;"></video></div>
+    <p class="big18 shimmer-final" style="font-family:'Cinzel',serif;font-weight:700;letter-spacing:0.05em;text-align:center;width:90%;max-width:700px;margin:28px auto 6px;line-height:1.15;">18+</p>
+    <p style="font-family:'Cormorant Garamond',Georgia,serif;font-size:2.1rem;line-height:1.5;color:rgba(200,190,172,0.9);letter-spacing:0.03em;max-width:720px;margin:0 auto 26px;">For adults 18+, or the age of majority where you live.</p>
     <div class="rule-flourish"><span></span></div>
     <p style="font-family:'Cormorant Garamond',Georgia,serif;line-height:1.55;letter-spacing:0.03em;max-width:640px;text-align:justify;font-size:2.0rem;color:rgba(201,168,76,0.95);margin:0 auto 22px;">These books are sex-positive and instructional by design. I don&rsquo;t intend them to be pornographic, however they may contain explicit or erotic passages.</p>
     <p style="font-family:'Cormorant Garamond',Georgia,serif;line-height:1.55;letter-spacing:0.03em;max-width:640px;text-align:justify;font-size:2.15rem;color:rgba(216,206,188,0.95);margin:0 auto 22px;">Their purpose is to explore the depths of empathy, pleasure and ecstasy. Especially the potential for female transfiguration through the Fountain of Youth.</p>
@@ -399,7 +394,7 @@
         <div class="hardcover" style="--spine:#6e4c33;--spine2:#312216"><div class="link-card-img sash-wrap" style="background:#1a0e08;overflow:hidden;">
           <div class="sash" style="width:236px;right:-54px;top:30px;line-height:1.55;font-size:0.68rem;">Free Preview<br>Full Book on Amazon</div>
           <img src="/images/cover-100-orgasms.jpeg" alt="100 Orgasms an Hour" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
-        <span class="read-badge">&#9654;</span>
+        <div class="play-corner"><span class="glyph">&#9654;</span></div>
                 </div></div>
       </a>
       <!-- Slow the Fuck Down — Preview -->
@@ -407,7 +402,7 @@
         <div class="hardcover" style="--spine:#77583e;--spine2:#35271b"><div class="link-card-img sash-wrap" style="background:#1a0808;overflow:hidden;">
           <div class="sash">Free Preview</div>
           <img src="/images/cover-slow-the-fuck-down.jpeg" alt="Slow the Fuck Down" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
-        <span class="read-badge">&#9654;</span>
+        <div class="play-corner"><span class="glyph">&#9654;</span></div>
                 </div></div>
       </a>
       <!-- Fountain of Youth — Preview -->
@@ -415,7 +410,7 @@
         <div class="hardcover" style="--spine:#576164;--spine2:#272b2d"><div class="link-card-img sash-wrap" style="background:#0a1a10;overflow:hidden;position:relative;">
           <div class="sash">Free Preview</div>
           <img src="/images/cover-fountain-of-youth-v4.jpeg" alt="Fountain of Youth" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
-        <span class="read-badge">&#9654;</span>
+        <div class="play-corner"><span class="glyph">&#9654;</span></div>
                 </div></div>
       </a>
       <!-- Chronic Pleasure: A Study Proposal for Polygasm Therapy — Placeholder -->
@@ -428,7 +423,7 @@
         <div class="hardcover" style="--spine:#725b3e;--spine2:#33281b"><div class="link-card-img sash-wrap" style="background:#1a0808;overflow:hidden;">
           <div class="sash">Free Preview</div>
           <img src="/images/cover-spank-me-tender.jpeg" alt="Spank Me Tender" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
-        <span class="read-badge">&#9654;</span>
+        <div class="play-corner"><span class="glyph">&#9654;</span></div>
                 </div></div>
       </a>
 
