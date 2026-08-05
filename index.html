@@ -99,6 +99,20 @@
   @media (min-width: 420px) { .gj2027-title { font-size: 2.39rem; } }
   @media (min-width: 600px) { .gj2027-title { font-size: 3.42rem; } }
   @media (min-width: 900px) { .gj2027-title { font-size: 4.44rem; } }
+  .gold-script-shimmer { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 500;
+    background: linear-gradient(135deg,#784614 0%,#be6e23 10%,#ffd278 35%,#fff2c0 50%,#ffd278 65%,#be6e23 90%,#784614 100%);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; color: transparent;
+    filter: drop-shadow(0 0 3px rgba(255,180,90,0.35));
+    animation: gold-shimmer-glow 5s ease-in-out infinite; display: block; text-align: center; }
+  .works-of-title { font-size: 5.08rem; }
+  @media (min-width: 420px) { .works-of-title { font-size: 5.33rem; } }
+  @media (min-width: 600px) { .works-of-title { font-size: 7.62rem; } }
+  @media (min-width: 900px) { .works-of-title { font-size: 9.88rem; } }
+  .michael-sawyer-title { font-size: 3.98rem; }
+  @media (min-width: 420px) { .michael-sawyer-title { font-size: 4.17rem; } }
+  @media (min-width: 600px) { .michael-sawyer-title { font-size: 5.96rem; } }
+  @media (min-width: 900px) { .michael-sawyer-title { font-size: 7.73rem; } }
   .opening-quote { font-size: clamp(1.9rem, 3.6vw, 2.4rem); font-style: italic; color: var(--gold-pale); line-height: 1.95; opacity: 0.92; }
   .gaia-subheading { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(1.9rem, 4.2vw, 2.6rem); color: var(--gold-pale); opacity: 0.72; letter-spacing: 0.14em; }
   .section-label { font-family: 'Cinzel', serif; font-size: 1.4rem; font-weight: 600; letter-spacing: 0.28em; text-align: center; text-transform: uppercase; margin-bottom: 48px; background: linear-gradient(135deg,#784614 0%,#be6e23 10%,#ffd278 35%,#fff2c0 50%,#ffd278 65%,#be6e23 90%,#784614 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; filter: drop-shadow(0 0 3px rgba(255,180,90,0.35)) drop-shadow(0 4px 20px rgba(0,0,0,0.5)); }
@@ -131,14 +145,15 @@
       linear-gradient(0deg, transparent 0 2px, rgba(175,160,120,0.5) 2px 2.6px, transparent 2.6px 4.5px, rgba(175,160,120,0.4) 4.5px 5.1px, transparent 5.1px),
       linear-gradient(#ece3c8,#ece3c8);
     background-size: 100% 100%, calc(100% - 7px) 100%, calc(100% - 7px) 100%, calc(100% - 7px) 100%;
-    background-position: left top; background-repeat: no-repeat; }
+    background-position: left top; background-repeat: no-repeat;
+    box-shadow: 0 -1px 3px rgba(201,168,76,0.3); }
   .hardcover::after { content:''; position:absolute; left:-12px; width:10px; top:-12px; bottom:12px;
     border-radius: 2px 3px 3px 0 / 2px 2px 2px 0;
     transform: rotate(180deg) skewY(45deg); transform-origin: center;
     background:
-      linear-gradient(0deg, rgba(201,168,76,0.7) 0 1px, color-mix(in srgb, var(--spine,#3a2d14) 72%, #cdbd8e) 1px 3px, transparent 3px),
-      linear-gradient(90deg, rgba(20,14,6,0.9) 0 1.5px, var(--spine,#3a2d14) 1.5px 3px, color-mix(in srgb, var(--spine,#3a2d14) 78%, #fff8e0) 4.5px 6.5px, var(--spine,#3a2d14) 7px 9px, rgba(201,168,76,0.45) 9px 10px);
-    box-shadow: -4px 8px 18px rgba(0,0,0,0.55); }
+      linear-gradient(0deg, rgba(201,168,76,0.7) 0 1px, color-mix(in srgb, var(--spine,#3a2d14) 65%, #fff8e0) 1px 3px, transparent 3px),
+      linear-gradient(90deg, rgba(20,14,6,0.9) 0 1.5px, var(--spine,#3a2d14) 1.5px 3px, color-mix(in srgb, var(--spine,#3a2d14) 65%, #fff8e0) 4.5px 6.5px, var(--spine,#3a2d14) 7px 9px, rgba(201,168,76,0.45) 9px 10px);
+    box-shadow: -4px 8px 18px rgba(0,0,0,0.55), 1px 0 0 rgba(201,168,76,0.4), -1px 0 4px rgba(201,168,76,0.25); }
   .placeholder-label { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.18em; color: var(--gold); opacity: 0.5; text-align: center; padding: 24px; line-height: 2; text-transform: uppercase; }
   .link-caption-main { font-family: 'Cinzel', serif; font-size: 1rem; letter-spacing: 0.18em; color: var(--gold-light); text-align: center; margin-bottom: 8px; text-transform: uppercase; }
   .link-caption-sub { font-size: 1.1rem; font-style: italic; color: var(--warm-white); opacity: 0.7; text-align: center; line-height: 1.6; max-width: 240px; }
@@ -207,7 +222,7 @@
   <p class="eyebrow-line">Empathic psychology</p>
   <div class="rule-flourish" style="margin:22px auto;"><span></span></div>
   <p class="eyebrow-line" style="margin-bottom:56px;">Luminous sexuality</p>
-  <p class="subtitle" style="font-size:clamp(1.9rem,3.2vw,2.4rem);letter-spacing:0.1em;line-height:2.1;"><span style="display:block;margin-top:96px;text-align:center;"><img src="/images/subtitle-works-of.png" alt="the works of" style="width:90%;max-width:700px;height:auto;"></span><span style="display:block;margin-top:4px;margin-bottom:14px;text-align:center;"><img src="/images/subtitle-michael-sawyer.png" alt="Michael Sawyer" style="width:90%;max-width:700px;height:auto;"></span><span style="display:block;line-height:1.9;color:rgba(247,240,221,0.96);">Author<span style="display:inline-block;width:8px;height:8px;transform:rotate(45deg);background:linear-gradient(135deg,#ffffff 0%,#fff3c4 100%);box-shadow:0 0 8px rgba(255,246,210,0.85);margin:0 12px;vertical-align:middle;position:relative;top:-2px;"></span>Philosopher</span><span style="display:block;line-height:1.9;color:rgba(247,240,221,0.96);">Painter<span style="display:inline-block;width:8px;height:8px;transform:rotate(45deg);background:linear-gradient(135deg,#ffffff 0%,#fff3c4 100%);box-shadow:0 0 8px rgba(255,246,210,0.85);margin:0 12px;vertical-align:middle;position:relative;top:-2px;"></span>Photographer</span></p>
+  <p class="subtitle" style="font-size:clamp(1.9rem,3.2vw,2.4rem);letter-spacing:0.1em;line-height:2.1;"><span style="display:block;margin-top:96px;"><span class="gold-script-shimmer works-of-title">the works of</span></span><span style="display:block;margin-top:4px;margin-bottom:14px;"><span class="gold-script-shimmer michael-sawyer-title">Michael Sawyer</span></span><span style="display:block;line-height:1.9;color:rgba(247,240,221,0.96);">Author<span style="display:inline-block;width:8px;height:8px;transform:rotate(45deg);background:linear-gradient(135deg,#ffffff 0%,#fff3c4 100%);box-shadow:0 0 8px rgba(255,246,210,0.85);margin:0 12px;vertical-align:middle;position:relative;top:-2px;"></span>Philosopher</span><span style="display:block;line-height:1.9;color:rgba(247,240,221,0.96);">Painter<span style="display:inline-block;width:8px;height:8px;transform:rotate(45deg);background:linear-gradient(135deg,#ffffff 0%,#fff3c4 100%);box-shadow:0 0 8px rgba(255,246,210,0.85);margin:0 12px;vertical-align:middle;position:relative;top:-2px;"></span>Photographer</span></p>
   <div class="rule-flourish" style="margin:76px auto 0;"><span></span></div>
 </header>
 
