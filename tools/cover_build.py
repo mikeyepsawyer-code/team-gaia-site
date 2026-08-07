@@ -23,7 +23,11 @@ import numpy as np
 import math
 
 CANVAS_W, CANVAS_H = 1950, 2850
-MARGIN = 112
+# Aug 7 2026 rule: top/bottom edge spacing = 5/16" visual border + 1/4"
+# bleed = 9/16" total = 169px at 300dpi. Slightly more breathing room than
+# the old 112px (3/8" flat). This is specifically the TOP/BOTTOM default —
+# left/right text width still uses FULL_TEXT_W below.
+MARGIN = 169
 TEXT_MARGIN = 187
 TEXT_W = 1651
 
@@ -117,6 +121,56 @@ GOLD_FOIL_STOPS = [
 ]
 FOIL_SEED = 42
 FOIL_ANGLE_DEG = 25
+
+# STATIC GOLD FOIL (Aug 7 2026) — for the still JPEG cover only. The
+# GOLD_FOIL_STOPS above (ported from the animated web shimmer) have 3
+# highlight bands + 4 shadow bands, which reads fine as a moving sweep
+# (only one band is "hot" at a time) but is too busy frozen as a single
+# still frame. This is a calmer, single-highlight-band alternative:
+# one small off-white/cream peak, warm yellow/orange midtones on both
+# sides of it, and shadow ends biased slightly green (top) and slightly
+# purple (bottom) rather than flat neutral brown. THIS is now the DEFAULT
+# for title/author on static covers — GOLD_FOIL_STOPS remains for web use.
+STATIC_GOLD_FOIL_STOPS = [
+    (0.00, (54, 58, 40)),    # shadow, green-copper bias
+    (0.20, (150, 100, 45)),  # warm copper-orange midtone
+    (0.40, (222, 168, 70)),  # warm yellow-gold midtone
+    (0.48, (250, 238, 210)), # small bright highlight, off-white/cream
+    (0.52, (250, 238, 210)), # keep the peak narrow (4% of the band)
+    (0.62, (222, 168, 70)),  # warm yellow-gold midtone
+    (0.82, (150, 100, 55)),  # warm copper midtone
+    (1.00, (50, 34, 46)),    # shadow, purple-brown bias
+]
+
+
+def bevel_text(canvas, text, font_path, pt_size, center_x, top_y,
+                target_width, foil_stops=STATIC_GOLD_FOIL_STOPS, angle_deg=FOIL_ANGLE_DEG,
+                seed=FOIL_SEED):
+    """
+    DEFAULT title/author treatment (Aug 7 2026): heavier weight font +
+    a simple static bevel (dark shadow offset + light rim offset behind
+    the gold face), echoing the web shimmer-final's 7-layer dimensional
+    effect without needing animation. Returns the composited canvas.
+    Use a BOLD font_path — the bevel reads as mush on a thin weight.
+    """
+    ink, w, h = render_ink(text, font_path, pt_size)
+    ink = scale_ink_to_width(ink, target_width)
+    scale = ink.width / w
+    off = max(2, round(3 * scale * (pt_size / 280)))  # offset scales with size
+
+    alpha = ink.split()[3]
+    shadow = Image.new("RGBA", ink.size, (18, 10, 8, 0))
+    shadow.putalpha(Image.eval(alpha, lambda a: int(a * 0.55)))
+    rim = Image.new("RGBA", ink.size, (255, 235, 190, 0))
+    rim.putalpha(Image.eval(alpha, lambda a: int(a * 0.5)))
+
+    face = apply_gold_foil(ink, stops=foil_stops, angle_deg=angle_deg, seed=seed, grain_strength=8)
+
+    x = round(center_x - ink.width / 2)
+    canvas.paste(shadow, (x + off, top_y + off), shadow)
+    canvas.paste(rim, (x - round(off * 0.6), top_y - round(off * 0.6)), rim)
+    canvas.paste(face, (x, top_y), face)
+    return canvas, ink.height
 
 
 def angled_gradient_rgb(w, h, stops=GOLD_FOIL_STOPS, angle_deg=FOIL_ANGLE_DEG):
