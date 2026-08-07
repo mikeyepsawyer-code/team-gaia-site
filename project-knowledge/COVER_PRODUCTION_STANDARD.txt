@@ -110,6 +110,31 @@ SECTION 3 — TYPOGRAPHY PREFERENCES
  or reviewing existing cover art for any reason, check it for slugs and
  flag any found, even if that wasn't the original task.
 
+ DEFAULT FIRST-PASS RULES (added Aug 7, 2026 — see tools/cover_build.py v2):
+ 1. FULL WIDTH: title, subtitle, and author each scale independently to
+    fill the cover width minus 1.0" total (0.25" bleed + 0.25" visual
+    border, per side). At the 1950px canvas this is FULL_TEXT_W = 1650px.
+    This replaces the older, more conservative width targets as the
+    default starting point — "inhabit the cover," not "sit safely inside
+    it." A given book can still be pulled narrower after review.
+ 2. TITLE + AUTHOR = gold foil by default, angled (not vertical). The
+    vertical top-to-bottom gradient used through early Aug 2026 is
+    RETIRED — it reads as flat horizontal banding across the letterforms.
+    Use GOLD_FOIL_STOPS in cover_build.py, which are ported directly from
+    assets/effects/gold-shimmer-snippet.html's animated web treatment
+    (25deg, same color stops) so the static "foil still" and the animated
+    "foil shimmer" read as the same gold, not two different golds.
+    On WEB PAGES (not the static JPEG), if the title/author renders large
+    enough on screen, use the actual animated shimmer-final CSS treatment
+    from that snippet instead of a static image — the JPEG cover and an
+    on-page hero title are different surfaces and can each get the
+    version suited to them.
+ 3. SUBTITLE = sampled-palette shimmer-style gradient by default, not a
+    fixed hardcoded color. cover_build.py's harmonized_subtitle_stops()
+    pulls dominant colors from that book's specific source photo/painting
+    via median-cut quantization, so each subtitle harmonizes with its own
+    cover rather than reusing one copper/gold default across every book.
+
 ════════════════════════════════════════════════════════════════════════════════
 
 SECTION 3B — WIDTH PAIRING SYSTEM (approved Session 18)
