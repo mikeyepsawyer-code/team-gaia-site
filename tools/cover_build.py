@@ -132,14 +132,16 @@ FOIL_ANGLE_DEG = 25
 # purple (bottom) rather than flat neutral brown. THIS is now the DEFAULT
 # for title/author on static covers — GOLD_FOIL_STOPS remains for web use.
 STATIC_GOLD_FOIL_STOPS = [
-    (0.00, (54, 58, 40)),    # shadow, green-copper bias
-    (0.20, (150, 100, 45)),  # warm copper-orange midtone
-    (0.40, (222, 168, 70)),  # warm yellow-gold midtone
-    (0.48, (250, 238, 210)), # small bright highlight, off-white/cream
-    (0.52, (250, 238, 210)), # keep the peak narrow (4% of the band)
-    (0.62, (222, 168, 70)),  # warm yellow-gold midtone
-    (0.82, (150, 100, 55)),  # warm copper midtone
-    (1.00, (50, 34, 46)),    # shadow, purple-brown bias
+    (0.00, (150, 100, 40)),   # warm copper-orange (shadow work now lives in the bevel layer)
+    (0.20, (150, 100, 40)),
+    (0.26, (235, 178, 55)),   # sharp transition into yellow
+    (0.44, (235, 178, 55)),   # wide warm-yellow band
+    (0.49, (255, 244, 215)),  # sharp transition into cream
+    (0.51, (255, 244, 215)),  # tight cream peak — only 2% of the band
+    (0.56, (235, 178, 55)),   # sharp transition back to yellow
+    (0.74, (235, 178, 55)),
+    (0.80, (150, 100, 40)),   # sharp transition back to copper
+    (1.00, (150, 100, 40)),
 ]
 
 
@@ -159,8 +161,8 @@ def bevel_text(canvas, text, font_path, pt_size, center_x, top_y,
     off = max(2, round(3 * scale * (pt_size / 280)))  # offset scales with size
 
     alpha = ink.split()[3]
-    shadow = Image.new("RGBA", ink.size, (18, 10, 8, 0))
-    shadow.putalpha(Image.eval(alpha, lambda a: int(a * 0.55)))
+    shadow = Image.new("RGBA", ink.size, (42, 32, 22, 0))
+    shadow.putalpha(Image.eval(alpha, lambda a: int(a * 0.72)))
     rim = Image.new("RGBA", ink.size, (255, 235, 190, 0))
     rim.putalpha(Image.eval(alpha, lambda a: int(a * 0.5)))
 
