@@ -100,6 +100,16 @@ SECTION 3 — TYPOGRAPHY PREFERENCES
 
  RULE: warm gold (215, 175, 130)
 
+ AVOID SLUGS (added Aug 6, 2026): default approach for text legibility over
+ art is to manipulate the TEXT's color/gradient/glow/outline so it reads
+ against the painting directly — not to place a solid color plate ("slug")
+ behind the text to force contrast. Slugs read as a design shortcut and
+ visually interrupt the art. Use a slug only if color/gradient/outline
+ treatment genuinely cannot achieve legibility after real attempts — this
+ should be rare. Standing background task: when already working on a cover
+ or reviewing existing cover art for any reason, check it for slugs and
+ flag any found, even if that wasn't the original task.
+
 ════════════════════════════════════════════════════════════════════════════════
 
 SECTION 3B — WIDTH PAIRING SYSTEM (approved Session 18)
