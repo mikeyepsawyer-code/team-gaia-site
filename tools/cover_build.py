@@ -27,6 +27,13 @@ MARGIN = 112
 TEXT_MARGIN = 187
 TEXT_W = 1651
 
+# Aug 2026 rule: by default, title/subtitle/author should each SCALE TO FILL
+# this width — 0.25" bleed + 0.25" visual border per side, i.e. 0.5" total
+# per side, 1.0" total off the full canvas width. This is a bigger default
+# than TEXT_W above (which was a conservative safe-zone width) — the new
+# rule is "fill it," not "stay comfortably inside it."
+FULL_TEXT_W = CANVAS_W - int(1.0 * 300)  # = 1650px at 1950px canvas
+
 CARD_W, CARD_H = 650, 962
 CARD_QUALITY = 74
 
@@ -84,73 +91,113 @@ def lerp_color(c0, c1, t):
     return tuple(int(c0[i] + (c1[i] - c0[i]) * t) for i in range(3))
 
 
-def apply_vertical_gradient(ink, stops):
+def _stops_at(stops, t):
+    for i in range(len(stops) - 1):
+        t0, c0 = stops[i]
+        t1, c1 = stops[i + 1]
+        if t0 <= t <= t1:
+            local_t = 0 if t1 == t0 else (t - t0) / (t1 - t0)
+            return lerp_color(c0, c1, local_t)
+    return stops[-1][1] if t > stops[-1][0] else stops[0][1]
+
+
+# APPROVED GOLD FOIL STOPS (Aug 2026) — ported directly from
+# assets/effects/gold-shimmer-snippet.html's .shimmer-final linear-gradient
+# (25deg, same stops used for the animated web version). Using the identical
+# stops here means the static "foil still" cover treatment and the animated
+# "foil shimmer" web treatment are visually the same gold, not two
+# different golds that happen to both be called gold.
+GOLD_FOIL_STOPS = [
+    (0.00, (74, 36, 24)), (0.06, (122, 74, 30)), (0.18, (230, 182, 76)),
+    (0.24, (255, 242, 192)), (0.28, (242, 161, 60)), (0.36, (201, 148, 53)),
+    (0.42, (122, 74, 30)), (0.48, (230, 182, 76)), (0.52, (255, 242, 192)),
+    (0.56, (242, 161, 60)), (0.62, (201, 148, 53)), (0.68, (110, 66, 24)),
+    (0.76, (201, 148, 53)), (0.80, (255, 242, 192)), (0.84, (242, 161, 60)),
+    (0.94, (110, 66, 24)), (1.00, (74, 36, 24)),
+]
+FOIL_SEED = 42
+FOIL_ANGLE_DEG = 25
+
+
+def angled_gradient_rgb(w, h, stops=GOLD_FOIL_STOPS, angle_deg=FOIL_ANGLE_DEG):
     """
-    Apply a multi-stop vertical color gradient to a white-ink RGBA image.
-    stops: list of (t, (r,g,b)) with t in [0,1], sorted ascending.
-    Alpha channel (the glyph shape) is preserved untouched.
+    Build a w x h RGB image with a gradient running at angle_deg (matches
+    the web foil shimmer's 25deg linear-gradient), NOT top-to-bottom.
+    A plain vertical gradient reads as horizontal color banding across
+    text — this is the effect Michael asked to retire. Angled gradients
+    read as light catching a metallic surface instead.
+    """
+    diag = int(math.hypot(w, h)) + 4
+    row = Image.new("RGB", (diag, 1))
+    px = row.load()
+    for x in range(diag):
+        px[x, 0] = _stops_at(stops, x / (diag - 1))
+    strip = row.resize((diag, diag))
+    rotated = strip.rotate(angle_deg, resample=Image.BICUBIC, expand=False)
+    left = (diag - w) // 2
+    top = (diag - h) // 2
+    return rotated.crop((left, top, left + w, top + h))
+
+
+def foil_grain(w, h, seed=FOIL_SEED, strength=14):
+    """Gaussian crinkle grain — subtle noise, blurred, for a foil-not-flat feel."""
+    rng = np.random.default_rng(seed)
+    noise = rng.normal(0, strength, (h, w))
+    noise_img = Image.fromarray(np.clip(noise + 128, 0, 255).astype(np.uint8), mode="L")
+    return noise_img.filter(ImageFilter.GaussianBlur(radius=1.1))
+
+
+def apply_gold_foil(ink, stops=GOLD_FOIL_STOPS, angle_deg=FOIL_ANGLE_DEG, seed=FOIL_SEED, grain_strength=10):
+    """
+    DEFAULT treatment for title + author text (Aug 2026 rule). Angled
+    metallic gradient + subtle grain, alpha-masked to the ink shape.
     """
     w, h = ink.size
     alpha = ink.split()[3]
-    grad_row = Image.new("RGB", (1, h))
-    px = grad_row.load()
-    for y in range(h):
-        t = y / max(1, h - 1)
-        for i in range(len(stops) - 1):
-            t0, c0 = stops[i]
-            t1, c1 = stops[i + 1]
-            if t0 <= t <= t1:
-                local_t = 0 if t1 == t0 else (t - t0) / (t1 - t0)
-                px[0, y] = lerp_color(c0, c1, local_t)
-                break
-        else:
-            px[0, y] = stops[-1][1] if t > stops[-1][0] else stops[0][1]
-    grad = grad_row.resize((w, h))
-    out = Image.new("RGBA", (w, h))
-    out.paste(grad, (0, 0))
+    grad = angled_gradient_rgb(w, h, stops, angle_deg).convert("RGB")
+    grain = foil_grain(w, h, seed, grain_strength)
+    grad_arr = np.asarray(grad).astype(int)
+    grain_arr = (np.asarray(grain).astype(int) - 128)[:, :, None]
+    out_arr = np.clip(grad_arr + grain_arr, 0, 255).astype(np.uint8)
+    out = Image.fromarray(out_arr, mode="RGB").convert("RGBA")
     out.putalpha(alpha)
     return out
 
 
-def metallic_gradient_stops(base, hi, dark_mult=0.48, deep_mult=0.35):
+def sample_palette(image, n=5, seed=FOIL_SEED):
     """
-    Section 3C — 5-stop center-bright metallic gradient.
-    base/hi: (r,g,b). Returns stops list for apply_vertical_gradient.
+    Extract n dominant colors from a source photo/painting via PIL's
+    median-cut quantization. Used to build a subtitle treatment that
+    harmonizes with that specific cover instead of a fixed hardcoded
+    color — default behavior per Aug 2026 rule.
     """
-    dark = tuple(int(c * dark_mult) for c in base)
-    deep = tuple(int(c * deep_mult) for c in base)
-    return [
-        (0.00, dark), (0.18, base),
-        (0.42, hi), (0.54, hi),
-        (0.72, base), (1.00, deep),
-    ]
+    small = image.convert("RGB").resize((150, 150))
+    quant = small.quantize(colors=n, method=Image.MEDIANCUT)
+    palette = quant.getpalette()[: n * 3]
+    colors = [tuple(palette[i:i + 3]) for i in range(0, len(palette), 3)]
+    return colors
 
 
-def kintsugi_gold_gradient(ink, mid_gold=(180, 130, 40), highlight_gold=(255, 235, 160)):
+def harmonized_subtitle_stops(source_image, n=5):
     """
-    Section 3D — Kintsugi standard gold treatment. Sine-ease highlight
-    peaking at 35% of ink height, flat mid-gold from 70%-100%. No shadow
-    stop. Uses ACTUAL ink pixel extent (the ink image is already tightly
-    cropped by render_ink, so y_rel is just row/height here).
+    Build gradient stops from a source image's sampled palette, ordered
+    dark->light->dark so it still reads as a coherent gradient rather
+    than a jumble. This is the default subtitle treatment — colors that
+    belong to THIS cover rather than a fixed copper/gold every time.
     """
-    w, h = ink.size
-    alpha = ink.split()[3]
-    grad_row = Image.new("RGB", (1, h))
-    px = grad_row.load()
-    for y in range(h):
-        y_rel = y / max(1, h - 1)
-        if y_rel < 0.35:
-            t = math.sin(y_rel / 0.35 * math.pi / 2)
-        elif y_rel < 0.70:
-            t = 1.0 - (y_rel - 0.35) / 0.35
-        else:
-            t = 0.0
-        px[0, y] = lerp_color(mid_gold, highlight_gold, t)
-    grad = grad_row.resize((w, h))
-    out = Image.new("RGBA", (w, h))
-    out.paste(grad, (0, 0))
-    out.putalpha(alpha)
-    return out
+    colors = sample_palette(source_image, n=n)
+    colors.sort(key=lambda c: sum(c))
+    if len(colors) < 3:
+        colors = colors * 3
+    mid = colors[len(colors) // 2]
+    dark = colors[0]
+    light = colors[-1]
+    # brighten the lightest stop so it still functions as a highlight
+    light = tuple(min(255, int(c * 1.15) + 30) for c in light)
+    dark = tuple(int(c * 0.6) for c in dark)
+    n_stops = 5
+    seq = [dark, mid, light, mid, dark]
+    return [(i / (n_stops - 1), seq[i]) for i in range(n_stops)]
 
 
 def visual_center_paste(canvas, ink, center_x, y):
