@@ -132,49 +132,102 @@ FOIL_ANGLE_DEG = 25
 # purple (bottom) rather than flat neutral brown. THIS is now the DEFAULT
 # for title/author on static covers — GOLD_FOIL_STOPS remains for web use.
 STATIC_GOLD_FOIL_STOPS = [
-    (0.00, (185, 95, 25)),    # copper — face floor, richer/more saturated (sampled from reference golds)
-    (0.10, (185, 95, 25)),
-    (0.16, (235, 110, 15)),   # sharp transition into a deeply saturated orange band
-    (0.24, (235, 110, 15)),
-    (0.30, (250, 190, 40)),   # sharp transition into rich golden-yellow
-    (0.47, (250, 190, 40)),   # wide yellow band
-    (0.49, (255, 225, 130)),  # sharp transition into warm golden highlight — not pale cream
-    (0.51, (255, 225, 130)),  # tight peak
-    (0.53, (250, 190, 40)),   # sharp transition back to yellow
-    (0.70, (250, 190, 40)),
-    (0.76, (235, 110, 15)),   # sharp transition back to orange
-    (0.84, (235, 110, 15)),
-    (0.90, (185, 95, 25)),    # sharp transition back to copper
-    (1.00, (185, 95, 25)),
+    (0.00, (42, 27, 15)),     # dark umber shadow — reintroduced into the face (sampled from Liberty)
+    (0.22, (150, 80, 30)),    # copper/orange/brown zone — compressed to a single point, not a wide band
+    (0.42, (232, 172, 62)),   # warm yellow-gold
+    (0.50, (252, 222, 130)),  # cream highlight, shifted toward yellow rather than pale white
+    (0.58, (232, 172, 62)),   # warm yellow-gold
+    (0.78, (150, 80, 30)),    # copper/orange/brown zone — compressed
+    (1.00, (42, 27, 15)),     # dark umber shadow
 ]
+
+
+def chisel_shade(mask_bool, bevel_px, light_dir=(-0.5, -0.55, 0.7)):
+    """
+    Per-pixel brightness multiplier approximating a flat-faceted (chiseled,
+    not rounded/inflated) bevel edge, lit from upper-left ("top lighting" —
+    Regal Gold's structure corrected for light direction). Uses a distance
+    transform from the letter edge: within bevel_px of the edge the facet
+    tilts per the local edge direction (linear ramp = flat chisel facet,
+    not a rounded/domed profile); beyond that the face is flat.
+    """
+    from scipy import ndimage
+    dist = ndimage.distance_transform_edt(mask_bool)
+    t = np.clip(dist / max(1, bevel_px), 0, 1)
+    gy, gx = np.gradient(dist.astype(float))
+    gx = np.where(t < 1, gx, 0.0)
+    gy = np.where(t < 1, gy, 0.0)
+    nx, ny = -gx, -gy
+    nz = 0.35 + 0.65 * t  # tilted at the edge, flattens to fully "up" toward the interior
+    norm = np.sqrt(nx ** 2 + ny ** 2 + nz ** 2) + 1e-6
+    nx, ny, nz = nx / norm, ny / norm, nz / norm
+    Lx, Ly, Lz = light_dir
+    Lnorm = math.sqrt(Lx ** 2 + Ly ** 2 + Lz ** 2)
+    Lx, Ly, Lz = Lx / Lnorm, Ly / Lnorm, Lz / Lnorm
+    shade = nx * Lx + ny * Ly + nz * Lz
+    return np.clip(shade, 0.0, 1.35)
+
+
+def apply_chiseled_gold(ink, stops=STATIC_GOLD_FOIL_STOPS, angle_deg=FOIL_ANGLE_DEG,
+                         bevel_frac=0.09, light_dir=(-0.5, -0.55, 0.7)):
+    """
+    DEFAULT title/author/subtitle treatment (Aug 7 2026, second pass).
+    Two effects layered:
+    1. A SMOOTH angled color gradient across the whole glyph (the "airbrushed"
+       quality from the Diana reference — soft blended color, no hard bands).
+    2. A chiseled emboss brightness map from chisel_shade() multiplied on
+       top, giving flat-faceted structural edges (the Regal Gold reference,
+       corrected to top-lighting) rather than Diana's rounded/inflated look.
+    Color and structure are independent — this is why they can each borrow
+    from a different reference image without conflict.
+    """
+    w, h = ink.size
+    alpha = ink.split()[3]
+    mask_bool = np.asarray(alpha) > 127
+
+    grad = angled_gradient_rgb(w, h, stops, angle_deg).convert("RGB")
+    grad_arr = np.asarray(grad).astype(float)
+
+    bevel_px = max(2, round(bevel_frac * min(w, h)))
+    shade = chisel_shade(mask_bool, bevel_px, light_dir)
+    # map shade (~0..1.35) to a brightness multiplier centered so flat
+    # interior (shade ≈ light_dir.z-ish) reads at roughly neutral 1.0
+    mult = 0.45 + 0.85 * shade
+    out_arr = np.clip(grad_arr * mult[:, :, None], 0, 255).astype(np.uint8)
+
+    out = Image.fromarray(out_arr, mode="RGB").convert("RGBA")
+    out.putalpha(alpha)
+    return out
+
+
+def cast_shadow(canvas, ink, x, y, offset=(6, 8), blur=6, opacity=110, color=(5, 3, 1)):
+    """Soft shadow cast onto the artwork behind the text, separate from the
+    letter's own bevel — helps text ground/pop off busy painting backgrounds."""
+    w, h = ink.size
+    shadow_layer = Image.new("RGBA", canvas.size, (0, 0, 0, 0))
+    solid = Image.new("RGBA", (w, h), (*color, opacity))
+    solid.putalpha(Image.eval(ink.split()[3], lambda a: int(a * (opacity / 255))))
+    shadow_layer.paste(solid, (x + offset[0], y + offset[1]), solid)
+    shadow_layer = shadow_layer.filter(ImageFilter.GaussianBlur(blur))
+    return Image.alpha_composite(canvas.convert("RGBA"), shadow_layer)
 
 
 def bevel_text(canvas, text, font_path, pt_size, center_x, top_y,
                 target_width, foil_stops=STATIC_GOLD_FOIL_STOPS, angle_deg=FOIL_ANGLE_DEG,
                 seed=FOIL_SEED):
     """
-    DEFAULT title/author treatment (Aug 7 2026): heavier weight font +
-    a simple static bevel (dark shadow offset + light rim offset behind
-    the gold face), echoing the web shimmer-final's 7-layer dimensional
-    effect without needing animation. Returns the composited canvas.
+    DEFAULT title/author/subtitle treatment (Aug 7 2026, second pass):
+    heavier weight font + chiseled emboss bevel (apply_chiseled_gold) +
+    a soft cast shadow onto the artwork behind the letters for grounding.
     Use a BOLD font_path — the bevel reads as mush on a thin weight.
     """
     ink, w, h = render_ink(text, font_path, pt_size)
     ink = scale_ink_to_width(ink, target_width)
-    scale = ink.width / w
-    off = max(2, round(3 * scale * (pt_size / 280)))  # offset scales with size
-
-    alpha = ink.split()[3]
-    shadow = Image.new("RGBA", ink.size, (30, 20, 8, 0))
-    shadow.putalpha(Image.eval(alpha, lambda a: int(a * 0.72)))
-    rim = Image.new("RGBA", ink.size, (255, 235, 190, 0))
-    rim.putalpha(Image.eval(alpha, lambda a: int(a * 0.5)))
-
-    face = apply_gold_foil(ink, stops=foil_stops, angle_deg=angle_deg, seed=seed, grain_strength=8)
 
     x = round(center_x - ink.width / 2)
-    canvas.paste(shadow, (x + off, top_y + off), shadow)
-    canvas.paste(rim, (x - round(off * 0.6), top_y - round(off * 0.6)), rim)
+    canvas = cast_shadow(canvas, ink, x, top_y)
+
+    face = apply_chiseled_gold(ink, stops=foil_stops, angle_deg=angle_deg)
     canvas.paste(face, (x, top_y), face)
     return canvas, ink.height
 
