@@ -28,7 +28,7 @@ Sibling structure: Kintsugi answers "what do I do after the strike?" Anahata ans
 
 Repurpose the image used for Fountain of Youth (the watercolor flower) for Anahata: "That flower looks like a bell singing."
 
-STATUS: that watercolor (1000002257.jpg) was never archived. It is not in Drive, not in GitHub assets/paintings/, and the June 23 thread is gone. Michael must re-upload it from his phone before any cover work. Same for the blue waterfall now assigned to Fountain of Youth. Both go straight into assets/paintings/ on arrival, then cover builds follow COVER_PRODUCTION_STANDARD v3 from those archived sources.
+STATUS (corrected Aug 6, 2026): both sources are archived and verified in assets/paintings/ — 1000002257.jpg (bell flower, portrait, ready) and 1000002157.png (blue waterfall, portrait, ready). See assets/paintings/INDEX.txt for full verification notes. Cover builds follow COVER_PRODUCTION_STANDARD v4 from these sources. Note: Fountain of Youth's existing approved cover (v2, Section 5C) currently uses a different source photo (classical arch/statues, landscape) — swapping to the waterfall painting means a new build from a portrait source, not a drop-in replacement.
 
 ## CROSS-POLLINATION
 
