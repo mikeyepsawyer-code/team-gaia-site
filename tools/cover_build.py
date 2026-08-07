@@ -170,20 +170,21 @@ def chisel_shade(mask_bool, bevel_px, light_dir=(-0.5, -0.55, 0.7)):
 
 def apply_chiseled_gold(ink, stops=STATIC_GOLD_FOIL_STOPS, angle_deg=FOIL_ANGLE_DEG,
                          bevel_frac=0.09, light_dir=(-0.5, -0.55, 0.7),
-                         top_light_dir=(0.0, -1.0, 0.35), top_light_weight=0.5):
+                         top_light_dir=(0.0, -1.0, 0.35), top_light_boost=1.6,
+                         top_highlight_color=(255, 250, 225)):
     """
-    DEFAULT title/author/subtitle treatment (Aug 7 2026, third pass).
+    DEFAULT title/author/subtitle treatment (Aug 7 2026, fourth pass).
     Three effects layered:
     1. A SMOOTH angled color gradient across the whole glyph (the "airbrushed"
        quality from the Diana reference — soft blended color, no hard bands).
     2. A chiseled emboss brightness map (chisel_shade) from a diagonal light
        — this is what makes highlight/shadow flow across letters and words
        as a continuous sweep, not per-letter.
-    3. A SECOND, more directly-overhead light pass (top_light_dir, nearly
-       straight down onto the page) blended in on top of the diagonal one.
-       Because it's steep, it only lights up facets that face upward —
-       i.e. the top edge of each individual letter — giving each glyph its
-       own top highlight in addition to the word-level diagonal flow.
+    3. A SECOND, more directly-overhead light pass (top_light_dir) that
+       ADDS a warm highlight color into top-facing facets (not multiplies —
+       multiply saturates to white almost immediately on pixels the
+       diagonal light already brightened, making the boost invisible;
+       adding real RGB headroom is what makes "crank it up" actually show).
     """
     w, h = ink.size
     alpha = ink.split()[3]
@@ -194,13 +195,15 @@ def apply_chiseled_gold(ink, stops=STATIC_GOLD_FOIL_STOPS, angle_deg=FOIL_ANGLE_
 
     bevel_px = max(2, round(bevel_frac * min(w, h)))
     shade_flow = chisel_shade(mask_bool, bevel_px, light_dir)
+    mult = 0.45 + 0.85 * shade_flow
+    lit_arr = grad_arr * mult[:, :, None]
+
     shade_top = chisel_shade(mask_bool, bevel_px, top_light_dir)
-    shade = shade_flow + top_light_weight * np.clip(shade_top - 0.5, 0, None)
-    shade = np.clip(shade, 0.0, 1.6)
+    top_amount = np.clip((shade_top - 0.55) / 0.45, 0, 1) ** 1.3  # only near-top-facing facets
+    boost_color = np.array(top_highlight_color, dtype=float)
+    lit_arr = lit_arr + top_amount[:, :, None] * boost_color[None, None, :] * top_light_boost * 0.35
 
-    mult = 0.45 + 0.85 * shade
-    out_arr = np.clip(grad_arr * mult[:, :, None], 0, 255).astype(np.uint8)
-
+    out_arr = np.clip(lit_arr, 0, 255).astype(np.uint8)
     out = Image.fromarray(out_arr, mode="RGB").convert("RGBA")
     out.putalpha(alpha)
     return out
