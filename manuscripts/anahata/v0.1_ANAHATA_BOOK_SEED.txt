@@ -1,0 +1,35 @@
+# ANAHATA — BOOK SEED v0.1
+
+July 27, 2026. New book, born this session. Red = Michael verbatim. Blue = Claude draft, pending approval. Move to Books/Anahata/ once Michael creates the folder.
+
+## ORIGIN (verbatim)
+
+We should have a book called Anahata. At the deepest level we are that which is unhurt: the unstruck bell.
+
+I always thought that referred to the underlying wholeness at the root of being, prior to apparent individuation into plurality. But now it evokes in me a sense of causing a bell to sing by caressing its rim, rather than striking it.
+
+## THE ETYMOLOGY CONFIRMS THE INTUITION
+
+Sanskrit an-āhata: "not struck," "unbeaten," "unhurt." The heart chakra is named for the anāhata nāda, the unstruck sound. The yogic tradition holds that every ordinary sound requires collision: two things meeting, string and finger, air and reed, hammer and bell. Duality is the price of audibility. The unstruck sound is the exception: the sound being makes before there are two things. It is said to be heard at the heart. Michael's first reading (wholeness prior to individuation) is the traditional meaning exactly. His second reading is the book.
+
+## THE THESIS — THE RIM-CARESSED BELL
+
+There are two ways to make a bell sing. The first is the strike: sudden contact, a wound of sound, a loud beginning that immediately begins to die. The second is the singing bowl's way: a slow, continuous caress around the rim. No blow lands. The contact never breaks. And the tone does not decay; it builds, feeds on the patience of the circling hand, and holds as long as the caress holds.
+
+Most hearts learn to sound only when struck. Grief makes them ring. Trauma makes them ring. The strike is real music; this catalog never denies it (Kintsugi is the book of the struck-and-mended). But Anahata is the other way of singing: the heart sounded by sustained gentle contact rather than by blows. Not the unhurt heart as a heart nothing has touched. The unhurt heart as a heart that has learned it can be played without being hit.
+
+Sibling structure: Kintsugi answers "what do I do after the strike?" Anahata answers "is striking the only way I get to sing?" Between them sits the whole Anahata section, which now has its title book, the way an album has a title track.
+
+## CHAPTER SKETCH (very early)
+
+1. The Unstruck Sound — the tradition; sound before two-ness. 2. The Strike — how we learned that feeling requires impact. 3. The Rim — the physics and patience of the caress; resonance without percussion. 4. The Circling Hand — practice: attention as the hand, the heart as the bowl. 5. Sympathetic Resonance — how one caressed bell starts nearby bells sounding unstruck; the inter-view as acoustics. 6. The Unhurt — at the deepest level, that which was never struck, beneath every strike that landed.
+
+## COVER DIRECTION (Michael's call, logged)
+
+Repurpose the image used for Fountain of Youth (the watercolor flower) for Anahata: "That flower looks like a bell singing."
+
+STATUS: that watercolor (1000002257.jpg) was never archived. It is not in Drive, not in GitHub assets/paintings/, and the June 23 thread is gone. Michael must re-upload it from his phone before any cover work. Same for the blue waterfall now assigned to Fountain of Youth. Both go straight into assets/paintings/ on arrival, then cover builds follow COVER_PRODUCTION_STANDARD v3 from those archived sources.
+
+## CROSS-POLLINATION
+
+Rim-caress as somatic technique: routed to Slow the Fuck Down (see XPOLL_RIM_CARESS in that folder). Unstruck sound: connects to the anāhata section of Oceans of Love and to the Lobby's Chapter VI ushers (the bell paired with the vajra: the resonant and the indestructible, and Michael now owns the vajra half).
