@@ -110,7 +110,12 @@ SECTION 3 — TYPOGRAPHY PREFERENCES
  or reviewing existing cover art for any reason, check it for slugs and
  flag any found, even if that wasn't the original task.
 
- DEFAULT FIRST-PASS RULES (added Aug 7, 2026 — see tools/cover_build.py v2):
+ DEFAULT FIRST-PASS RULES (added Aug 7, 2026 — see tools/cover_build.py v9):
+ NAMED "BEVELED GOLD" (Aug 7, 2026) — this is the name for the title/author/
+ subtitle treatment below: chiseled emboss bevel (real distance-transform
+ facets, not offset-copy fakery) + smooth airbrushed color + a second
+ top-light pass giving each letter its own catch-light. Reference sheet
+ (fonts x sizes x backgrounds) at project-knowledge/BEVELED_GOLD_reference_sheet.jpg.
  1. FULL WIDTH: title, subtitle, and author each scale independently to
     fill the cover width minus 1.0" total (0.25" bleed + 0.25" visual
     border, per side). At the 1950px canvas this is FULL_TEXT_W = 1650px.
