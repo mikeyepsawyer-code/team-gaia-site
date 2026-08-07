@@ -132,20 +132,20 @@ FOIL_ANGLE_DEG = 25
 # purple (bottom) rather than flat neutral brown. THIS is now the DEFAULT
 # for title/author on static covers — GOLD_FOIL_STOPS remains for web use.
 STATIC_GOLD_FOIL_STOPS = [
-    (0.00, (168, 92, 38)),    # copper — face floor, no brown (brown lives in the bevel only)
-    (0.10, (168, 92, 38)),
-    (0.16, (225, 122, 40)),   # sharp transition into a distinct orange band
-    (0.24, (225, 122, 40)),
-    (0.30, (245, 195, 60)),   # sharp transition into warm yellow
-    (0.47, (245, 195, 60)),   # wide yellow band — more presence
-    (0.49, (255, 248, 220)),  # sharp transition into cream
-    (0.51, (255, 248, 220)),  # tight cream peak
-    (0.53, (245, 195, 60)),   # sharp transition back to yellow
-    (0.70, (245, 195, 60)),   # wide yellow band
-    (0.76, (225, 122, 40)),   # sharp transition back to orange
-    (0.84, (225, 122, 40)),
-    (0.90, (168, 92, 38)),    # sharp transition back to copper
-    (1.00, (168, 92, 38)),
+    (0.00, (185, 95, 25)),    # copper — face floor, richer/more saturated (sampled from reference golds)
+    (0.10, (185, 95, 25)),
+    (0.16, (235, 110, 15)),   # sharp transition into a deeply saturated orange band
+    (0.24, (235, 110, 15)),
+    (0.30, (250, 190, 40)),   # sharp transition into rich golden-yellow
+    (0.47, (250, 190, 40)),   # wide yellow band
+    (0.49, (255, 225, 130)),  # sharp transition into warm golden highlight — not pale cream
+    (0.51, (255, 225, 130)),  # tight peak
+    (0.53, (250, 190, 40)),   # sharp transition back to yellow
+    (0.70, (250, 190, 40)),
+    (0.76, (235, 110, 15)),   # sharp transition back to orange
+    (0.84, (235, 110, 15)),
+    (0.90, (185, 95, 25)),    # sharp transition back to copper
+    (1.00, (185, 95, 25)),
 ]
 
 
@@ -165,7 +165,7 @@ def bevel_text(canvas, text, font_path, pt_size, center_x, top_y,
     off = max(2, round(3 * scale * (pt_size / 280)))  # offset scales with size
 
     alpha = ink.split()[3]
-    shadow = Image.new("RGBA", ink.size, (42, 32, 22, 0))
+    shadow = Image.new("RGBA", ink.size, (30, 20, 8, 0))
     shadow.putalpha(Image.eval(alpha, lambda a: int(a * 0.72)))
     rim = Image.new("RGBA", ink.size, (255, 235, 190, 0))
     rim.putalpha(Image.eval(alpha, lambda a: int(a * 0.5)))
