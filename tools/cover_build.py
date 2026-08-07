@@ -132,16 +132,20 @@ FOIL_ANGLE_DEG = 25
 # purple (bottom) rather than flat neutral brown. THIS is now the DEFAULT
 # for title/author on static covers — GOLD_FOIL_STOPS remains for web use.
 STATIC_GOLD_FOIL_STOPS = [
-    (0.00, (150, 100, 40)),   # warm copper-orange (shadow work now lives in the bevel layer)
-    (0.20, (150, 100, 40)),
-    (0.26, (235, 178, 55)),   # sharp transition into yellow
-    (0.44, (235, 178, 55)),   # wide warm-yellow band
-    (0.49, (255, 244, 215)),  # sharp transition into cream
-    (0.51, (255, 244, 215)),  # tight cream peak — only 2% of the band
-    (0.56, (235, 178, 55)),   # sharp transition back to yellow
-    (0.74, (235, 178, 55)),
-    (0.80, (150, 100, 40)),   # sharp transition back to copper
-    (1.00, (150, 100, 40)),
+    (0.00, (168, 92, 38)),    # copper — face floor, no brown (brown lives in the bevel only)
+    (0.10, (168, 92, 38)),
+    (0.16, (225, 122, 40)),   # sharp transition into a distinct orange band
+    (0.24, (225, 122, 40)),
+    (0.30, (245, 195, 60)),   # sharp transition into warm yellow
+    (0.47, (245, 195, 60)),   # wide yellow band — more presence
+    (0.49, (255, 248, 220)),  # sharp transition into cream
+    (0.51, (255, 248, 220)),  # tight cream peak
+    (0.53, (245, 195, 60)),   # sharp transition back to yellow
+    (0.70, (245, 195, 60)),   # wide yellow band
+    (0.76, (225, 122, 40)),   # sharp transition back to orange
+    (0.84, (225, 122, 40)),
+    (0.90, (168, 92, 38)),    # sharp transition back to copper
+    (1.00, (168, 92, 38)),
 ]
 
 
