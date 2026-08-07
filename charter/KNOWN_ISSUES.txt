@@ -1,0 +1,99 @@
+TEAM GAIA — KNOWN ISSUES & DEBUGGING LOG
+v1.0. Created Aug 6, 2026. Referenced from the main charter (Section: Debugging).
+Purpose: one place to check before treating a bug as new. Add an entry
+whenever a real bug is diagnosed and fixed — don't let fixes live only in
+commit messages.
+
+════════════════════════════════════════════════════════════════════════════
+
+1. SIMULTANEOUS PUSH DEPLOY RACE — FIXED Aug 6, 2026
+Symptom: pushing two+ files back-to-back caused later Actions runs to fail.
+Root cause: deploy.yml's own workflow ends with `git commit` + `git push`
+(to record deploy-log.txt). With no concurrency control, two overlapping
+runs both tried to push, and the second was rejected as non-fast-forward.
+Fix: added to .github/workflows/deploy.yml —
+  concurrency:
+    group: cf-pages-deploy
+    cancel-in-progress: true
+Overlapping pushes now queue/cancel cleanly instead of racing. The old
+"push one file, sleep, verify success, push next" workaround is no longer
+required for routine pushes, but is still reasonable practice for anything
+Michael needs verified live immediately.
+Source: GitHub Actions concurrency docs — the `concurrency:` key defaults
+to allowing unlimited parallel runs unless explicitly grouped.
+
+2. DARK CARD PROBLEM — documented, mitigated
+Cards appear dark/washed when an overlay div sits on a cover image, image
+opacity < 1.0 on dark background, or a z-index conflict. Fix: image-only
+cards, no overlay divs, full opacity — the JPEG contains all text.
+
+3. LIGHT/DARK BROWSER CHROME MISMATCH — FIXED Aug 6, 2026
+Symptom: browser UI (form fields, scrollbars, iOS overscroll bounce) could
+flash or render in light-mode defaults against the site's dark theme.
+Root cause: no `color-scheme` declared anywhere in index.html.
+Fix: added `color-scheme: dark;` to the `html` rule.
+Note: this is different from the Dark Card Problem above (#2 is about
+cover images specifically; this is about the browser's own chrome).
+
+4. HERO TITLE TEXT SIZING — pattern documented Aug 4, 2026; specific
+   instance fixed Aug 6, 2026
+General pattern (see charter/SITE_BUILD_STANDARD_hero_title_text_sizing.txt):
+`clamp()` alone is not reliable on mobile — Android WebView/in-app browser
+font-boosting can inflate it inconsistently across page loads. Always pair
+a conservative clamp() with `text-size-adjust: 100%` AND a hard width cap
+on the title container.
+Specific bug (index.html hero, "the works of Michael Sawyer"): the lead-in
+text (.works-of-title) was sized LARGER than the name itself
+(.michael-sawyer-title) at every breakpoint (up to 9.88rem vs 7.73rem),
+causing it to stretch past the intended 2-line layout. Fixed by rescaling
+.works-of-title down to a proportionate lead-in size (1.6–2.9rem range).
+Lesson: when two title elements are meant to read as "small line / big
+line," sanity-check that the CSS actually encodes that relationship —
+copy-paste from a differently-proportioned element is an easy way to
+invert it silently.
+STILL TO AUDIT: kintsugi-preview.html (flagged Aug 4, never checked).
+
+5. CLOUDFLARE 403 TO CLAUDE'S BASH ENVIRONMENT — permanent, not a bug
+team-gaia-site.pages.dev returns 403 to Claude's datacenter IP (Cloudflare
+bot/datacenter blocking). This will not be "fixed" — it's expected.
+Verification workflow: Michael checks live changes on his phone; Claude
+verifies deployed content via raw.githubusercontent.com and the GitHub
+Actions API, which remain reliable from Claude's environment.
+
+6. BROWSER COVERAGE — Chrome (desktop + Android) and Samsung Internet
+compared directly in past sessions. Apple/Safari/iOS has NOT had a
+dedicated audit. Spot-check of current CSS (Aug 6, 2026):
+ - Text-gradient treatment already uses `-webkit-background-clip: text`
+   alongside the standard property (11 instances) — correctly accounts
+   for Safari's prefix requirement.
+ - `aspect-ratio` and nested `min()` inside `minmax()` (used in the links
+   grid and cover cards) need Safari 15+ and 16.4+ respectively. Fine for
+   any current iPhone, but worth confirming if the audience skews older
+   devices/OS versions.
+ - No dedicated iOS test has been run. FLAG FOR DEDICATED SESSION: load the
+   live site on an actual iPhone (Safari) and note anything that renders
+   differently from Chrome/Samsung — font rendering, safe-area insets
+   (notch/dynamic island), tap-highlight color, and the hero title fix
+   above are the likeliest trouble spots.
+
+════════════════════════════════════════════════════════════════════════════
+
+RESOURCES TO BORROW FROM RATHER THAN REBUILD
+Michael's instinct is right that this wheel doesn't need reinventing:
+ - MDN's browser compatibility tables (developer.mozilla.org — every CSS
+   property page has a compat table at the bottom) — the fastest way to
+   check "does Safari support X" before shipping it.
+ - caniuse.com — same purpose, faster to scan visually, good for quick
+   yes/no checks on a specific property.
+ - web.dev/patterns and web.dev "Baseline" badges — flags whether a
+   feature is safe to use across all major browsers today.
+ - GitHub Actions' own "Control the concurrency of workflows and jobs" doc
+   — the source for fix #1 above.
+None of these need an account or special access; they're reference sites,
+not tools to integrate.
+
+════════════════════════════════════════════════════════════════════════════
+
+MAINTENANCE: add an entry here any time a real bug is diagnosed. Keep the
+main charter's debugging section as a short pointer to this file rather
+than duplicating entries in both places.
