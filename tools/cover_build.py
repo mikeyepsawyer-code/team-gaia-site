@@ -141,6 +141,21 @@ STATIC_GOLD_FOIL_STOPS = [
     (1.00, (42, 27, 15)),     # dark umber shadow
 ]
 
+# PASTEL GOLD (Aug 7 2026) — a lighter variant for pastel/light-background
+# covers (e.g. watercolor paintings). Same structure as STATIC_GOLD_FOIL_STOPS
+# but the shadow and copper zones are raised up toward midtone brightness —
+# a near-black shadow reads as a heavy, wrong-weight intrusion against a
+# pale watercolor; this keeps the same gold "shape" without that mismatch.
+PASTEL_GOLD_FOIL_STOPS = [
+    (0.00, (130, 100, 60)),
+    (0.22, (195, 150, 80)),
+    (0.42, (235, 180, 90)),
+    (0.50, (255, 230, 160)),
+    (0.58, (235, 180, 90)),
+    (0.78, (195, 150, 80)),
+    (1.00, (130, 100, 60)),
+]
+
 
 def chisel_shade(mask_bool, bevel_px, light_dir=(-0.5, -0.55, 0.7)):
     """
