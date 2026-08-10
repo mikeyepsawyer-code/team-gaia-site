@@ -157,7 +157,7 @@ PASTEL_GOLD_FOIL_STOPS = [
 ]
 
 
-def chisel_shade(mask_bool, bevel_px, light_dir=(-0.5, -0.55, 0.7)):
+def chisel_shade(mask_bool, bevel_px, light_dir=(-0.5, -0.55, 0.7), blur_sigma=1.6):
     """
     Per-pixel brightness multiplier approximating a flat-faceted (chiseled,
     not rounded/inflated) bevel edge, lit from upper-left ("top lighting" —
@@ -165,9 +165,20 @@ def chisel_shade(mask_bool, bevel_px, light_dir=(-0.5, -0.55, 0.7)):
     transform from the letter edge: within bevel_px of the edge the facet
     tilts per the local edge direction (linear ramp = flat chisel facet,
     not a rounded/domed profile); beyond that the face is flat.
+
+    Aug 9 2026 fix: the raw distance-transform field is noisy at pixel
+    resolution, and np.gradient amplifies that noise most where curves
+    change direction fastest (G, O, S bowls) — the normals chop instead
+    of flowing smoothly, reading as a choppy/banded bevel on curved
+    strokes even though straight strokes look fine. A light Gaussian blur
+    on the distance field BEFORE differentiating for normals fixes this
+    without rounding off the facet look on straight edges. sigma=1.6 is
+    the sweet spot — higher (~2.8+) starts to round the bevel into more
+    of a domed/inflated profile and loses the "cut gem" character.
     """
     from scipy import ndimage
     dist = ndimage.distance_transform_edt(mask_bool)
+    dist = ndimage.gaussian_filter(dist, sigma=blur_sigma)
     t = np.clip(dist / max(1, bevel_px), 0, 1)
     gy, gx = np.gradient(dist.astype(float))
     gx = np.where(t < 1, gx, 0.0)
