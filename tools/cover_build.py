@@ -157,7 +157,8 @@ PASTEL_GOLD_FOIL_STOPS = [
 ]
 
 
-def chisel_shade(mask_bool, bevel_px, light_dir=(-0.5, -0.55, 0.7), blur_sigma=1.6):
+def chisel_shade(mask_bool, bevel_px, light_dir=(-0.5, -0.55, 0.7), blur_sigma=1.6,
+                  normal_blur=2.5):
     """
     Per-pixel brightness multiplier approximating a flat-faceted (chiseled,
     not rounded/inflated) bevel edge, lit from upper-left ("top lighting" —
@@ -166,15 +167,26 @@ def chisel_shade(mask_bool, bevel_px, light_dir=(-0.5, -0.55, 0.7), blur_sigma=1
     tilts per the local edge direction (linear ramp = flat chisel facet,
     not a rounded/domed profile); beyond that the face is flat.
 
-    Aug 9 2026 fix: the raw distance-transform field is noisy at pixel
+    Aug 9 2026 fix #1: the raw distance-transform field is noisy at pixel
     resolution, and np.gradient amplifies that noise most where curves
     change direction fastest (G, O, S bowls) — the normals chop instead
     of flowing smoothly, reading as a choppy/banded bevel on curved
     strokes even though straight strokes look fine. A light Gaussian blur
-    on the distance field BEFORE differentiating for normals fixes this
-    without rounding off the facet look on straight edges. sigma=1.6 is
-    the sweet spot — higher (~2.8+) starts to round the bevel into more
-    of a domed/inflated profile and loses the "cut gem" character.
+    on the distance field BEFORE differentiating for normals (blur_sigma)
+    fixes this without rounding off the facet look on straight edges.
+
+    Aug 9 2026 fix #2: distinct from the above, letters with competing
+    equidistant edges (the medial axis inside a G's bowl, the counter of
+    an O) produce a genuine seam — the normal direction flips abruptly
+    right where two "nearest edge" regions meet, visible as a hard shadow
+    or highlight line that cuts the letter in two (worst on G at roughly
+    the 12 o'clock and 9 o'clock positions). Blurring the underlying
+    distance field does NOT remove this — the ridge just gets softer,
+    the direction still flips at its centerline. What removes it is
+    blurring the NORMAL VECTORS themselves (nx, ny) after they're
+    computed: averaging two opposing directions produces a smooth
+    in-between instead of a hard flip. normal_blur=2.5 is the sweet
+    spot — much higher starts to round the whole bevel toward domed.
     """
     from scipy import ndimage
     dist = ndimage.distance_transform_edt(mask_bool)
@@ -184,6 +196,9 @@ def chisel_shade(mask_bool, bevel_px, light_dir=(-0.5, -0.55, 0.7), blur_sigma=1
     gx = np.where(t < 1, gx, 0.0)
     gy = np.where(t < 1, gy, 0.0)
     nx, ny = -gx, -gy
+    if normal_blur > 0:
+        nx = ndimage.gaussian_filter(nx, sigma=normal_blur)
+        ny = ndimage.gaussian_filter(ny, sigma=normal_blur)
     nz = 0.35 + 0.65 * t  # tilted at the edge, flattens to fully "up" toward the interior
     norm = np.sqrt(nx ** 2 + ny ** 2 + nz ** 2) + 1e-6
     nx, ny, nz = nx / norm, ny / norm, nz / norm
