@@ -1,6 +1,13 @@
 COVER PRODUCTION STANDARD
-Version 4.4
+Version 4.5
 Last updated: August 13, 2026
+Changes from v4.4: Added build_top_aligned_ink() as the DEFAULT title
+vertical-alignment treatment -- every glyph's top edge shares one row,
+capitals hang down below the shorter faux-lowercase forms, deliberately
+inverse of the author/subtitle's normal baseline alignment. Also
+documented as an available (non-default) option for interior book
+typography -- title pages, chapter headings -- via the docx/pdf skills.
+
 Changes from v4.3: Added default SUBTITLE CASING rule -- all lowercase, no
 ending punctuation, regardless of position or length. Applies to subtitle
 text only; title casing/stylization is unaffected and stays per-book.
@@ -145,6 +152,24 @@ SECTION 3 — TYPOGRAPHY PREFERENCES
  Color: white/cream or metallic gold
 
  SUBTITLE: italic serif, natural proportions. Center visually.
+
+ TITLE VERTICAL ALIGNMENT (added Aug 13 2026 — default going forward):
+ titles render via build_top_aligned_ink(), NOT the normal baseline-
+ aligned render_ink(). Every glyph's own TOP edge lands on the same row;
+ bottoms fall wherever each glyph's natural height puts them, so tall
+ capitals (in fonts like Cinzel, where lowercase renders as shrunk
+ capitals) hang down noticeably below the shorter forms — flat top line,
+ ragged bottom. This is the deliberate INVERSE of how the author line and
+ subtitle render (render_ink/bevel_text: shared baseline, bottoms align,
+ capitals stand up taller). The contrast between the two is the point —
+ do not "fix" one to match the other. Author and subtitle are UNCHANGED
+ by this rule and keep normal baseline alignment.
+
+ AVAILABLE OUTSIDE COVERS: build_top_aligned_ink() is a general-purpose
+ function (tools/cover_build.py) and is available as an OPTION — not a
+ default — for interior book typography (title pages, chapter headings)
+ via the docx/pdf skills. Ask Michael before applying it there; unlike
+ covers, it is not the default treatment for interior title text.
 
  SUBTITLE CASING (added Aug 13 2026 — default going forward): all
  lowercase, no ending punctuation. Not title case, not sentence case —
