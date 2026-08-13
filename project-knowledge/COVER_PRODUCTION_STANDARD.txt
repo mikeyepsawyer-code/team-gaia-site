@@ -1,6 +1,13 @@
 COVER PRODUCTION STANDARD
-Version 4.2
+Version 4.3
 Last updated: August 13, 2026
+Changes from v4.2: Added Section 0 DISPLAY GATE and tools/cover_build.py's
+save_cover_version() helper -- every cover version, not just the final
+one, is now saved through a single versioned function and MUST be
+displayed via view() immediately after saving, before export_card, before
+any GitHub push, before anything else. Closes the gap where a build could
+be described in prose without Michael ever seeing the actual image.
+
 Changes from v4.1: Section 3B rewritten -- subtitle and author now default
 to matching the TITLE's own rendered width exactly (Line 1's width on a
 two-line title), not independent fractions or independent FULL_TEXT_W
@@ -56,6 +63,17 @@ SOURCE PHOTO VERIFICATION GATE (mandatory pre-build check):
  Before writing any build code, state:
  "Source photo: [filename], Drive ID: [id], dimensions: [WxH], text-free: YES"
  If the answer is not "YES, text-free" — do not proceed.
+
+DISPLAY GATE (added Aug 13 2026 — mandatory, every version, no exceptions):
+ Every cover save goes through tools/cover_build.py's save_cover_version(),
+ which returns {"version", "full_path", "card_path"}. The very next action
+ after that call returns is to view() the full_path image. Not export_card
+ first, not a GitHub push first, not a description of the cover in prose —
+ the image itself, displayed, before anything else happens to it. This
+ applies to EVERY version generated in a session, not just the one being
+ presented as final — if three passes get built while dialing in a detail,
+ all three get displayed as they're made, not just the last one. Michael
+ reviews on his phone; a build he can't see is a build he can't approve.
 
 ════════════════════════════════════════════════════════════════════════════════
 
