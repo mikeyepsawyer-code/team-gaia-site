@@ -1,6 +1,14 @@
 COVER PRODUCTION STANDARD
-Version 4.1
+Version 4.2
 Last updated: August 13, 2026
+Changes from v4.1: Section 3B rewritten -- subtitle and author now default
+to matching the TITLE's own rendered width exactly (Line 1's width on a
+two-line title), not independent fractions or independent FULL_TEXT_W
+targets. This closes a gap where Aug 7's "fill FULL_TEXT_W" rule already
+implied equal widths but wasn't being followed in practice (Cascade v1
+used arbitrary 55%/82% fractions for author/subtitle). Old Session 18
+Line1/Line2 pairing kept for historical reference only.
+
 Changes from v4.0: Section 1 MARGINS corrected -- the top/bottom margin
 had drifted out of sync between this document (still showing the old
 3/8"=112px "all sides" spec) and tools/cover_build.py (which moved to
@@ -134,9 +142,11 @@ SECTION 3 — TYPOGRAPHY PREFERENCES
  facets, not offset-copy fakery) + smooth airbrushed color + a second
  top-light pass giving each letter its own catch-light. Reference sheet
  (fonts x sizes x backgrounds) at project-knowledge/BEVELED_GOLD_reference_sheet.jpg.
- 1. FULL WIDTH: title, subtitle, and author each scale independently to
-    fill the cover width minus 1.0" total (0.25" bleed + 0.25" visual
-    border, per side). At the 1950px canvas this is FULL_TEXT_W = 1650px.
+ 1. WIDTH: title scales to fill the cover width minus 1.0" total (0.25"
+    bleed + 0.25" visual border, per side) — FULL_TEXT_W = 1650px at the
+    1950px canvas. Subtitle and author then match THAT width exactly
+    (see Section 3B) rather than each independently targeting FULL_TEXT_W
+    on their own — on a two-line title, "the title's width" means Line 1.
     This replaces the older, more conservative width targets as the
     default starting point — "inhabit the cover," not "sit safely inside
     it." A given book can still be pulled narrower after review.
@@ -160,20 +170,27 @@ SECTION 3 — TYPOGRAPHY PREFERENCES
 
 ════════════════════════════════════════════════════════════════════════════════
 
-SECTION 3B — WIDTH PAIRING SYSTEM (approved Session 18)
+SECTION 3B — WIDTH PAIRING SYSTEM (updated Aug 13 2026 — supersedes the
+Session 18 Line1/Line2 split below for the DEFAULT case)
 
- The approved width-pairing approach creates visual harmony between
- the top title block and the bottom text block:
+ DEFAULT RULE: subtitle and author both scale to the SAME pixel width as
+ the title. Not a fraction of it, not independently sized to their own
+ targets — the exact width the title occupies. For a single-line title
+ (e.g. "CASCADE"), that's the title's own rendered width. For a two-line
+ title (e.g. "RADIANT" / "Sensitivity"), that's the width of the dominant
+ line (Line 1). This is what Aug 7's "each scale independently to fill
+ FULL_TEXT_W" rule already implied but wasn't consistently followed —
+ stated explicitly now so it stops drifting. Longer text (a full subtitle
+ phrase, "Michael Sawyer") will render SHORTER in height than the title
+ at the same width — that's expected, not a bug to correct.
 
- TOP BLOCK:
- Line 1 (dominant word): render at specified pt, scale to Line 1 target width
- Line 2 (secondary word): render at specified pt, scale to Line 2 target width
-
- BOTTOM BLOCK — MIRRORS THE TOP:
- Subtitle: scale to same pixel width as Line 2
- Author: scale to same pixel width as Line 1
-
- The cover reads as two mirrored typographic anchors framing the image.
+ OLDER SESSION-18 PAIRING (kept for historical/two-line reference only):
+ Line 1 (dominant word) target width; Line 2 (secondary word) target
+ width; subtitle matched to Line 2; author matched to Line 1. This
+ produced two DIFFERENT widths on a two-line title. The new default
+ above uses ONE width (the title's, or Line 1's on a two-line title)
+ for both subtitle and author, so all three text elements share a
+ single consistent visual column.
 
  HOW TO IMPLEMENT:
  1. Render each text element at its specified pt size via ink_size()
