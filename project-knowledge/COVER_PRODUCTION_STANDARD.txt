@@ -1,6 +1,10 @@
 COVER PRODUCTION STANDARD
-Version 4.3
+Version 4.4
 Last updated: August 13, 2026
+Changes from v4.3: Added default SUBTITLE CASING rule -- all lowercase, no
+ending punctuation, regardless of position or length. Applies to subtitle
+text only; title casing/stylization is unaffected and stays per-book.
+
 Changes from v4.2: Added Section 0 DISPLAY GATE and tools/cover_build.py's
 save_cover_version() helper -- every cover version, not just the final
 one, is now saved through a single versioned function and MUST be
@@ -141,6 +145,14 @@ SECTION 3 — TYPOGRAPHY PREFERENCES
  Color: white/cream or metallic gold
 
  SUBTITLE: italic serif, natural proportions. Center visually.
+
+ SUBTITLE CASING (added Aug 13 2026 — default going forward): all
+ lowercase, no ending punctuation. Not title case, not sentence case —
+ every word lowercase regardless of position or length, and no period,
+ colon, or other mark at the end even if the phrase reads like a full
+ clause. Applies to the subtitle text itself; does not govern the title,
+ which may still render in full caps or its own stylized case per that
+ book's design.
 
  RULE: warm gold (215, 175, 130)
 
