@@ -1,8 +1,16 @@
 COVER PRODUCTION STANDARD
-Version 4.0
-Last updated: August 2, 2026
-Migrated to GitHub as canonical location (project-knowledge/), superseding
-Project Knowledge copy. Changes from v3.0: Bleed increased from 0.125" to
+Version 4.1
+Last updated: August 13, 2026
+Changes from v4.0: Section 1 MARGINS corrected -- the top/bottom margin
+had drifted out of sync between this document (still showing the old
+3/8"=112px "all sides" spec) and tools/cover_build.py (which moved to
+5/16" visual border + 1/4" bleed = 9/16" = 169px on Aug 7, applied to
+top and bottom identically, but never got written back here). This
+document now states the 169px rule explicitly as symmetric top/bottom
+by rule, matching the code. Section 5's older per-book frozen specs
+(112px-era) are now flagged as historical, not current template.
+
+Changes from v3.0: Bleed increased from 0.125" to
 0.25" as new canon (all sides) -- affects full canvas size and all margin
 math derived from it. Section 8 added: Composite/Ghosted Cover Art, learnings
 from the Enchante Nike cover project (silhouette anatomy accuracy, sourced
@@ -51,15 +59,24 @@ SECTION 1 — PHYSICAL SPEC
  Color: RGB
 
 MARGINS
- All sides: 3/8" = 112px
+ TOP and BOTTOM (updated Aug 7 2026 — supersedes the old 3/8"=112px
+ spec below): 5/16" visual border + 1/4" bleed = 9/16" = 169px.
+ SYMMETRIC BY RULE — top and bottom always use the same value. This
+ was previously under-specified as "112px, all sides," which is why
+ some pre-Aug-7 covers (frozen specs in Section 5) show 112px; new
+ builds use 169px, top and bottom equally, no exceptions.
+ LEFT and RIGHT (unchanged): still governed by TEXT_W / FULL_TEXT_W
+ below, not by MARGIN.
  TEXT_MARGIN (bleed + 1/4" clearance): 187px
- Usable text width (TEXT_W): 1651px = 5.50"
+ Usable text width (TEXT_W): 1651px = 5.50" (conservative safe-zone)
+ FULL_TEXT_W (Aug 2026 "fill it" rule): 1650px — title/subtitle/author
+ scale to fill this width by default, not just stay inside TEXT_W.
 
 ════════════════════════════════════════════════════════════════════════════════
 
 SECTION 2 — LAYOUT ZONES
 
- TOP TEXT ZONE: from margin (y=112) downward
+ TOP TEXT ZONE: from margin (y=169, per the Aug 7 rule above) downward
  - Title dominant word: ~2–2.5" tall, visually centered
  - Title secondary line: ~3/8" tall, same visual width
  - Gap between title lines: ~0.28" (85px)
@@ -69,7 +86,8 @@ SECTION 2 — LAYOUT ZONES
  - This is the majority of the cover
  - Uninterrupted is the goal; aim for 4–5" minimum
 
- BOTTOM TEXT ZONE: ~1.35" from bottom margin
+ BOTTOM TEXT ZONE: built upward from the SAME margin (y = H - 169) —
+ top and bottom margins are equal by rule, not independently tuned
  - Subtitle (italic): visually centered
  - Gap above rule = gap below rule (symmetric, ~0.18" each)
  - Rule: 55% of TEXT_W, centered, 3–4px tall, warm gold
@@ -427,6 +445,13 @@ CARD OUTPUT
  GitHub card: /images/cover-radiant-sensitivity-v7.jpeg
  Full archive: /covers/radiant-sensitivity/cover_radiant_sensitivity_v11.jpg
 
+───────────────────────────────────────────────────────────────────────────────
+NOTE (added v4.1, Aug 13 2026): the per-book "frozen parameter" specs
+below (5B, 5C, etc.) are historical records of what those specific
+covers actually used at build time — including 112px margins from
+before the Aug 7 2026 top/bottom-symmetric 169px rule in Section 1.
+They are correct as history and should not be edited to match current
+rules. New builds follow Section 1, not these old worked examples.
 ───────────────────────────────────────────────────────────────────────────────
 SECTION 5C — FOUNTAIN OF YOUTH (v2 — APPROVED)
 
