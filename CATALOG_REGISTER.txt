@@ -10,7 +10,7 @@ Drive folder changes. If a field is unknown, it says CONFIRM — do not guess.
 ── SECTION 1: SOMATIC ECSTASY (18+) ──
 100 Orgasms an Hour | LIVE — Kindle published, ASIN B0F6KBFJ8Y | CONFIRM | CONFIRM | /100-orgasms-preview.html
 Slow the Fuck Down | working draft v0.1 | 1qRyoZep_1TGSf9tJgfP_-ezdg3547W9V | CONFIRM | /slow-the-fuck-down-preview.html
-Fountain of Youth | working draft v0.4 | 1ImbONb8WcpMpwtL8aMcddlvt0rX1PU3h | v5 STILL LIVE ON SITE but its source painting (blue waterfall) was reassigned to Cascade Aug 13 2026 -- v5's own file is untouched, but the source is now spoken for elsewhere; needs a new painting before any future FOY cover rebuild | /images/cover-fountain-of-youth-v5.jpeg | /fountain-preview.html
+Fountain of Youth | working draft v0.4 | 1ImbONb8WcpMpwtL8aMcddlvt0rX1PU3h | v5 (blue waterfall painting, Beveled Gold treatment) approved and live -- briefly considered for Cascade Aug 13 2026, reverted same day, unchanged | /images/cover-fountain-of-youth-v5.jpeg | /fountain-preview.html
 Spank Me Tender | working draft v0.1 | CONFIRM | v17 approved | /images/cover-spank-me-tender.jpeg | /spank-me-tender-preview.html
 
 ── SECTION 2: ANAHATA ──
@@ -28,7 +28,7 @@ Enchanté Nike | preview live, dark sacred aesthetic | CONFIRM (Nike folder) | C
 ── SECTION 4: MIND & SPIRIT ──
 Jnana and Bhakti | outline + preface drafted | CONFIRM | not built (wolf/aurora painting pending) | — | —
 Post Sapiens | concept/outline stage; cover v1 APPROVED and live | 1Csefq8b_M9ZxjKetSmSVbQY5GaBsbgBd | card=/images/cover-post-sapiens-v1.jpeg | full=/covers/post-sapiens/post_sapiens_cover_v1.jpg | source=/covers/post-sapiens/source_chandelier_v3.jpg
-Cascade (subtitle CONFIRMED: "Self-Similarity Across Scales of Being") | concept/outline stage (outline v0.1 in Books/Cascade/); cover v1 CONFIRMED with final subtitle | 1zcHw6UsOXpZdUjB7vzKXoIc4kEDvVju4 | card=/images/cover-cascade-v1.jpeg | full=/covers/cascade/cover_cascade_v1.jpg | source=assets/paintings/1000002157.png (Blue Waterfall, reassigned from Fountain of Youth)
+Cascade (subtitle CONFIRMED: "Self-Similarity Across Scales of Being") | concept/outline stage (outline v0.1 in Books/Cascade/); cover v1 CONFIRMED -- final source is the wolf/aurora painting, chiseled Pastel Gold throughout | 1zcHw6UsOXpZdUjB7vzKXoIc4kEDvVju4 | card=/images/cover-cascade-v1.jpeg | full=/covers/cascade/cover_cascade_v1.jpg | source=assets/paintings/1000071936.png (THE SPIRIT WOLF -- waterfall was briefly considered Aug 13, reverted same day)
 
 ── SECTION 5: THE EARTH ──
 Restoring the Divine Feminine | manuscript seeded, 19 chapters; cover v3 live | 1jCARhuAk0C1iAgsqZrhJt5u9XfumgTLo | v3 (angel collage) live | CONFIRM | /restoring-divine-feminine-preview.html
