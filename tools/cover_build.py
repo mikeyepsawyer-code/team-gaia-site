@@ -273,6 +273,58 @@ def cast_shadow(canvas, ink, x, y, offset=(6, 8), blur=6, opacity=110, color=(5,
     return Image.alpha_composite(canvas.convert("RGBA"), shadow_layer)
 
 
+def build_top_aligned_ink(text, font_path, pt_size, pad=80):
+    """
+    DEFAULT TITLE TREATMENT (added Aug 13 2026). Renders text with every
+    glyph's TOP edge aligned to the same row, letting bottoms fall where
+    each glyph's natural height puts them -- tall capitals hang down
+    below the shorter "faux-lowercase" forms in fonts like Cinzel that
+    render lowercase as shrunk capitals. This is the INVERSE of normal
+    baseline-aligned text (where bottoms share a line and capitals stand
+    up taller). Use this for titles by default. Subtitles and author
+    names keep normal baseline alignment via render_ink/bevel_text --
+    the contrast between the two is part of the effect, not incidental.
+
+    Returns an RGBA ink image (white-filled, alpha=glyph shape), same
+    contract as render_ink, so it drops into scale_ink_to_width /
+    apply_chiseled_gold / apply_gold_foil unchanged.
+    """
+    font = ImageFont.truetype(font_path, pt_size)
+    tmp = Image.new("L", (10, 10), 0)
+    d = ImageDraw.Draw(tmp)
+
+    advances = [0.0]
+    for i in range(1, len(text) + 1):
+        advances.append(d.textlength(text[:i], font=font))
+
+    char_boxes = [None if ch == ' ' else font.getbbox(ch) for ch in text]
+    tops = [b[1] for b in char_boxes if b is not None]
+    bottoms = [b[3] for b in char_boxes if b is not None]
+    global_top, global_bottom = min(tops), max(bottoms)
+    total_h = global_bottom - global_top
+    total_w = advances[-1]
+
+    work_w, work_h = int(total_w) + pad * 2, int(total_h) + pad * 2
+    canvas = Image.new("L", (work_w, work_h), 0)
+    dc = ImageDraw.Draw(canvas)
+    for i, ch in enumerate(text):
+        if char_boxes[i] is None:
+            continue
+        x = pad + advances[i]
+        y = pad - char_boxes[i][1]  # every glyph's own top lands at `pad`
+        dc.text((x, y), ch, font=font, fill=255)
+
+    arr = np.array(canvas)
+    rows, cols = np.any(arr, axis=1), np.any(arr, axis=0)
+    rmin, rmax = np.where(rows)[0][[0, -1]]
+    cmin, cmax = np.where(cols)[0][[0, -1]]
+    canvas = canvas.crop((cmin, rmin, cmax + 1, rmax + 1))
+
+    white = Image.new("L", canvas.size, 255)
+    ink_rgba = Image.merge("RGBA", (white, white, white, canvas))
+    return ink_rgba, canvas.width, canvas.height
+
+
 def bevel_text(canvas, text, font_path, pt_size, center_x, top_y,
                 target_width, foil_stops=STATIC_GOLD_FOIL_STOPS, angle_deg=FOIL_ANGLE_DEG,
                 seed=FOIL_SEED):
