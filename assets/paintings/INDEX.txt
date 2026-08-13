@@ -46,12 +46,15 @@ ADDED JULY 27 (verified):
 1000071630.jpg — DIA DE LOS MUERTOS SKULL (detail). PORTRAIT.
 1000002257.jpg — THE BELL FLOWER (watercolor). PORTRAIT. ASSIGNED: ANAHATA
   cover source. (Bellflower = Campanula = "little bell.")
-1000002157.png — THE BLUE WATERFALL. PORTRAIT. ASSIGNED: FOUNTAIN OF YOUTH
-  cover source.
+1000002157.png — THE BLUE WATERFALL. PORTRAIT. REASSIGNED Aug 13 2026:
+  FOUNTAIN OF YOUTH -> CASCADE cover source (v1 built, Beveled Gold).
+  Fountain of Youth's cover source is now OPEN -- needs a replacement
+  painting before its cover can be rebuilt. Flagged, not yet chosen.
 
 PENDING: vajra portrait (composed re-shoot on plain ground, then archive);
 visual re-audit of the 13 [UNVERIFIED] paintings.
 
 COVER SOURCE STATUS:
-Anahata -> 1000002257.jpg (ready) | Fountain -> 1000002157.png (ready)
+Anahata -> 1000002257.jpg (ready) | Cascade -> 1000002157.png (ready, v1 live)
+Fountain of Youth -> OPEN, needs replacement (lost 1000002157.png to Cascade)
 Jnana -> 1000002216.png (ready, unverified desc) | Lobby -> 1000002270.jpg (candidate)
