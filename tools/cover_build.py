@@ -32,6 +32,16 @@ MARGIN = 169
 TEXT_MARGIN = 187
 TEXT_W = 1651
 
+# TITLE_TOP_Y / AUTHOR_BOTTOM_Y (added Aug 13 2026 -- closes a repeated bug
+# where per-book scripts added an ad-hoc offset to the title's top position
+# ("MARGIN + 40") without ever matching it on the author's bottom position,
+# breaking the symmetric top/bottom margin rule above. ALWAYS use these two
+# constants directly for title top_y and author bottom edge -- never add or
+# subtract an extra offset to either one. If a book needs more breathing
+# room, that's a MARGIN change (affecting both), not a one-sided nudge.
+TITLE_TOP_Y = MARGIN
+AUTHOR_BOTTOM_Y = None  # computed per-call as CANVAS_H - MARGIN - text_height
+
 # Aug 2026 rule: by default, title/subtitle/author should each SCALE TO FILL
 # this width — 0.25" bleed + 0.25" visual border per side, i.e. 0.5" total
 # per side, 1.0" total off the full canvas width. This is a bigger default
