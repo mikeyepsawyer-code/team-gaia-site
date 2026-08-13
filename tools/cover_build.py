@@ -413,3 +413,32 @@ def export_card(full_cover, out_path, quality=CARD_QUALITY):
     card = full_cover.convert("RGB").resize((CARD_W, CARD_H), Image.LANCZOS)
     card.save(out_path, "JPEG", quality=quality)
     return out_path
+
+
+def save_cover_version(canvas, book_slug, existing_versions, out_dir="/home/claude",
+                        quality=92):
+    """
+    Section 0 DISPLAY GATE (added Aug 13 2026): every cover build saves
+    through this function, never through ad-hoc filenames. It auto-
+    increments the version number and returns paths in a fixed shape so
+    the calling session has no excuse to skip displaying the result.
+
+    existing_versions: list of ints already used for this book_slug (the
+    caller gets these by listing the relevant GitHub covers/ folder before
+    calling — this function does no network I/O itself, to keep it a pure
+    PIL utility).
+
+    Returns a dict: {"version": int, "full_path": str, "card_path": str}.
+    MANDATORY NEXT STEP (not automatable from inside this function, since
+    a Python script cannot invoke Claude's own view tool): the calling
+    session must call view() on full_path immediately after this returns,
+    before doing anything else with the cover — before export_card, before
+    any GitHub push, before presenting anything to Michael. See
+    COVER_PRODUCTION_STANDARD.txt Section 0 for the full rule.
+    """
+    version = (max(existing_versions) + 1) if existing_versions else 1
+    full_path = f"{out_dir}/{book_slug}_cover_v{version}_full.jpg"
+    card_path = f"{out_dir}/{book_slug}_cover_v{version}_card.jpg"
+    canvas.convert("RGB").save(full_path, "JPEG", quality=quality)
+    export_card(canvas, card_path)
+    return {"version": version, "full_path": full_path, "card_path": card_path}
