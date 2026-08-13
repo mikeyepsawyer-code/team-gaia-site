@@ -1,4 +1,4 @@
-PAINTINGS INDEX — v3 (July 27, 2026)
+PAINTINGS INDEX — v4 (August 13, 2026)
 Canonical copy, colocated with the files it describes.
 Supersedes Drive files v2_PAINTINGS_INDEX and v1_PAINTINGS_INDEX_JULY (delete both).
 URL pattern: https://raw.githubusercontent.com/mikeyepsawyer-code/team-gaia-site/main/assets/paintings/[filename]
@@ -19,8 +19,14 @@ OPEN QUESTION: if a chalice/goblet-with-dove painting exists (Victoria goblet),
 it is NOT in this vault. Michael: separate file needing archiving?
 
 REMAINING ORIGINALS [UNVERIFIED]:
-1000002307.png — galaxy/nebula, planet, starfield
-1000002216.png — wolf howling at moon, aurora — JNANA AND BHAKTI cover source
+1000002307.png — CORRECTED Aug 13 2026 (was wrong): purple/blue abstract
+  fluid-pour face, closed eyes, meditative. NOT galaxy/nebula as originally
+  logged -- that description belongs to an unidentified file, still open.
+1000002216.png — SUPERSEDED Aug 13 2026: this [UNVERIFIED] placeholder
+  entry (wolf/moon/aurora, logged as a Jnana and Bhakti candidate) is
+  believed to be the same subject as the properly-uploaded 1000071936.png
+  below, never confirmed. Flagged for Michael to confirm whether this file
+  still exists distinctly or should be deleted from Drive as a duplicate.
 1000002306.png — Earth from orbit
 1000002312.jpg — golden swirl (sun/moon disc, tree form)
 1000002195.png — golden swirl series
@@ -40,21 +46,61 @@ REMAINING ORIGINALS [UNVERIFIED]:
 1000000141.png — golden swirl series
 1000002315.jpg — blue butterfly, bubbles
 
+
 ADDED JULY 27 (verified):
 1000019432.jpg — DIA DE LOS MUERTOS ANCESTORS (full). Restaurant commission;
   the ancestors returning. PORTRAIT.
 1000071630.jpg — DIA DE LOS MUERTOS SKULL (detail). PORTRAIT.
 1000002257.jpg — THE BELL FLOWER (watercolor). PORTRAIT. ASSIGNED: ANAHATA
   cover source. (Bellflower = Campanula = "little bell.")
-1000002157.png — THE BLUE WATERFALL. PORTRAIT. REASSIGNED Aug 13 2026:
-  FOUNTAIN OF YOUTH -> CASCADE cover source (v1 built, Beveled Gold).
-  Fountain of Youth's cover source is now OPEN -- needs a replacement
-  painting before its cover can be rebuilt. Flagged, not yet chosen.
+1000002157.png — THE BLUE WATERFALL. PORTRAIT. ASSIGNED: FOUNTAIN OF
+  YOUTH cover source (v5 live). Briefly considered for Cascade Aug 13 2026,
+  reverted same day once the wolf painting arrived -- waterfall stays put.
 
 PENDING: vajra portrait (composed re-shoot on plain ground, then archive);
 visual re-audit of the 13 [UNVERIFIED] paintings.
 
-COVER SOURCE STATUS:
-Anahata -> 1000002257.jpg (ready) | Cascade -> 1000002157.png (ready, v1 live)
-Fountain of Youth -> OPEN, needs replacement (lost 1000002157.png to Cascade)
-Jnana -> 1000002216.png (ready, unverified desc) | Lobby -> 1000002270.jpg (candidate)
+COVER SOURCE STATUS (updated Aug 13 2026):
+Anahata -> 1000002257.jpg (ready)
+Cascade -> 1000071936.png, THE SPIRIT WOLF (CONFIRMED, v1 live)
+Fountain of Youth -> 1000002157.png, THE BLUE WATERFALL (ready, v5 live, unchanged)
+Jnana and Bhakti -> OPEN. Old placeholder (1000002216.png) superseded, never
+  confirmed uploaded. Recommend 1000002275.png (golden winged warrior with
+  sword) -- see note below. Not yet chosen by Michael.
+Lobby -> 1000002270.jpg (candidate, unchanged)
+
+RECOMMENDATION FOR JNANA AND BHAKTI / SOPHIA (Aug 13 2026, Claude's
+suggestion, not yet approved): 1000002275.png -- the golden winged warrior
+holding a sword reads as both halves of the book at once. The sword is
+the classical symbol for viveka, discriminating wisdom, in Jnana yoga --
+the blade that cuts the real from the unreal. The wings and the
+devotional posture (halo, robed, offering the blade outward) carry
+Bhakti's surrendered, adoring register. Together: a single figure
+embodying both the discerning and the devoted paths, gold throughout --
+which also reads naturally as Sophia if that material wants a home here
+too. Alternatives considered and set aside: 1000002270.jpg / 1000002310.jpg
+(the two gold Buddhas) are more purely Jnana (dissolution, non-dual
+stillness) with no Bhakti warmth; 1000002307.png (purple/blue face) is
+moodier and more turbulent, less suited to either path's clarity.
+
+ADDED AUGUST 13 2026 (verified):
+1000071936.png — THE SPIRIT WOLF. PORTRAIT. ASSIGNED: CASCADE cover source
+  (v1 CONFIRMED, chiseled Pastel Gold). Physical wolf howling at a full
+  moon in the foreground; a second, vast wolf-shaped silhouette formed by
+  the aurora and mountain looms above -- the physical wolf's cry answered
+  and echoed at cosmic scale. Michael's reading: the physical wolf sings
+  into the spirit wolf's ear, which then echoes the cry out into the
+  cosmos -- self-similarity across scales of being, made literal.
+1000002264.jpg — watercolor sunburst, orange/yellow corona fading through
+  pink into blue/purple diagonal rain-streak washes. PORTRAIT. Candidate:
+  warm/cool duality imagery.
+1000071787.jpg — detail crop of the same watercolor sunburst as
+  1000002264.jpg -- likely a close-up study of the same piece, not a
+  separate painting. Confirm with Michael before treating as distinct.
+1000002272.jpg — blue/green aurora starburst, radiating from a bright
+  yellow-white core, dense starfield. LANDSCAPE. Candidate: cosmic
+  radiance / consciousness-as-light imagery.
+1000002275.png — golden winged warrior figure, feathered wings spread
+  full width, armored robes, halo, holding a glowing sword extended to
+  one side. LANDSCAPE. Strong candidate for Jnana and Bhakti / Sophia --
+  see recommendation below.
