@@ -14,9 +14,10 @@ WHAT THIS DOES NOT DO: it does not encode per-book creative choices
 per-book build scripts that import this module. See Section 5 of the
 standard for approved per-book specs.
 
-CANVAS SPEC (Section 1, v4.0 — 0.25" bleed):
+CANVAS SPEC (Section 1, v4.1 — 0.25" bleed):
   Trim 6"x9", full canvas 6.5"x9.5" = 1950x2850px @ 300dpi
-  MARGIN = 112px, TEXT_MARGIN = 187px, TEXT_W = 1651px
+  MARGIN = 169px (5/16" visual border + 1/4" bleed = 9/16", SYMMETRIC
+  top and bottom by rule), TEXT_MARGIN = 187px, TEXT_W = 1651px
 """
 from PIL import Image, ImageDraw, ImageFont, ImageOps, ImageFilter
 import numpy as np
