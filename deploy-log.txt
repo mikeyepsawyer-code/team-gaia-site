@@ -5,9 +5,9 @@ npm warn deprecated sourcemap-codec@1.4.8: Please use @jridgewell/sourcemap-code
 Uploading... (209/211)
 Uploading... (210/211)
 Uploading... (211/211)
-✨ Success! Uploaded 2 files (209 already uploaded) (0.77 sec)
+✨ Success! Uploaded 2 files (209 already uploaded) (1.47 sec)
 
 ✨ Uploading _headers
 ✨ Uploading Functions bundle
 🌎 Deploying...
-✨ Deployment complete! Take a peek over at https://13e448cf.team-gaia-site.pages.dev
+✨ Deployment complete! Take a peek over at https://e5fb2013.team-gaia-site.pages.dev
