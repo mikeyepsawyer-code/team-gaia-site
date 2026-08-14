@@ -61,6 +61,13 @@ FULL_TEXT_W = CANVAS_W - int(1.0 * 300)  # = 1650px at 1950px canvas
 
 CARD_W, CARD_H = 650, 962
 CARD_QUALITY = 74
+# HERO (added Aug 14 2026): the featured/banner image for a book's web
+# page. Same shape as the cover (not a landscape crop -- nothing in the
+# site currently crops covers to landscape, so don't invent that shape
+# here), just bigger than the small nav/list CARD above. ~2x the card's
+# linear size, same aspect ratio.
+HERO_W, HERO_H = 1300, 1924
+HERO_QUALITY = 82
 
 
 def render_ink(text, font_path, pt_size, pad=80):
@@ -531,6 +538,43 @@ def export_card(full_cover, out_path, quality=CARD_QUALITY):
     card = full_cover.convert("RGB").resize((CARD_W, CARD_H), Image.LANCZOS)
     card.save(out_path, "JPEG", quality=quality)
     return out_path
+
+
+def export_hero(full_cover, out_path, quality=HERO_QUALITY):
+    """
+    Added Aug 14 2026. 1300x1924 web hero/banner image -- same shape as
+    the cover, ~2x the CARD's linear size. For the featured image on a
+    book's own page, as distinct from the small CARD used in nav/list
+    contexts.
+    """
+    hero = full_cover.convert("RGB").resize((HERO_W, HERO_H), Image.LANCZOS)
+    hero.save(out_path, "JPEG", quality=quality)
+    return out_path
+
+
+def export_approved_web_assets(full_cover, book_slug, out_dir="/home/claude"):
+    """
+    Added Aug 14 2026 -- APPROVAL-STAGE ONLY. Call this once, when Michael
+    has approved a cover version, never during draft iteration (drafts go
+    through save_cover_version with make_card=False, full-res only).
+
+    Writes card + hero to FIXED, UNVERSIONED filenames --
+    {book_slug}_card.jpeg and {book_slug}_hero.jpeg -- unlike the
+    versioned masters in covers/[slug]/ (which intentionally keep history
+    per Charter 1D), the web-facing card and hero are meant to always be
+    "whatever the current approved cover is." When pushing to GitHub,
+    push these to images/cover-{book_slug}-card.jpeg and
+    images/cover-{book_slug}-hero.jpeg, OVERWRITING whatever was there
+    (fetch a fresh SHA first, per the standard GitHub PUT pattern) --
+    do not create a new versioned filename alongside the old one.
+
+    Returns {"card_path": str, "hero_path": str}.
+    """
+    card_path = f"{out_dir}/{book_slug}_card.jpeg"
+    hero_path = f"{out_dir}/{book_slug}_hero.jpeg"
+    export_card(full_cover, card_path)
+    export_hero(full_cover, hero_path)
+    return {"card_path": card_path, "hero_path": hero_path}
 
 
 def save_cover_version(canvas, book_slug, existing_versions, out_dir="/home/claude",
