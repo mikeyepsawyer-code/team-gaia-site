@@ -47,6 +47,16 @@ AUTHOR_BOTTOM_Y = None  # computed per-call as CANVAS_H - MARGIN - text_height
 # per side, 1.0" total off the full canvas width. This is a bigger default
 # than TEXT_W above (which was a conservative safe-zone width) — the new
 # rule is "fill it," not "stay comfortably inside it."
+#
+# Aug 14 2026 fix: this was previously enforced by NOTHING — it lived only
+# as this comment. bevel_text() required target_width as a plain positional
+# arg with no default, and subtitle/author had no shared helper at all, so
+# every per-book build script hand-rolled render_ink+apply_gold_foil for
+# them and picked its own fraction of FULL_TEXT_W (or worse, an arbitrary
+# pt_size with no width target at all). That's how the rule kept silently
+# dropping. Fix: bevel_text() now defaults target_width to FULL_TEXT_W, and
+# scaled_gold_text() below is the one function ALL THREE of title/subtitle/
+# author should go through. See scaled_gold_text() docstring.
 FULL_TEXT_W = CANVAS_W - int(1.0 * 300)  # = 1650px at 1950px canvas
 
 CARD_W, CARD_H = 650, 962
@@ -326,13 +336,18 @@ def build_top_aligned_ink(text, font_path, pt_size, pad=80):
 
 
 def bevel_text(canvas, text, font_path, pt_size, center_x, top_y,
-                target_width, foil_stops=STATIC_GOLD_FOIL_STOPS, angle_deg=FOIL_ANGLE_DEG,
-                seed=FOIL_SEED):
+                target_width=FULL_TEXT_W, foil_stops=STATIC_GOLD_FOIL_STOPS,
+                angle_deg=FOIL_ANGLE_DEG, seed=FOIL_SEED):
     """
     DEFAULT title/author/subtitle treatment (Aug 7 2026, second pass):
     heavier weight font + chiseled emboss bevel (apply_chiseled_gold) +
     a soft cast shadow onto the artwork behind the letters for grounding.
     Use a BOLD font_path — the bevel reads as mush on a thin weight.
+
+    target_width now DEFAULTS to FULL_TEXT_W (Aug 14 2026 fix) instead of
+    requiring the caller to always supply it. Prefer scaled_gold_text()
+    below for subtitle/author, which shares this same default and also
+    covers the flat (non-chiseled) treatment.
     """
     ink, w, h = render_ink(text, font_path, pt_size)
     ink = scale_ink_to_width(ink, target_width)
@@ -341,6 +356,47 @@ def bevel_text(canvas, text, font_path, pt_size, center_x, top_y,
     canvas = cast_shadow(canvas, ink, x, top_y)
 
     face = apply_chiseled_gold(ink, stops=foil_stops, angle_deg=angle_deg)
+    canvas.paste(face, (x, top_y), face)
+    return canvas, ink.height
+
+
+def scaled_gold_text(canvas, text, font_path, pt_size, center_x, top_y,
+                      target_width=FULL_TEXT_W, treatment="chiseled",
+                      foil_stops=STATIC_GOLD_FOIL_STOPS, angle_deg=FOIL_ANGLE_DEG,
+                      cast_shadow_on=True):
+    """
+    UNIFIED title/subtitle/author placement (added Aug 14 2026). This is
+    the one function all three text elements should go through — do not
+    reach for render_ink + apply_gold_foil/apply_chiseled_gold directly
+    for subtitle or author "since they're smaller/different." That
+    per-element hand-rolling is exactly how the FULL_TEXT_W width rule
+    kept silently dropping: target_width defaults here to FULL_TEXT_W,
+    so title, subtitle, and author are the same width — background
+    width minus 0.25" bleed minus 0.25" visual exclusion — unless a
+    build script deliberately overrides it, which then shows up as an
+    explicit, visible choice at the call site instead of a silent one.
+
+    treatment:
+      "chiseled" (default) — bevel emboss via apply_chiseled_gold, same
+      as the title. Use for author, or a subtitle that should carry the
+      same weight as the title.
+      "flat" — apply_gold_foil, smoother/no bevel facets. Use when a
+      subtitle should read quieter than the title next to it.
+
+    Returns (canvas, ink.height) same contract as bevel_text.
+    """
+    ink, w, h = render_ink(text, font_path, pt_size)
+    ink = scale_ink_to_width(ink, target_width)
+    x = round(center_x - ink.width / 2)
+
+    if cast_shadow_on:
+        canvas = cast_shadow(canvas, ink, x, top_y)
+
+    if treatment == "chiseled":
+        face = apply_chiseled_gold(ink, stops=foil_stops, angle_deg=angle_deg)
+    else:
+        face = apply_gold_foil(ink, stops=foil_stops, angle_deg=angle_deg)
+
     canvas.paste(face, (x, top_y), face)
     return canvas, ink.height
 
@@ -478,12 +534,20 @@ def export_card(full_cover, out_path, quality=CARD_QUALITY):
 
 
 def save_cover_version(canvas, book_slug, existing_versions, out_dir="/home/claude",
-                        quality=92):
+                        quality=92, make_card=False):
     """
     Section 0 DISPLAY GATE (added Aug 13 2026): every cover build saves
     through this function, never through ad-hoc filenames. It auto-
     increments the version number and returns paths in a fixed shape so
     the calling session has no excuse to skip displaying the result.
+
+    make_card (Aug 14 2026 fix, default False): the 650x962 web card is a
+    FINAL-APPROVAL-STAGE artifact, not a draft-iteration one — Michael
+    reviews full covers during iteration and only needs the card once a
+    version is actually approved for the site. This used to build the
+    card unconditionally on every save, producing a redundant deliverable
+    on every single draft round. Pass make_card=True explicitly once a
+    version is approved and you're producing the final deliverable pair.
 
     existing_versions: list of ints already used for this book_slug (the
     caller gets these by listing the relevant GitHub covers/ folder before
@@ -491,6 +555,7 @@ def save_cover_version(canvas, book_slug, existing_versions, out_dir="/home/clau
     PIL utility).
 
     Returns a dict: {"version": int, "full_path": str, "card_path": str}.
+    card_path is None unless make_card=True.
     MANDATORY NEXT STEP (not automatable from inside this function, since
     a Python script cannot invoke Claude's own view tool): the calling
     session must call view() on full_path immediately after this returns,
@@ -500,7 +565,9 @@ def save_cover_version(canvas, book_slug, existing_versions, out_dir="/home/clau
     """
     version = (max(existing_versions) + 1) if existing_versions else 1
     full_path = f"{out_dir}/{book_slug}_cover_v{version}_full.jpg"
-    card_path = f"{out_dir}/{book_slug}_cover_v{version}_card.jpg"
     canvas.convert("RGB").save(full_path, "JPEG", quality=quality)
-    export_card(canvas, card_path)
+    card_path = None
+    if make_card:
+        card_path = f"{out_dir}/{book_slug}_cover_v{version}_card.jpg"
+        export_card(canvas, card_path)
     return {"version": version, "full_path": full_path, "card_path": card_path}
