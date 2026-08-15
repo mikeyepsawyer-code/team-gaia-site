@@ -416,6 +416,41 @@ def bevel_text(canvas, text, font_path, pt_size, center_x, top_y,
     return canvas, ink.height
 
 
+# HIGH CONTRAST GOLD FINISH (added Aug 14 2026): apply_chiseled_gold's
+# shadow_floor/highlight_range pushed further apart than the defaults,
+# so the bevel manufactures its own light/dark separation instead of
+# relying on the artwork behind it for contrast.
+#
+# WHEN TO USE: wherever the painting directly behind the text sits in
+# the MID tonal range -- not clearly dark, not clearly light, no strong
+# value swing of its own. Normal pastel/chiseled gold reads fine over
+# a strong dark (navy band, shadowed painting area) or a strong light
+# (bright sky, white ground) because the painting itself is already
+# doing the contrast work. It's the mid-tone regions -- muted golds,
+# dusty pinks, mid-value textures close to the gold's own hue and
+# value -- where flat/normal-chisel gold has nothing to carve itself
+# out against and starts to disappear (this is what happened to
+# "feminine" sitting on the gold orb cluster in Restoring/Forgotten
+# Sacred Communion -- see that build for the reference case). Reach
+# for this per WORD or per PHRASE where that specific patch of art is
+# mid-toned, not as a whole-cover default.
+HIGH_CONTRAST_SHADOW_FLOOR = 0.26
+HIGH_CONTRAST_HIGHLIGHT_RANGE = 1.10
+HIGH_CONTRAST_TOP_LIGHT_BOOST = 2.3
+
+
+def apply_high_contrast_gold(ink, stops=STATIC_GOLD_FOIL_STOPS, angle_deg=FOIL_ANGLE_DEG):
+    """Convenience wrapper: apply_chiseled_gold tuned to the High Contrast
+    Gold finish. See the constants/comment above for when to reach for
+    this instead of apply_chiseled_gold's defaults."""
+    return apply_chiseled_gold(
+        ink, stops=stops, angle_deg=angle_deg,
+        shadow_floor=HIGH_CONTRAST_SHADOW_FLOOR,
+        highlight_range=HIGH_CONTRAST_HIGHLIGHT_RANGE,
+        top_light_boost=HIGH_CONTRAST_TOP_LIGHT_BOOST,
+    )
+
+
 def scaled_gold_text(canvas, text, font_path, pt_size, center_x, top_y,
                       target_width=FULL_TEXT_W, treatment="chiseled",
                       foil_stops=STATIC_GOLD_FOIL_STOPS, angle_deg=FOIL_ANGLE_DEG,
@@ -438,6 +473,15 @@ def scaled_gold_text(canvas, text, font_path, pt_size, center_x, top_y,
       same weight as the title.
       "flat" — apply_gold_foil, smoother/no bevel facets. Use when a
       subtitle should read quieter than the title next to it.
+      "high_contrast" (added Aug 14 2026) — apply_high_contrast_gold;
+      deeper shadows + brighter highlights, self-supplied contrast
+      rather than borrowed from the artwork. Use per-word/per-phrase
+      where the art directly behind that text is mid-toned. See the
+      HIGH_CONTRAST_SHADOW_FLOOR comment above for the full rule. NOTE:
+      this function applies one treatment to the WHOLE string — if only
+      part of a line needs it (the common case), render/scale/composite
+      that word separately with apply_high_contrast_gold instead of
+      calling this with the whole line.
 
     Returns (canvas, ink.height) same contract as bevel_text.
     """
@@ -450,6 +494,8 @@ def scaled_gold_text(canvas, text, font_path, pt_size, center_x, top_y,
 
     if treatment == "chiseled":
         face = apply_chiseled_gold(ink, stops=foil_stops, angle_deg=angle_deg)
+    elif treatment == "high_contrast":
+        face = apply_high_contrast_gold(ink, stops=foil_stops, angle_deg=angle_deg)
     else:
         face = apply_gold_foil(ink, stops=foil_stops, angle_deg=angle_deg)
 
