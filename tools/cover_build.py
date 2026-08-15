@@ -278,7 +278,8 @@ def chisel_shade(mask_bool, bevel_px, light_dir=(-0.5, -0.55, 0.7), blur_sigma=1
 def apply_chiseled_gold(ink, stops=STATIC_GOLD_FOIL_STOPS, angle_deg=FOIL_ANGLE_DEG,
                          bevel_frac=0.09, light_dir=(-0.5, -0.55, 0.7),
                          top_light_dir=(0.0, -1.0, 0.35), top_light_boost=1.6,
-                         top_highlight_color=(255, 250, 225)):
+                         top_highlight_color=(255, 250, 225),
+                         shadow_floor=0.45, highlight_range=0.85):
     """
     DEFAULT title/author/subtitle treatment (Aug 7 2026, fourth pass).
     Three effects layered:
@@ -292,6 +293,16 @@ def apply_chiseled_gold(ink, stops=STATIC_GOLD_FOIL_STOPS, angle_deg=FOIL_ANGLE_
        multiply saturates to white almost immediately on pixels the
        diagonal light already brightened, making the boost invisible;
        adding real RGB headroom is what makes "crank it up" actually show).
+
+    shadow_floor / highlight_range (added Aug 14 2026): control the depth
+    of the bevel's dark/light swing independent of everything else — the
+    brightness multiplier is shadow_floor + highlight_range * shade_flow.
+    Defaults (0.45, 0.85) match the original tuning. Lower shadow_floor
+    = darker shadow facets; higher highlight_range = brighter highlight
+    facets. Use this to punch up contrast for a word/line that's losing
+    to a busy background (e.g. call with shadow_floor=0.28,
+    highlight_range=1.05 rather than reaching for a different treatment
+    entirely).
     """
     w, h = ink.size
     alpha = ink.split()[3]
@@ -302,7 +313,7 @@ def apply_chiseled_gold(ink, stops=STATIC_GOLD_FOIL_STOPS, angle_deg=FOIL_ANGLE_
 
     bevel_px = max(2, round(bevel_frac * min(w, h)))
     shade_flow = chisel_shade(mask_bool, bevel_px, light_dir)
-    mult = 0.45 + 0.85 * shade_flow
+    mult = shadow_floor + highlight_range * shade_flow
     lit_arr = grad_arr * mult[:, :, None]
 
     shade_top = chisel_shade(mask_bool, bevel_px, top_light_dir)
