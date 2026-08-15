@@ -111,6 +111,44 @@ def render_ink(text, font_path, pt_size, pad=80):
     return ink, ink_w, ink_h
 
 
+def common_ink_bounds(ink):
+    """
+    Added Aug 14 2026. For layout math that needs "where does this line
+    of text visually start/end" (e.g. finding the midpoint between two
+    lines), ink.height (the full tight bbox) is the WRONG measurement —
+    a single low-hanging descender (a 'j', a 'g' with a true descender
+    in a script/serif font) or one unusually tall capital pulls the
+    bbox edge out further than where the text actually reads as
+    starting/ending. Most cover layout decisions should go by the
+    COMMON top/bottom line that most of the glyphs actually sit on, not
+    the rare outlier.
+
+    Method: for each column of the ink's alpha channel, find that
+    column's own topmost/bottommost ink pixel, then take the MODE
+    across all columns — the y-position most glyphs actually share —
+    rather than the min/max across the whole run.
+
+    Returns (common_top, common_bottom) as row indices in the ink's own
+    coordinate frame (0 = ink's own top edge). Use ink.height alongside
+    this when you also need the true full extent (e.g. for placement
+    that must not clip an actual descender).
+    """
+    from collections import Counter
+    arr = np.asarray(ink.split()[-1])  # alpha channel
+    tops, bottoms = [], []
+    for col in range(arr.shape[1]):
+        rows = np.where(arr[:, col] > 0)[0]
+        if len(rows) == 0:
+            continue
+        tops.append(int(rows[0]))
+        bottoms.append(int(rows[-1]))
+    if not tops:
+        return 0, ink.height
+    common_top = Counter(tops).most_common(1)[0][0]
+    common_bottom = Counter(bottoms).most_common(1)[0][0]
+    return common_top, common_bottom
+
+
 def scale_ink_to_width(ink, target_w):
     """LANCZOS scale to an exact target ink width, preserving aspect."""
     w, h = ink.size
