@@ -15,6 +15,7 @@ Spank Me Tender | working draft v0.1 | CONFIRM | v17 approved | /images/cover-sp
 
 ── SECTION 2: ANAHATA ──
 Anahata (book) | seed stage — unstruck bell + radiance + paths-to-pathlessness threads | none yet | v1 (bell flower painting, Beveled Gold + Pastel Gold, "as fuck" in Parisienne pastel) approved and live | /images/cover-anahata-v1.jpeg | none yet — no preview page built
+Forgotten Communion | manuscript seeded, 19 chapters; retitled from "Restoring the Divine Feminine," cover v4 live (full rebuild: two-line title, subtitle moved into painting, pastel + high-contrast gold) | 1jCARhuAk0C1iAgsqZrhJt5u9XfumgTLo | v4 (angel painting, pastel/high-contrast gold) live | /images/cover-forgotten-communion-card.jpeg | /forgotten-communion-preview.html
 The Art of Amōre | v3 manuscript with Michael for review | 1PMX6vL7S5ihKOFdqnGtQtMtEZ3vZZF4l | v16 approved | /images/cover-art-amore-v9.jpeg | /ovid-preview.html
 Oceans of Love | in development | 14nyWMhxiwAf-vE1JfVPYQB4r3DK7GNHT | v12 approved | /images/cover-oceans-of-love.jpeg | /oceans-of-love-preview.html
 Unjustified Happiness | new, active | 1msk2X08jzOOOIeZCi-cRYAcGhaA5-HCn | v13 approved | /images/cover-unjustified-happiness-v1.jpeg | /unjustified-happiness-preview.html
@@ -31,7 +32,6 @@ Post Sapiens | concept/outline stage; cover v1 APPROVED and live | 1Csefq8b_M9Zx
 Cascade (subtitle CONFIRMED: "Self-Similarity Across Scales of Being") | concept/outline stage (outline v0.1 in Books/Cascade/); cover v1 CONFIRMED -- final source is the wolf/aurora painting, chiseled Pastel Gold throughout | 1zcHw6UsOXpZdUjB7vzKXoIc4kEDvVju4 | card=/images/cover-cascade-v1.jpeg | full=/covers/cascade/cover_cascade_v1.jpg | source=assets/paintings/1000071936.png (THE SPIRIT WOLF -- waterfall was briefly considered Aug 13, reverted same day)
 
 ── SECTION 5: THE EARTH ──
-Restoring the Divine Feminine | manuscript seeded, 19 chapters; cover v3 live | 1jCARhuAk0C1iAgsqZrhJt5u9XfumgTLo | v3 (angel collage) live | CONFIRM | /restoring-divine-feminine-preview.html
 Gaia Journal 2027 | HIGHEST PRIORITY — 12 spreads assembled; blockers: Aug photo, ISBN, bio wording | 111lvxJS6UQ9zAlnb9gI0aqqsZa921T37 | v4 approved | CONFIRM | — (PDF, not a preview page)
 Gaia Calendar 2027 | in development | CONFIRM | placeholder card live | CONFIRM | —
 Shamanic Photography | new preview live; source photos (Fraser Lake "sacred marriage" set) live at /shamanic-photography/sacred-marriage/ — NOTE: this is a source-photo folder, not a duplicate page. Naming coincidence with the preview page, not a conflict. | 10t7_QAgrybJtAeN6TSJxlWiuewTkqOhd | goblet cover approved | CONFIRM | /shamanic-photography-preview.html
@@ -46,3 +46,4 @@ Chronic Pleasure (subtitle: A Study Proposal for Polygasm Therapy) | Ch.1-7, 9-1
 functions/api/shorts.js | Cloudflare Pages Function — server-side YouTube Data API proxy, keeps API key off the client. Requires YOUTUBE_API_KEY secret set in Cloudflare dashboard (Workers & Pages → team-gaia-site → Settings → Variables and Secrets). Wired into index.html (confirmed referenced). Channel handle hardcoded: michaelsawyer627.
 assets/effects/ | Reusable animated visual effects (gold shimmer title treatment), approved July 26 2026. See assets/effects/README.md.
 CONFIRM = value not found in charter or memory; verify with Michael or Drive before relying on it.
+
