@@ -1078,17 +1078,214 @@ replication and critique.]
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-PART VI — RESEARCH AGENDA  [NOT YET DRAFTED]
+PART VI — RESEARCH AGENDA
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Chapter 17 — Toward Testable Hypotheses
 
-[Not drafted. Per outline: what would need to be measured to move this
-from model to evidence — cortisol/BDNF proxies, validated
-rumination/self-criticism scales pre/post, structured practitioner
-interviews, safety monitoring. Written as an invitation to actual
-researchers, not a claim that Michael has done this work.]
+[Drafted Aug 16 2026. RED — new, pending Michael's review before
+merge.]
+
+Everything in this book up to this point has been an argument for why
+a pattern is worth naming. This chapter is different in kind. It is
+not a description of what I observed. It is a specification of what
+someone else would need to do to find out whether I observed anything
+real.
+
+I am not a researcher, and I want to be honest about the limits of
+what I can offer here: a plausible starting design, built from
+watching how other fields have studied adjacent phenomena, not a
+protocol I am qualified to run myself. If a real research team takes
+any of this up, I expect most of it to be revised, and I would rather
+that happen than not have this chapter exist at all.
+
+THE CORE PROBLEM: THIS INTERVENTION CANNOT BE BLINDED
+
+Every hypothesis below runs into the same methodological wall first,
+so it is worth stating plainly rather than burying it in each section.
+A participant, and in most study designs a partner, will know whether
+they are receiving the intervention. There is no plausible placebo
+condition for sustained high-frequency orgasm. This rules out the gold
+standard of a double-blind randomized controlled trial in its usual
+form, at least for the core question.
+
+This is not a fatal problem, but it does mean the earliest, most
+credible studies of this model will need to rely on designs that don't
+require blinding: within-subject comparisons against a person's own
+baseline, physiological and biomarker measures that are harder to
+consciously influence than self-report, and single-case or small-N
+designs with repeated measurement, rather than a large blinded cohort
+trial from the outset. Anyone evaluating this proposal should expect
+the evidentiary bar to be climbed in smaller, more careful steps than
+a conventional drug trial would allow.
+
+HYPOTHESIS 1 — DEFAULT-MODE NETWORK ACTIVITY (Ch.4)
+
+Claim: sustained high-frequency orgasm produces measurable, temporary
+reduction in default-mode network activity and connectivity, analogous
+to findings in the meditation and psychedelic literature.
+
+What would need to be measured: fMRI or EEG recording before, during
+(if physically feasible — this is itself a significant methodological
+challenge), and after a session, compared to the same participant's
+baseline resting-state scan on a non-session day. Given the physical
+movement involved, EEG is more realistic than fMRI for during-session
+measurement; fMRI may only be feasible immediately pre- and post-
+session.
+
+What would falsify the hypothesis: no measurable shift in DMN activity
+or connectivity relative to baseline, or a shift indistinguishable from
+what would be expected from vigorous physical exercise alone (a
+necessary comparison condition — see Confound Controls, below).
+
+HYPOTHESIS 2 — THE DOSING THRESHOLD CURVE (Ch.5)
+
+Claim: the refractory period degrades in a dose-dependent way as
+orgasm frequency increases, following roughly the thresholds described
+in Ch.5 (onset of inconsistency near 60 OpH, functional absence near
+120 OpH).
+
+What would need to be measured: this is, on its face, the easiest
+hypothesis in this book to test rigorously, because it does not
+require any measurement more exotic than accurate counting. A
+structured observational study across multiple participants, using
+consistent, operationalized criteria for what counts as a discrete
+orgasm (see Ch.2), could establish whether the specific numbers in
+this book are a private idiosyncrasy of one couple or a broader
+pattern. This hypothesis could be tested without any of the harder
+biomarker work below, and might reasonably be the first study anyone
+attempts.
+
+What would falsify the hypothesis: refractory-period behavior that
+does not track orgasm frequency in the pattern described, or that
+varies so widely across individuals that no shared threshold structure
+exists.
+
+HYPOTHESIS 3 — THE NEUROPLASTICITY WINDOW (Ch.6)
+
+Claim: sustained sessions produce a transient increase in
+neuroplasticity markers, comparable in kind to those seen after
+intense exercise or certain meditative states.
+
+What would need to be measured: serum or salivary BDNF sampled
+pre-session, immediately post-session, and at a delayed interval
+(perhaps 24 and 72 hours, aligned with the "two shocks" timeline in
+Ch.10). Cortisol on the same schedule, both as a stress-response
+measure and because chronically elevated cortisol is itself
+implicated in reduced neuroplasticity, making it a relevant covariate
+rather than a separate hypothesis.
+
+This is the single hypothesis in this book I would most want tested,
+because it is the mechanism the entire therapeutic claim depends on.
+If the neuroplasticity window does not exist, or does not differ
+meaningfully from what exercise alone produces, most of what Part II
+proposes collapses into "this feels significant," which is a much
+weaker claim than the book makes.
+
+What would falsify the hypothesis: no BDNF elevation beyond what
+matched-intensity exercise produces, or an elevation that does not
+correlate with any measured change in the outcome measures in
+Hypothesis 4, below.
+
+HYPOTHESIS 4 — LASTING CHANGE IN RUMINATION AND SELF-CRITICISM
+(Ch.4, Ch.6, Ch.10)
+
+Claim: repeated, well-dosed sessions, combined with the integration
+protocol in Ch.10, produce a lasting reduction in baseline rumination
+and self-criticism, beyond what either the sessions alone or ordinary
+reflection alone would produce.
+
+This is the hypothesis that would actually establish or refute the
+clinical claim this book exists to make, and it is also the hardest to
+test cleanly, because it requires holding the study open long enough
+to see whether an effect persists.
+
+What would need to be measured: validated, pre-existing psychometric
+instruments rather than anything invented for this study — the
+Ruminative Response Scale, the Perceived Stress Scale, and a validated
+self-criticism measure such as the Levels of Self-Criticism Scale,
+administered at baseline, monthly across a multi-month practice period
+matching the Ch.9 dosing ladder, and at a follow-up interval after
+practice frequency returns to whatever the participant's ordinary
+baseline becomes. A comparison arm practicing at serial-orgasm
+frequency only (below the threshold this book proposes as
+therapeutically relevant) would help separate "sex and intimacy in
+general are good for you" from any effect specific to sustained
+high-frequency practice.
+
+What would falsify the hypothesis: no measurable difference between
+the polygasm-frequency group and the serial-orgasm comparison group on
+these scales over the same time period.
+
+CONFOUND CONTROLS
+
+Several plausible alternative explanations should be designed against
+directly, rather than addressed only in discussion:
+
+Exercise. Sustained high-frequency orgasm is physically demanding
+(Ch.8). Any biomarker or mood effect could plausibly be explained by
+cardiovascular exertion alone. A matched-intensity exercise comparison
+condition is close to essential for Hypotheses 1 and 3.
+
+Intimacy and attention, independent of frequency. The serial-orgasm
+comparison arm proposed under Hypothesis 4 exists specifically to
+separate the effect of sustained partner attention and intimacy —
+which this book's own Ch.3 origin case admits may be doing real work
+on its own — from any effect specific to high orgasm frequency.
+
+Demand characteristics and self-report bias. Participants aware of the
+study's hypothesis, and drawn from a population already inclined to
+believe in the practice's benefits, are likely to report improvement
+regardless of physiological reality. This is why the biomarker
+measures in Hypotheses 1 and 3 matter as much as the self-report
+measures in Hypothesis 4 — they are harder, though not impossible, to
+consciously bias.
+
+PARTICIPANT RECRUITMENT AND ETHICAL DESIGN
+
+This research agenda inherits every consent and screening
+consideration already established in Ch.8 and Ch.11, applied now to a
+study population rather than a single couple. A few additions specific
+to research context:
+
+IRB review is not optional and should be sought early, given the
+novel combination of sexual activity and a research protocol. This
+book takes no position on what an IRB should decide, only that the
+process should not be bypassed or minimized.
+
+Screening should exclude the same categories described in Ch.8, with
+particular attention to trauma history, given that a research setting
+adds observation and measurement on top of an already vulnerable
+state, which may itself be a meaningful difference from private
+practice worth studying separately.
+
+A structured, trained interview protocol, administered by someone with
+relevant clinical training, should accompany the quantitative measures
+above — the qualitative texture of what participants report may
+surface effects, or harms, that a validated scale was not designed to
+capture. Chapter 10's integration questions are offered as a starting
+template, not a finished instrument.
+
+Safety monitoring should include a clear stopping rule: any adverse
+event resembling the pattern in Ch.13 should trigger immediate
+protocol pause and review, not adjustment and continuation.
+
+A REALISTIC FIRST STEP
+
+Given all of the above, the most credible starting point is not the
+full multi-arm study this chapter has been describing. It is a small,
+well-instrumented single-case or small-N study — three to five
+practitioner pairs, existing practitioners rather than newly recruited
+ones, given the multi-month dosing ladder in Ch.9 — measuring
+Hypotheses 1 through 3 with the confound controls above, over a single
+practice period. If that pilot shows measurable effects worth
+following up, it would justify the larger, harder study in Hypothesis
+4.
+
+This is, deliberately, a modest proposal. It asks for a pilot, not a
+verdict. That is the right size of ask for a model built entirely from
+one couple's field notes.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -1166,8 +1363,8 @@ OPEN QUESTIONS FOR MICHAEL
 
 1. Ch.13 — how much of the redacted "Orgasm by the Week" numbers do
    you want unredacted, if any?
-2. Ch.15/16/17 and Appendices A-D — still need drafting. Say the word
-   on which to build next.
+2. Ch.15/16 and Appendices A-D still need drafting. Ch.17 (Research
+   Agenda) drafted this session. Say the word on which to build next.
 3. 18+ designation — confirm this stays in the Somatic Ecstasy section
    of the catalog, or does its clinical framing warrant its own
    catalog section?
