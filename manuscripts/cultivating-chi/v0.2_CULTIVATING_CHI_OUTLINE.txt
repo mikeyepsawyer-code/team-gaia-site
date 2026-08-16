@@ -1,23 +1,147 @@
-CULTIVATING CHI
+CULTIVATING SPIRITUAL ENERGY
 
-The Body as a Gyroscopic Generator
+Through Embodied Sacred Geometry
+(also referred to as "Cultivating Chi" and, on the current cover, with
+subtitle "the geometry of chi" — three slightly different subtitle
+phrasings now in circulation across the preview page, the cover build
+note, and this outline's own filename. Worth Michael reconciling to
+one at some point; not urgent.)
 
 Michael Sawyer
 
-Working Outline — v0.2, consolidated to GitHub August 16, 2026 from
-five separate Drive documents (outline v0.2, and four pending XPOLL
-docs: HEART_LIKE_A_SUN, PUMP_THERMODYNAMICS, INTERVIEW_CHI/Three
-Vehicles, CHI_INSERT/covalence), per the Aug 15 2026 cross-pollination
-workflow and Charter v5.8 Section 1F. This is now the canonical copy
-on GitHub. New cross-pollinated material is marked [NEW, Aug 16] below
-and remains RED/pending Michael's review before it's treated as final.
+Working manuscript v0.3 — corrected August 16, 2026. v0.2 (pushed
+earlier the same day) was built from the outline document and missed
+real, finished prose that already exists in cultivating-chi-preview.html
+on the live site. This version leads with that real prose instead.
+Consolidated from six sources total: the preview HTML (real prose),
+outline v0.2, and four pending Drive XPOLL docs (pump thermodynamics,
+heart-like-a-sun, three vehicles, covalence practice), per the Aug 15
+2026 cross-pollination workflow and Charter v5.8 Section 1F.
 
-Core correction from v0.1:
+Core correction from v0.1 (outline-level):
 The somatic experience leads the geometry — it does not follow it.
 When practicing the moves, start from the dantian and move the forms.
 Feel yourself pushing the facets through their prescribed movements.
 The diagram is a map of what the practitioner already feels.
 The body is not illustrating the geometry. The body is generating it.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+EXISTING DRAFT PROSE
+(source: cultivating-chi-preview.html, live on the site — the book's
+actual current manuscript, section by section, under its real title)
+
+── THE PRESUMPTION OF MATTER ──
+
+Physicists say that matter is a perturbation of the field. It is not
+that things vibrate; it is more accurate to say that vibrations
+condense into the appearance of things.
+
+So if matter is a derivative form, why do we act as though we presume
+matter to be a primary reality? If this presumption is untrue, why
+does it linger in the age of science? There must be an evolutionary
+advantage to adopting the concept of substantial matter. Maybe two.
+
+For starters, the reason that we make models, the reason that we
+think at all, is so that we can understand and predict reality. In
+order to improve our models, we have to come up with new thoughts,
+which by definition are different than known truth. Therefore most of
+these new thoughts will be wrong, because we are exploring unknown
+territory.
+
+The advantage of thinking, is that we can hold our thought-models up
+to the light of reality instead of throwing our bodies at it. Thereby,
+we allow our insufficient models to die, instead of our selves. In
+this fashion we constantly re-iterate our understanding.
+
+OK, so model-making is good. Why the model of substantial matter? Our
+model of the world is like a sustained afterimage, against which we
+can compare new inputs. This saves buckets of processing power because
+we only need pay attention to the new. Much like frog vision, we
+really only see movement or change, clearly and in real-time.
+
+So our sense of material substantiality arises directly from our use
+of the afterimage as a placeholder for that which we have previously
+viewed.
+
+In general, this tactic is a good adaptation for operating within the
+bounds of space-time, but sometimes we need a finer filter, a more
+subtle model, to deal with more subtle questions. So let's look at how
+our mind constructs the valuable illusion of physicality, and then we
+can see how to step outside of it.
+
+── THE CHI PUMP: GEOMETRY AS LIVING PRINCIPLE ──
+[passage-marker in source: "From the Cosmological Foundation" —
+provenance unclear, no matching source document found in the repo.
+Possibly drawn from an unlogged earlier session or another book's
+cosmology material. Flagging rather than guessing; ask Michael if this
+should be traced further.]
+
+The organizing image at the heart of all energy work is the
+oscillation between contraction and expansion. The Star of David, the
+Seal of Solomon, the Merkaba — these are not abstract symbols. They
+are the blueprints of how chi moves through a body.
+
+Contraction into noun-ness: full localization of self, the
+downward-pointing triangle, the descent into matter, into form, into
+the particular. This is the principle of manifestation, of bringing
+the infinite into finite expression.
+
+Expansion into verb-ness: dissolution into wholeness, the
+upward-pointing triangle, the ascent into spirit, into movement, into
+the universal. This is the principle of transcendence, of carrying the
+particular back into the infinite.
+
+The oscillation between these two is not a problem to be solved. It is
+not a mistake. It is the fundamental motion of life itself. The chi
+pump. The heart beating. The in-breath and out-breath. The contraction
+and expansion that keeps us alive.
+
+Where we go wrong is in believing that one is superior to the other.
+We are taught to escape the particular, to transcend the body, to
+leave behind the noun and become only the verb. But this is a false
+dichotomy. The verb needs the noun to move through. The light needs
+matter to shine upon. The sacred needs a body to inhabit.
+
+── EMBODYING LI THROUGH QI INTO XIANG ──
+
+The goal is not to return to Tao. If Tao is the origin, the primal
+be-ing, all forms must be embedded within its wholeness. Where else
+could there be, for forms to arise, other than within being?
+
+The goal should be to clearly embody Li through Qi, into Xiang.
+
+Li is principle, the primal pattern, the organizing geometry. Qi is
+the life force, the animating energy, the movement through the
+pattern. Xiang is the manifestation, the visible form, the local
+expression of the infinite principle.
+
+Not by doing, and not by detachment; but by non-attachment while
+acting. Let that which is still, be still; let that which acts, act.
+Un-doing attachment is not something that we do. The nature of Li is
+not void, but fullness. When we cease acting with attachment, we cease
+resisting the natural current from Li to Xiang. Now we allow it to
+clarify our cup by its eternal overabundant flow.
+
+This is the practice: to become a clear vessel through which the
+sacred geometry can move into the world without obstruction, without
+the distortion that comes from ego's need to control the flow.
+
+[CLAUDE — structural note, Aug 16 2026] "Li through Qi into Xiang" is
+a real, coherent addition the outline below doesn't yet account for —
+it gives the noun/verb pump a third term (principle → energy →
+manifestation) that could sharpen the Introduction's "Hourglass and
+Diamond" section, or become its own short chapter. Worth Michael's
+attention before the outline below is treated as the book's final
+shape.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+OUTLINE / STRUCTURAL SKELETON (v0.2, unchanged from earlier this
+session — chapter sketches only, not yet full prose except where the
+real draft above already covers the same ground)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -475,3 +599,12 @@ STATUS / OPEN DECISIONS
 - Once Michael approves placements above, the four originating Drive
   docs (XPOLL_HEART_LIKE_A_SUN, XPOLL_PUMP_THERMODYNAMICS,
   XPOLL_INTERVIEW_CHI, v0.1_CHI_INSERT) can be deleted.
+- v0.3 correction (Aug 16, same session): real prose from
+  cultivating-chi-preview.html was missed in v0.2 and is now
+  integrated at the top of this file. The "Li through Qi into Xiang"
+  framework in that prose isn't reflected anywhere in the outline
+  below and may warrant its own chapter or a revision to the
+  Introduction's "Hourglass and Diamond" section.
+- Title/subtitle inconsistency flagged at the top of this file:
+  preview page, cover build note, and this outline's filename all use
+  slightly different subtitle phrasing. Worth reconciling to one.
