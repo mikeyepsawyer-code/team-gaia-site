@@ -1100,6 +1100,24 @@ protocol I am qualified to run myself. If a real research team takes
 any of this up, I expect most of it to be revised, and I would rather
 that happen than not have this chapter exist at all.
 
+A NOTE ON TERMINOLOGY FOR THIS CHAPTER
+
+"Polygasm" is the term I coined for this practice and it stays the
+term of art throughout this book — it is precise, it is mine, and I
+am not interested in laundering it into something blander to sound
+more credible. But I recognize that a grant reviewer or IRB encountering
+that word cold, with no context, may react to the word before they
+react to the proposal. For anyone drafting an actual research
+application from this chapter, a clinical-context alias may be useful
+as a translation layer rather than a replacement: something like
+"sustained high-frequency orgasmic entrainment" or "high-frequency
+somatosensory entrainment" (HFSE) in the application's formal
+language, with "polygasm" retained as the informal/source term and
+defined once, plainly, at first use. The phenomenon and the dosing
+thresholds in Ch.2 and Ch.5 do not change. Only the label on the door
+changes, and only for readers who need that door to look a particular
+way before they'll walk through it.
+
 THE CORE PROBLEM: THIS INTERVENTION CANNOT BE BLINDED
 
 Every hypothesis below runs into the same methodological wall first,
@@ -1132,7 +1150,20 @@ challenge), and after a session, compared to the same participant's
 baseline resting-state scan on a non-session day. Given the physical
 movement involved, EEG is more realistic than fMRI for during-session
 measurement; fMRI may only be feasible immediately pre- and post-
-session.
+session. A better option for during-session measurement than either
+may be functional near-infrared spectroscopy (fNIRS) — a portable,
+motion-tolerant optical technique that measures cortical hemodynamic
+activity without requiring a participant to lie still inside a
+scanner, making it far more compatible with the physical reality of
+what this book is describing than fMRI ever will be.
+
+Heart-rate variability (HRV), tracked continuously across the same
+pre/during/post window, is a useful low-cost companion measure here
+too — it won't speak to DMN activity directly, but it's a well-
+validated proxy for autonomic regulation, cheap enough to run
+alongside the more expensive imaging, and worth including if only to
+see whether it tracks the same session-by-session pattern the imaging
+data shows.
 
 What would falsify the hypothesis: no measurable shift in DMN activity
 or connectivity relative to baseline, or a shift indistinguishable from
@@ -1271,21 +1302,38 @@ Safety monitoring should include a clear stopping rule: any adverse
 event resembling the pattern in Ch.13 should trigger immediate
 protocol pause and review, not adjustment and continuation.
 
-A REALISTIC FIRST STEP
+A REALISTIC FIRST STEP: TWO PHASES
 
 Given all of the above, the most credible starting point is not the
-full multi-arm study this chapter has been describing. It is a small,
-well-instrumented single-case or small-N study — three to five
-practitioner pairs, existing practitioners rather than newly recruited
-ones, given the multi-month dosing ladder in Ch.9 — measuring
-Hypotheses 1 through 3 with the confound controls above, over a single
-practice period. If that pilot shows measurable effects worth
-following up, it would justify the larger, harder study in Hypothesis
-4.
+full multi-arm study this chapter has been describing, attempted all
+at once. It is better framed as two sequential phases, matching the
+shape a real IRB and grant reviewer would expect from any novel
+intervention, rather than as one undifferentiated pilot.
 
-This is, deliberately, a modest proposal. It asks for a pilot, not a
-verdict. That is the right size of ask for a model built entirely from
-one couple's field notes.
+PHASE 1 — SAFETY AND FEASIBILITY. A small, well-instrumented single-
+case or small-N study — three to five practitioner pairs, existing
+practitioners rather than newly recruited ones, given the multi-month
+dosing ladder in Ch.9 — in a healthy, carefully screened population
+(per Ch.8), measuring Hypotheses 1 through 3 with the confound
+controls above, over a single practice period. The explicit goal of
+this phase is not yet to demonstrate therapeutic benefit. It is to
+establish that the proposed measurements (fNIRS/EEG, HRV, BDNF,
+cortisol) can be taken reliably around this kind of session at all,
+and that no unexpected safety signal appears beyond what Ch.8 and
+Ch.13 already anticipate.
+
+PHASE 2 — TARGETED CLINICAL EVALUATION. Only if Phase 1 shows the
+measurements behave as expected and no safety signal appears: a larger
+study, in a population selected specifically for the target
+condition (elevated baseline rumination or self-criticism, screened
+for the Ch.8 exclusions), testing Hypothesis 4 with the serial-orgasm
+comparison arm described above. This is the phase that would actually
+speak to whether the therapeutic claim in this book holds up.
+
+This is, deliberately, a modest proposal, staged deliberately small
+before it is staged large. It asks for a pilot, not a verdict. That is
+the right size of ask for a model built entirely from one couple's
+field notes.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -1364,7 +1412,11 @@ OPEN QUESTIONS FOR MICHAEL
 1. Ch.13 — how much of the redacted "Orgasm by the Week" numbers do
    you want unredacted, if any?
 2. Ch.15/16 and Appendices A-D still need drafting. Ch.17 (Research
-   Agenda) drafted this session. Say the word on which to build next.
+   Agenda) drafted this session, then revised Aug 16 with methodology
+   feedback from a Gemini review (fNIRS/HRV measures, two-phase
+   safety-then-clinical trial structure, and a clinical-alias note
+   for "polygasm" terminology in formal grant language). Say the word
+   on which to build next.
 3. 18+ designation — confirm this stays in the Somatic Ecstasy section
    of the catalog, or does its clinical framing warrant its own
    catalog section?
