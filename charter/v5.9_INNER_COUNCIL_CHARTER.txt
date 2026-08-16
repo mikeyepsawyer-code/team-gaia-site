@@ -476,7 +476,7 @@ SECTION 3 — THE BODY IN MOTION
 
 SECTION 4 — MIND AND SPIRIT
   Knowledge and love as two wings of the same bird.
-  Books: Jnana and Bhakti / Post Sapiens
+  Books: Jnana and Bhakti / Post Sapiens / Scribe
 
 SECTION 5 — THE EARTH
   Gaia stands. Always. Portrait. Never landscape.
@@ -594,6 +594,21 @@ JNANA AND BHAKTI
 POST SAPIENS
   Status: Concept/outline stage. "Sex/Genetics/Publishing" and
   "Motivations" sections from 100 Orgasms flagged for this book.
+  Galaxy/black-hole painting (assets/paintings/1000000156_galaxy_
+  blackhole.png, archived Aug 16 2026) is a candidate cover source,
+  shared as an open question with Scribe -- not yet assigned to
+  either book.
+
+SCRIBE
+  Status: New book, Aug 16 2026. Subtitle "Modern Writing and
+  Publishing." Manuscript seed complete: concept (prose chapters +
+  copy-paste-ready appendix templates drawn from this catalog's own
+  charter), front matter sketch, and one full chapter drafted
+  ("Scribe, Inscribe, Subscribe"). Section 4: Mind and Spirit. No
+  Drive folder yet -- follows GitHub-canonical workflow directly, per
+  Charter v5.9 Section 1G. Cover source shared with Post Sapiens, see
+  above -- unassigned.
+  manuscripts/scribe/v0.1_SCRIBE_SEED.txt
 
 GAIA JOURNAL 2027
   Status: HIGHEST PRIORITY. All 12 monthly spreads built; cover v4 approved.
