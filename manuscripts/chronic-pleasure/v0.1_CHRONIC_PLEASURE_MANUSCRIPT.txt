@@ -1,0 +1,1179 @@
+A CASE FOR POLYGASM THERAPY
+
+Michael Sawyer
+
+Working Draft v0.2 — consolidated August 16, 2026, from four separate
+Drive documents (outline, front-matter/Ch.1-3/Ch.8 draft, Ch.4-7+9-12
+draft, Ch.13 draft) into one manuscript, per updated cross-pollination
+workflow. This is now the canonical copy on GitHub.
+
+Catalog title: Chronic Pleasure (subtitle: A Study Proposal for
+Polygasm Therapy). 18+ designation. Adult content, non-fiction/
+clinical-proposal register.
+
+Note on title: settled as "A Case for Polygasm Therapy" — deliberately
+a proposal, not a claim of an established modality. That distinction
+governs every chapter's language: hedge, cite the absence of study,
+invite researchers in rather than assert findings.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+ABSTRACT
+
+This book makes a case — not a finding — that sustained, high-frequency
+female orgasm may function as a legitimate adjunct therapeutic tool for
+chronic stress, rumination, and habitual self-criticism, through a
+mechanism of neural entrainment and temporary defunding of default-mode
+self-referential processing. The case rests on close, repeated
+observation of a single couple over approximately two years. It has not
+been studied. No controlled trial exists. No biomarker data has been
+collected. What exists is a consistent, replicable-sounding pattern,
+three prior books documenting the practice from the inside, and a
+genuine invitation: to sex therapists, somatic practitioners, and
+researchers, to look at this and tell us whether there's something
+here worth testing properly.
+
+If that invitation is taken up and the answer comes back "no, this
+doesn't hold" — that is a completely acceptable outcome of writing
+this book. The alternative, saying nothing, guarantees the question
+never gets asked.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+AUTHOR'S NOTE ON EVIDENTIARY STATUS
+
+I need to be direct about what this book is and isn't, because the
+clinical register that follows could easily be mistaken for more
+authority than it has earned.
+
+This is not a peer-reviewed protocol. It is not based on a clinical
+trial. It is based on my own experience with one partner, observed
+closely and recorded honestly, over roughly two years, plus
+correspondence with a small number of other people who report similar
+effects. That is a case series at best — an anecdote at worst,
+depending how charitable you want to be.
+
+Every mechanism I propose in Part II — entrainment, default-mode
+defunding, the neuroplasticity window — is borrowed from real
+neuroscience literature about other phenomena (meditation, exercise,
+psychedelics) and applied here by analogy, not by measurement. I have
+not run an EEG. I have not measured cortisol or BDNF in my partner
+before and after a session. I believe these mechanisms are plausible.
+Plausible is not the same as demonstrated.
+
+Where I make a claim that sounds clinical, I will flag it as a
+hypothesis. Where I describe an effect, I will say how many people I've
+observed it in — which, in most cases, is a number you can count on one
+hand. I would rather underclaim and be found conservative than overclaim
+and be found a fraud. The whole point of this book is to be taken
+seriously enough that someone with a lab and an IRB decides to check my
+work. Overclaiming is the fastest way to guarantee that never happens.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+HOW TO READ THIS BOOK
+
+If you are a clinician or researcher evaluating whether this is worth
+your time: start with Part II (the mechanism) and Part VI (the research
+agenda). You can skip the case material in Part IV on a first pass —
+it's illustrative, not evidentiary.
+
+If you have read the first three books in this series (100 Orgasms an
+Hour, Slow the Fuck Down, Fountain of Youth): you will recognize most
+of the underlying material here. This book does not introduce a new
+practice. It reframes the practice those books describe experientially
+into something a professional could evaluate. Fountain of Youth is the
+theory, told as testimony. This book is the same territory, told as a
+proposal.
+
+If you are new to all of this: the earlier books will give you the
+practical and experiential grounding this one assumes. This book is
+written for people deciding whether to study the phenomenon, not people
+deciding whether to try it.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PART I — FOUNDATIONS
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Chapter 1 — Why a Clinical Model
+
+Three books already exist describing this practice from the inside.
+Between them they cover technique, advanced anatomy and energetics, and
+a first-person theory of what's happening neurologically and
+psychologically. What none of them do — because none of them were
+built to — is speak in a register that a professional outside the
+practice could pick up, evaluate, and either dismiss or pursue.
+
+That is the gap this book tries to fill.
+
+The case for doing this is simple: patterns that are consistent enough
+to notice are worth naming, even before they are proven. Every
+treatment modality that now has a body of evidence behind it started as
+someone's observation that something seemed to be happening. Mindfulness-
+based stress reduction started as one man's clinical hunch, applied to
+one hospital ward. That doesn't mean this practice will end up in the
+same category. It means the size of an idea's evidentiary base at the
+starting line is not a reliable predictor of whether it deserves to be
+tested.
+
+The honest starting point is: something consistent seems to happen.
+It seems to involve reduced rumination, reduced habitual self-criticism,
+and a subjective sense of expanded ease, cresting during a session and
+partially persisting afterward, with a fairly predictable rebound
+period. That pattern has been observed directly in one relationship
+and reported, with less rigor, by a handful of correspondents. It has
+never been tested against a control condition, never measured with
+instruments, never subjected to blinding of any kind (which, given the
+nature of the intervention, presents its own methodological puzzle —
+addressed in Part VI).
+
+This chapter is not an argument that polygasm therapy works. It is an
+argument that the question is worth asking properly, by people with
+the tools to ask it properly. Everything that follows is offered in
+that spirit.
+
+───────────────────────────────────────────────
+
+Chapter 2 — Terminology and Nosology
+
+Before any model can be evaluated, its terms need to be pinned down.
+The following definitions are operational, not diagnostic — they
+describe observed rate categories, not clinical entities.
+
+ORGASM — for the purposes of this model, a minimum of three
+involuntary contractions of the pelvic musculature, occurring in
+response to sexual stimulation. This threshold is a practical
+convention, not a physiological law; at high frequencies (see
+Supragasm/Hypergasm below) individual events blur into a continuous
+wave and discrete counting becomes impractical, if not meaningless.
+
+MULTIGASM — any extended session involving more than one orgasm,
+without further rate specification. The broadest category; includes
+everything below.
+
+SERIAL ORGASM — orgasms occurring roughly one to two minutes apart,
+each retaining distinct excitement/plateau/release/resolution phases.
+Rate: approximately 30-60 orgasms per hour (OpH).
+
+POLYGASM — orgasms occurring at a rate of approximately 60-120 OpH.
+The refractory period (defined below) begins to shorten and become
+inconsistent in this range and is largely absent by the top of it.
+This is the primary working range for the model proposed in this book.
+Within polygasm, this book distinguishes Low Polygasm (60-90 OpH) from
+High Polygasm (90-120 OpH) for dosing purposes (see Ch.9); the change
+across this range is quantitative rather than qualitative — there is
+no sharp marker between them.
+
+SUPRAGASM — 120-180 OpH. The refractory period is functionally absent.
+Orgasmic phases begin to collapse into one another; plateau and
+resolution shorten markedly. Recommended only after sustained practice
+at polygasm-range frequencies (see Ch.9, Dosing and the Escalation
+Ladder). Session duration at this range should be short — see dosing
+chapter for specifics.
+
+HYPERGASM — 180+ OpH. The four classical orgasmic phases collapse
+into two: excitement and release, in a rapid, near-continuous
+alternation. This range is described in this book primarily as a
+cautionary case (Ch.13) rather than a recommended target. Approach only
+with extensive prior practice, and only briefly.
+
+REFRACTORY PERIOD — the hormonally-mediated recovery interval
+following orgasm, during which further arousal is inhibited. Present
+and pronounced at low frequencies; becomes inconsistent above ~60 OpH;
+functionally absent above ~120 OpH in the pattern observed here.
+
+RESIDUALS — spontaneous, involuntary orgasmic activity occurring after
+a session has ended, without further stimulation. Observed to persist
+for hours and, in some cases, up to two to three days following an
+extended high-frequency session. Discussed further as a monitoring
+consideration in Ch.10.
+
+NEUROPLASTICITY WINDOW — a hypothesized period of heightened neural
+malleability, proposed (not demonstrated) to occur during and shortly
+after sustained high-frequency orgasmic entrainment. See Part II.
+
+INTEGRATION — the post-session process, occurring over the following
+days to weeks, by which any temporary shift observed during a session
+either becomes a lasting change in baseline functioning or fades back
+to prior baseline. See Ch.10.
+
+───────────────────────────────────────────────
+
+Chapter 3 — The Origin Case
+
+I am the practitioner in this case, and I am not going to pretend
+otherwise behind a "Practitioner A." The honesty of this book depends
+on the reader knowing exactly how thin the evidentiary base is, and
+that's easier to see clearly if I don't hide behind a pseudonym.
+
+The index event, as I understand it in retrospect, did not begin as a
+sexual experiment. It began as a period of sustained contemplation of
+different typologies of love — maternal, paternal, fraternal, amore,
+eros, agape, and several others drawn from both Western and Eastern
+traditions. That contemplation, worked through over weeks, eventually
+became the seed of a separate book, Oceans of Love, which maps these
+love-types against a sailing/ocean model. But at the time, it was just
+private reflection — an attempt to understand eros specifically, as
+distinct from the other forms.
+
+Somewhere in that process, without a clear before-and-after moment I
+can point to, something changed in how I was able to attend to my
+partner during sex. The clearest way I can describe it clinically is
+this: my capacity to track her arousal state in fine detail — small
+shifts in breath, in muscle tone, in the quality of her attention —
+increased substantially and abruptly, in a way that felt discontinuous
+with gradual skill-building. Within a short period, this heightened
+attentional capacity, combined with existing manual technique, produced
+sustained back-to-back orgasm at a rate and duration well outside our
+prior experience or, as far as I could determine at the time, outside
+what either of us had heard described anywhere.
+
+I want to flag directly what I cannot rule out here, because a case
+report that doesn't examine its own confounds isn't worth much:
+
+- Demand characteristics: having just spent weeks thinking about eros
+  and love, I may have been primed to interpret ordinary variation in
+  arousal as something extraordinary.
+- Novelty and attention effects: any period of unusually focused,
+  patient attention to a partner's arousal is likely to produce
+  improved outcomes regardless of any specific mechanism proposed
+  here. It is entirely possible that "profound philosophical
+  contemplation" is doing no causal work at all, and that what
+  actually happened is: I got much better, much faster, at paying
+  close attention, for reasons that have nothing to do with love
+  typologies.
+- Retrospective narrative construction: this account was reconstructed
+  well after the fact, and memory reliably organizes itself into
+  cleaner causal stories than the events that produced it.
+
+I raise these not to undercut the book but because a proposal that
+hides its own weak points is a worse proposal, not a stronger one. What
+I can say with more confidence is what came after: a period of
+approximately two years of sustained practice, escalating in frequency
+and rate largely without guidance (there was no existing literature or
+mentor to consult), including at least one clear escalation event that
+produced adverse effects significant enough to shape the dosing
+recommendations in Part III (see Ch.13 for the full case presentation).
+
+That absence of guidance is, in a sense, this book's whole reason for
+existing. We had no model to follow and made avoidable mistakes as a
+result. This book is an attempt to leave a model behind for whoever
+comes next — proposed, not proven, but better than nothing, which is
+what we had.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PART II — THE MECHANISM
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Chapter 4 — Entrainment and Resource Reallocation
+
+The proposed mechanism begins with a well-established phenomenon: the
+brain's tendency to synchronize its own oscillatory activity to strong,
+sustained, rhythmic sensory inputs.
+
+This is not a novel claim. It is the same principle invoked to explain
+how music entrains motor behavior; how mantra meditation produces
+measurable shifts in EEG activity; and how certain forms of rhythmic
+breathwork alter autonomic tone.
+
+The specific claim of this book is more narrow and speculative: that
+sustained, high-frequency orgasm may function as an unusually powerful
+entraining stimulus, on the basis that it engages sensory, motor, and
+limbic systems simultaneously and at high intensity, for a sustained
+duration.
+
+The hypothesized downstream effect is resource reallocation.
+
+Almost everything that is less important than life-support functions
+ends up on the chopping block. Metabolically expensive functions are
+particularly prone to defunding.
+
+For example, scanning, resolving, and mapping of the physical matrix
+is very cognitively expensive, so she may become disoriented during
+polygasm.
+
+Upholding the egoic construct is expensive. She may temporarily forget
+her identity.
+
+Default-mode network activity is metabolically expensive. This is the
+network associated with self-referential thought, rumination, and the
+maintenance of an ongoing internal narrative.
+
+The working hypothesis is that under conditions of intense, sustained
+sensory and limbic engagement, resources ordinarily allocated to
+default-mode activity are reallocated to processing the entraining
+stimulus itself.
+
+The subjective correlate, as reported by the one practitioner pair
+whose experiences this book is built from, is a marked, temporary
+reduction in rumination, self-evaluation, and habitual anxious thought.
+
+I want to be exact about what is and what is not being claimed.
+
+What is observed — by self-reporting, and through the partner's
+observation: a consistent reduction in the subjective experience and
+the objective display of habitual mental patterns, especially
+ruminative ones.
+
+This reduction is noted most strongly during sustained sessions, and
+residually for a period of hours or days afterward.
+
+The proposed mechanism here is inferred by analogy to related,
+better-studied phenomena; not by confirmed findings from this specific
+practice.
+
+This is precisely the kind of claim that a properly instrumented pilot
+study could begin to test directly. Even a small study; even a single
+EEG during a practice session.
+
+What is not observed, and to the best of my knowledge has never been
+measured, is direct neuroimaging or biomarker confirmation to confirm
+or deny that default-mode activity is in fact suppressed during these
+sessions.
+
+───────────────────────────────────────────────
+
+Chapter 5 — Dosing Thresholds
+
+Quantitative multigasm dosing rates have observable effects on
+qualitative orgasmic response.
+
+It appears that there are distinct dosing thresholds which collapse
+the refractory period and the four-phase cycle. I've created a
+lexicon of terms to describe these dosing rates and their effects.
+
+I have no doubt that further research will put a finer, more accurate
+point on these numbers, however I think this is an adequate structure
+to start with.
+
+It is also possible that individual response to multigasm dosing may
+vary widely. Therefore, scientifically rigorous investigation is
+likely to produce a population bell-curve for each response threshold,
+rather than single specific numbers. So these markers may always
+remain as approximate guideposts rather than exact milestones.
+
+Glossary and dosing thresholds (see also Ch.2):
+
+Serial Orgasms: 30-60 OpH. At these "low" rates, the refractory period
+is intact, and the four phases of the sexual response cycle proceed
+distinctly and sequentially. Typically, each orgasm is fully formed
+and separate from its neighbors, however we are beginning to see the
+emergence of a longer cyclical pattern, with the four-phase at the
+peak and the refractory period at the trough. A cycle within a cycle,
+much like information embedded within a carrier wave.
+
+Polygasm: 60-120 OpH. The refractory period becomes inconsistent —
+present but shortened, or sometimes absent between particular orgasm
+pairs and not others. As we raise the rate within polygasm, the change
+is more quantitative than qualitative — there is no distinct marker
+between high and low poly. However I differentiate between them for
+the purposes of dosing. Low Polygasm: 60-90. High Polygasm: 90-120.
+Somewhere around high poly, the refractory period becomes functionally
+absent in the pattern observed. Orgasms begin to run back-to-back with
+little or no discernible recovery interval.
+
+Supragasm: 120-180 OpH. At this rate, the refractory period is now
+only a memory, and any further contraction of time comes out of
+plateau and resolution. These phases begin to compress and lose
+distinctness from the surrounding excitement and release phases.
+
+Hypergasm: 180+ OpH. The four-phase structure totally collapses into
+an essentially two-phase pattern — excitement and release form rapid,
+near-continuous alternations.
+
+Picture a sine wave. The horizontal X dimension is time and the
+vertical Y dimension is action. So then, arousal is the upstroke,
+plateau is the horizontal top movement, release is the downstroke and
+resolution is the bottom horizontal movement. As we reduce the
+horizontal elements, the sinusoidal snake-form becomes a high
+amplitude, low period wave, and then more and more like a sawtooth.
+
+Two important caveats.
+
+First, rate at this level of precision is difficult to measure
+reliably outside a laboratory setting — these figures come from
+real-time counting and estimating by extrapolation of counted periods.
+They should be read as approximate, not exact.
+
+Second, and more important: this threshold structure is the basis for
+the dosing ladder in Chapter 9, and it comes from exactly the kind of
+uncontrolled, single-couple observation this book has repeatedly
+flagged as insufficient on its own.
+
+It is presented with confidence about its internal consistency (the
+pattern held up across repeated sessions) and unknown confidence about
+its generalizability to other people's physiology.
+
+───────────────────────────────────────────────
+
+Chapter 6 — The Neuroplasticity Window
+
+Neuroplasticity — the nervous system's capacity to form new connections
+and prune old ones — is not constant across the lifespan or across
+states of consciousness.
+
+It is elevated in early development and can be transiently elevated in
+adulthood under certain conditions: intense aerobic exercise, some
+psychedelic compounds, deep and sustained meditative states, and
+periods of significant emotional intensity.
+
+The hypothesis proposed here, by direct analogy to those better-studied
+inducers, is that the combination of high-amplitude sensory/limbic
+activation and reduced default-mode resource allocation (Chapter 4)
+may constitute a similar transient neuroplasticity-permissive state.
+
+If this is correct, the practical implication is significant: it would
+mean that habitual patterns of thought temporarily "defunded" during a
+session are, during that same window, more available for actual
+revision — not merely temporarily suppressed and due to return
+unchanged, but genuinely more open to being restructured, overwritten,
+given the right conditions of attention and integration afterward
+(see Chapters 10 and 13).
+
+[CROSS-POLLINATION NOTE — Aug 16 2026, unmerged material, candidate
+for this chapter] A passage drafted for Fountain of Youth but not yet
+merged into that manuscript (v0.1_FOY_INSERT, routed from
+v0.1_XPOLL_POLYGASM_PATHS) frames this same mechanism as follows:
+"What ages us is not time. It is accumulation — the habitual stress
+and suffering that layer over a lifetime like sediment, like armor we
+forgot we were wearing... Ecstasy is the solvent. It does not add
+years back; it burns off what was never ours to carry." This "solvent"
+framing may work well here as a plain-language gloss on the
+neuroplasticity-window hypothesis, if Michael wants to voice it in.
+Delete this note once a decision is made either way.
+
+This is the single most clinically important hypothesis in this book,
+and the single least tested. If true, it would predict that repeated,
+well-dosed sessions combined with deliberate post-session integration
+work, should produce lasting change in baseline anxious or ruminative
+patterns, beyond what either component (the sessions alone, or
+ordinary reflection alone) would produce independently.
+
+This is a testable prediction. It has not been tested. Chapter 17
+(Research Agenda) proposes how it could be.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PART III — THE PROTOCOL
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Chapter 7 — Indications
+
+This model is proposed, provisionally, for:
+
+Adults in an established, consenting, high-trust intimate partnership,
+seeking an adjunct approach to chronic low-grade stress, habitual
+rumination, or persistent self-criticism that falls short of a
+diagnosable condition requiring primary psychiatric or psychological
+treatment.
+
+It is proposed as a possible complement to — never a replacement for —
+existing psychotherapeutic care, for people already working with a
+therapist who wish to explore whether this practice might support that
+work (see Chapter 15).
+
+It is proposed for couples with the time, patience, and communication
+skills to follow a slow, incremental protocol over months, not people
+seeking a quick fix or a single dramatic session.
+
+It is explicitly contra-indicated for:
+
+A treatment for any diagnosed psychiatric condition, taken on its own.
+
+A substitute for trauma-focused therapy.
+
+A first-line intervention for anything.
+
+A practice for new, low-trust, or casual relationships (see Chapter 8's
+relational contraindication).
+
+A weight-loss, anti-aging, or general wellness product, despite the
+language of "fountain of youth" elsewhere in this series — that
+framing describes a subjective and possibly neurotrophic effect, not
+a medical claim about physical aging.
+
+The honest scope of this book's proposal is narrow: a small, plausible,
+unstudied adjunct tool, for a specific and fairly demanding set of
+relational and practical circumstances, offered for evaluation.
+
+───────────────────────────────────────────────
+
+Chapter 8 — Contraindications and Screening
+
+None of the following has been validated in any study. This chapter is
+a precautionary list, assembled from general medical and psychiatric
+reasoning applied to a novel intervention, not from any adverse-event
+database specific to this practice (n is far too small for that). The
+governing principle: where there is real uncertainty, the honest move
+is to name the risk and say "this needs to be studied," not to
+reassure the reader past a legitimate concern.
+
+CARDIOVASCULAR
+
+Sustained high-frequency orgasm involves significant, prolonged
+elevation in heart rate, blood pressure, and respiratory rate —
+broadly comparable to sustained moderate-to-vigorous physical
+exertion, though this has not been directly measured in this context.
+Anyone with a diagnosed cardiac condition, arrhythmia, uncontrolled
+hypertension, or a history of cardiac events should not undertake this
+practice without explicit clearance from a cardiologist, the same way
+they would before beginning a new vigorous exercise program. This
+caution applies to both partners, not only the person experiencing
+sustained orgasm — a session of this length and intensity is
+physically demanding for the person providing stimulation as well.
+
+TRAUMA HISTORY
+
+This is the contraindication I consider most serious, and the one
+where the model's mechanism itself is the concern, not just general
+caution. The proposed mechanism (Part II) involves the temporary
+defunding of self-referential, executive, and defensive cognitive
+processes — in plain language, a state in which one's usual
+psychological defenses are substantially down. For someone without
+significant unresolved trauma, this appears (based on the very limited
+observation available) to produce an experience of freedom and
+openness. For someone with significant trauma — particularly sexual
+trauma, but not only that — the same mechanism could plausibly produce
+the opposite: an overwhelming, undefended re-exposure to material the
+psyche has been actively managing, without the presence of a trained
+therapist to help metabolize what surfaces.
+
+This is not a hypothetical concern I am raising for legal cover. It is
+a real prediction, made from the mechanism itself, and it is untested.
+Anyone with a significant trauma history should not approach this
+practice without the involvement of a trauma-informed therapist, and
+this book should not be read as suggesting otherwise. A skilled
+therapeutic relationship is not a nice-to-have in this case. It is not
+optional.
+
+PSYCHIATRIC CONDITIONS
+
+Active psychosis, mania, or dissociative disorders: contraindicated.
+A state that involves loosened self/other boundaries and altered
+processing of reality-testing is not a state that should be induced in
+anyone whose baseline already involves difficulty distinguishing
+internal experience from consensus reality, or difficulty maintaining
+a stable sense of self. This is a straightforward extension of general
+psychiatric caution around any practice that alters ordinary ego
+boundaries (the same caution that applies to unsupervised deep
+meditation retreats or psychedelic use in these populations), applied
+here by analogy rather than by specific evidence.
+
+Severe anxiety disorders and OCD: not an absolute contraindication, but
+a "proceed only with professional involvement" category. The temporary
+suppression-then-rebound pattern described in Ch.10 (Integration) may
+interact unpredictably with conditions that are already characterized
+by intrusive thought and rebound anxiety.
+
+Active substance use disorder: the practice as described produces
+subjective effects that are compared, by some who have experienced
+both, to certain drug states. For someone in active addiction or early
+recovery, introducing a new source of intense, potentially compulsive-
+feeling reward is a legitimate concern and should be discussed with
+whoever is supporting their recovery.
+
+RELATIONAL AND CONSENT CONDITIONS
+
+This practice, as designed, assumes an established relationship with
+deep trust, ongoing enthusiastic consent, and a partner capable of
+clearly communicating limits — and, critically, a partner attentive
+enough to recognize when the other person may no longer be capable of
+clearly communicating limits (see Ch.11, Informed Consent Under
+Altered Suggestibility, and the safe-word discussion in Ch.12). It is
+not appropriate for a new or low-trust relationship, casual encounters,
+or any context where one partner cannot reliably read the other's
+state. This is not a moral judgment about casual sex; it is a
+structural requirement of the practice, the same way certain forms of
+rope work or breath play require an established, attentive partner
+regardless of anyone's views on casual sex generally.
+
+PHYSICAL CONDITIONS
+
+Any condition involving pelvic pain, endometriosis, vaginismus, recent
+pelvic surgery, or pregnancy complications should be cleared with a
+physician before attempting sustained high-frequency practice. This
+practice has not been studied in pregnancy at all, in any trimester,
+and should be treated as contraindicated pending actual research,
+rather than assumed safe by default.
+
+WHAT THIS LIST IS NOT
+
+This is not a validated screening instrument. No one has tested whether
+these categories actually predict adverse outcomes in this specific
+practice, because no one has systematically looked. It is a
+precautionary list built the way a careful person would build one
+before something has been studied: by asking what could plausibly go
+wrong given the proposed mechanism, and erring toward caution. Appendix
+B turns this into a checklist format for practical screening use, with
+the same caveat repeated: untested, precautionary, offered pending real
+research.
+
+───────────────────────────────────────────────
+
+Chapter 9 — Dosing and Escalation Protocol
+
+The single clearest, most consistently repeated piece of practical
+guidance across all three prior books in this series: "escalate
+slowly."
+
+Don't get caught up by the excitement or novelty. Progress slower than
+you feel that you can; even when this restriction feels unnecessary.
+This chapter consolidates that guidance into one table.
+
+Keep in mind that this guide is necessarily approximate, as each
+woman's tolerance will be individual.
+
+However, it is strongly recommended that these limits not be exceeded,
+because you will only find out if you went too far, by going too far.
+
+Rapid escalation may cause psychological trauma, especially if she is
+heavily burdened by neuroses.
+
+So even if you feel that you can exceed this schedule of escalation —
+just don't.
+
+MONTH 1: Serial orgasm range only (30-60 OpH). No more than two
+sessions per week. Session length: under two hours. Goal: establish
+comfort, communication, and baseline responsiveness at "low" rates
+before any escalation is considered.
+
+MONTH 2: Low polygasm range (60-90 OpH), building toward 100 OpH by
+the end of the month, only if sessions are comfortable and
+well-integrated (see Ch.10). Still no more than two sessions per week,
+each of two hour duration.
+
+MONTHS 3+: Sustained practice at high polygasm range 100-120 OpH. This
+is described in the source material as a stable, repeatable "utility
+rate" for extended sessions, and is recommended as the working range
+for ongoing practice.
+
+This range does not need to be exceeded for the model's proposed
+benefits (Chapters 4-6) to be plausible.
+
+Once you are well experienced with polygasm, you might want to try
+multi-hour sessions, or a more intense shorter session in the
+supragasm range of 120-180 OpH. That's an orgasm every 20 seconds!
+
+Even an experienced practitioner probably couldn't keep up that rate
+for more than an hour. This is not recommended as a routine practice
+target. If explored at all, it should only be after months of stable,
+well-integrated practice at around 100 OpH.
+
+Supragasm is only appropriate for short sessions. Perhaps 15 minutes
+to start; and with explicit attention to the case presented in
+Chapter 13 as a caution.
+
+HYPERGASM RANGE (180+ OpH):
+
+It's kind of pointless to denominate this in hours. It seems to me
+that the physical limit is about 10 seconds between peaks before it
+would essentially become one continuous orgasm.
+
+HARD LIMITS
+
+Regardless of range: no more than three sessions per week, two during
+the first several months.
+
+No sessions on consecutive days.
+
+Explicit post-session check-in within 24-72 hours (Ch.10).
+
+Any escalation in rate or duration should follow, not precede, a
+period of comfort at the current level — the felt sense of "we could
+probably go further" is not, on its own, sufficient justification to
+do so.
+
+───────────────────────────────────────────────
+
+Chapter 10 — The Two Shocks and Integration Protocol
+
+Two distinct phases follow a well-dosed session, and both require
+attention.
+
+THE FIRST SHOCK
+
+In the immediate aftermath, treat for physical shock, even if none is
+obvious.
+
+This is the highest-priority window for basic physical aftercare
+because sessions of this length and intensity produce significant
+fluid loss. Hydration and electrolyte replacement are mandatory.
+
+Hydration should be followed by food, rest, and reduced sensory
+demands for the remainder of the day.
+
+Residual, spontaneous orgasmic activity may continue for hours or in
+some cases, several days following an extended session — this is not
+itself a medical concern, but it can be disruptive, and the person
+experiencing it should be given space and reduced obligations
+accordingly (driving warrants particular caution — sustained vibration
+at highway speeds has been reported, informally, as a residual
+trigger).
+
+By self-report, there may be a very strong intra-session experience of
+freedom, lightness, and openness. And now, post-session, these
+feelings may linger and may be very notable due to their occurrence
+during Normal Waking Consciousness, and their contrast with it.
+
+THE SECOND SHOCK — a delayed rebound, typically arriving hours to a
+few days later.
+
+As previously discussed (Ch.4), habitual patterns appear to be
+defunded and therefore suppressed during the session. As resource
+allocation normalizes, it is anticipated that they will return;
+perhaps even with a vengeance.
+
+By self-report, their return can feel more oppressive than their
+previous baseline presence, because the person has now experienced
+their absence.
+
+This should be anticipated and named in advance, not discovered as a
+surprise. A practitioner or partner who does not expect this rebound
+may misread it as a failure of the practice, rather than as a
+predictable phase of the process.
+
+INTEGRATION
+
+The actual therapeutic content of this model (per the underlying
+hypothesis in Chapter 6), happens in this window, not in the session
+itself.
+
+Integration may be encouraged by self-reflection, conversation, and a
+hair of the dog that bit you:
+
+A structured check-in, at 24-72 hours, covering:
+
+What did you notice during the session that you want more of, in
+ordinary life?
+
+What familiar pattern, in its temporary absence, did you notice you
+were tired of carrying?
+
+What felt like relief, and what felt like grief?
+
+This is not a formal therapeutic protocol — it has not been validated
+as one — but it is offered as a starting template for couples and,
+potentially, for a future practitioner-guided version of this process.
+
+A hair of the dog... As rumination and neuroses begin to rise again,
+it can be helpful to have a brief reminder of their absence. This
+could take the form of a few orgasms, or simply making the time for
+open-hearted intimacy.
+
+───────────────────────────────────────────────
+
+Chapter 11 — Informed Consent Under Altered Suggestibility
+
+This chapter states the ethical position this entire model depends on,
+and it should be read as non-negotiable rather than as one
+consideration among several.
+
+The mechanism proposed in Chapter 4 has a direct and serious ethical
+implication. If reduced default-mode self-evaluative processing during
+sustained sessions also lowers analytical and defensive processing,
+then a person's capacity for real-time critical evaluation of
+suggestions is also plausibly reduced.
+
+This is exactly the kind of altered-suggestibility state, that in any
+other clinical or quasi-clinical context, would trigger heightened
+consent requirements, not relaxed ones.
+
+The governing rule, therefore: any specific intention — verbal
+suggestion, associative conditioning between touch and emotional
+state, anything beyond straightforward stimulation — must be
+discussed, understood, and explicitly agreed to before the session
+begins, while both partners are in an ordinary waking state of full
+critical capacity. Consent obtained, or assumed, during a state of
+heightened suggestibility is not valid consent.
+
+This applies even to specific techniques described elsewhere in this
+series involving associative pairing of touch to emotional or
+physiological response. These should be proposed and agreed to
+beforehand, never introduced as a surprise during a session, however
+well-intentioned.
+
+A second, related rule concerns the capacity to withdraw consent
+mid-session. A person deep in sustained high-frequency arousal may not
+be able to reliably access or communicate a safe word.
+
+The partner providing stimulation bears the full responsibility for
+actively checking in — not waiting to be told to stop, but
+periodically confirming, explicitly, that continuation is still
+wanted. This responsibility does not transfer or diminish based on how
+aroused, overwhelmed, or nonverbal the other partner appears to be; if
+anything, it increases.
+
+Any use of this practice's suggestible state to introduce anything a
+partner has not knowingly and soberly agreed to in advance is not a
+grey area. It is harm, regardless of intent, and this book does not
+offer any framing under which that would be acceptable.
+
+───────────────────────────────────────────────
+
+Chapter 12 — Practitioner Competencies
+
+What does the person providing stimulation (referred to elsewhere in
+this series as "the operator," a term worth reconsidering for a
+clinical-facing book — possibly "the practitioner" or "the partner
+providing stimulation") need, before attempting this model?
+
+ATTENTIONAL CAPACITY — the ability to track fine-grained shifts in a
+partner's arousal, breath, and muscle tone over an extended session,
+without fatigue-driven loss of attention. This is described,
+throughout the source material, as more determinative of outcomes
+than any specific manual technique.
+
+THE ENCOURAGE-DON'T-CHASE PRINCIPLE — the foundational relational
+stance described across all three prior books: the practitioner's role
+is to support and follow a partner's arousal, not to manufacture
+orgasm through increasing force or speed.
+
+This is presented consistently as both a technical principle (chasing
+arousal tends to be counterproductive) and an ethical one (the
+distinction matters, between inviting a response and extracting one).
+
+SOMATIC/ENERGETIC SENSITIVITY — described in the source material
+through practices like Tai Chi, Qi Gong, and various forms of energy
+work.
+
+Whatever the underlying mechanism (and this book takes no position on
+contested claims about "energy" as a literal physical phenomenon), the
+practical competency being described is a trained capacity for very
+fine-grained physical attunement, of a kind that can be developed
+through sustained practice in a number of disciplines, not exclusive
+to this one.
+
+SAFE-WORD AND CONSENT LITERACY — explicit familiarity with the
+principles in Chapter 11, including the understanding that a partner
+deep in this state may not reliably self-advocate, and the
+responsibility that places on the practitioner.
+
+WILLINGNESS TO GO SLOWLY — perhaps the single most repeated
+instruction across the entire source corpus, and the one this book's
+dosing chapter (9) exists to formalize.
+
+A practitioner drawn to this model by its more dramatic claims,
+without genuine commitment to the multi-month pacing in Chapter 9, is
+not ready to attempt it.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PART IV — CASE MATERIAL
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Chapter 13 — Case Presentation: The Escalation Event
+
+Redacted figures below are placeholders pending Michael's real numbers
+— marked in red. Everything else in this chapter is final-register
+clinical prose.
+
+Every dosing recommendation in Part III of this book exists because of
+a single week that went badly enough to teach us where the ceiling
+was. It deserves its own case presentation, written up the way an
+adverse-event report would be written in any other context: what was
+attempted, what the estimated exposure was, what the aftermath looked
+like, and what it should teach a practitioner considering this model.
+
+This is not offered as a demonstration that the model works. It is
+offered as the opposite kind of evidence — a demonstration of what
+happens when dosing guidance does not exist yet, because no one has
+written it down. We were the ones without a map. This chapter is part
+of the map.
+
+Exposure Estimate
+
+The week in question involved a period of unusually intensive
+practice, undertaken without any of the dosing caution described in
+Ch.9 of this book — because that chapter did not exist yet, even as an
+idea. The session-by-session structure was approximately as follows:
+
+Four short sessions, roughly two hours each, at approximately 100
+orgasms per hour: an estimated subtotal of around 800 orgasms.
+
+Two long sessions, each lasting [REDACTED — number of hours], at rates
+fluctuating between 100 and 180 orgasms per hour: an estimated
+subtotal of [REDACTED — total estimate], with a downward adjustment of
+roughly 150-200 to account for a meal break taken partway through the
+longer sessions.
+
+An estimated 144 hours of residual activity between sessions, at an
+average rate of approximately 10 per hour: a subtotal of roughly 1,440
+residual orgasms, by self-report, over the course of the week.
+
+Totaling these estimates conservatively yields a week-long figure in
+the range of [REDACTED — conservative total], with a less conservative
+estimate closer to [REDACTED — upper estimate]. Both numbers should be
+read with real skepticism. They are retrospective, self-reported,
+uncontrolled, and produced by two people with an obvious motivation to
+find the outcome remarkable. I flag this rather than hide it. Even so,
+either figure represents an order-of-magnitude departure from anything
+described in the existing sexual-response literature, and that
+departure alone is the reason this case belongs in the record,
+regardless of exactly where within that range the true number sits.
+
+Observed Aftermath
+
+The acute aftermath was, in the days immediately following, largely
+positive by self-report: the "fountain of youth" presentation
+described elsewhere in this series — a visibly younger, more open,
+more radiant affect — was present and pronounced.
+
+The rebound was more severe than anything either of us had experienced
+from prior, more moderate sessions. Where a well-dosed session (see
+Ch.9, Ch.10) produces a rebound that is uncomfortable but manageable
+and resolves within one to three days, this week produced an aversive
+response to sexual contact that persisted for a considerably longer
+period — long enough to represent a genuine disruption to the
+relationship's sexual life, not merely an expected and temporary
+integration dip. The habitual patterns that the practice had
+temporarily suppressed did not simply return; by self-report, their
+return felt more oppressive than their baseline presence had been
+before the week began, consistent with the "cage feels smaller"
+pattern described in Ch.10.
+
+What This Case Teaches
+
+Three things, stated plainly:
+
+First, exposure at this magnitude — whichever end of the redacted
+range is closer to true — produced harm, not merely discomfort. It set
+back the couple's sexual relationship for a period longer than the
+session itself, which is the opposite of the intended therapeutic
+effect.
+
+Second, the harm was foreseeable in hindsight and is precisely what
+the dosing ladder in Ch.9 is designed to prevent. The escalation
+happened because no such ladder existed to consult, not because the
+ladder, once known, is difficult to follow.
+
+Third, and most important for anyone evaluating this model: this case
+is presented as a caution, not as proof the underlying mechanism is
+dangerous at recommended doses. Every other session described across
+the source material in this series, conducted at the lower rates and
+durations recommended in Part III, produced none of this aftermath.
+The lesson is dosing discipline, not an indictment of the practice
+itself — but it is a real lesson, and this book would be dishonest if
+it left this case out to make the model look cleaner than the history
+actually was.
+
+[Note: figures marked in red above are placeholders. Once Michael
+provides the real numbers, replace and remove the red formatting —
+standard cross-pollination convention per charter.]
+
+───────────────────────────────────────────────
+
+Chapter 14 — Case Presentation: Regulation Effects
+
+[Drafted Aug 16 2026 from Fountain of Youth Ch.9 "The Cycle and Its
+Regulation," reframed as case material per the outline's original
+routing. Voice matched to Ch.13's hedged case-presentation register.
+RED — new, pending Michael's review before merge.]
+
+One effect observed repeatedly across the source material for this
+series deserves its own case presentation, separate from the
+escalation case in Ch.13, because it points toward a benefit rather
+than a caution — and because, like everything else in this book, it
+is a single-couple field observation, not a finding.
+
+Deep cervical orgasm, sustained at the frequencies described in Part
+III, has been observed on multiple occasions to precede a change in
+menstrual bleeding pattern.
+
+What Was Observed
+
+The first occurrence was mistaken, in the moment, for something having
+gone wrong. It had not. A session involving deep cervical stimulation
+was followed by a release described, by self-report, as more
+significant than an ordinary period, but not alarming in character —
+a clearing rather than an injury. In the months that followed, a cycle
+that had previously been heavy and prolonged became, by self-report,
+shorter and lighter.
+
+This has recurred, by self-report, across multiple practitioners known
+to this project, not only the primary couple this book is built from —
+though the corroborating reports are, as with everything in this
+series, informal and uncontrolled.
+
+Proposed Mechanism, and Its Limits
+
+I am not offering a clinical explanation for this, because I do not
+have one I am confident in. The proposed mechanism involves the uterine
+contractions that accompany deep cervical orgasm, which appear, by
+self-report and observation, to differ in character from the
+contractions of clitoral orgasm — slower, deeper, more sustained. The
+hypothesis is that when the cervix is fully engaged at these depths,
+it coordinates the pelvic floor in a way that may produce something
+resembling a reset of the uterine lining's shedding pattern.
+
+This is speculation built on a physiological analogy, not a measured
+finding. No imaging, no hormonal panel, and no controlled observation
+of any kind supports it beyond the pattern being consistent across a
+small number of self-reports.
+
+Why This Belongs in a Book About Psychotherapeutic Claims
+
+This chapter sits somewhat outside the psychological throughline of
+Part II, and it would be reasonable for a skeptical reader to ask why
+a physiological, non-psychiatric observation appears in a book
+proposing polygasm as an adjunct to mental-health-adjacent care.
+
+The answer is that this book's evidentiary standard cuts both ways.
+Chapter 13 documents harm at excessive dosing because the honest case
+requires it. This chapter documents an unexpected physiological
+benefit at appropriate dosing for the same reason: because the pattern
+was consistent enough to notice, and a book built on the principle of
+"name what you observe, hedge what you can't confirm" does not get to
+selectively apply that principle only to the findings that fit its
+central thesis.
+
+If anything, this observation is a useful caution against overclaiming
+in the opposite direction — the mechanism proposed in Part II concerns
+the brain, not the uterus, and this effect, if real, is very likely
+running on an entirely separate physiological pathway. Readers and
+researchers should not assume the two observations share a cause
+simply because they share a source.
+
+What This Case Teaches
+
+If this pattern holds up under real study, it would represent a
+second, independent line of evidence that something consistent and
+non-trivial is happening during sustained high-frequency practice at
+this depth — one operating through an entirely different bodily
+system than the psychological mechanism this book spends most of its
+pages on. Two unrelated systems producing unexpected, consistent
+change from the same intervention is, at minimum, a reason to take the
+whole proposal more seriously as something worth instrumented study,
+which is the only claim this chapter, or this book, is entitled to
+make.
+
+As with all case material in this book: if anything feels wrong, or if
+symptoms are severe or prolonged, consult a healthcare provider. This
+is a field observation, not medical guidance.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PART V — SCOPE AND ETHICS  [NOT YET DRAFTED]
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Chapter 15 — Adjunct, Not Replacement
+
+[Source identified, not drafted: FOY Ch.13's line — "this model does
+not replace psychotherapy for trauma-rooted patterns; it may open
+material that requires professional support to close properly" —
+stated here as explicit policy.]
+
+Chapter 16 — What This Book Is Not Claiming
+
+[Not drafted. Per outline: no peer review, no controlled trial, no
+biomarker data — only consistent self-report and field observation
+across a small number of practitioners. Explicit invitation for
+replication and critique.]
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PART VI — RESEARCH AGENDA  [NOT YET DRAFTED]
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Chapter 17 — Toward Testable Hypotheses
+
+[Not drafted. Per outline: what would need to be measured to move this
+from model to evidence — cortisol/BDNF proxies, validated
+rumination/self-criticism scales pre/post, structured practitioner
+interviews, safety monitoring. Written as an invitation to actual
+researchers, not a claim that Michael has done this work.]
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+APPENDICES  [NOT YET DRAFTED]
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+A. Glossary / Nosology — expand Ch.2 into full reference
+B. Screening Checklist — draft from Ch.8 contraindications
+C. Session Log Template — draw from the Ch.10 integration questions
+D. Acknowledgment page — per catalog-wide AI attribution protocol
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+CROSS-POLLINATION MAP (source → destination)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+100 Orgasms an Hour:
+  Definitions → Ch.2 (glossary) [DONE]
+  Consent vs Assent / safe-word section → Ch.12 (competencies) [DONE]
+  Aftercare → Ch.10 (integration protocol) [DONE]
+  Orgasm by the Week (redacted) → Ch.13 (case material, reframed as
+    adverse-event report — real numbers still needed from Michael)
+    [DONE, pending real figures]
+  Heart-condition caution → Ch.8 (contraindications) [DONE]
+  Note: most of 100 Orgasms' deeper psychological/effects material was
+    already migrated out to Fountain of Youth in a June 14 2026
+    restructure (see 100_ORGASMS_EDITORIAL_NOTES_v1) before this book
+    existed, so it arrives here secondhand via FOY, not directly.
+
+Slow the Fuck Down:
+  Ch.18 Refractory Period Surrenders → Ch.5 (dosing thresholds) [DONE]
+  Ch.19 Defunding the Habitual Self → Ch.9/10 (dosing + integration)
+    [DONE]
+  Ch.14 The Programming → Ch.11 (informed consent) [DONE]
+  Part III (Ch.9-13, Chi/Subtle Body/Push Hands) → Ch.12 (practitioner
+    competencies) [DONE]
+
+Fountain of Youth v0.4:
+  Ch.1-3 (Entrainment, Refractory Period, Neuroplasticity Window) →
+    Part II wholesale, reframed clinically [DONE]
+  Ch.4 Defunding the Neurosis → Ch.9/10 [DONE]
+  Ch.5 Overwriting Old Code → Ch.11 [DONE]
+  Ch.6 Two Shocks → Ch.10 [DONE]
+  Ch.9 The Cycle and Its Regulation → Ch.14 (case material) [DONE,
+    drafted this session]
+  Ch.13 Integration → Ch.10, Ch.15 [Ch.10 done; Ch.15 not yet drafted]
+  Ch.14 The Long Game → Ch.9 (dosing timeline) [referenced, not
+    directly transcribed — worth a pass to confirm nothing further
+    from this chapter belongs in Ch.9]
+
+NOT pulled forward (stays in FOY / stays personal-register, by
+original design — not an oversight):
+  FOY Ch.11 What Remains, Ch.12 The Transparent World — these are
+  FOY's philosophical/phenomenological chapters and belong to FOY's
+  mystical register, not this book's clinical one. Cross-reference
+  them rather than duplicating.
+
+UNMERGED SOURCE MATERIAL FLAGGED THIS SESSION (not yet in FOY itself,
+so not yet available to pull forward here either):
+  v0.1_FOY_INSERT ("ecstasy is the solvent" passage) — still pending
+    in the Fountain of Youth Drive folder, not yet merged into FOY
+    v0.4. Noted as a candidate for Ch.6 above once it lands in FOY.
+  XPOLL_INTERVIEW_FOUNTAIN, XPOLL_HEART_LIKE_A_SUN — philosophical/
+    devotional register material for FOY itself; unlikely to be
+    relevant to this book's clinical voice, flagged here only for
+    completeness of the source-material sweep.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+OPEN QUESTIONS FOR MICHAEL
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Ch.13 — how much of the redacted "Orgasm by the Week" numbers do
+   you want unredacted, if any?
+2. Ch.15/16/17 and Appendices A-D — still need drafting. Say the word
+   on which to build next.
+3. 18+ designation — confirm this stays in the Somatic Ecstasy section
+   of the catalog, or does its clinical framing warrant its own
+   catalog section?
+4. Voice-consistency pass — Ch.4-7, 9-12 (drafted in one session, and
+   the file you heavily edited) lean slightly more personal/first-
+   person than Ch.1-3, 8's more measured clinical-textbook register.
+   Worth a full read-through pass once the book is complete, to even
+   out the seams.
+
