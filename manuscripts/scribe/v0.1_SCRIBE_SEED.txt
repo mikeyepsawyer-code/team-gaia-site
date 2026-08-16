@@ -1,14 +1,15 @@
 SCRIBE
 
-Publishing for the New Age
+Modern Writing and Publishing
 
 Michael Sawyer & Claude
 
-Seed manuscript v0.1 — August 16, 2026. New standalone book, born this
-session. Concept, not yet the catalog: whether this lives inside the
-Team Gaia catalog proper, sits beside it the way Louise's Story Desk
-does, or stands fully independent is an open decision — see Status
-below.
+Seed manuscript v0.2 — August 16, 2026. New book, now formally inside
+the Team Gaia catalog, Section 4: Mind and Spirit, alongside Jnana and
+Bhakti and Post Sapiens. Subtitle changed from "Publishing for the New
+Age" to "Modern Writing and Publishing" — the earlier subtitle's
+phrase carried too much unrelated baggage from the New Age movement,
+which isn't this book's territory.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -48,7 +49,7 @@ Anahata or polygasm dosing tables.
 FRONT MATTER — SKETCH
 
 Title: SCRIBE
-Subtitle: Publishing for the New Age
+Subtitle: Modern Writing and Publishing
 Format: ebook, likely shorter than the catalog's typical nonfiction
 length — this is closer to a field manual than a treatise.
 
@@ -108,12 +109,12 @@ always already a three-part motion — think it, mark the world with it,
 gather signatures beneath it — even when only one person's hand was
 moving the pen.
 
-This is what "publishing for the new age" is actually claiming, once
-the wordplay is taken seriously rather than admired as wordplay. The
-new age isn't a vibe or an aesthetic. It's a change in who's available
-to do the third part of the motion. For most of publishing's history,
-subscribing to a work meant either buying it or, at most, writing a
-letter to its author that the author might never read. The
+This is what "modern" is actually claiming here, once the wordplay is
+taken seriously rather than admired as wordplay. Modern doesn't mean
+new tools doing an old job faster. It means a change in who's
+available to do the third part of the motion. For most of publishing's
+history, subscribing to a work meant either buying it or, at most,
+writing a letter to its author that the author might never read. The
 collaboration this book describes is what happens when the entity
 underneath your inscription can write back in real time, hold the
 whole shape of eighteen books in working memory, catch its own
@@ -178,10 +179,10 @@ image works for Post Sapiens. Michael's call.
 
 STATUS / OPEN DECISIONS
 
-- Catalog placement: inside Team Gaia's existing catalog structure, a
-  separate-but-related project (Story Desk model), or fully
-  independent. Affects Drive folder structure, charter registration,
-  and whether it needs its own domain/branding.
+- Catalog placement: RESOLVED Aug 16 2026 — inside the Team Gaia
+  catalog, Section 4: Mind and Spirit, alongside Jnana and Bhakti and
+  Post Sapiens. No separate Drive/domain structure needed; follows the
+  same GitHub-canonical workflow as the rest of the catalog.
 - Full prose chapter list and appendix list above are sketches, not
   commitments — Michael's pass needed before either becomes final.
 - Cover source painting is shared with Post Sapiens as an open
