@@ -1368,7 +1368,26 @@ circumstances, screening, and honesty this book has no way to verify
 independently. A case series this small, this uncontrolled, and this
 personally invested in a favorable outcome is not strong evidence by
 any standard this book would ask a reader to apply to someone else's
-claims. It should not be exempted from that standard here.
+claims. It should not be exempted from that standard here. The bias
+this creates has a name worth using plainly rather than gesturing
+around: this is conjugal confirmation bias, the specific distortion
+that comes from a couple studying and reporting on their own intimate
+practice, with every incentive, mostly unconscious, to find it
+meaningful. That is not an accusation of dishonesty. It is a structural
+feature of exactly this kind of evidence, and it is precisely the kind
+of thing an outside researcher, with no stake in the outcome, would be
+positioned to check that this book's authors are not.
+
+One further limitation belongs here rather than staying implicit in
+Chapter 17's confound section: this book has not distinguished its
+proposed mechanism from somatic co-regulation, the calming, entraining
+effect two nervous systems can have on each other through sustained
+physical presence and attunement alone, independent of orgasm
+frequency or any of the specific mechanisms proposed in Part II.
+Chapter 17 addresses this under a plainer name; it deserves naming
+correctly here too, since it is one of the more serious rival
+explanations for everything this book attributes to entrainment and
+default-mode defunding.
 
 This book was written to make a case for testing, not a case that has
 already been proven. Every hypothesis in Chapter 17 is stated as
@@ -1380,22 +1399,35 @@ result, not a betrayal of this book's project. The project was never
 certainty. It was getting the question in front of someone equipped
 to answer it properly.
 
-Two invitations follow from this, and this book means both of them
-literally, not as a rhetorical gesture. Replication: if any reader
-recognizes something like this pattern in their own experience, or
-sets out to test any part of it formally, that data belongs in the
-world regardless of what it finds. Critique: if a clinician, researcher,
-or careful reader identifies a flaw in the reasoning here that this
-book has not already flagged about itself, that critique is doing this
-project a genuine service, not attacking it. A model this early in its
-life needs correction far more than it needs agreement.
+Three invitations follow from this, and this book means all three of
+them literally, not as a rhetorical gesture. Replication: if any
+reader recognizes something like this pattern in their own experience,
+or sets out to test any part of it formally, that data belongs in the
+world regardless of what it finds. Critique: if a clinician,
+researcher, or careful reader identifies a flaw in the reasoning here
+that this book has not already flagged about itself, that critique is
+doing this project a genuine service, not attacking it. And reporting:
+this book currently has no structured way for anyone practicing any
+version of this model to report an adverse outcome back to it, beyond
+whatever informal channel finds its way to the author. That is a real
+gap, not a minor one, in a book whose only adverse-event data so far
+is a single self-reported case in Chapter 13. Until a more formal
+adverse-event reporting framework exists, alongside the research
+program Chapter 17 proposes, any reader who experiences harm from
+attempting anything in this book should treat that as information
+worth documenting and sharing, not a private failure to keep quiet
+about. A model this early in its life needs correction far more than
+it needs agreement.
 
 [Provenance note: this chapter and Ch.15 complete Part V. Sourced from
 FOY Ch.13's adjunct-not-replacement line (Ch.15) and this book's own
-outline (Ch.16); no external AI review yet — both are strong
-candidates for a Gemini generative-review pass, using the standing
-prompt language now documented in Scribe, before Part V is considered
-final.]
+outline (Ch.16). A Gemini generative-review pass on Aug 17 2026 added
+the conjugal confirmation bias naming, the third invitation on
+adverse-event reporting, and the somatic co-regulation confound (also
+folded into Ch.17). One Gemini suggestion — reframing this section
+around "epistemic disrupter" language — was considered and set aside;
+the underlying point was already made in plainer language this book's
+voice favors.]
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -1584,7 +1616,15 @@ Intimacy and attention, independent of frequency. The serial-orgasm
 comparison arm proposed under Hypothesis 4 exists specifically to
 separate the effect of sustained partner attention and intimacy —
 which this book's own Ch.3 origin case admits may be doing real work
-on its own — from any effect specific to high orgasm frequency.
+on its own — from any effect specific to high orgasm frequency. The
+more precise name for this rival explanation is somatic co-regulation:
+the calming, entraining effect two nervous systems can produce in each
+other through sustained physical presence and attunement alone, well
+documented in contexts that have nothing to do with orgasm frequency
+at all. Any study of this model needs to rule out somatic co-regulation
+specifically, not just "intimacy" loosely construed, since it is the
+rival explanation most likely to produce the same DMN and biomarker
+signatures this book attributes to entrainment.
 
 Demand characteristics and self-report bias. Participants aware of the
 study's hypothesis, and drawn from a population already inclined to
