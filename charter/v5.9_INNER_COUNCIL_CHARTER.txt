@@ -594,10 +594,13 @@ JNANA AND BHAKTI
 POST SAPIENS
   Status: Concept/outline stage. "Sex/Genetics/Publishing" and
   "Motivations" sections from 100 Orgasms flagged for this book.
-  Galaxy/black-hole painting (assets/paintings/1000000156_galaxy_
-  blackhole.png, archived Aug 16 2026) is a candidate cover source,
-  shared as an open question with Scribe -- not yet assigned to
-  either book.
+  COVER DECISION (Aug 16 2026): the gravitational-lensing painting
+  (assets/paintings/1000000156_galaxy_blackhole.png -- bright galactic
+  core streaming toward a black hole still radiant at its rim)
+  replaces the chandelier painting as this book's cover source.
+  Chandelier painting reassigned to Scribe (see below). Cover v1 on
+  the live site still shows the old chandelier build -- rebuild
+  pending, not yet executed this session.
 
 SCRIBE
   Status: New book, Aug 16 2026. Subtitle "Modern Writing and
@@ -606,8 +609,11 @@ SCRIBE
   charter), front matter sketch, and one full chapter drafted
   ("Scribe, Inscribe, Subscribe"). Section 4: Mind and Spirit. No
   Drive folder yet -- follows GitHub-canonical workflow directly, per
-  Charter v5.9 Section 1G. Cover source shared with Post Sapiens, see
-  above -- unassigned.
+  Charter v5.9 Section 1G.
+  COVER DECISION (Aug 16 2026): inherits the chandelier painting
+  (covers/post-sapiens/source_chandelier_v3.jpg and signed variants),
+  freed up by Post Sapiens' move to the gravitational-lensing image.
+  Not yet built.
   manuscripts/scribe/v0.1_SCRIBE_SEED.txt
 
 GAIA JOURNAL 2027
