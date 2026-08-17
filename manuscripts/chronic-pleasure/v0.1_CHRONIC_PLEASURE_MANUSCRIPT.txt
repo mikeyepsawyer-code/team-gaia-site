@@ -912,6 +912,36 @@ physiological response. These should be proposed and agreed to
 beforehand, never introduced as a surprise during a session, however
 well-intentioned.
 
+PRE-SESSION AGREEMENTS
+
+The governing rule above implies a practice, not just a principle:
+before a session, not during it, both partners should explicitly
+name absolute boundaries — acts, words, or dynamics that remain
+off-limits regardless of what either partner says or seems to want
+once the session is underway. This is not a sign of distrust between
+partners. It is a recognition that the person mid-session and the
+person having this conversation beforehand are, functionally, working
+with different degrees of critical capacity, and the earlier version
+of each partner is the one whose judgment this book asks to be
+binding.
+
+NON-VERBAL SIGNALING FOR STATES WITHOUT WORDS
+
+The chapter has already noted that a person deep in sustained
+high-frequency arousal may not reliably access or communicate a safe
+word — sustained arousal at this intensity can produce something close
+to temporary aphasia, not unwillingness to speak but a real reduced
+capacity to form words. Naming the problem isn't enough without an
+alternative channel, agreed on beforehand, that doesn't depend on
+verbal fluency. A simple physical signal — a hand squeeze pattern, one
+squeeze for continue and a held squeeze or double squeeze for stop, is
+a workable starting point, borrowed from the same logic used
+wherever verbal communication can't be relied on mid-scene. The
+specific signal matters less than the requirement: agree on one before
+every session where sustained high-frequency practice is planned, and
+confirm both partners can still execute it as a check, at least once,
+before relying on it as the actual safety mechanism.
+
 A second, related rule concerns the capacity to withdraw consent
 mid-session. A person deep in sustained high-frequency arousal may not
 be able to reliably access or communicate a safe word.
@@ -927,6 +957,67 @@ Any use of this practice's suggestible state to introduce anything a
 partner has not knowingly and soberly agreed to in advance is not a
 grey area. It is harm, regardless of intent, and this book does not
 offer any framing under which that would be acceptable.
+
+COMPLIANCE IS NOT CONSENT: THE SUB-SPACE PROBLEM
+
+The kink community has a name for a phenomenon this chapter has been
+describing without naming: sub-space, an altered state in which a
+person may verbally agree to, or even actively request, things they
+would not consent to from an ordinary waking state, and may not
+accurately recall the request afterward. The term is worth borrowing
+directly rather than reinventing, because the literature built around
+it already contains the practical answer this chapter needs: verbal
+agreement given inside an altered state is not load-bearing consent on
+its own. It has to be checked against what was agreed before the state
+began. A yes spoken from inside sustained high-frequency arousal
+carries real information about what feels good in the moment. It does
+not, by itself, authorize anything not already covered by the
+pre-session agreement above.
+
+RIGHT OF REVOCATION
+
+One further protection belongs on the other side of a session, not
+just before it. Something agreed to beforehand, and enacted during a
+session, can still turn out, on sober reflection afterward, to be
+something a partner does not want repeated, or wants to name a limit
+around going forward. This book asks that both partners hold a
+standing right of revocation: the ability to withdraw future consent
+for something previously agreed to, without needing to justify the
+change or defend against it having "already been agreed." Consent
+that can only be given once and never revised is not the kind of
+consent this practice can be built on.
+
+TRANSFERENCE AND THE GURU EFFECT
+
+A last caution, less about any single session than about a sustained
+practice over time. Repeatedly and deliberately bringing a partner's
+self-referential defenses down, session after session, is structurally
+similar to dynamics well documented in both therapeutic and spiritual-
+teacher contexts, where the person doing the bringing-down can come to
+be experienced as unusually significant, wise, or safe, well beyond
+what the relationship itself would otherwise justify. This is not a
+flaw unique to this practice. It is a known hazard of any sustained
+practice that deliberately alters someone's defenses on a regular
+basis, and this book takes no position on whether that intensity of
+feeling is itself a problem. What matters for consent specifically is
+that a partner in the grip of that dynamic may have a harder time
+freely withdrawing consent to anything, precisely because the
+practitioner has come to occupy an outsized role in their sense of
+safety or wellbeing. Both partners should treat a sudden increase in
+this kind of intensity as a prompt to talk about the dynamic directly,
+not as confirmation the practice is working.
+
+[Provenance note, Aug 16 2026: five new sections in this chapter —
+pre-session agreements, non-verbal signaling, the sub-space framing,
+right of revocation, and transference/guru effect — came from a
+Gemini review, folded in and rewritten to match this book's voice.
+Notably, Gemini's first-pass response to this chapter was thin and
+largely validating rather than generative, same as its first pass on
+Ch.8; a reprompt asking what Gemini would write if drafting the
+chapter itself produced the substantive material actually used here.
+See Scribe's chapter on cross-model collaboration for the standing
+prompt language this produced, now used by default for every chapter
+sent to Gemini going forward.]
 
 ───────────────────────────────────────────────
 
