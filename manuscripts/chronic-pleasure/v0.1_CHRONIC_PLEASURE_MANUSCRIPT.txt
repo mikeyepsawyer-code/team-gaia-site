@@ -1264,23 +1264,138 @@ is a field observation, not medical guidance.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-PART V — SCOPE AND ETHICS  [NOT YET DRAFTED]
+PART V — SCOPE AND ETHICS
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Chapter 15 — Adjunct, Not Replacement
 
-[Source identified, not drafted: FOY Ch.13's line — "this model does
-not replace psychotherapy for trauma-rooted patterns; it may open
-material that requires professional support to close properly" —
-stated here as explicit policy.]
+[Drafted Aug 17 2026. RED — new, pending Michael's review.]
+
+Every chapter in this book up to now has argued that something real
+and worth studying is happening here. This chapter argues the opposite
+case with equal seriousness: this model, at its most successful, is
+not a substitute for anything a trained therapist does, and a reader
+who comes away thinking otherwise has misread the book.
+
+This needs stating plainly because the mechanism proposed in Part II
+makes the confusion easy to fall into. If sustained practice can
+temporarily quiet rumination, open a window for revising habitual
+patterns, and produce lasting change in baseline anxious or ruminative
+states, as Chapter 6 hypothesizes, it is a short step to hearing that
+as "this treats what therapy treats." It does not, and the reason why
+is built into the mechanism itself, not just a legal disclaimer bolted
+onto it afterward.
+
+Trauma-rooted patterns are not simply patterns of thought that
+happen to be stubborn. They are, in a meaningful sense, protective —
+the nervous system's best available answer, at the time it was formed,
+to something overwhelming. Removing the defenses that keep that
+material contained, which is what this book's proposed mechanism does,
+is not the same operation as treating the material underneath. Ch.8
+already names this directly, as a contraindication: for someone with
+significant unresolved trauma, an undefended state may not open a
+neuroplasticity window so much as it opens a door onto material the
+psyche has been actively managing, without the trained presence in
+the room to help metabolize what surfaces. That is Chapter 8's warning
+about who this practice is not for. This chapter states the same
+underlying fact as a positive claim about what the practice is not
+for, full stop, even for people it might otherwise suit.
+
+A useful, if imperfect, analogy: exercise has real, measurable
+antidepressant effects, replicated across a large body of research,
+and no reputable clinician would suggest exercise as a replacement for
+treating major depressive disorder in someone who needs it. Exercise
+is a genuine adjunct with real evidence behind it. It is not a
+competitor to psychiatric care, and being enthusiastic about the
+former requires no diminishment of the latter. This book asks to be
+read in exactly that register, with the significant caveat that
+exercise has decades of research behind its adjunct claim and this
+practice currently has none.
+
+Concretely, this means: if this model is ever adopted by anyone
+already working with a therapist, it should be discussed with that
+therapist first, not layered in silently alongside existing treatment.
+If a session surfaces material that feels like more than the "second
+shock" described in Ch.10, that is not a sign to push through it
+alone. That is a sign to bring it to a professional, the same way any
+unexpected psychological material surfacing from any practice —
+meditation retreats and psychedelic use included, both of which carry
+similar published cautions — should be brought to one.
+
+None of this weakens the case made elsewhere in this book. A
+genuinely useful adjunct tool is still genuinely useful. But its
+usefulness is bounded, and a model that cannot honestly state its own
+boundary has no business asking to be taken seriously by the people
+who could actually test it.
+
+───────────────────────────────────────────────
 
 Chapter 16 — What This Book Is Not Claiming
 
-[Not drafted. Per outline: no peer review, no controlled trial, no
-biomarker data — only consistent self-report and field observation
-across a small number of practitioners. Explicit invitation for
-replication and critique.]
+[Drafted Aug 17 2026. RED — new, pending Michael's review.]
+
+This chapter exists to say, in one place, everything this book has
+not established — not as a closing hedge to soften what came before,
+but because a reader should be able to find the complete list of this
+book's evidentiary limits in a single chapter rather than having to
+reconstruct it from caveats scattered across seventeen others.
+
+This book has not been peer reviewed. Nothing in it has passed through
+editorial review by anyone outside this project, let alone the
+formal review a clinical or scientific claim would need before
+publication in a journal.
+
+No controlled trial has been run, on any part of the model proposed
+here. There is no comparison group, no randomization, no blinding —
+Chapter 17 explains in detail why blinding this particular
+intervention is not straightforward, but the absence of a comparison
+condition of any kind means every observation in this book could, in
+principle, be explained by something other than the mechanism
+proposed to explain it.
+
+No biomarker data has been collected. Every claim in Part II about
+default-mode network activity, neuroplasticity, or hormonal response
+is an inference by analogy to research on other phenomena, not a
+measurement taken from anyone practicing this model. Chapter 4 says
+this directly at the point the claim is made; it is repeated here so
+it isn't lost among everything that came after it.
+
+What exists, and all that exists, is consistent self-report and field
+observation, drawn overwhelmingly from one couple, with a small number
+of informal corroborating reports from other practitioners whose
+circumstances, screening, and honesty this book has no way to verify
+independently. A case series this small, this uncontrolled, and this
+personally invested in a favorable outcome is not strong evidence by
+any standard this book would ask a reader to apply to someone else's
+claims. It should not be exempted from that standard here.
+
+This book was written to make a case for testing, not a case that has
+already been proven. Every hypothesis in Chapter 17 is stated as
+falsifiable specifically so that it can fail. If a properly designed
+study finds no measurable DMN effect, no BDNF elevation beyond what
+matched exercise produces, and no lasting change in rumination beyond
+what ordinary intimacy provides, that would be a legitimate and useful
+result, not a betrayal of this book's project. The project was never
+certainty. It was getting the question in front of someone equipped
+to answer it properly.
+
+Two invitations follow from this, and this book means both of them
+literally, not as a rhetorical gesture. Replication: if any reader
+recognizes something like this pattern in their own experience, or
+sets out to test any part of it formally, that data belongs in the
+world regardless of what it finds. Critique: if a clinician, researcher,
+or careful reader identifies a flaw in the reasoning here that this
+book has not already flagged about itself, that critique is doing this
+project a genuine service, not attacking it. A model this early in its
+life needs correction far more than it needs agreement.
+
+[Provenance note: this chapter and Ch.15 complete Part V. Sourced from
+FOY Ch.13's adjunct-not-replacement line (Ch.15) and this book's own
+outline (Ch.16); no external AI review yet — both are strong
+candidates for a Gemini generative-review pass, using the standing
+prompt language now documented in Scribe, before Part V is considered
+final.]
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -1617,12 +1732,12 @@ OPEN QUESTIONS FOR MICHAEL
 
 1. Ch.13 — how much of the redacted "Orgasm by the Week" numbers do
    you want unredacted, if any?
-2. Ch.15/16 and Appendices A-D still need drafting. Ch.17 (Research
-   Agenda) drafted this session, then revised Aug 16 with methodology
-   feedback from a Gemini review (fNIRS/HRV measures, two-phase
-   safety-then-clinical trial structure, and a clinical-alias note
-   for "polygasm" terminology in formal grant language). Say the word
-   on which to build next.
+2. Appendices A-D still need drafting (all four content sources now
+   exist across the manuscript, including six new Ch.8 categories and
+   five new Ch.11 frameworks not yet reflected in Appendix B). Ch.15,
+   16, and 17 are complete — the book runs front matter through Part
+   VI in full now. Ch.15/16 haven't had a Gemini pass yet; worth one
+   before calling Part V final.
 3. 18+ designation — confirm this stays in the Somatic Ecstasy section
    of the catalog, or does its clinical framing warrant its own
    catalog section?
