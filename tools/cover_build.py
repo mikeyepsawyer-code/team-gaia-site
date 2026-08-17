@@ -467,6 +467,18 @@ def scaled_gold_text(canvas, text, font_path, pt_size, center_x, top_y,
     build script deliberately overrides it, which then shows up as an
     explicit, visible choice at the call site instead of a silent one.
 
+    GOSPEL RULE (confirmed Aug 16 2026, after a same-session violation):
+    every per-book build script starts ALL THREE elements — title,
+    subtitle, author — at target_width=FULL_TEXT_W. This is not a
+    fallback for when nothing else is specified; it is the mandatory
+    starting point. A narrower width is something a book can choose to
+    do deliberately afterward (e.g. a subtitle style that reads better
+    shorter), but it is never the default a build script reaches for
+    out of habit or to "make it look nicer" on a first pass. If a
+    build script passes any target_width other than FULL_TEXT_W (or
+    omits the parameter, which is the same thing), that choice needs a
+    stated reason in a comment at the call site.
+
     treatment:
       "chiseled" (default) — bevel emboss via apply_chiseled_gold, same
       as the title. Use for author, or a subtitle that should carry the
