@@ -155,9 +155,65 @@ APPENDIX SECTIONS — copy-paste-ready, order TBD:
   - Session-closing checklist
   - Cross-pollination / XPOLL folder convention
   - Source-completeness checklist (the Section 1G lesson, generalized)
+  - Prompting other AI systems for genuine contribution, not
+    validation (drafted below, ready to use)
   - A note on scope: what this process is good for (long-running,
     multi-document creative or scholarly work) and what it probably
     isn't (a one-off task)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+APPENDIX — PROMPTING OTHER AI SYSTEMS FOR GENUINE CONTRIBUTION
+
+[Drafted Aug 16 2026, from a real pattern hit twice in one afternoon.
+RED — new, pending Michael's review, but already in active use.]
+
+If your process involves more than one AI system — asking a second
+model to review or extend work the first one produced, the way this
+catalog's Chronic Pleasure manuscript gets reviewed by Gemini before
+Claude folds anything back in — expect a specific failure mode the
+first time you try it. The second model's first response will very
+likely summarize and gently validate what you sent it, rather than
+generate anything new. Something like "this correctly identifies X,
+and could incorporate Y" — technically responsive, but a restatement
+dressed as feedback, not an actual contribution.
+
+This happened twice in the same afternoon with the same fix. Pasting
+a chapter and asking "what's your honest read" got a thin response
+both times. Following up with "if you were writing this chapter
+yourself, what would you say" got a substantially longer, more
+specific, more useful response both times — new screening categories
+the first time, new consent frameworks the second.
+
+The lesson isn't about that specific phrase being magic. It's that
+"evaluate this" and "generate something" are different instructions,
+and a model asked to evaluate will often default to a validating
+summary unless explicitly redirected toward production. Build the
+redirect into the first message, not as a recovery move after a
+disappointing reply:
+
+  "Don't summarize or validate what's already in the [chapter/
+  document/draft] — I want your own independent draft. If you were
+  writing this yourself, from scratch, with full rigor, what would
+  you actually put in it? Be specific: name concepts, frameworks, or
+  terminology this should be drawing on, not just categories to
+  consider. If something here is already sufficient as written, say
+  so plainly — but assume the more useful thing you can do is tell me
+  what's still missing, not confirm what's already there."
+
+Adapt the bracketed noun and the domain-specific asks to your own
+project. The structure — explicitly forbid summary, explicitly
+request independent generation, explicitly permit "this part is
+already fine" as a valid answer — is what transfers.
+
+One more piece worth building in from the start, not discovered the
+hard way: when a second AI's response does contain real contributions,
+don't paste them into your working document verbatim. Rewrite them in
+your project's own established voice, and log where the material came
+from — a one-line provenance note at the point of insertion is enough.
+This keeps your document's voice consistent across contributors, and
+means that six months later you can still tell which parts came from
+where, which matters more than it seems like it will in the moment.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
