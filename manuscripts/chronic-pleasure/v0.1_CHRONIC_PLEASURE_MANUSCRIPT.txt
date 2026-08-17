@@ -527,6 +527,51 @@ caution applies to both partners, not only the person experiencing
 sustained orgasm — a session of this length and intensity is
 physically demanding for the person providing stimulation as well.
 
+AUTONOMIC STABILITY: THE CRASH
+
+The cardiovascular caution above covers strain during a session. It
+says nothing about what happens the moment stimulation stops, and that
+turn out to be its own hazard. Hours of sustained sympathetic
+activation, ending abruptly, is a plausible trigger for a sharp
+parasympathetic rebound — a sudden crash rather than a gradual
+return to baseline. In its milder form this may look like the "first
+shock" described in Ch.10. In a less mild form, by analogy to what's
+documented in other contexts of prolonged extreme arousal followed by
+sudden stop, it could plausibly produce a genuine drop in blood
+pressure, fainting, vomiting, or intense shivering.
+
+I have not observed this myself, and I want to be clear that this
+entry is reasoning from mechanism and analogy, not from a case in this
+book's own record. But anyone with a history of POTS (postural
+orthostatic tachycardia syndrome), vasovagal syncope, or chronic
+fatigue syndrome should treat this practice as contraindicated, or at
+minimum approach it only under medical guidance, on the same logic as
+the cardiovascular caution above: a nervous system that already
+struggles with autonomic swings is not a nervous system to test this
+on first.
+
+DISSOCIATION VERSUS GENUINE SURRENDER
+
+One more caution belongs beside the trauma history warning above,
+because it names a specific way that warning can fail in practice
+even when both partners think they're following it. A person with a
+significant trauma history who dissociates as a coping strategy may,
+under sustained stimulation, enter what looks from the outside like a
+deep, compliant, peaceful state — stillness, softness, apparent
+surrender — while what's actually happening is a protective freeze
+response, not pleasure. The two can look identical to an untrained
+eye, and the mechanism this book proposes (defenses substantially
+down) makes the confusion more likely, not less, since the ordinary
+signs a partner would use to tell the difference may themselves be
+part of what's suppressed.
+
+This is why Ch.12's attentional-capacity competency has to mean more
+than tracking arousal. A practitioner working with a partner who has
+any trauma history needs some prior, sober conversation about what
+dissociation has looked like for that person before, specifically so
+it can be told apart from genuine surrender in the moment rather than
+assumed away.
+
 TRAUMA HISTORY
 
 This is the contraindication I consider most serious, and the one
@@ -577,6 +622,51 @@ recovery, introducing a new source of intense, potentially compulsive-
 feeling reward is a legitimate concern and should be discussed with
 whoever is supporting their recovery.
 
+Personality disorders involving unstable self-structure, particularly
+borderline personality disorder: a distinct caution from the general
+psychiatric category above, worth stating on its own terms. This
+book's proposed mechanism (Part II) involves defenses coming down. For
+someone whose sense of self is chronically unstable, those same
+defenses may not be incidental scaffolding — they may be load-bearing,
+the thing actively holding regulation together day to day. A
+psychedelic has a predictable half-life; this practice's session
+length is, by comparison, variable and partner-dependent. Removing
+load-bearing defenses for an open-ended duration, without the
+chemical certainty of when it ends, is a materially different risk
+than removing them for a bounded few hours. This should be treated as
+a contraindication outside a specialized clinical setting, not a
+"proceed with caution" category.
+
+NEURODIVERGENCE
+
+Not a contraindication so much as its own screening dimension,
+distinct from the psychiatric categories above. Sustained,
+high-frequency, repetitive somatosensory input is exactly the kind of
+stimulus that can cross, for some autistic or significantly ADHD
+practitioners, from intense pleasure into genuine sensory overload —
+and the rebound phase (Ch.10) may separately produce a sharper
+under-stimulation crash than it does for others. Neither direction is
+predictable in advance from general knowledge; it depends on the
+individual's own sensory profile. This belongs on the screening
+conversation as a "plan the pacing together explicitly" flag, not as
+exclusion by default.
+
+MEDICATION INTERACTIONS
+
+No section of this book has addressed medication until now, and that
+gap needs closing even speculatively. The practice as described
+appears to produce a sustained, substantial release of endogenous
+neurotransmitters — dopamine and serotonin prominently among them. I
+am not a pharmacologist, and nothing here has been tested, but the
+analogy to established drug interactions is close enough to name
+directly: anyone taking an MAOI should treat this practice as
+contraindicated, on the same logic that governs MAOI dietary and drug
+restrictions generally, given the theoretical risk of serotonin
+syndrome from a large endogenous serotonin release. Anyone on
+high-dose SSRIs or other serotonergic or dopaminergic medication
+should not approach this practice without their prescriber's
+awareness, for the same reason.
+
 RELATIONAL AND CONSENT CONDITIONS
 
 This practice, as designed, assumes an established relationship with
@@ -591,6 +681,20 @@ state. This is not a moral judgment about casual sex; it is a
 structural requirement of the practice, the same way certain forms of
 rope work or breath play require an established, attentive partner
 regardless of anyone's views on casual sex generally.
+
+CAPACITY FOR AFTERCARE, AS A SCREENING CRITERION
+
+Ch.10 describes what the rebound after a session actually feels like
+— the "two shocks" — in detail. What belongs here, in screening, is
+narrower and easy to skip past: before a session, not after, does this
+person actually have the time, privacy, and support to weather that
+rebound when it comes. A demanding workday scheduled for the morning
+after a first high-frequency session is not a minor logistics problem.
+If either partner cannot say with confidence that the hours or days
+following a session are protected — reduced obligations, a
+non-judgmental environment, someone available if the rebound lands
+harder than expected — that is a reason to wait, or to stay at a lower
+dosing tier (Ch.9), not a reason to proceed and hope.
 
 PHYSICAL CONDITIONS
 
@@ -612,6 +716,17 @@ wrong given the proposed mechanism, and erring toward caution. Appendix
 B turns this into a checklist format for practical screening use, with
 the same caveat repeated: untested, precautionary, offered pending real
 research.
+
+[Provenance note, Aug 16 2026: six new categories in this chapter —
+autonomic crash, dissociation vs. genuine surrender, personality
+disorders, neurodivergence, medication interactions, and aftercare
+capacity as a screening criterion — came from a Gemini review of an
+earlier draft of this chapter, folded in and rewritten to match this
+book's voice rather than reproduced. A sixth item in that review
+("Sub Drop"/aftercare) was reframed rather than added outright, since
+the phenomenon itself was already covered in Ch.10 — only the
+screening angle was new. Appendix B's screening checklist should be
+revised to reflect all six categories once drafted.]
 
 ───────────────────────────────────────────────
 
