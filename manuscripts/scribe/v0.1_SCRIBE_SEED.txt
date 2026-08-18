@@ -219,21 +219,161 @@ where, which matters more than it seems like it will in the moment.
 
 COVER
 
-Candidate source: galaxy/black-hole painting, archived Aug 16 2026 to
-assets/paintings/1000000156_galaxy_blackhole.png — brought in this
-session as a Post Sapiens candidate, not yet assigned to either book.
-Open decision: which book it actually belongs to, or whether both
-Post Sapiens and Scribe want separate cover treatments and this is
-only the right fit for one of them. The image itself (a bright galactic
-core streaming toward a black hole that is visibly still radiant at
-its rim, not a void) reads well for either book's themes — inscription
-as radiant emission traveling toward a gathering point works for
-Scribe; the galaxy/black-hole pairing as a post-human intelligence
-image works for Post Sapiens. Michael's call.
+Resolved Aug 16 2026: this book inherited the chandelier painting
+(covers/post-sapiens/source_chandelier_v3.jpg and signed variants),
+freed up when Post Sapiens moved to a different source (the
+gravitational-lensing painting, assets/paintings/1000000156_galaxy_
+blackhole.png). Cover v1 already built and live — see
+covers/scribe/cover_scribe_v1.jpg, card and hero pushed.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-STATUS / OPEN DECISIONS
+FRAMEWORK — UNIVERSAL PROCESS VS. PERSONAL AESTHETIC
+
+[Drafted Aug 17 2026, from a question Michael asked directly: how do
+readers tell the difference between a generic rule of bookmaking this
+book is offering them, and Michael's own taste dressed up as a rule?
+RED — new, pending review, but the distinction below is already how
+this book's material should be sorted going forward.]
+
+Everything this project has produced sorts into three layers, and
+confusing them is the single easiest way for a book like this one to
+mislead a reader.
+
+LAYER ONE — universal process discipline. Transfers to any writer, any
+subject, any collaborator. State your defaults explicitly and require
+a stated reason to deviate from them. Before concluding a source
+doesn't exist, check every plausible location, not just the first one
+that returns something. When two sources conflict, preserve both and
+surface the conflict rather than silently choosing a winner. Flag
+something valuable out loud in the moment it surfaces, rather than
+trusting it'll still be there later. When prompting a second AI for
+review, ask it to generate independently rather than evaluate what
+exists, or expect a validating summary instead of real contribution.
+These would help a mystery novelist, a software team, or a research
+group exactly as much as they've helped this catalog. This is the
+material the appendix templates in this book are built from.
+
+LAYER TWO — this project's specific instantiation of those principles.
+Full-width gold text as the mandatory starting point for cover
+typography. Cinzel and Parisienne. A gold gradient with lightened,
+"milk chocolate" rather than near-black ends. No em-dashes. Gaia
+always upright, portrait, never landscape. These are real, binding
+rules — for this catalog. A reader adopting them wholesale, font
+choices included, has missed the point as thoroughly as a reader who
+ignores them because "that's just Michael's taste." What transfers is
+that deliberate, consistent, written-down choices were made and then
+held under pressure across eighteen books and many sessions — not the
+specific choices themselves.
+
+LAYER THREE — the actual creative content. Noun-versus-verb. Satchitananda.
+The whole recurring cosmology. This isn't a rule at all. It's voice,
+and voice doesn't transfer between writers by design — it's the thing
+that's supposed to stay singular.
+
+WHY LAYER TWO STILL BELONGS IN THIS BOOK
+
+The honest temptation, writing a book meant to generalize, is to strip
+out everything specific to this catalog and leave only Layer One —
+cleaner, more obviously portable, less risk of a reader mistaking
+Michael's taste for a universal rule. That would be a mistake. Most
+writers with a real project already have a strong, particular,
+sometimes strange personal vision, and their live worry isn't "what's
+the universal process," it's "will a systematic process flatten what
+makes my project mine." A neutral, tasteless worked example can't
+answer that worry. A specific one can: here is a genuinely idiosyncratic
+aesthetic — full-width gold cover text, a recurring philosophical
+argument about grammar and metaphysics threading through a catalog
+that ranges from clinical research proposals to erotica to a book
+about sacred geometry — held with total discipline across eighteen
+books, without the discipline sanding the strangeness off. That's the
+actual demonstration this book has to offer, and Layer One alone
+can't make it.
+
+The practical rule for anyone building on this: whenever a template or
+principle appears in this book's appendices, it should carry a brief
+tag distinguishing which layer it belongs to. "This specific choice is
+arbitrary — swap in your own" versus "this underlying discipline is
+what actually matters, regardless of which specific choice you make."
+Readers copying Layer Two by accident, thinking they're absorbing
+Layer One, is the failure mode this tag exists to prevent.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+CASE STUDY — VALUE-FLAGGING UNDER SENSITIVE CONDITIONS
+
+[Drafted Aug 17 2026. RED — new, pending review. A worked example of
+Charter v5.9 Section 1F operating on material that was genuinely
+valuable and genuinely close to a hard boundary at the same time.]
+
+Section 1F says: when something in a session seems unusually valuable,
+name it out loud, discuss where it belongs, and save it directly into
+the right book rather than let it dissolve back into chat history once
+the conversation moves on. Most of the time this is straightforward —
+a striking image, an unplanned connection between two books, a phrase
+worth banking. This case study covers a harder version: a request that
+sat close to a real limit, where the value-flagging judgment had to
+operate under pressure rather than in the easy cases the rule was
+first written for.
+
+WHAT HAPPENED
+
+Earlier in this catalog's development, a piece of writing crossed a
+boundary this book's AI collaborator holds absolutely — sexual content
+involving family-relation framing, regardless of how the request is
+worded. That content was declined and removed, and the person leading
+this project corrected course immediately once it was flagged, which
+is worth stating plainly: the system worked the way it's supposed to,
+including the human half of it.
+
+What came after is the part worth documenting. Rather than treating
+the topic as closed once the offending material was gone, the person
+asked a different, legitimate question: can we analyze, at a scholarly
+distance, why this specific prohibition exists — the genetic logic,
+the power-dynamic logic, the reason a taboo this firmly held still
+generates fantasy interest — as part of a book's broader argument
+about morality and governing codes? That's a different request in
+kind, not just in degree, from the one that got declined. Analyzing
+why a boundary exists, and producing content that crosses it, are not
+the same act, and treating them as the same act would have meant
+losing a genuinely valuable piece of the book's argument out of
+excess caution rather than real necessity.
+
+THE JUDGMENT CALL
+
+The AI collaborator's reasoning, stated plainly rather than left
+implicit: the earlier boundary was never about the subject matter of
+incest or taboo psychology in the abstract. It was specifically about
+producing sexualized content using family-relation framing. A
+rigorous, citation-grounded discussion of evolutionary psychology,
+attachment theory, and cross-cultural anthropology doesn't produce
+that content — it explains a real, well-studied phenomenon. Once that
+distinction was clear, the material was written up as a full chapter
+and pushed directly into the book, with one addition that mattered as
+much as the analysis itself: an explicit closing section separating
+the analysis from the personal boundary, so the chapter couldn't later
+be read as the analysis having quietly argued the boundary away. The
+rigor of the argument was not allowed to become leverage against the
+line it was standing next to.
+
+WHY THIS BELONGS IN A CASE-STUDY, NOT JUST A RULE
+
+The general principle — "value-flag important material, even when
+it's sensitive" — is easy to state and hard to operationalize,
+because the hard cases are exactly the ones where "is this actually
+different from the thing I declined, or am I talking myself into an
+exception" isn't obvious in the moment. Two markers, drawn from this
+case, are offered here as a starting checklist rather than a complete
+answer: first, ask whether the new request analyzes or produces —
+explaining a phenomenon and generating an instance of it are different
+acts even when they sound adjacent. Second, when material sits this
+close to a boundary, state the boundary explicitly inside the material
+itself, rather than trusting context elsewhere in the book to make the
+separation clear. A reader encountering the chapter in isolation
+should still be able to see exactly where analysis stops and the
+personal limit begins.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 - Catalog placement: RESOLVED Aug 16 2026 — inside the Team Gaia
   catalog, Section 4: Mind and Spirit, alongside Jnana and Bhakti and
