@@ -223,6 +223,106 @@ PASTEL_GOLD_FOIL_STOPS = [
 ]
 
 
+# ============================================================================
+# SECTION 0B — DEFAULT FIRST-PASS RULES (added Aug 19 2026)
+# ============================================================================
+# Established after live comparison on the Post Sapiens galaxy/black-hole
+# cover (light/pastel gold read cleaner than high-contrast against a dark
+# background — the opposite of what PASTEL_GOLD_FOIL_STOPS' original
+# comment above assumed). Codifies two defaults every first-pass cover
+# build follows, so they don't get re-derived (or re-guessed) per session.
+#
+# 1. LAYOUT: title lives in the TOP text zone (TITLE_TOP_Y). Subtitle AND
+#    author both live in the BOTTOM text zone, built upward from
+#    AUTHOR_BOTTOM_Y. All three go through the existing MARGIN /
+#    TEXT_MARGIN / FULL_TEXT_W no-text-border and bleed rules above —
+#    this isn't a new margin, just confirming all three text elements
+#    respect the ones already defined.
+#
+# 2. GOLD FINISH BY BACKGROUND TONE — chosen by what's actually behind
+#    the text at build time, not picked by feel per book:
+#      DARK background    -> LIGHT GOLD        (chiseled)
+#      LIGHT background    -> DARK COPPER GOLD  (chiseled)
+#      MIDTONE background -> HIGH CONTRAST GOLD (high_contrast)
+#    SUPERSEDES the older note on PASTEL_GOLD_FOIL_STOPS below ("for
+#    pastel/light-background covers") — that assumption tested wrong.
+#    The constant is unchanged; only which background it defaults to
+#    has flipped. See gold_finish_for_tone() below for the live mapping.
+
+def region_luminance(canvas, box):
+    """
+    Average perceptual luminance (0-255) of a canvas region, box=(l,t,r,b).
+    Always sample BEFORE pasting any text into that region — this is
+    reading the art/background, not the text about to go on top of it.
+    """
+    crop = canvas.convert("RGB").crop(box)
+    arr = np.asarray(crop).astype(float)
+    lum = 0.2126 * arr[..., 0] + 0.7152 * arr[..., 1] + 0.0722 * arr[..., 2]
+    return float(lum.mean())
+
+
+def classify_bg_tone(luminance, dark_max=85, light_min=170):
+    """luminance in 0-255. <=dark_max -> 'dark', >=light_min -> 'light',
+    otherwise 'midtone'."""
+    if luminance <= dark_max:
+        return "dark"
+    if luminance >= light_min:
+        return "light"
+    return "midtone"
+
+
+def gold_finish_for_tone(tone):
+    """
+    Returns (stops, treatment) per the DEFAULT FIRST-PASS rule (Section 0B
+    above). This is the single place the tone->finish mapping lives —
+    call this instead of hardcoding a stops/treatment pair per book.
+    """
+    if tone == "dark":
+        return PASTEL_GOLD_FOIL_STOPS, "chiseled"      # LIGHT GOLD
+    if tone == "light":
+        return STATIC_GOLD_FOIL_STOPS, "chiseled"       # DARK COPPER GOLD
+    return STATIC_GOLD_FOIL_STOPS, "high_contrast"       # HIGH CONTRAST GOLD
+
+
+def first_pass_text(canvas, text, font_path, pt_size, center_x, top_y,
+                     target_width=None, sample_box=None, cast_shadow_on=True):
+    """
+    DEFAULT FIRST-PASS text placement (Section 0B rule). Samples the
+    background tone directly behind where this text will sit and picks
+    the gold finish automatically via gold_finish_for_tone() — first-pass
+    builds should call this for title/subtitle/author instead of
+    scaled_gold_text() directly, so the tone->finish mapping can't be
+    silently skipped or hand-picked out of habit. A book can still
+    override to a specific finish deliberately after review — that's a
+    conscious second-pass choice, not what a first pass reaches for.
+
+    target_width defaults to FULL_TEXT_W per the width rule above.
+    sample_box: (l,t,r,b) region of the CURRENT canvas (art only, no text
+    pasted yet) to sample for tone. If omitted, estimated from
+    center_x/top_y/target_width and a nominal text height.
+
+    Returns (canvas, ink_height, tone) — tone included so the caller can
+    log/display which finish got picked and why.
+    """
+    if target_width is None:
+        target_width = FULL_TEXT_W
+    if sample_box is None:
+        est_h = int(pt_size * 1.3)
+        sample_box = (
+            max(0, round(center_x - target_width / 2)), top_y,
+            min(canvas.width, round(center_x + target_width / 2)),
+            min(canvas.height, top_y + est_h),
+        )
+    tone = classify_bg_tone(region_luminance(canvas, sample_box))
+    stops, treatment = gold_finish_for_tone(tone)
+    canvas, h = scaled_gold_text(
+        canvas, text, font_path, pt_size, center_x, top_y,
+        target_width=target_width, treatment=treatment, foil_stops=stops,
+        cast_shadow_on=cast_shadow_on,
+    )
+    return canvas, h, tone
+
+
 def chisel_shade(mask_bool, bevel_px, light_dir=(-0.5, -0.55, 0.7), blur_sigma=1.6,
                   normal_blur=2.5):
     """
