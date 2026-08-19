@@ -142,10 +142,13 @@ SECTION 2B — DEFAULT FIRST-PASS RULES (added Aug 19 2026, tools/cover_build.py
  for the FIRST PASS of any cover build:
 
  1. LAYOUT: title in the TOP text zone. Subtitle AND author both in the
-    BOTTOM text zone. All three respect the existing no-text border and
-    print bleed (MARGIN / TEXT_MARGIN / FULL_TEXT_W, Section 1) — not a
-    new margin, just confirming all three elements go through the ones
-    already defined rather than a custom inset.
+    BOTTOM text zone. All three text elements — title, subtitle, author —
+    default to FULL WIDTH (FULL_TEXT_W) while respecting the existing
+    no-text border and print bleed (MARGIN / TEXT_MARGIN, Section 1).
+    Not a new margin — confirming all three fill the available width
+    inside those borders by default, rather than each independently
+    picking a narrower target width. A narrower width is a deliberate
+    second-pass choice for a specific book, not the first-pass default.
 
  2. GOLD FINISH BY BACKGROUND TONE — the finish is chosen by what's
     actually behind the text at build time, not picked by feel:
