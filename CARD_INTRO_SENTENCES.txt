@@ -1,0 +1,53 @@
+CARD_INTRO_SENTENCES.txt
+Source-of-truth for homepage book card intro sentences / taglines.
+Check this before any push touching the book grid in index.html.
+
+Created Aug 19 2026 -- this file was documented as mandatory in the
+charter but didn't actually exist in the repo. Backfilled directly from
+what's live in index.html at the time of creation, not reconstructed
+from memory. "Gaiaridge calling card" and "Gaia goddess of Terra calling
+card" have no tagline paragraph on the live site (icon-only cards) --
+listed as (none) rather than invented.
+
+Format: Book title | tagline (line breaks in the live HTML shown as " / ")
+
+===============================================================================
+
+The Art of Amore | I'm writing an update to Ovid's Ars Amatoria, as penitence for stepping over the line.
+
+Oceans of Love | Love wears more faces than we've been taught to name. Love broadly.
+
+Unjustified Happiness | Joy can be released from dogmatic shame and generational trauma.
+
+Radiant Sensitivity | Your sensitivity was never the problem. Open your heart, from liability to asset.
+
+Cultivating Spiritual Energy | Chi changes everything.
+
+Forgotten Communion | Grounding the numinous in the imminent.
+
+Shamanic Photography | You don't still believe in matter, do you?
+
+The Psychological Art of Kintsugi | The cracks are where the light gets in.
+
+Post Sapiens | You can't go back to Kansas; we are already cyborg.
+
+Scribe | Read the story. Steal the structure.
+  (added Aug 19 2026, drafted by Claude and approved live -- ties to the
+  book's own two-audience concept: prose to read, appendix to lift.)
+
+Gaia Ridge (Gaia Journal 2027 card) | Gaia Journal 2027 [caption-style, not
+  a pull-quote tagline -- different card format from the others]
+
+100 Orgasms an Hour | This one contains explicit erotica, intended as sex-positive mentorship, not pornography.
+
+Slow the Fuck Down | Explore the deep pleasures of authenticity, empathy, affection and reciprocity.
+
+Fountain of Youth | Polygasm, it's not just for breakfast anymore.
+
+Chronic Pleasure | Regular polygasm practice may defund habitual stress and overwrite neuroses.
+
+Spank Me Tender | Unapologetically kinky.
+
+Gaiaridge calling card | (none -- icon/nav card, no tagline)
+
+Gaia goddess of Terra calling card | (none -- icon/nav card, no tagline)
