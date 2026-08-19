@@ -252,6 +252,22 @@ PASTEL_GOLD_FOIL_STOPS = [
 #    pastel/light-background covers") — that assumption tested wrong.
 #    The constant is unchanged; only which background it defaults to
 #    has flipped. See gold_finish_for_tone() below for the live mapping.
+#
+# 3. VERTICAL SPACING BETWEEN TEXT ELEMENTS (added Aug 19 2026): when
+#    computing the gap between two text elements (e.g. the two lines of
+#    a stacked title), measure from/to the COMMON top/bottom line most
+#    glyphs actually sit on — common_ink_bounds() — not the full ink
+#    bbox. A single outlier (one tall capital, a lowercase descender
+#    like 'j' or 'g') pulls the raw bbox edge out further than where
+#    the line actually reads as starting/ending, which silently
+#    shrinks or inflates the felt gap. common_ink_bounds() already
+#    existed in this file (added Aug 14) but wasn't being called by
+#    the gap math in per-book build scripts — this is the fix. Still
+#    use the FULL ink extent (ink.height), not common bounds, when
+#    deciding how much room to leave so an image or another element
+#    doesn't get clipped by an actual outlier descender — common
+#    bounds is for how the gap FEELS, full extent is for what must
+#    not visually collide.
 
 def region_luminance(canvas, box):
     """
@@ -305,8 +321,14 @@ def first_pass_text(canvas, text, font_path, pt_size, center_x, top_y,
     pasted yet) to sample for tone. If omitted, estimated from
     center_x/top_y/target_width and a nominal text height.
 
-    Returns (canvas, ink_height, tone) — tone included so the caller can
-    log/display which finish got picked and why.
+    Returns (canvas, ink_height, tone, common_top, common_bottom):
+      - ink_height: FULL extent of the rendered ink (use for collision/
+        clipping decisions -- e.g. how much room to leave before an image).
+      - common_top, common_bottom: common_ink_bounds() of the same ink, in
+        that ink's own coordinate frame (0 = ink's own top). Use these
+        (added to this call's top_y) for gap-FEEL math between text
+        elements per Section 0B rule 3 -- ignores rare outlier
+        ascenders/descenders instead of letting them stretch the gap.
     """
     if target_width is None:
         target_width = FULL_TEXT_W
@@ -319,12 +341,23 @@ def first_pass_text(canvas, text, font_path, pt_size, center_x, top_y,
         )
     tone = classify_bg_tone(region_luminance(canvas, sample_box))
     stops, treatment = gold_finish_for_tone(tone)
+
+    # Render once here (in addition to scaled_gold_text's own internal
+    # render) purely to extract common bounds at the exact scale used --
+    # small duplicate cost, keeps scaled_gold_text's contract unchanged.
+    probe_ink, _, _ = render_ink(text, font_path, pt_size)
+    probe_ink = scale_ink_to_width(probe_ink, target_width)
+    common_top, common_bottom = common_ink_bounds(probe_ink)
+
     canvas, h = scaled_gold_text(
         canvas, text, font_path, pt_size, center_x, top_y,
         target_width=target_width, treatment=treatment, foil_stops=stops,
         cast_shadow_on=cast_shadow_on,
     )
-    return canvas, h, tone
+    return canvas, h, tone, common_top, common_bottom
+
+
+
 
 
 def chisel_shade(mask_bool, bevel_px, light_dir=(-0.5, -0.55, 0.7), blur_sigma=1.6,
