@@ -1,13 +1,81 @@
 ADDENDUM to COVER_PRODUCTION_STANDARD_v3 -- Post Sapiens build (Section 5F)
 
-This is a standalone addendum, staged to GitHub because Drive writes failed
-this session (known intermittent issue). Push to Drive as
-v3.1_COVER_PRODUCTION_STANDARD_ADDENDUM_POST_SAPIENS next session, then
-merge into v3.0 as a proper Section 5F in a dedicated consolidation pass.
+STATUS (Aug 19 2026): SECTION 5F BELOW (chandelier, v1) IS SUPERSEDED.
+Post Sapiens now uses the galaxy/black-hole painting -- see SECTION 5G
+below for the current approved spec. The chandelier painting was
+reassigned to Scribe. Section 5F is kept for historical reference only;
+do not rebuild from it.
 
 ===============================================================================
 
-SECTION 5F -- POST SAPIENS (v1 -- APPROVED August 4, 2026)
+SECTION 5G -- POST SAPIENS (v2 -- APPROVED August 19, 2026, current)
+
+Card: /images/cover-post-sapiens-v2.jpeg
+Hero: /images/cover-post-sapiens-hero.jpeg
+Full-res master: /covers/post-sapiens/post_sapiens_cover_v2.jpg (1950x2850,
+  300dpi metadata embedded explicitly -- see PRINT NOTE below)
+
+SOURCE PAINTING
+ File: source_galaxy_blackhole.png (spiral galaxy undergoing gravitational
+   lensing beside a black hole; deep-space navy palette, no text)
+ GitHub: /covers/post-sapiens/source_galaxy_blackhole.png
+   (copy of /assets/paintings/1000000156_galaxy_blackhole.png)
+ Original dimensions: 2048x1536px (landscape)
+ Text-free: YES
+
+LAYOUT -- LETTERBOXED (deliberate exception to the usual full-bleed
+ portrait crop rule): the landscape painting is kept at its native aspect,
+ scaled to full canvas width (1950px), and centered vertically with solid
+ black bars above and below rather than cropped to fill the portrait
+ canvas. Bar heights are NOT fixed/even by default here -- they're solved
+ per Section 0B's balanced-empty-space rule: the picture's vertical
+ position is chosen so the actual empty (textless) gap above the picture
+ (below the title block) equals the empty gap below the picture (above
+ the subtitle block), not simply equal top/bottom bar heights. Recompute
+ this whenever title/subtitle/author sizing changes.
+
+TITLE -- "Sapiens" / "Cyberneticus" (two lines, stacked)
+ Cinzel 600, pt=190, target_width=FULL_TEXT_W (full width per Section 0B)
+ Gap between the two lines: 85px, measured via common_ink_bounds()
+ (common bottom of line 1 to common top of line 2) -- NOT raw ink height.
+ Gold finish: chosen automatically by first_pass_text() per background
+   tone at build time (this book samples as dark bg -> LIGHT GOLD).
+
+SUBTITLE -- "philosophy and morality for an emerging species"
+ Liberation Serif Italic, pt=90, target_width=FULL_TEXT_W, all lowercase,
+ no ending punctuation (house style). Sits in the bottom text zone.
+
+AUTHOR -- "Michael Sawyer"
+ Liberation Serif Italic, pt=130, target_width=FULL_TEXT_W
+ Bottom edge at CANVAS_H - MARGIN, bottom text zone.
+
+RULE: (212,158,42), 4px thick, width=55% of FULL_TEXT_W, centered,
+ between subtitle and author.
+
+GOLD FINISH SELECTION: built via first_pass_text() (cover_build.py),
+ which samples canvas luminance behind each element and applies
+ Section 0B's tone->finish mapping automatically -- title, subtitle,
+ and author all sampled as dark background here, so all render in
+ LIGHT GOLD (PASTEL_GOLD_FOIL_STOPS, chiseled).
+
+PRINT NOTE (Aug 19 2026): pixel dimensions (1950x2850) were always
+ mathematically exact for 300dpi at the 6.5"x9.5" bleed canvas, but the
+ first export of this master had NO dpi tag embedded in the JPEG --
+ pixel-correct but metadata-silent, which some print vendors flag or
+ misread. Fixed by re-saving with PIL's dpi=(300,300) parameter
+ explicit. CHECK THIS on every future full-res master export -- PIL
+ does not embed a dpi tag by default, canvas.save() must pass it
+ explicitly or the print file is pixel-correct but tag-silent again.
+
+WEB ASSET SIZE: card exported at quality=60 (not the CARD_QUALITY=74
+ default) to hit the <85KB target -- this book's dark, grain-heavy
+ painting compresses less efficiently than average at quality 74
+ (came out ~103KB there). Check actual output size after export rather
+ than trusting the default quality setting produces an on-target file.
+
+===============================================================================
+
+SECTION 5F -- POST SAPIENS (v1 -- chandelier, SUPERSEDED Aug 19 2026)
 
 Card: /images/cover-post-sapiens-v1.jpeg
 Archive: /covers/post-sapiens/post_sapiens_cover_v1.jpg
