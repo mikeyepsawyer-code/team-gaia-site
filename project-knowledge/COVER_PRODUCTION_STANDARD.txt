@@ -166,6 +166,19 @@ SECTION 2B — DEFAULT FIRST-PASS RULES (added Aug 19 2026, tools/cover_build.py
     deliberately after review; that's a conscious second-pass choice,
     not what a first pass reaches for.
 
+ 3. VERTICAL SPACING BETWEEN TEXT ELEMENTS: measure gaps between text
+    elements (e.g. the two lines of a stacked title) from/to the COMMON
+    top/bottom line most glyphs actually sit on — common_ink_bounds() in
+    cover_build.py — not the full ink bbox. A single outlier (one tall
+    capital, a lowercase descender like 'j' or 'g') pulls the raw bbox
+    edge out further than where the line actually reads as
+    starting/ending, silently shrinking or inflating the felt gap.
+    first_pass_text() returns common_top/common_bottom alongside the
+    full ink height for exactly this. Still use the FULL ink extent
+    when deciding how much room to leave so an image or another element
+    doesn't get clipped by an actual outlier — common bounds is for how
+    the gap FEELS, full extent is for what must not visually collide.
+
 ════════════════════════════════════════════════════════════════════════════════
 
 SECTION 3 — TYPOGRAPHY PREFERENCES
