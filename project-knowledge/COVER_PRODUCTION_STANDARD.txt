@@ -179,6 +179,22 @@ SECTION 2B — DEFAULT FIRST-PASS RULES (added Aug 19 2026, tools/cover_build.py
     doesn't get clipped by an actual outlier — common bounds is for how
     the gap FEELS, full extent is for what must not visually collide.
 
+ 4. END-OF-TURN CHECKLIST (added Aug 19 2026, after two dropped rules in
+    one session — a spacing rule reinvented inline instead of using the
+    existing common_ink_bounds() helper, and a saved render never
+    actually sent via present_files). Before ending any turn that
+    touches a cover build, confirm:
+      a. Every image saved this turn was sent to Michael via
+         present_files — not just checked with view(), which only shows
+         it to Claude. view() first, then present_files, every time.
+      b. Any spacing/placement math used the existing helper functions
+         in cover_build.py (common_ink_bounds, first_pass_text, etc.)
+         rather than being re-derived inline. If a claim is made about a
+         change being relative to a prior version ("double," "half,"
+         "tighter"), it's measured in pixels from that specific render —
+         not assumed from a spec document — and the pixel number is
+         stated so it's checkable.
+
 ════════════════════════════════════════════════════════════════════════════════
 
 SECTION 3 — TYPOGRAPHY PREFERENCES
