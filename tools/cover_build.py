@@ -234,10 +234,14 @@ PASTEL_GOLD_FOIL_STOPS = [
 #
 # 1. LAYOUT: title lives in the TOP text zone (TITLE_TOP_Y). Subtitle AND
 #    author both live in the BOTTOM text zone, built upward from
-#    AUTHOR_BOTTOM_Y. All three go through the existing MARGIN /
-#    TEXT_MARGIN / FULL_TEXT_W no-text-border and bleed rules above —
-#    this isn't a new margin, just confirming all three text elements
-#    respect the ones already defined.
+#    AUTHOR_BOTTOM_Y. All three text elements — title, subtitle, author —
+#    default to FULL WIDTH (FULL_TEXT_W) while respecting the existing
+#    no-text border / bleed rules (MARGIN, TEXT_MARGIN) above. This isn't
+#    a new margin; it's confirming all three fill the available width
+#    inside those borders by default, rather than each independently
+#    picking a narrower target width out of habit. A narrower width is
+#    a deliberate second-pass choice for a specific book, not the
+#    first-pass default.
 #
 # 2. GOLD FINISH BY BACKGROUND TONE — chosen by what's actually behind
 #    the text at build time, not picked by feel per book:
