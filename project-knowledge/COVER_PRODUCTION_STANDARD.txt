@@ -133,6 +133,38 @@ SECTION 2 — LAYOUT ZONES
 
 ════════════════════════════════════════════════════════════════════════════════
 
+SECTION 2B — DEFAULT FIRST-PASS RULES (added Aug 19 2026, tools/cover_build.py)
+
+ Established after live comparison on the Post Sapiens galaxy/black-hole
+ cover — light/pastel gold read cleaner than high-contrast gold against
+ a dark background, the opposite of what the older PASTEL_GOLD_FOIL_STOPS
+ assumption in Section 3 below had it built for. Two defaults now hold
+ for the FIRST PASS of any cover build:
+
+ 1. LAYOUT: title in the TOP text zone. Subtitle AND author both in the
+    BOTTOM text zone. All three respect the existing no-text border and
+    print bleed (MARGIN / TEXT_MARGIN / FULL_TEXT_W, Section 1) — not a
+    new margin, just confirming all three elements go through the ones
+    already defined rather than a custom inset.
+
+ 2. GOLD FINISH BY BACKGROUND TONE — the finish is chosen by what's
+    actually behind the text at build time, not picked by feel:
+      DARK background     -> LIGHT GOLD         (chiseled)
+      LIGHT background    -> DARK COPPER GOLD   (chiseled)
+      MIDTONE background  -> HIGH CONTRAST GOLD (high_contrast)
+    Enforced in code via cover_build.py's first_pass_text() function,
+    which samples the canvas region behind each text element
+    (region_luminance / classify_bg_tone) and calls
+    gold_finish_for_tone() to pick automatically. This SUPERSEDES the
+    "PASTEL GOLD ... for pastel/light-background covers" note in
+    Section 3 below — that assumption tested wrong. The constants
+    themselves didn't change, only which background each is the
+    default for. A book can still be pulled to a specific finish
+    deliberately after review; that's a conscious second-pass choice,
+    not what a first pass reaches for.
+
+════════════════════════════════════════════════════════════════════════════════
+
 SECTION 3 — TYPOGRAPHY PREFERENCES
 
  TITLE — two distinct fonts expressing the contrast between words:
