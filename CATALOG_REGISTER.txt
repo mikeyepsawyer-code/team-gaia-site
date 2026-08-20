@@ -9,7 +9,7 @@ Drive folder changes. If a field is unknown, it says CONFIRM — do not guess.
 
 ── SECTION 1: SOMATIC ECSTASY (18+) ──
 100 Orgasms an Hour | LIVE — Kindle published, ASIN B0F6KBFJ8Y | CONFIRM | CONFIRM | /100-orgasms-preview.html
-Slow the Fuck Down | working draft v0.1 | 1qRyoZep_1TGSf9tJgfP_-ezdg3547W9V | CONFIRM | /slow-the-fuck-down-preview.html
+Slow the Fuck Down | working draft v0.1; GitHub manuscript seed started Aug 20 2026 | 1qRyoZep_1TGSf9tJgfP_-ezdg3547W9V | CONFIRM | /slow-the-fuck-down-preview.html | manuscripts/slow-the-fuck-down/v0.1_SLOW_THE_FUCK_DOWN_SEED.txt
 Fountain of Youth | working draft v0.4 | 1ImbONb8WcpMpwtL8aMcddlvt0rX1PU3h | v5 (blue waterfall painting, Beveled Gold treatment) approved and live -- briefly considered for Cascade Aug 13 2026, reverted same day, unchanged | /images/cover-fountain-of-youth-v5.jpeg | /fountain-preview.html
 Spank Me Tender | working draft v0.1 | CONFIRM | v17 approved | /images/cover-spank-me-tender.jpeg | /spank-me-tender-preview.html
 
@@ -34,7 +34,7 @@ Cascade (subtitle CONFIRMED: "Self-Similarity Across Scales of Being") | concept
 
 ── SECTION 5: THE EARTH ──
 Gaia Journal 2027 | HIGHEST PRIORITY — 12 spreads assembled; blockers: Aug photo, ISBN, bio wording | 111lvxJS6UQ9zAlnb9gI0aqqsZa921T37 | v4 approved | CONFIRM | — (PDF, not a preview page)
-Gaia Calendar 2027 | in development | CONFIRM | placeholder card live | CONFIRM | —
+Gaia Calendar 2027 | seed started Aug 20 2026, gathering wandering Gaia material; "Alive!" cover (large-G art) now linked here, previously orphaned | CONFIRM | placeholder card live | CONFIRM | manuscripts/gaia-calendar-2027/v0.1_GAIA_CALENDAR_SEED.txt | cover=/covers/gaia-alive/cover_gaia_alive_v9.jpg
 Shamanic Photography | new preview live; source photos (Fraser Lake "sacred marriage" set) live at /shamanic-photography/sacred-marriage/ — NOTE: this is a source-photo folder, not a duplicate page. Naming coincidence with the preview page, not a conflict. | 10t7_QAgrybJtAeN6TSJxlWiuewTkqOhd | goblet cover approved | CONFIRM | /shamanic-photography-preview.html
 
 ── GATEWAY ──

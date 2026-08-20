@@ -1,0 +1,66 @@
+GAIA CALENDAR 2027
+
+Book Seed v0.1 — Aug 20, 2026
+Catalog placement: Section 5 — The Earth.
+Red = Michael verbatim. Blue = Claude draft, pending approval.
+
+═══════════════════════════════════════════════════════════════
+
+WHY THIS SEED EXISTS
+
+Michael's note (Aug 20 2026): "At 1 point we wrote some material
+about Gaia that may have gotten wrapped up into either nike or
+shamanic photography. We also did a cover titled alive! With a large
+g as the cover image. It's probably about time we gathered that up
+with the idea of heading toward a book."
+
+This is the gathering point. Section 5 already listed Gaia Calendar
+2027 as "in development" with no manuscript — that's the natural home
+for wandering Gaia-specific material that isn't Journal content
+(the Journal is the monthly photo/caption PDF product) and isn't
+really Nike or Shamanic Photography content either.
+
+CHECKED, Aug 20 2026: grepped manuscripts/enchante-nike/ and
+manuscripts/shamanic-photography/ (the latter has no manuscript file
+at all yet) for Gaia-specific material — no direct hits in Nike's
+existing text. The material Michael's remembering may be in Drive
+rather than GitHub, or may not have been formally captured anywhere
+yet. Worth a Drive pass through the Nike and Shamanic Photography
+folders specifically for anything Gaia-tagged, next time either book
+is open.
+
+── ASSETS ALREADY ON HAND, NOW LINKED HERE ──
+
+- covers/gaia-alive/cover_gaia_alive_v9.jpg — "Alive!" cover, large
+  stylized G. Previously orphaned (no catalog register entry, no
+  manuscript). This is now that manuscript.
+- covers/gaia-alive/alive_gaia_phone_wallpaper.jpg — companion
+  wallpaper crop of the same art.
+
+── OPENING MATERIAL ──
+
+[MICHAEL — verbatim, Aug 20 2026, originally drafted for Sacred in
+Carnate's priest/priestess couplet, reassigned here]
+
+I am your priest, you are MY GODDESS —
+we consecrate each other in the same breath.
+
+[CLAUDE — draft, structural note] This lands differently here than it
+would have in Sacred in Carnate. There, priest/priestess was a
+mutual, symmetrical pairing. Here, addressed to Gaia specifically,
+"my Goddess" makes the addressee the Earth herself — the whole book
+can be read as one long address to her, which is a strong opening
+gesture for a calendar built around her portrait, month by month.
+
+═══════════════════════════════════════════════════════════════
+
+STATUS / OPEN DECISIONS
+
+- This is a seed, not an outline. No chapter/month structure yet.
+- Whether the Gaia material Michael's remembering from Nike/Shamanic
+  Photography exists in Drive is unconfirmed — flagged above for
+  follow-up.
+- Relationship to Gaia Journal 2027 (same figure, different product —
+  journal is monthly photo/caption, this is presumably prose/portrait
+  calendar) should be made explicit once this has more shape, so the
+  two don't drift into overlapping or contradicting each other.

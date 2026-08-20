@@ -1,0 +1,35 @@
+SLOW THE FUCK DOWN
+
+Book Seed v0.1 — Aug 20, 2026
+Catalog placement: Section 1 — Somatic Ecstasy (18+).
+Status: working draft, previously Drive-only. This is the book's first
+GitHub-canonical manuscript file.
+Red = Michael verbatim. Blue = Claude draft, pending approval.
+
+═══════════════════════════════════════════════════════════════
+
+OPENING MATERIAL
+
+[MICHAEL — verbatim, Aug 20 2026]
+
+i am priest to your inner goddess. You are priestess to my inner God —
+we consecrate each other in the same breath.
+
+[CLAUDE — draft, structural note] Reciprocal version of the line
+placed in Gaia Calendar 2027 — there it addresses Gaia directly as
+"my Goddess" (singular, external); here both people carry the
+divine internally and consecrate each other as an act between equals.
+Fits this book's register: the sacred takes place in an ordinary,
+present-tense body, not somewhere else.
+
+═══════════════════════════════════════════════════════════════
+
+STATUS / OPEN DECISIONS
+
+- This is a seed, not a full outline — the Drive working draft (v0.1,
+  Drive ID 1qRyoZep_1TGSf9tJgfP_-ezdg3547W9V) still holds whatever
+  structure exists; that content hasn't been migrated to GitHub yet
+  and should be, next time this book is open.
+- Open question from Michael (Aug 20 2026): whether to rename the
+  book title itself to "Slow-the-F-Down." Not yet decided — see
+  session notes.
