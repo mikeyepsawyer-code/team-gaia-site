@@ -261,10 +261,10 @@ cleared per steps 4 and 6.
 ════════════════════════════════════════════════════════════════════════════════
 
 SECTION 1E — SESSION-OUTPUT PERSISTENCE (added v5.7, August 11 2026)
-(root cause of the lost Post Sapiens chapters, closed)
+(root cause of the lost Sapiens Cyberneticus chapters, closed)
 
 WHAT HAPPENED: On May 24, Claude wrote ~5,000 words of full chapter
-prose for Post Sapiens, showed it to Michael as a downloadable file
+prose for Sapiens Cyberneticus, showed it to Michael as a downloadable file
 via present_files, then separately created and saved to Drive a
 short, condensed, headers-only outline under the book's actual
 filename. The full prose was never itself pushed to Drive or
@@ -476,7 +476,7 @@ SECTION 3 — THE BODY IN MOTION
 
 SECTION 4 — MIND AND SPIRIT
   Knowledge and love as two wings of the same bird.
-  Books: Jnana and Bhakti / Post Sapiens / Scribe
+  Books: Jnana and Bhakti / Sapiens Cyberneticus / Scribe
 
 SECTION 5 — THE EARTH
   Gaia stands. Always. Portrait. Never landscape.
@@ -591,7 +591,7 @@ JNANA AND BHAKTI
   Status: Book card, outline, and preface drafted. Wolf/aurora/moon painting
   pending as cover source.
 
-POST SAPIENS
+SAPIENS CYBERNETICUS
   Status: Concept/outline stage. "Sex/Genetics/Publishing" and
   "Motivations" sections from 100 Orgasms flagged for this book.
   COVER DECISION (Aug 16 2026): the gravitational-lensing painting
@@ -611,8 +611,8 @@ SCRIBE
   Drive folder yet -- follows GitHub-canonical workflow directly, per
   Charter v5.9 Section 1G.
   COVER DECISION (Aug 16 2026): inherits the chandelier painting
-  (covers/post-sapiens/source_chandelier_v3.jpg and signed variants),
-  freed up by Post Sapiens' move to the gravitational-lensing image.
+  (covers/sapiens-cyberneticus/source_chandelier_v3.jpg and signed variants),
+  freed up by Sapiens Cyberneticus' move to the gravitational-lensing image.
   Not yet built.
   manuscripts/scribe/v0.1_SCRIBE_SEED.txt
 
@@ -853,7 +853,7 @@ isn't a dated session note goes in Inner Council/ — never root.
     Art Amore/ · 100 Orgasms/ · Slow the Fuck Down/ · Fountain of Youth/
     Spank Me Tender/ · Oceans of Love/ · Kintsugi Raku/ ·
     Radiant Sensitivity/ · Cultivating Chi/ · Nike/ ·
-    Jnana and Bhakti/ · Post Sapiens/ · Unjustified Happiness/ ·
+    Jnana and Bhakti/ · Sapiens Cyberneticus/ · Unjustified Happiness/ ·
     Restoring the Divine Feminine/ · Polygasm Therapy/
 
 KEY FOLDER IDs: see CATALOG_REGISTER.txt (repo root) for the fast lookup;

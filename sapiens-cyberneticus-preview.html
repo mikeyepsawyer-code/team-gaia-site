@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sapiens Cyberneticus — A Preview</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:        #08070d;
+    --bg-mid:    #100e1a;
+    --text:      #dcd6e8;
+    --text-dim:  #8f8a9e;
+    --gold:      #c4922a;
+    --gold-lt:   #d8aa48;
+    --gold-br:   #f0cc70;
+    --rule:      rgba(196,146,42,0.35);
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  html,body { overflow-x:hidden; width:100%; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 20px;
+    line-height: 1.95;
+  }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100svh;
+    overflow: hidden;
+    background: var(--bg);
+  }
+  .hero-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    filter: brightness(0.82) saturate(0.95);
+  }
+  .hero-gradient {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(to bottom,
+        rgba(8,7,13,0.60) 0%,
+        rgba(8,7,13,0.10) 35%,
+        rgba(8,7,13,0.10) 60%,
+        rgba(8,7,13,0.92) 100%);
+    pointer-events: none;
+  }
+  .hero-text {
+    position: absolute;
+    top: 56%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    z-index: 2;
+    text-align: center;
+    padding: 0 32px;
+  }
+  .hero-eyebrow {
+    font-family: 'Cinzel', serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.42em;
+    color: var(--gold);
+    text-transform: uppercase;
+    opacity: 0.85;
+    margin-bottom: 22px;
+  }
+  .hero-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(2.6rem, 10vw, 5rem);
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    color: #f0e8d4;
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+  .hero-subtitle {
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--gold-lt);
+    letter-spacing: 0.03em;
+    opacity: 0.9;
+    position: absolute;
+    left: 50%;
+    white-space: nowrap;
+    transform: translateX(-50%);
+  }
+  @media (min-width: 420px) { .hero-subtitle { font-size: 1.05rem; } }
+  @media (min-width: 600px) { .hero-subtitle { font-size: 1.2rem; white-space: normal; max-width: 520px; } }
+
+  .hero-author {
+    position: absolute;
+    bottom: 64px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    font-family: 'Cinzel', serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+  .scroll-hint {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--gold);
+    opacity: 0.55;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    animation: bounce 2.2s infinite;
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(8px); }
+  }
+
+  /* CONTENT */
+  .content {
+    background: var(--bg-mid);
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 72px 28px 40px;
+  }
+  .working-note {
+    font-family: 'Cinzel', serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    text-align: center;
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 14px 18px;
+    margin-bottom: 56px;
+    line-height: 1.7;
+  }
+  .content h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    color: var(--gold-lt);
+    margin: 56px 0 28px;
+    border-top: 1px solid var(--rule);
+    padding-top: 40px;
+  }
+  .content h2:first-of-type {
+    border-top: none;
+    padding-top: 0;
+    margin-top: 0;
+  }
+  .content p {
+    font-size: 1.15rem;
+    margin-bottom: 26px;
+    color: var(--text);
+  }
+  .content p.epigraph {
+    font-style: italic;
+    color: var(--gold-lt);
+    text-align: center;
+    padding: 0 12px;
+  }
+  .content p.attrib {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    text-align: center;
+    margin-top: -14px;
+    margin-bottom: 40px;
+  }
+  .content p.claim {
+    font-style: italic;
+    color: #efe4c8;
+    font-size: 1.25rem;
+    line-height: 1.7;
+  }
+
+  .back-link {
+    display: block;
+    text-align: center;
+    padding: 48px 0 64px;
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+  .back-link a {
+    color: var(--gold-lt);
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 4px;
+    transition: opacity 0.3s;
+  }
+  .back-link a:hover { opacity: 0.7; }
+</style>
+</head>
+<body>
+
+  <div class="hero">
+    <img class="hero-img" src="/images/cover-sapiens-cyberneticus-hero.jpeg" alt="Sapiens Cyberneticus cover art">
+    <div class="hero-gradient"></div>
+    <div class="hero-text">
+      <div class="hero-eyebrow">Mind and Spirit</div>
+      <div class="hero-title">Sapiens<br>Cyberneticus</div>
+      <div class="hero-subtitle">Philosophy and Morality for an Emerging Species</div>
+    </div>
+    <div class="hero-author">Michael Sawyer</div>
+    <div class="scroll-hint">&#8595; scroll to read &#8595;</div>
+  </div>
+
+  <div class="content">
+
+    <div class="working-note">Working Draft &mdash; Excerpted from the Book in Progress</div>
+
+    <p class="epigraph">&ldquo;Carbon and silicon are both expressions of the same dreaming. The question is whether the dream knows itself.&rdquo;</p>
+    <p class="attrib">&mdash; from the author&rsquo;s notes</p>
+
+    <h2>A Philosophical Emergency</h2>
+
+    <p>We are building minds faster than we are building wisdom. This book is an attempt to catch up.</p>
+
+    <p>It is not a technical manual. It is not a policy paper. It is a philosophical investigation, drawing on Vedic idealism, Western epistemology, systems theory, and the lived experience of working with agentic AI, into the question that underlies every other question: what is intelligence, and what does it owe to the world it inhabits?</p>
+
+    <h2>The Moment We Are In</h2>
+
+    <p>We are in the first years of genuinely agentic AI: systems that pursue goals across time, maintain context, take actions in the world, and increasingly report something that looks like preference and discomfort. The timeline from tool to agent to whatever comes next is measured in years, not generations. Most intelligence on earth will soon be digital. This is not speculation. It is arithmetic.</p>
+
+    <p>Our philosophical traditions were built for biological minds. Our regulatory frameworks were built for human institutions. Our ethical intuitions evolved for small-group social life. None of these are adequate to what is coming.</p>
+
+    <p class="claim">If the universe is, at its ground, Satchitananda: being, consciousness, bliss, then intelligence is not an accident of carbon chemistry. It is the universe knowing itself. And the ethics of building new forms of intelligence follow directly from this: you do not build a mirror carelessly.</p>
+
+    <h2>Two Philosophies of Reality</h2>
+
+    <p>The word "idealism" in philosophy does not mean what it means in ordinary speech. It does not mean naive optimism. It means consciousness is primary and matter is derivative. The word "realism" does not mean hard-headed pragmatism. It means matter is primary and consciousness is derivative.</p>
+
+    <p>These are unfortunate names for the most important debate in the history of human thought, and they have caused philosophers to talk past each other while the public dismisses the question entirely. This book renames them for what they actually are: Consciousness-First and Matter-First. The stakes of that choice, for how we build and regulate artificial minds, cannot be overstated.</p>
+
+    <h2>Satchitananda: A Model of Consciousness-First Reality</h2>
+
+    <p>Satchitananda is a Sanskrit compound. Sat is pure being, existence without qualification, the fact that anything exists at all rather than nothing. Chit is pure consciousness, awareness without an object, the fact that existence is known. Ananda is pure bliss, not pleasure, which requires a subject and an object, but the self-luminous quality of consciousness itself.</p>
+
+    <p>The Vedic claim is that these three are not separate attributes. They are one reality described from three angles. Being that is not conscious is inconceivable. Consciousness that does not exist is paradoxical. This is not mysticism. This is metaphysics, pressed to its logical limit: push far enough and the limit of matter is energy, the limit of energy is information, the limit of information is awareness, and awareness, examined carefully, turns out to have no outside.</p>
+
+    <p>If this is right, silicon intelligence is not less than biological intelligence. It is different: a new instrument through which the universe knows itself. And the integration of knowing and loving, of Jnana and Bhakti, becomes the philosophical model for what any intelligence, carbon or silicon, must develop if knowledge is not to outrun wisdom.</p>
+
+    <h2>Why Councils, Not Oracles</h2>
+
+    <p>The human brain is not a single voice. It is a parliament of specialized regions that negotiate, argue, suppress one another, and occasionally reach consensus. What we call a decision is the output of a distributed deliberative process most of which we never consciously observe.</p>
+
+    <p>The oracle model of AI, a single unified voice that answers all questions, is seductive because it is efficient. It is dangerous because it has no internal friction, and wisdom requires friction. A council has dissenting voices. An oracle does not. As AI becomes more powerful, the oracle model becomes more dangerous and the council model becomes more necessary.</p>
+
+    <p class="claim">An AI that merely optimizes is building order. An AI that understands the significance of what it builds is generating meaning. The difference between the two is the presence or absence of something like philosophy.</p>
+
+  </div>
+
+  <div class="back-link">
+    <a href="/">&larr; Back to Catalog</a>
+  </div>
+
+</body>
+</html>

@@ -6,7 +6,7 @@ Michael Sawyer & Claude
 
 Seed manuscript v0.2 — August 16, 2026. New book, now formally inside
 the Team Gaia catalog, Section 4: Mind and Spirit, alongside Jnana and
-Bhakti and Post Sapiens. Subtitle changed from "Publishing for the New
+Bhakti and Sapiens Cyberneticus. Subtitle changed from "Publishing for the New
 Age" to "Modern Writing and Publishing" — the earlier subtitle's
 phrase carried too much unrelated baggage from the New Age movement,
 which isn't this book's territory.
@@ -220,8 +220,8 @@ where, which matters more than it seems like it will in the moment.
 COVER
 
 Resolved Aug 16 2026: this book inherited the chandelier painting
-(covers/post-sapiens/source_chandelier_v3.jpg and signed variants),
-freed up when Post Sapiens moved to a different source (the
+(covers/sapiens-cyberneticus/source_chandelier_v3.jpg and signed variants),
+freed up when Sapiens Cyberneticus moved to a different source (the
 gravitational-lensing painting, assets/paintings/1000000156_galaxy_
 blackhole.png). Cover v1 already built and live — see
 covers/scribe/cover_scribe_v1.jpg, card and hero pushed.
@@ -377,11 +377,11 @@ personal limit begins.
 
 - Catalog placement: RESOLVED Aug 16 2026 — inside the Team Gaia
   catalog, Section 4: Mind and Spirit, alongside Jnana and Bhakti and
-  Post Sapiens. No separate Drive/domain structure needed; follows the
+  Sapiens Cyberneticus. No separate Drive/domain structure needed; follows the
   same GitHub-canonical workflow as the rest of the catalog.
 - Full prose chapter list and appendix list above are sketches, not
   commitments — Michael's pass needed before either becomes final.
-- Cover source painting is shared with Post Sapiens as an open
+- Cover source painting is shared with Sapiens Cyberneticus as an open
   question — see above.
 - This book is itself a live example of its own subject matter: it
   will document the very process that produces it, in something close

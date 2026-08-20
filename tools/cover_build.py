@@ -226,7 +226,7 @@ PASTEL_GOLD_FOIL_STOPS = [
 # ============================================================================
 # SECTION 0B — DEFAULT FIRST-PASS RULES (added Aug 19 2026)
 # ============================================================================
-# Established after live comparison on the Post Sapiens galaxy/black-hole
+# Established after live comparison on the Sapiens Cyberneticus galaxy/black-hole
 # cover (light/pastel gold read cleaner than high-contrast against a dark
 # background — the opposite of what PASTEL_GOLD_FOIL_STOPS' original
 # comment above assumed). Codifies two defaults every first-pass cover

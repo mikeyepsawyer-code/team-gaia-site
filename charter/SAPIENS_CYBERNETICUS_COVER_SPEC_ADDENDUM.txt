@@ -1,24 +1,24 @@
-ADDENDUM to COVER_PRODUCTION_STANDARD_v3 -- Post Sapiens build (Section 5F)
+ADDENDUM to COVER_PRODUCTION_STANDARD_v3 -- Sapiens Cyberneticus build (Section 5F)
 
 STATUS (Aug 19 2026): SECTION 5F BELOW (chandelier, v1) IS SUPERSEDED.
-Post Sapiens now uses the galaxy/black-hole painting -- see SECTION 5G
+Sapiens Cyberneticus now uses the galaxy/black-hole painting -- see SECTION 5G
 below for the current approved spec. The chandelier painting was
 reassigned to Scribe. Section 5F is kept for historical reference only;
 do not rebuild from it.
 
 ===============================================================================
 
-SECTION 5G -- POST SAPIENS (v2 -- APPROVED August 19, 2026, current)
+SECTION 5G -- SAPIENS CYBERNETICUS (v2 -- APPROVED August 19, 2026, current)
 
-Card: /images/cover-post-sapiens-v2.jpeg
-Hero: /images/cover-post-sapiens-hero.jpeg
-Full-res master: /covers/post-sapiens/post_sapiens_cover_v2.jpg (1950x2850,
+Card: /images/cover-sapiens-cyberneticus-v2.jpeg
+Hero: /images/cover-sapiens-cyberneticus-hero.jpeg
+Full-res master: /covers/sapiens-cyberneticus/sapiens_cyberneticus_cover_v2.jpg (1950x2850,
   300dpi metadata embedded explicitly -- see PRINT NOTE below)
 
 SOURCE PAINTING
  File: source_galaxy_blackhole.png (spiral galaxy undergoing gravitational
    lensing beside a black hole; deep-space navy palette, no text)
- GitHub: /covers/post-sapiens/source_galaxy_blackhole.png
+ GitHub: /covers/sapiens-cyberneticus/source_galaxy_blackhole.png
    (copy of /assets/paintings/1000000156_galaxy_blackhole.png)
  Original dimensions: 2048x1536px (landscape)
  Text-free: YES
@@ -75,16 +75,16 @@ WEB ASSET SIZE: card exported at quality=60 (not the CARD_QUALITY=74
 
 ===============================================================================
 
-SECTION 5F -- POST SAPIENS (v1 -- chandelier, SUPERSEDED Aug 19 2026)
+SECTION 5F -- SAPIENS CYBERNETICUS (v1 -- chandelier, SUPERSEDED Aug 19 2026)
 
-Card: /images/cover-post-sapiens-v1.jpeg
-Archive: /covers/post-sapiens/post_sapiens_cover_v1.jpg
+Card: /images/cover-sapiens-cyberneticus-v1.jpeg
+Archive: /covers/sapiens-cyberneticus/sapiens_cyberneticus_cover_v1.jpg
 
 SOURCE PHOTO
  File: source_chandelier_v3.jpg (Michael's high-res close crop of the
    chandelier/lotus painting; signature already repositioned so the
    flourish rises into the gold above the jewels)
- GitHub: /covers/post-sapiens/source_chandelier_v3.jpg
+ GitHub: /covers/sapiens-cyberneticus/source_chandelier_v3.jpg
  Original dimensions: 1243x1866px
  Text-free: YES
 
@@ -120,7 +120,7 @@ GOLD EFFECTS PALETTE (colorways captured this session):
 
 FROZEN PARAMETERS
 
-TITLE -- "POST SAPIENS" (one line)
+TITLE -- "SAPIENS CYBERNETICUS" (one line)
  Cinzel 600, pt=300, tracking=14px
  Colorway: CLASSIC GOLD, angle=28, peak=0.5, spread=0.45, grain=0.05, seed=42
  Scaled to width=1600px, y=112, horizontally centered
