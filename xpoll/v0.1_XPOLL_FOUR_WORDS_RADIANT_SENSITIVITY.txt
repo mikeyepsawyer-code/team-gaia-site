@@ -1,0 +1,68 @@
+XPOLL — Radiant Sensitivity: THE FOUR WORDS (+ addendum)
+
+Aug 1, 2026 (drafted). Duplicated to xpoll/ Aug 21, 2026 during the
+Slow the Fuck Down Drive migration — this book only has a bare seed
+manuscript so far (created Aug 21, same session as this migration).
+Status: RED — pending Michael's review before merge.
+
+Source: charter/XPOLL_2026-08-01_four-words-icon.txt (full multi-book
+context).
+
+Proposed placement: reads as the literal mechanics of empathy, this
+book's core subject. Candidate placement near "The Ledger" chapter,
+where reciprocity is already the theme.
+
+-----
+
+[CLAUDE — draft, red pending approval despite being Claude-authored,
+per XPOLL protocol]
+
+PRIMARY PASSAGE:
+
+"Authenticity is the empath's first, least obvious discipline -- before
+you can feel with someone else, you have to stop editing what you feel
+yourself. Empathy is the skill this whole book is named for: the
+antenna tuned outward, picking up a field that isn't yours. Affection
+is what empathy becomes once it's been held long enough to warm --
+feeling-with, given time, turns into feeling-for. And reciprocity is
+the correction that keeps empathy from becoming exhaustion. An antenna
+that only receives eventually burns out; the current has to run both
+ways, or the empath simply drains. This is the whole arc of the book in
+four words: tune in, receive, warm, and let it flow back."
+
+ADDENDUM — EMPOWERED VS. UNINTEGRATED EMPATH (same session, Neuroticism
+material identified as doing real work here too — distinguishing the
+empowered empath from the empath who hasn't yet integrated their
+sensitivity):
+
+"There are two kinds of empath, and the difference is not sensitivity
+-- both have it in full. The difference is whether the four words are
+being run through Openness, Agreeableness, Extraversion, and
+Conscientiousness, or through Neuroticism.
+
+The empath who hasn't yet understood their superpower experiences their
+own four words exactly as Neuroticism predicts. Authenticity curdles
+into self-protective performance, because showing the real feeling once
+cost them and they haven't unlearned the flinch. Empathy tips into
+personal distress -- someone else's pain arrives undifferentiated from
+their own, so 'empathic' quietly becomes a synonym for 'overwhelmed.'
+Affection turns into anxious grasping, holding too tightly because the
+warmth feels too precious to trust. Reciprocity becomes compulsive
+ledger-keeping -- tracking every gift given and received because the
+felt debt never gets to settle, only accumulate.
+
+The empowered empath has the identical sensitivity and none of the
+distortion. Authenticity is simply available, not defended. Empathy
+stays empathy -- feeling with someone rather than flooded instead of
+them. Affection is warmth given freely because it costs nothing to give
+what you trust will return. Reciprocity settles, closes, doesn't need a
+spreadsheet.
+
+The work of this book was never to become more sensitive. You already
+are. The work is moving from the first kind of empath to the second --
+same antenna, different weather."
+
+-----
+
+NEXT STEP: awaiting Michael's approval to merge into the manuscript
+(once it has more than a bare seed), then delete this file.
