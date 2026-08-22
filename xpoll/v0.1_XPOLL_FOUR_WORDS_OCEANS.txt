@@ -1,0 +1,42 @@
+XPOLL — Oceans of Love: THE FOUR WORDS (v2, active draft, OCEAN model)
+
+Aug 1, 2026 (drafted, revised same session). Duplicated to xpoll/
+Aug 21, 2026 during the Slow the Fuck Down Drive migration.
+Status: RED — pending Michael's review before merge.
+
+Source: charter/XPOLL_2026-08-01_four-words-icon.txt (full multi-book
+context). This is the ACTIVE draft — a first pass leaned too hard on
+ocean metaphor and was replaced with this OCEAN-psychological-model
+version (Openness, Conscientiousness, Extraversion, Agreeableness,
+Neuroticism). Manuscript exists (manuscripts/oceans-of-love/) —
+candidate for direct insertion once Michael reviews.
+
+-----
+
+[CLAUDE — draft, red pending approval despite being Claude-authored,
+per XPOLL protocol]
+
+"OCEAN doesn't just name this book's model -- it names what these four
+words need from your psyche to work. Openness is what lets authenticity
+out: the willingness to be surprised by your own feeling before you
+edit it into something more presentable. Agreeableness is what carries
+empathy: the trait already tuned to register someone else's state
+before your own. Extraversion pushes affection outward into visible
+warmth; its opposite banks the same warmth and shows it more quietly,
+but it's the same current either way. Conscientiousness is what makes
+reciprocity reliable instead of accidental -- the follow-through that
+turns a felt debt into a settled one.
+
+Neuroticism doesn't enable anything. It's what makes all four harder to
+do honestly. High neuroticism turns authenticity into self-protective
+performance -- too anxious to show the real feeling. It turns empathy
+into personal distress -- someone else's pain becomes about managing
+your own spike rather than attending to them. It turns affection into
+anxious grasping instead of warmth freely given. It turns reciprocity
+into compulsive ledger-keeping instead of settling. Four traits build
+the instrument. The fifth is the headwind they're all working against."
+
+-----
+
+NEXT STEP: awaiting Michael's approval to merge into the manuscript,
+then delete this file.
