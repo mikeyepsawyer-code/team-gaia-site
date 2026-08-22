@@ -1,0 +1,31 @@
+XPOLL — The Subtle Art of Amore: THE FOUR WORDS
+
+Aug 1, 2026 (drafted). Duplicated to xpoll/ Aug 21, 2026 during the
+Slow the Fuck Down Drive migration.
+Status: RED — pending Michael's review before merge.
+
+Source: charter/XPOLL_2026-08-01_four-words-icon.txt (full multi-book
+context).
+
+Proposed placement: Ovidian mechanics reading, ties the four words to
+the book's existing "conversation about love, across 2000 years" frame.
+Manuscript exists (manuscripts/art-amore/) — candidate for direct
+insertion once Michael reviews.
+
+-----
+
+[CLAUDE — draft, red pending approval despite being Claude-authored,
+per XPOLL protocol]
+
+"Ovid never used these words, but he built his seductions on their
+order. Authenticity first -- the mask slips before anything real can
+pass between two people. Then empathy, the labor of imagining her
+hunger as vividly as your own. Affection follows empathy the way heat
+follows friction; it cannot be summoned first. And reciprocity is the
+whole argument of the Ars stripped of its cynicism: love that only
+flows one way isn't love, it's harvesting."
+
+-----
+
+NEXT STEP: awaiting Michael's approval to merge into the manuscript,
+then delete this file.
