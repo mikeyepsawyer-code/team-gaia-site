@@ -1,0 +1,30 @@
+XPOLL — Let's All Go to the Lobby: THE FOUR WORDS
+
+Aug 1, 2026 (drafted). Duplicated to xpoll/ Aug 21, 2026 during the
+Slow the Fuck Down Drive migration — this book has no manuscript yet,
+so this material waits here per XPOLL protocol.
+Status: RED — pending Michael's review before merge.
+
+Source: charter/XPOLL_2026-08-01_four-words-icon.txt (full multi-book
+context). "Authenticity, Empathy, Affection, Reciprocity" identified as
+a recurring icon across the catalog, re-inflected per book.
+
+Proposed placement: opening threshold passage, Nike's voice — positions
+the four words as the gateway crossed before the book begins.
+
+-----
+
+[CLAUDE — draft, red pending approval despite being Claude-authored,
+per XPOLL protocol]
+
+"Before the doors open, four words. Not virtues to practice -- a
+sequence to fall through. Authenticity: stop performing, even for
+yourself. Empathy: let someone else's field become visible. Affection:
+let the visibility warm you. Reciprocity: let the warmth move both
+directions until you can't find the seam. This is the lobby. Everything
+past this point assumes you've already crossed it once."
+
+-----
+
+NEXT STEP: no manuscript exists for this book yet. Once one is seeded,
+migrate this passage in as a dated candidate and delete this file.
