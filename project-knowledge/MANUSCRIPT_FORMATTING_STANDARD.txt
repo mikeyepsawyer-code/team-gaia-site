@@ -1,0 +1,80 @@
+TEAM GAIA — MANUSCRIPT FORMATTING STANDARD
+Established Aug 22, 2026. Applies catalog-wide to all interior
+manuscript formatting for print/ebook publication.
+
+═══════════════════════════════════════════════════════════════
+TYPOGRAPHY
+═══════════════════════════════════════════════════════════════
+
+TITLE
+  Font: Cinzel
+  Size: 28-32pt
+  Color: deep gold/copper (matches cover gold logic — dark bg gets
+  light/pastel gold, light bg gets dark copper gold)
+  Alignment: centered
+
+SUBTITLE
+  Font: Cinzel
+  Size: 16-18pt
+  Color: muted gold or charcoal
+  Alignment: centered
+
+QUOTE / EPIGRAPH
+  Font: Cormorant Garamond Italic (Parisienne reserved for short
+  standalone script moments — dedication pages, single-line epigraphs
+  — not body-adjacent quote blocks, which need to stay readable)
+  Size: 14-16pt
+  Color: charcoal, slightly muted
+  Alignment: centered
+
+BODY TEXT
+  Font: Cormorant Garamond (regular)
+  Size: 11-11.5pt
+  Color: near-black (not pure black)
+  Alignment: justified, hyphenation on
+
+CHAPTER OPENERS
+  Drop cap on first letter of chapter's opening paragraph.
+
+═══════════════════════════════════════════════════════════════
+PAGE GEOMETRY (6×9 trim, matching cover production standard)
+═══════════════════════════════════════════════════════════════
+
+  Outer margin: 0.75"
+  Top margin: 0.75"
+  Bottom margin: 0.75"
+  Inner (gutter) margin: 0.875-1" (accounts for binding)
+  Bleed safety: 0.125" from trim edge for any full-bleed elements
+  Background: plain white or warm cream stock
+
+═══════════════════════════════════════════════════════════════
+PAGE ELEMENTS
+═══════════════════════════════════════════════════════════════
+
+PAGE NUMBERS
+  Position: bottom center
+
+TABLE OF CONTENTS
+  Auto-generated from chapter/part headings, placed after title/
+  copyright page, before opening material or Part I.
+
+RUNNING HEADERS (mirrored, odd/even)
+  Left leaf (verso): book title
+  Right leaf (recto): current chapter title
+
+═══════════════════════════════════════════════════════════════
+SCOPE OF WHAT GETS FORMATTED
+═══════════════════════════════════════════════════════════════
+
+Only settled manuscript content is formatted for publication —
+title, subtitle, front matter, parts, chapters, body text. Editorial
+scaffolding (CANDIDATE MATERIAL / XPOLL blocks, DRAFT NOTES, version
+changelogs) stays in the GitHub-canonical working file but is
+excluded from formatted publication drafts until placed.
+
+═══════════════════════════════════════════════════════════════
+APPLIES TO
+═══════════════════════════════════════════════════════════════
+
+Catalog-wide default. First applied: Slow the Fuck Down (Aug 22 2026).
+Next candidates to mirror this standard: Scribe, Sapiens Cyberneticus.
