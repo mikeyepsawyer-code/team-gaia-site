@@ -528,7 +528,11 @@ WHAT THIS IS DOING
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Chapter 18 — The Refractory Period Surrenders
+Chapter 18 — The Threshold
+
+[EDIT, Aug 21 2026 — per STFD_EDITORIAL_NOTES_v1, June 14 2026: trimmed
+and renamed as recommended, detailed neurology handed off to Fountain
+of Youth.]
 
 At around 120 orgasms per hour — the lower end of supragasm — something changes in the physiology that is easy to miss if you're focused only on technique.
 
@@ -536,39 +540,23 @@ The refractory period begins to lose its grip.
 
 At 120, it is already uncertain. Confused. It keeps arriving to do its job and finding the next orgasm already underway. By 150 it has become vestigial. By 180 it is gone.
 
-What this means practically is that the four classic phases of orgasm — excitement, plateau, release, resolution — which normally proceed sequentially, begin to lose their separateness. The resolution of one orgasm is no longer distinct from the excitement of the next. They blur together. And then, at the higher end of supragasm and into hypergasm, plateau and resolution are progressively eliminated, leaving only excitement and release, excitement and release, in an accelerating and almost vertical rhythm.
-
-The refractory period is a safety valve. It is not merely inconvenient. It is the brain's mechanism for regulating the intensity of the entrained state. Without it, the entrainment has no natural ceiling.
-
-This is why I am emphatic about the slow accumulation of tolerance. You are training her nervous system to handle states that it was not designed to handle. The rate at which tolerance develops is not arbitrary — it reflects the rate at which her nervous system is actually reorganizing itself.
-
-Be patient with the process.
+What the loss of the refractory period means neurologically, and why it matters for the safety and integration of the practice, is the subject of the third book in this series — Fountain of Youth. If you find yourself at this threshold, that book is the map you need.
 
 ---
 
-Chapter 19 — Defunding the Habitual Self
+Chapter 19 — The Face
+
+[EDIT, Aug 21 2026 — per STFD_EDITORIAL_NOTES_v1, June 14 2026: trimmed
+and renamed as recommended. One deviation from the original note: kept
+the "cage feels smaller" line rather than cutting it, since Chapter 21
+calls back to that exact phrase — cutting it here would have orphaned
+that reference.]
 
 When the brain entrains to orgasm — when the sensory, cognitive, and motor systems are all organized around this one phenomenon — the resources available for habitual mental processes diminish sharply.
 
-Rumination becomes impossible. The maintenance of the self-concept — the continuous inner narrative that constructs and upholds the sense of being a particular kind of person with a particular kind of history — becomes underfunded. The neurotic patterns that are normally maintained at low-level background cost are suddenly drawing resources that aren't there.
+She grins like a teenager. Decades melt from her face. The habitual anxieties are simply... quiet. The cage feels smaller once you have been outside it — hold onto that phrase, because it comes back in a few pages.
 
-She grins like a teenager. Decades melt from her face. The habitual anxieties are simply... quiet.
-
-This is among the most beautiful things I have witnessed in this practice. It is also the thing I want you to be most careful about.
-
-The suppression of neurosis during a long session is real. The sense of freedom and expansion she feels is genuine. The brain has actually, temporarily, reduced the cognitive resources available to maintain those habitual patterns.
-
-But the brain likes its patterns. When the orgasmic entrainment ends and the brain's resource allocation begins to normalize, those patterns return. Because she has been without them, and has experienced what existence is like without their weight, their return can feel qualitatively worse than their ordinary presence. The cage feels smaller once you have been outside it.
-
-This is the danger. Not of the session itself but of the aftermath.
-
-Two instructions:
-
-First, dose carefully. Short sessions of high-frequency work are safer than long ones. The degree of neural reorganization that occurs above 180 orgasms per hour, sustained for more than ten or fifteen minutes, is genuinely significant. This is an adult brain entering a developmental window it was not designed to repeatedly inhabit.
-
-Second, be present in the days following any deep session. The rebound, if it comes, will come quietly. She may simply feel flat, or anxious, or suddenly overwhelmed by the very patterns she was free of two days ago. Be available for that.
-
-What you are doing, at its best, is supporting integration — the gradual and permanent reduction of habitual suffering through repeated, carefully dosed exposure to the states in which that suffering cannot run. This is genuinely therapeutic. Approach it accordingly.
+The full mechanism behind this — what is actually happening in the brain, why it matters, how to integrate it, and how to avoid the pitfalls — is the subject of Fountain of Youth. What I will say here is only this: when you see that face, you have arrived somewhere significant. Treat it accordingly.
 
 ---
 
@@ -677,6 +665,151 @@ of ecstatic intimacy."
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
+
+
+═══════════════════════════════════════════════════════════════
+CANDIDATE MATERIAL — Drive migration batch, Aug 21 2026
+Five previously Drive-only fragments, reviewed and integrated per
+Michael's direction. All below are candidate/pending final placement
+within chapters — currently appended, not yet threaded into the body.
+
+── FROM: XPOLL_FOUR_WORDS_STFD (orig. Aug 1 2026) ──
+[MICHAEL/CLAUDE — see charter/XPOLL_2026-08-01_four-words-icon.txt for
+full multi-book context. Cross-referenced versions for Let's All Go to
+the Lobby, The Subtle Art of Amore, Oceans of Love, and Radiant
+Sensitivity have been duplicated to xpoll/ rather than placed here.]
+
+Candidate placement: Part II (The Subtle Kingdom) or a short bridging
+chapter, alongside the rim-caress material below.
+
+"You cannot rush any of these. Authenticity takes as long as it takes to
+stop lying to your own body. Empathy takes longer -- you have to
+actually wait for another person's signal instead of assuming it.
+Affection arrives on its own schedule, never yours. Reciprocity is the
+slowest of all, because it requires two nervous systems finding the
+same tempo. Try to speed through this list and you get its counterfeit:
+transaction wearing intimacy's clothes."
+
+── FROM: v0.1_STFD_EMOTIONAL_PROCESSING_FRAGMENT (orig. July 22 2026) ──
+Candidate placement: Part III, or a new short chapter bridging
+body-pacing and heart-pacing.
+
+Chapter [X] — Two Speeds, One Heart
+
+Slowing down isn't only a body practice. It's a heart practice too, and
+the two sexes tend to arrive at the heart on different clocks.
+
+There's decent evidence that women read an emotional moment faster than
+men do -- quicker at recognizing what's on a face, quicker at naming a
+feeling in the room. Not a massive gap, and not true of every woman
+against every man, but real enough to show up again and again across
+studies. Men, for our part, often arrive a beat later. Not because we
+don't feel it -- because the translation from felt-sense to speech
+takes us longer to complete.
+
+I know this one from the inside. My wife will ask me something that
+matters, and I'll go quiet while I try to find the actual shape of what
+I feel before I say something half-formed. To her, in that gap, it can
+look like I don't care, or that I think the question was stupid. It's
+neither. It's just a slower road from the feeling to the sentence.
+
+Here's the part I can't hand you a study for, though I believe it from
+experience: once a man does arrive, he may stay a while. Longer
+engagement, more turning-over, less rushing back out. I went looking
+for research that would confirm this directly and didn't find it -- the
+closest evidence actually points the other way in a related domain
+(women ruminate somewhat more than men, on average). So take the "men
+go deeper once they're in" idea as mine, offered from the inside of a
+marriage, not as settled science. I'd rather tell you honestly what
+I've lived than dress up a guess in a lab coat.
+
+What this means practically: if you're the one who gets there first,
+the kindest thing you can do is hold the silence instead of filling it.
+Give the gap the time it needs. What looks like distance is often just
+distance being crossed -- slowly, on foot, without shortcuts.
+
+── FROM: STFD_FRAGMENT_0711_POLYGASM_PATHS (orig. July 11 2026) ──
+[Cross-pollination candidates from the original routing notes --
+refiner's fire/molten gold, and the "circumvents the tenfold path"
+line -- have been duplicated to xpoll/ for Kintsugi, Cultivating Chi,
+and Fountain of Youth respectively. This is the STFD-core portion.]
+
+Candidate placement: thesis material, likely Part I or as a framing
+passage near the book's opening argument.
+
+"If we want to go deep into polygasm; deep into ecstasy; there are
+paths that are helpful. When we find the will and permission to let go
+of suffering. We soften boundaries, both in ourselves and through our
+partner. When we let go of particularity and join together as a shared
+identity. We will be each other's 'external disruptor.' We come
+together as ions, and join together in a dance of covalence.
+
+Polygasm is a very strong and immediate path. Akin to 'sudden
+revelation'; it circumvents the tenfold path.
+
+The highest type of transformation is transfiguration. The
+philosopher's stone; spiritual alchemy. To go through the refiner's
+fire and burn off the slag, leaving pure molten gold. Polygasm burns
+off the habitual stress and suffering which tends to accumulate over a
+lifetime. But our neuroses are part of our assumed identity, so we need
+to be careful how quickly we defund them and overwrite them with better
+programming.
+
+If we do this, I'll concentrate on drawing you out of your shell and
+leading you through ecstasy. We will feel each other's aura, and
+practice touch at a distance. This sensitivity allows us to bond
+deeply, to unify together. We will emancipate ourselves from our
+assumed identity; from the mental model of material; from our
+forefathers' dogmas."
+
+── FROM: STFD_FRAGMENTS (orig. July 8/9 2026, sorted from a Radiant
+Sensitivity session) ──
+Candidate placement: wherever it fits naturally, likely near other
+relational-priority material.
+
+"Happy life, happy wife; not the other way around. Don't try to make
+her happy; don't try to make her come. Instead make a happy life; a
+happy union, and she will unfold."
+
+── RIM CARESS — DELTA, Aug 21 2026 ──
+Per XPOLL_RIM_CARESS (orig. July 27 2026): the core "unstruck bell"
+concept is already woven into Chapter 4 (Bing and Bong). What follows
+is the material from that XPOLL doc NOT already covered there -- the
+broader full-body technique framing, generalized beyond the labia, plus
+the original practice notes.
+
+[MICHAEL — verbatim, per XPOLL_RIM_CARESS]
+
+TECHNIQUE: SINGING THE BOWL
+
+"A struck bell is loudest at the first instant and dies from there. A
+rim-caressed bowl is the opposite instrument: it starts from silence
+and builds. The tone rises only if the hand refuses to hurry, keeps
+unbroken contact, and circles at the speed the bowl asks for rather
+than the speed the hand prefers. Press too hard and it chokes. Move too
+fast and it stutters. Stay slow, stay continuous, and the whole vessel
+begins to sing from everywhere at once.
+
+This is the book's entire argument, holdable in one hand. Percussive
+touch gets an immediate loud response that immediately fades.
+Sustained, slow, circumferential contact builds resonance that does not
+fade, because it is being continuously fed. The body is the bowl.
+Speed is the strike. Slowness is the rim. A partner's body approached
+percussively flinches and peaks and is finished. The same body,
+circled patiently, unbroken contact, no destination, begins after some
+minutes to hum from everywhere at once. Nothing was struck. Everything
+is singing.
+
+Practice notes: begin literally, with an actual singing bowl if one is
+in the house, to teach the hand what sustained coaxing feels like. Then
+translate: same pressure discipline, same continuity, same surrender of
+tempo to the instrument. The measure of success is not intensity but
+duration of resonance."
+
+Candidate placement: this is broader than Ch4's labia-specific
+application -- worth its own short section or technique callout, likely
+in Part I or as a bridge into Part II, since it generalizes the
+principle across the whole body rather than one structure.
 
 DRAFT NOTES FOR v0.5:
 
