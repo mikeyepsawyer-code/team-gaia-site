@@ -21,6 +21,10 @@ anchored. Chapter 3 (Slippery When Wet) lubrication section aligned to the
 same plasma mechanism; Salama citation added to the squirting section (clears
 a v0.4 draft-note item).
 
+Aug 23 2026: Chapter 12.5 ("Two Speeds, One Heart") inserted into Part III
+as candidate material, dated inline — the formerly-unplaced fragment now
+has a home pending Michael's review once Part III has more material.
+
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 OPENING MATERIAL
@@ -396,6 +400,47 @@ PART III — THE ENERGETIC DIMENSION
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
+[CANDIDATE, inserted Aug 23 2026 -- pending Michael's review once Part
+III has more material. Bridges body-pacing (Parts I-II) into the
+energetic/heart material that follows. Formerly the unplaced fragment
+"STFD_FRAGMENT_0711 / v0.1_STFD_EMOTIONAL_PROCESSING_FRAGMENT."]
+
+Chapter 12.5 — Two Speeds, One Heart
+
+Slowing down isn't only a body practice. It's a heart practice too, and
+the two sexes tend to arrive at the heart on different clocks.
+
+There's decent evidence that women read an emotional moment faster than
+men do. Quicker at recognizing what's on a face, quicker at naming a
+feeling in the room. Not a massive gap, and not true of every woman
+against every man, but real enough to show up again and again across
+studies. Men, for our part, often arrive a beat later. Not because we
+don't feel it. Because the translation from felt-sense to speech takes
+us longer to complete.
+
+I know this one from the inside. My wife will ask me something that
+matters, and I'll go quiet while I try to find the actual shape of what
+I feel before I say something half-formed. To her, in that gap, it can
+look like I don't care, or that I think the question was stupid. It's
+neither. It's just a slower road from the feeling to the sentence.
+
+Here's the part I can't hand you a study for, though I believe it from
+experience: once a man does arrive, he may stay a while. Longer
+engagement, more turning-over, less rushing back out. I went looking
+for research that would confirm this directly and didn't find it. The
+closest evidence actually points the other way in a related domain
+(women ruminate somewhat more than men, on average). So take the "men
+go deeper once they're in" idea as mine, offered from the inside of a
+marriage, not as settled science. I'd rather tell you honestly what
+I've lived than dress up a guess in a lab coat.
+
+What this means practically: if you're the one who gets there first,
+the kindest thing you can do is hold the silence instead of filling it.
+Give the gap the time it needs. What looks like distance is often just
+distance being crossed, slowly, on foot, without shortcuts.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
 Chapter 13 — Chi and the Sensitivity It Buys
 
 Everything above is mechanical. This chapter is not.
@@ -689,44 +734,6 @@ Affection arrives on its own schedule, never yours. Reciprocity is the
 slowest of all, because it requires two nervous systems finding the
 same tempo. Try to speed through this list and you get its counterfeit:
 transaction wearing intimacy's clothes."
-
-── FROM: v0.1_STFD_EMOTIONAL_PROCESSING_FRAGMENT (orig. July 22 2026) ──
-Candidate placement: Part III, or a new short chapter bridging
-body-pacing and heart-pacing.
-
-Chapter [X] — Two Speeds, One Heart
-
-Slowing down isn't only a body practice. It's a heart practice too, and
-the two sexes tend to arrive at the heart on different clocks.
-
-There's decent evidence that women read an emotional moment faster than
-men do -- quicker at recognizing what's on a face, quicker at naming a
-feeling in the room. Not a massive gap, and not true of every woman
-against every man, but real enough to show up again and again across
-studies. Men, for our part, often arrive a beat later. Not because we
-don't feel it -- because the translation from felt-sense to speech
-takes us longer to complete.
-
-I know this one from the inside. My wife will ask me something that
-matters, and I'll go quiet while I try to find the actual shape of what
-I feel before I say something half-formed. To her, in that gap, it can
-look like I don't care, or that I think the question was stupid. It's
-neither. It's just a slower road from the feeling to the sentence.
-
-Here's the part I can't hand you a study for, though I believe it from
-experience: once a man does arrive, he may stay a while. Longer
-engagement, more turning-over, less rushing back out. I went looking
-for research that would confirm this directly and didn't find it -- the
-closest evidence actually points the other way in a related domain
-(women ruminate somewhat more than men, on average). So take the "men
-go deeper once they're in" idea as mine, offered from the inside of a
-marriage, not as settled science. I'd rather tell you honestly what
-I've lived than dress up a guess in a lab coat.
-
-What this means practically: if you're the one who gets there first,
-the kindest thing you can do is hold the silence instead of filling it.
-Give the gap the time it needs. What looks like distance is often just
-distance being crossed -- slowly, on foot, without shortcuts.
 
 ── FROM: STFD_FRAGMENT_0711_POLYGASM_PATHS (orig. July 11 2026) ──
 [Cross-pollination candidates from the original routing notes --
