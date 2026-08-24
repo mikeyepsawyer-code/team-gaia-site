@@ -1,0 +1,33 @@
+SITE BUILD STANDARD — MINIMUM BODY TEXT SIZE
+Added August 24, 2026, after the Library Index readability fix.
+
+THE PROBLEM
+The Library Index list on the homepage was set at font-size: 1.15rem,
+and on an actual phone screen it read noticeably smaller and harder to
+scan than the surrounding elements, even though 1.15rem looks
+reasonable in isolation on a design tool or desktop preview.
+
+THE FIX
+Library Index body text raised to font-size: 1.4rem, with the two
+longest lines shortened alongside the resize so the larger text still
+fits comfortably on one line at phone widths:
+  - "Body in Motion — chi, sacred geometry"
+  - "Mind and Spirit — knowledge and love"
+
+THE STANDARD, GOING FORWARD
+1.4rem is now the floor for any body/list/caption text on the site —
+not just the Library Index. Do not set new text below this size
+without checking it on an actual phone render first (a LibreOffice or
+desktop-browser preview is not a reliable judge of mobile
+readability). If a design needs text smaller than 1.4rem to fit,
+shorten the copy first rather than shrinking the font.
+
+Does not apply to: fine print that's meant to read as fine print
+(e.g. small captions under a cover thumbnail), or text explicitly
+sized via clamp() for responsive hero titles (see the companion
+standard, SITE_BUILD_STANDARD_hero_title_text_sizing.txt) — those
+already have their own sizing logic.
+
+APPLIES TO: any body-style paragraph, list, or caption text added to
+index.html or any preview page going forward. Check existing preview
+pages for text below 1.4rem — NOT YET AUDITED, check next session.
