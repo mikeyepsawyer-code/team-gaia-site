@@ -1,0 +1,54 @@
+SITE BUILD STANDARD — GRID ITEM TEXT OVERFLOW (CSS GRID MIN-WIDTH TRAP)
+Added August 25, 2026, after the Library Index section-title overflow
+incident.
+
+THE PROBLEM
+A section-divider title ("The Anahata Heart", later "Philosophy/
+Psychology") was set with a fixed font-size (2.1rem), wide
+letter-spacing, and text-transform: uppercase (inherited from the
+.section-label base class), placed as a direct child of a CSS Grid
+container via grid-column: 1/-1. On a phone screen the text ran off
+the right edge of the viewport instead of wrapping — and worse, it
+dragged the ENTIRE grid wider than the viewport, throwing off
+everything else in that grid (cards appeared off-center, oversized).
+
+ROOT CAUSE
+CSS Grid items default to min-width: auto, which resolves to the
+item's min-content size — for text, that's roughly the width of its
+longest unbreakable run. "Philosophy/Psychology" has no space
+character (only a slash), so the browser had no wrap opportunity and
+the grid track was forced to grow to fit the whole word, pulling the
+rest of the grid wider than the screen with it. A fixed rem font-size
+made this worse by giving that unbreakable run more raw width to
+begin with.
+
+THE FIX — apply ALL of these together to any text placed inside a
+CSS Grid with grid-column: 1/-1 (or any grid item generally):
+ 1. min-width: 0;  — the single most important line. Overrides the
+    default min-content floor and lets the item actually shrink/wrap
+    within its track instead of forcing the track to grow.
+ 2. width: 100%; box-sizing: border-box; padding: 0 [some value]px;
+    — gives the text a hard, predictable container to wrap within.
+ 3. overflow-wrap: break-word; word-break: break-word; — safety net
+    for any single unbreakable run that's still too wide even after
+    (1) and (2).
+ 4. font-size as a responsive clamp(), not a fixed rem — e.g.
+    clamp(1.3rem, 6vw, 2.2rem) — so it scales down on narrow phones
+    rather than relying on wrapping alone to save it.
+
+FURTHER LESSON, same incident: forcing a deliberate two-line break
+with <br> (splitting a title into two shorter phrases, e.g. "The
+Heart" / "of Anahata") is a legitimate and often better alternative
+to fighting for single-line width — it sidesteps the whole
+overflow risk AND allows a noticeably larger font-size, since each
+line only has to fit half the text. Consider this before reaching for
+ever-smaller clamp() minimums on a long title.
+
+APPLIES TO: any title, label, or caption placed as a direct child of
+a CSS Grid container anywhere on the site, present or future. Check
+existing preview pages for the same pattern (fixed font-size + no
+min-width: 0 + grid-column: 1/-1) — NOT YET AUDITED, check next
+session. See also the companion standard for hero titles,
+SITE_BUILD_STANDARD_hero_title_text_sizing.txt — that one covers a
+related but distinct problem (mobile browser font-boosting on
+absolutely-positioned titles, not CSS Grid track sizing).
