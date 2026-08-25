@@ -1,0 +1,70 @@
+SITE BUILD STANDARD — DECORATIVE MOTIF LANGUAGE & SPACING RHYTHM
+Added August 25, 2026, after the fine-tooth-comb pass on index.html.
+
+THE STAR MOTIF (&#10022;, ✦)
+Established today as the site's flanking-decoration glyph, used two
+ways at two different scales:
+  - List-flanking (subtle): font-size: 0.6em of the text it flanks,
+    color rgba(196,146,42,0.7), either side of a centered line, with
+    &nbsp;&nbsp; spacing rather than a hard margin. Used in the
+    Library Index list.
+  - Section-title-flanking (bold): font-size clamp(1.4rem, 6vw, 2.4rem),
+    color rgba(196,146,42,0.75), placed either side of a stacked
+    two-line title inside a flex container (display:flex; align-
+    items:center; justify-content:center; gap:14px) so the star sits
+    vertically centered against the full two-line block, not against
+    either line individually. Used on all four in-grid section titles.
+Use this glyph, at the appropriate scale, anywhere a similar
+flanking-decoration need comes up, rather than introducing a new
+symbol — the diamond (already used in rule-flourish) and the star are
+now the two established ornamental marks on this site. Don't add a
+third without a reason.
+
+SPACING RHYTHM: LIGHT WITHIN A GROUP, HEAVY BETWEEN GROUPS
+The three hero eyebrow lines (Eclectic philosophy / Empathic
+psychology / Luminous sexuality) used to have a full rule-flourish
+(diamond, ~400px wide) between each one — visually, that made three
+closely-related words read as three separate sections. Fixed by
+snuggling them together (minimal margin, no flourish between them)
+and moving the one heavy diamond rule-flourish to AFTER the third
+line, where it actually does the job of separating the group from
+what comes next (the author bio block).
+
+The general principle, worth applying anywhere a cluster of related
+short items sits next to a heavier document structure: items within
+the same conceptual group get little or no visual separation (a thin
+1px line at most, or just spacing). The full rule-flourish is reserved
+for boundaries BETWEEN groups. Using the same heavy divider between
+every item flattens the hierarchy and makes a tight cluster read as
+loose and disconnected.
+
+PULL-QUOTE PLACEMENT
+The "Ecstasy is not hedonism..." quote sat, by what looks like
+historical accident of build order, at the very end of the adult
+section block — after the section title, after the ADULT TITLES
+videos, after the age-gate text. Moving it up to sit directly under
+the Somatic Ecstasy title (before the videos) put it next to the
+content it's actually doing rhetorical work for.
+General rule: when reorganizing or reviewing an existing page, check
+whether supporting quotes/pull-text are still adjacent to the content
+they're meant to support, rather than assuming their current position
+is intentional. Build order and narrative order aren't the same thing,
+and content that accumulates over several sessions is especially
+likely to have drifted.
+
+WHAT I STILL CAN'T DO: LOCAL VISUAL VERIFICATION
+Checked today whether a headless browser (Playwright) could render
+index.html at actual mobile viewport width and screenshot it before
+pushing, to catch overflow/sizing bugs without needing Michael's
+screenshot each time. Playwright the library installs fine, but the
+Chromium binary download is blocked by this environment's network
+allowlist (fails against deb.nodesource.com / the browser CDN) — not
+currently usable.
+Practical consequence: text-sizing and layout changes still need
+Michael's screenshot to actually confirm, the same way they did today
+across several rounds on this exact page. Compensating habit until
+that changes: when setting a responsive clamp() for text near a
+container edge, calculate the worst-case (longest word/phrase) width
+against a realistic phone viewport before pushing, rather than
+picking a size that "should" work — three of today's rounds were
+exactly this kind of avoidable miss.
