@@ -44,6 +44,26 @@ overflow risk AND allows a noticeably larger font-size, since each
 line only has to fit half the text. Consider this before reaching for
 ever-smaller clamp() minimums on a long title.
 
+DEFAULT RULE, added same day after a follow-up incident: section
+titles do not exceed two lines. When forcing a deliberate break with
+<br>, choose a split where BOTH resulting pieces are short enough to
+fit on one line at the chosen font size — don't just break once and
+assume it's handled. "The Heart<br>of Anahata" still overflowed to
+three lines because "of Anahata" itself was too wide at the size in
+use. The fix that day was two things together: a more conservative
+clamp() ceiling (2.8rem, not 3.6rem) so a ~10-11 character line
+reliably fits phone width, AND keeping overflow-wrap/word-break as a
+safety net even on deliberately-broken two-line titles — it's easy to
+rebuild a style string during a later edit and accidentally drop
+properties that aren't visually obvious were doing anything, until
+they're needed again.
+
+If a title's natural two-line split still doesn't fit at a reasonable
+size, shorten the copy or find a better break point rather than
+pushing the clamp ceiling back up — the two-line limit is the
+constraint to design within, not a target to defeat with a bigger
+font.
+
 APPLIES TO: any title, label, or caption placed as a direct child of
 a CSS Grid container anywhere on the site, present or future. Check
 existing preview pages for the same pattern (fixed font-size + no
