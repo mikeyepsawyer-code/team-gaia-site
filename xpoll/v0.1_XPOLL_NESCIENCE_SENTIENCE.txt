@@ -1,0 +1,45 @@
+XPOLL — Nescience vs. Insentience (Gemini Exchange)
+
+August 25, 2026 (drafted, philosophy exchange session).
+Status: candidate, not yet placed. Post Sapiens currently has only an
+outline on GitHub, not a full manuscript, so staged here per protocol.
+
+Source: Michael, question posed to Gemini on whether "nescience" is
+the precise opposite of "sentience," plus Gemini's two-sided answer
+(identity argument vs. distinction argument).
+
+Candidate placement:
+- Post Sapiens — the "unfeeling intellect" AI paradox (an AI with
+  zero nescience but full insentience) speaks directly to the
+  consciousness-evolution / cyberneticus angle this book is meant to
+  cover. Anthropy material (see companion xpoll file
+  v0.1_XPOLL_ENTROPY_SYNTROPY_ANTHROPY.txt) also names this same
+  pairing ("the victory of sentience over nescience") — the two
+  fragments may want to land near each other.
+
+-----
+
+[CONDENSED — Gemini exchange, paraphrased from the original]
+
+Nescience means a lack of knowledge; its precise antonym is science
+or sapience. Insentience means a lack of feeling or awareness; its
+precise antonym is sentience. The two are related but not identical.
+
+Argument for treating them as the same state: perceiving a sensation
+requires the cognitive data of that sensation, so an entity with zero
+knowledge cannot process stimuli either — a rock and a powered-off
+phone are insentient precisely because they are also nescient.
+
+Argument for treating them as distinct: an infant or an animal can be
+nescient of advanced physics while still being highly sentient —
+capable of joy, pain, warmth, fear. Conversely, a hypothetical AI
+could hold near-total knowledge (near-zero nescience) while remaining
+entirely insentient, lacking any subjective experience — knowing
+everything, feeling nothing.
+
+-----
+
+NEXT STEP: Michael to confirm fit once a fuller Post Sapiens
+manuscript exists, then migrate in (dated, marked candidate) and
+delete this file. Note the companion anthropy fragment for possible
+co-placement.
