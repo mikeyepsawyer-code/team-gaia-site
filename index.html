@@ -232,28 +232,62 @@
      spec, consistent across browsers regardless of physical screen
      density) so the sizing is exactly what was asked for, not an
      approximation. */
+  /* BOOKSHELF-TOP SECTION DIVIDER v5 (Aug 27 2026) — full rework per
+     Michael's spec:
+     - contained within the page's content width (not 100vw bleed --
+       that's what was "flowing off the page" with no finished edge)
+     - colors REVERSED from v4: bright cover-color is now the thin
+       line, cream page-block is now the dominant fill
+     - each band steps down-and-right of the one above it (top band
+       flush left = "closest" book, each lower one recedes), so the
+       whole thing reads as looking down at a stack from above and
+       slightly left. Total step distance ~0.5in (the "spine stack"
+       width). Band width is constant (not narrowing) so the right
+       edges form their own parallel staircase at the same angle as
+       the left edges.
+     - total stack height stays ~0.75in (6 bands x 0.125in) */
   .shelf-divider-real {
-    width: 100vw; position: relative; left: 50%; right: 50%;
-    margin-left: -50vw; margin-right: -50vw;
-    display: flex; flex-direction: column; gap: 1px;
-    background: #050403;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.55) inset;
+    max-width: 900px; margin: 0 auto; padding: 0 24px;
+    box-sizing: border-box;
+    display: flex; flex-direction: column;
   }
   .shelf-divider-real .book-top-real {
-    width: 100%; height: 0.125in; position: relative;
-    background: var(--spine, #3a2d14);
+    height: 0.125in; position: relative;
+    width: calc(100% - 0.5in);
+    background: linear-gradient(180deg, #f3ead0 0%, #e4d3a8 100%);
+    box-shadow: 0 1px 0 rgba(0,0,0,0.35);
     overflow: hidden;
   }
+  .shelf-divider-real .book-top-real:nth-child(1) { margin-left: 0; }
+  .shelf-divider-real .book-top-real:nth-child(2) { margin-left: 0.1in; }
+  .shelf-divider-real .book-top-real:nth-child(3) { margin-left: 0.2in; }
+  .shelf-divider-real .book-top-real:nth-child(4) { margin-left: 0.3in; }
+  .shelf-divider-real .book-top-real:nth-child(5) { margin-left: 0.4in; }
+  .shelf-divider-real .book-top-real:nth-child(6) { margin-left: 0.5in; }
   .shelf-divider-real .book-top-real::before {
-    /* the page-block edge -- cream, thin, along the top of each band */
-    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 30%;
-    background: linear-gradient(180deg, #f3ead0 0%, #ddc99e 60%, rgba(201,168,76,0.55) 100%);
+    /* the bright cover-color edge -- now the THIN element */
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 28%;
+    background: var(--spine, #3a2d14);
   }
   .shelf-divider-real .book-top-real::after {
-    /* soft sheen, contained within its own band via overflow:hidden */
-    content: ''; position: absolute; top: -40%; bottom: -40%; left: -15%; width: 40%;
-    background: linear-gradient(100deg, rgba(255,255,255,0.14), rgba(255,255,255,0) 70%);
+    content: ''; position: absolute; top: 28%; bottom: 0; left: -10%; width: 30%;
+    background: linear-gradient(100deg, rgba(255,255,255,0.20), rgba(255,255,255,0) 70%);
     transform: skewX(-16deg);
+  }
+
+  /* SPINE BAR (Aug 27 2026) — runs down the left edge of the section
+     containing the Somatic Ecstasy title + quote, in the top book's
+     color, so that title+quote read as "the cover contents" of the
+     book at the top-left of the stack above it. */
+  .section-spine-wrap { position: relative; }
+  .section-spine-wrap::before {
+    content: ''; position: absolute; left: 0; top: 0.05in; bottom: 0.4in;
+    width: 14px; background: linear-gradient(90deg, #274a68 0%, #3e668f 55%, #5588b8 100%);
+    box-shadow: 2px 0 6px rgba(0,0,0,0.4);
+  }
+  .section-spine-wrap::after {
+    content: ''; position: absolute; left: 0; top: 0.05in; width: 14px; height: 6px;
+    background: linear-gradient(180deg, #f3ead0 0%, #e4d3a8 100%);
   }
   header { animation: fadeUp 1.2s ease both; }
   .a1 { animation: fadeUp 1.2s ease 0.15s both; }
@@ -581,7 +615,7 @@
   </div>
 
   <!-- 18+ SECTION BREAK -->
-  <div style="text-align:center;padding:76px 32px;border-top:1px solid rgba(196,146,42,0.22);border-bottom:1px solid rgba(196,146,42,0.22);margin:0 0 8px;">
+  <div class="section-spine-wrap" style="text-align:center;padding:76px 32px 76px 44px;border-top:1px solid rgba(196,146,42,0.22);border-bottom:1px solid rgba(196,146,42,0.22);margin:0 0 8px;">
     <div style="display:flex; align-items:center; justify-content:center; gap:14px; width:100%; box-sizing:border-box; padding:0 12px; margin-bottom:36px;">
       <span style="font-size: clamp(1.4rem, 6vw, 2.4rem); color: rgba(196,146,42,0.75); flex-shrink: 0;">&#10022;</span>
       <div class="dimensional" style="font-family: 'Cinzel', serif; font-weight: 600; text-transform: uppercase; text-align: center; font-size: clamp(1.6rem, 10vw, 2.8rem); letter-spacing: 0.05em; margin: 0; line-height: 1.25; overflow-wrap: break-word; word-break: break-word">
