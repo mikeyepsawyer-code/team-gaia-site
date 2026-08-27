@@ -222,20 +222,22 @@ PASTEL_GOLD_FOIL_STOPS = [
     (1.00, (130, 100, 60)),
 ]
 
-# METALLIC BLUE FOIL (added Aug 27 2026) — same 7-stop chiseled structure
-# as STATIC_GOLD_FOIL_STOPS (single calm highlight band, symmetric shadow
-# ends) but in a cool steel/sapphire palette instead of warm gold. For
-# title treatments that want a metallic-but-not-gold read. Works with the
-# same apply_chiseled_gold()/scaled_gold_text() pipeline — pass these
-# stops in place of a gold constant; the "gold" in those function names
-# refers to the foil TECHNIQUE (angled metallic sweep), not the color.
+# METALLIC BLUE FOIL (Aug 27 2026, v2) — same chiseled-foil technique,
+# now with cerulean highlight bands flanking a warm yellow peak at
+# center (rather than a flat pale-blue peak) -- pulls the yellow/gold
+# tones out of the source photo into the title finish as the "hottest"
+# point of the sweep, cerulean as the secondary highlight, steel/navy
+# for the shadow ends. Same apply_chiseled_gold()/scaled_gold_text()
+# pipeline as before -- only the stop colors changed.
 METALLIC_BLUE_FOIL_STOPS = [
     (0.00, (8, 16, 34)),      # near-black navy shadow
-    (0.22, (28, 62, 118)),    # deep steel blue
-    (0.42, (72, 128, 196)),   # mid sapphire
-    (0.50, (196, 224, 250)),  # pale ice-blue highlight
-    (0.58, (72, 128, 196)),   # mid sapphire
-    (0.78, (28, 62, 118)),    # deep steel blue
+    (0.15, (28, 62, 118)),    # deep steel blue
+    (0.30, (40, 140, 180)),   # cerulean
+    (0.42, (100, 175, 205)),  # light cerulean
+    (0.50, (255, 226, 140)),  # warm yellow -- highest highlight
+    (0.58, (100, 175, 205)),  # light cerulean
+    (0.70, (40, 140, 180)),   # cerulean
+    (0.85, (28, 62, 118)),    # deep steel blue
     (1.00, (8, 16, 34)),      # near-black navy shadow
 ]
 
