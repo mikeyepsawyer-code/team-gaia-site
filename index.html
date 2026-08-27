@@ -208,23 +208,33 @@
      used as a section break between library sections instead of a
      plain rule. ~3/8" visual height via clamp so it holds proportion
      across phone sizes. */
-  .shelf-divider {
+  /* BOOKSHELF-TOP SECTION DIVIDER v2 (Aug 27 2026) — uses the SAME
+     page-top graphic as the real .hardcover::before treatment on every
+     card (cream page edge, gold rule line, subtle shading), repeated
+     across the width with a slight skew per unit so it reads as
+     looking down on a row of book-tops receding away from you, rather
+     than flat color swatches. */
+  .shelf-divider-real {
     width: 100vw; position: relative; left: 50%; right: 50%;
     margin-left: -50vw; margin-right: -50vw;
-    height: clamp(26px, 3.4vw, 40px);
-    display: flex;
-    background: linear-gradient(to bottom, #050403 0%, #0d0a07 100%);
-    box-shadow: 0 2px 6px rgba(0,0,0,0.5) inset;
+    height: clamp(30px, 4.2vw, 46px);
+    display: flex; align-items: stretch;
+    background: #050403;
     overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.55) inset;
   }
-  .shelf-divider .book-top {
+  .shelf-divider-real .book-top-real {
     flex: 1 1 0; height: 100%; position: relative;
-    border-right: 1px solid rgba(0,0,0,0.55);
+    transform: skewX(-14deg);
+    margin-left: -8px;
+    background:
+      linear-gradient(180deg, rgba(201,168,76,0.7) 0 2px, var(--spine2,#241b10) 2px 8px, rgba(240,231,205,0) 8px),
+      linear-gradient(0deg, rgba(50,38,16,0.45) 0, rgba(50,38,16,0) 65%),
+      linear-gradient(0deg, transparent 0 5px, rgba(175,160,120,0.5) 5px 6.4px, transparent 6.4px 11px, rgba(175,160,120,0.4) 11px 12.4px, transparent 12.4px),
+      linear-gradient(#ece3c8,#ece3c8);
+    box-shadow: 1px 0 0 rgba(0,0,0,0.5), 0 -1px 3px rgba(201,168,76,0.25);
   }
-  .shelf-divider .book-top::after {
-    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 35%;
-    background: linear-gradient(to bottom, rgba(255,255,255,0.10), rgba(255,255,255,0));
-  }
+  .shelf-divider-real .book-top-real:first-child { margin-left: -20px; }
   header { animation: fadeUp 1.2s ease both; }
   .a1 { animation: fadeUp 1.2s ease 0.15s both; }
   .a2 { animation: fadeUp 1.2s ease 0.30s both; }
@@ -541,15 +551,15 @@
     </div>
   </div>
 
-  <div class="shelf-divider">
-    <div class="book-top" style="background:#3e668f;"></div>
-    <div class="book-top" style="background:#77583e;"></div>
-    <div class="book-top" style="background:#2a2e56;"></div>
-    <div class="book-top" style="background:#505258;"></div>
-    <div class="book-top" style="background:#6e4c33;"></div>
-    <div class="book-top" style="background:#2f3d38;"></div>
-    <div class="book-top" style="background:#3d1f5c;"></div>
-    <div class="book-top" style="background:#576164;"></div>
+  <div class="shelf-divider-real">
+    <div class="book-top-real" style="--spine2:#1b2d40;"></div>
+    <div class="book-top-real" style="--spine2:#35271b;"></div>
+    <div class="book-top-real" style="--spine2:#14172c;"></div>
+    <div class="book-top-real" style="--spine2:#242427;"></div>
+    <div class="book-top-real" style="--spine2:#312216;"></div>
+    <div class="book-top-real" style="--spine2:#181f1d;"></div>
+    <div class="book-top-real" style="--spine2:#180b26;"></div>
+    <div class="book-top-real" style="--spine2:#272b2d;"></div>
   </div>
 
   <!-- 18+ SECTION BREAK -->
