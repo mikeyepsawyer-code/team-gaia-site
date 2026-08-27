@@ -57,6 +57,48 @@
   .hero-scroll span { display: block; font-size: 1.3rem; margin-top: 6px; }
   @keyframes pulse { 0%,100%{opacity:.4} 50%{opacity:.9} }
 
+  /* LISTEN CTA (hero) */
+  .listen-btn {
+    position: relative; z-index: 2; margin-bottom: 22px;
+    display: inline-flex; align-items: center; gap: 10px;
+    font-family: 'Cinzel', serif; font-size: 0.72rem; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--coral-light);
+    background: rgba(13,10,7,0.55); border: 1px solid rgba(232,137,106,0.55);
+    padding: 13px 26px; border-radius: 30px; cursor: pointer;
+    backdrop-filter: blur(2px); transition: all 0.25s ease;
+  }
+  .listen-btn:hover, .listen-btn.playing { background: var(--coral); color: var(--near-black); border-color: var(--coral); }
+  .listen-btn .play-glyph {
+    width: 22px; height: 22px; border-radius: 50%; border: 1.5px solid currentColor;
+    display: flex; align-items: center; justify-content: center; font-size: 0.65rem;
+    flex-shrink: 0;
+  }
+  .listen-btn.playing .play-glyph { font-size: 0.6rem; }
+
+  /* FLOATING PLAYER BAR */
+  .audio-bar {
+    position: fixed; left: 50%; bottom: 22px; transform: translate(-50%, 140%);
+    z-index: 50; display: flex; align-items: center; gap: 14px;
+    background: rgba(13,10,7,0.92); border: 1px solid rgba(232,137,106,0.4);
+    border-radius: 40px; padding: 10px 12px 10px 18px; max-width: 92vw;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.45);
+    transition: transform 0.4s ease;
+  }
+  .audio-bar.visible { transform: translate(-50%, 0); }
+  .audio-bar-label {
+    font-family: 'Cormorant Garamond', Georgia, serif; font-size: 0.85rem;
+    color: var(--coral-pale); opacity: 0.85; white-space: nowrap;
+    max-width: 46vw; overflow: hidden; text-overflow: ellipsis;
+  }
+  .audio-bar button {
+    width: 34px; height: 34px; border-radius: 50%; border: 1.5px solid var(--coral);
+    background: transparent; color: var(--coral-light); font-size: 0.9rem;
+    display: flex; align-items: center; justify-content: center; cursor: pointer;
+    flex-shrink: 0; padding: 0;
+  }
+  .audio-bar button:active { background: var(--coral); color: var(--near-black); }
+  .reading-active { background: rgba(232,137,106,0.14); border-radius: 4px; transition: background 0.3s ease; }
+
   /* INTRO HEADER */
   .book-header {
     text-align: center; padding: 80px 40px 40px;
@@ -139,7 +181,17 @@
 
   <div class="hero">
     <img src="/images/cover-slow-the-fuck-down.jpeg" alt="Slow the Fuck Down — Michael Sawyer">
+    <button id="listenBtn" class="listen-btn" type="button">
+      <span class="play-glyph">&#9654;</span>
+      <span id="listenBtnText">Listen to Free Chapters</span>
+    </button>
     <div class="hero-scroll">Read an excerpt<span>&#8964;</span></div>
+  </div>
+
+  <div id="audioBar" class="audio-bar" aria-hidden="true">
+    <button id="audioToggle" type="button" aria-label="Pause">&#10074;&#10074;</button>
+    <div id="audioLabel" class="audio-bar-label">Slow the Fuck Down</div>
+    <button id="audioStop" type="button" aria-label="Stop">&#10005;</button>
   </div>
 
   <div class="book-header">
@@ -209,6 +261,136 @@
     <p class="footer-note">A work in progress. More chapters as the book takes shape.</p>
     <a href="/" class="back-link">&#8592; Back to the Library</a>
   </div>
+
+  <script>
+  (function() {
+    if (!('speechSynthesis' in window)) {
+      var btn = document.getElementById('listenBtn');
+      if (btn) btn.style.display = 'none';
+      return;
+    }
+
+    // Build the read-aloud queue from the visible text, in document order.
+    var readEls = Array.prototype.slice.call(
+      document.querySelectorAll('.book-title, .book-subtitle, .section .lead, .section p, .part-marker, .chapter-title')
+    );
+
+    var segments = readEls.map(function(el) {
+      var text = el.textContent.replace(/\s+/g, ' ').trim();
+      if (el.classList.contains('chapter-title')) text = 'Chapter. ' + text + '.';
+      if (el.classList.contains('part-marker')) text = text + '.';
+      return { el: el, text: text };
+    }).filter(function(s) { return s.text.length > 0; });
+
+    var idx = 0;
+    var playing = false;
+    var voice = null;
+
+    function pickVoice() {
+      var voices = window.speechSynthesis.getVoices();
+      voice = voices.find(function(v) { return /en(-|_)(US|GB|AU|CA)/i.test(v.lang) && /female|en-us/i.test(v.name); })
+           || voices.find(function(v) { return /^en/i.test(v.lang); })
+           || voices[0] || null;
+    }
+    pickVoice();
+    if (window.speechSynthesis.onvoiceschanged !== undefined) {
+      window.speechSynthesis.onvoiceschanged = pickVoice;
+    }
+
+    var listenBtn = document.getElementById('listenBtn');
+    var listenBtnText = document.getElementById('listenBtnText');
+    var audioBar = document.getElementById('audioBar');
+    var audioToggle = document.getElementById('audioToggle');
+    var audioStop = document.getElementById('audioStop');
+    var audioLabel = document.getElementById('audioLabel');
+
+    function clearHighlight() {
+      segments.forEach(function(s) { s.el.classList.remove('reading-active'); });
+    }
+
+    function setUIPlaying(on) {
+      playing = on;
+      listenBtn.classList.toggle('playing', on);
+      listenBtnText.textContent = on ? 'Pause Narration' : 'Listen to Free Chapters';
+      listenBtn.querySelector('.play-glyph').innerHTML = on ? '&#10074;&#10074;' : '&#9654;';
+      audioBar.classList.toggle('visible', on);
+      audioBar.setAttribute('aria-hidden', on ? 'false' : 'true');
+      audioToggle.innerHTML = on ? '&#10074;&#10074;' : '&#9654;';
+      audioToggle.setAttribute('aria-label', on ? 'Pause' : 'Play');
+    }
+
+    function speakFrom(i) {
+      if (i >= segments.length) {
+        clearHighlight();
+        setUIPlaying(false);
+        idx = 0;
+        return;
+      }
+      idx = i;
+      var seg = segments[idx];
+      clearHighlight();
+      seg.el.classList.add('reading-active');
+      audioLabel.textContent = seg.el.classList.contains('chapter-title') ? seg.el.textContent : audioLabel.textContent;
+
+      var utt = new SpeechSynthesisUtterance(seg.text);
+      if (voice) utt.voice = voice;
+      utt.rate = 0.98;
+      utt.pitch = 1.0;
+      utt.onend = function() { if (playing) speakFrom(idx + 1); };
+      utt.onerror = function() { if (playing) speakFrom(idx + 1); };
+      window.speechSynthesis.speak(utt);
+    }
+
+    function startPlayback() {
+      window.speechSynthesis.cancel();
+      setUIPlaying(true);
+      audioLabel.textContent = 'Slow the Fuck Down';
+      speakFrom(idx || 0);
+    }
+
+    function pausePlayback() {
+      window.speechSynthesis.pause();
+      setUIPlaying(false);
+    }
+
+    function resumePlayback() {
+      setUIPlaying(true);
+      // Some Android/Chrome builds drop .resume() reliably; re-speak current segment as fallback.
+      if (window.speechSynthesis.paused) {
+        window.speechSynthesis.resume();
+      } else {
+        speakFrom(idx);
+      }
+    }
+
+    function stopPlayback() {
+      window.speechSynthesis.cancel();
+      clearHighlight();
+      setUIPlaying(false);
+      idx = 0;
+    }
+
+    listenBtn.addEventListener('click', function() {
+      if (!playing) {
+        if (window.speechSynthesis.paused && idx > 0) { resumePlayback(); }
+        else { startPlayback(); }
+      } else {
+        pausePlayback();
+      }
+    });
+
+    audioToggle.addEventListener('click', function() {
+      if (playing) { pausePlayback(); } else { resumePlayback(); }
+    });
+
+    audioStop.addEventListener('click', stopPlayback);
+
+    // If the tab is hidden for a while, mobile browsers can kill the utterance queue silently.
+    document.addEventListener('visibilitychange', function() {
+      if (document.hidden && playing) { pausePlayback(); }
+    });
+  })();
+  </script>
 
 </body>
 </html>
