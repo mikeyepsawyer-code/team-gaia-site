@@ -222,6 +222,23 @@ PASTEL_GOLD_FOIL_STOPS = [
     (1.00, (130, 100, 60)),
 ]
 
+# METALLIC BLUE FOIL (added Aug 27 2026) — same 7-stop chiseled structure
+# as STATIC_GOLD_FOIL_STOPS (single calm highlight band, symmetric shadow
+# ends) but in a cool steel/sapphire palette instead of warm gold. For
+# title treatments that want a metallic-but-not-gold read. Works with the
+# same apply_chiseled_gold()/scaled_gold_text() pipeline — pass these
+# stops in place of a gold constant; the "gold" in those function names
+# refers to the foil TECHNIQUE (angled metallic sweep), not the color.
+METALLIC_BLUE_FOIL_STOPS = [
+    (0.00, (8, 16, 34)),      # near-black navy shadow
+    (0.22, (28, 62, 118)),    # deep steel blue
+    (0.42, (72, 128, 196)),   # mid sapphire
+    (0.50, (196, 224, 250)),  # pale ice-blue highlight
+    (0.58, (72, 128, 196)),   # mid sapphire
+    (0.78, (28, 62, 118)),    # deep steel blue
+    (1.00, (8, 16, 34)),      # near-black navy shadow
+]
+
 
 # ============================================================================
 # SECTION 0B — DEFAULT FIRST-PASS RULES (added Aug 19 2026)
