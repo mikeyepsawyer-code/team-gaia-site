@@ -212,6 +212,64 @@
 <!-- webhook test Jul19 -->
 
 
+
+  <!-- GOLD SHIMMER TITLE EFFECT (assets/effects/gold-shimmer-snippet.html) —
+       applied automatically to large-format gold headings (section labels).
+       See that file for full usage notes / known limits before editing. -->
+  <style>
+    .dimensional {
+      position: relative;
+      display: block;
+      width: 100%;
+    }
+    .dimensional .face { position: relative; z-index: 10; }
+    .dimensional .shadow-copy,
+    .dimensional .rim-copy {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      white-space: normal;
+    }
+    .shadow-1 { color: rgba(110, 65, 24, 0.55);  transform: translate(1.5px, 1.5px); z-index: 4; }
+    .shadow-2 { color: rgba(74, 36, 24, 0.8);    transform: translate(3px, 3px);     z-index: 3; }
+    .shadow-3 { color: rgba(16, 8, 3, 0.9);      transform: translate(4.3px, 4.3px); z-index: 2; }
+    .rim-1 { color: rgba(240, 195, 90, 0.45);  transform: translate(-0.7px, -0.7px); z-index: 5; }
+    .rim-2 { color: rgba(250, 210, 110, 0.65); transform: translate(-1.4px, -1.4px); z-index: 6; }
+    .rim-3 { color: rgba(255, 225, 130, 0.85); transform: translate(-2.1px, -2.1px); z-index: 7; }
+    .shimmer-final {
+      background:
+        radial-gradient(circle at 15% 30%, rgba(255, 224, 180, 0.55) 0%, transparent 6%),
+        radial-gradient(circle at 62% 12%, rgba(232, 146, 60, 0.45) 0%, transparent 5%),
+        radial-gradient(circle at 82% 58%, rgba(255, 240, 200, 0.4) 0%, transparent 4%),
+        radial-gradient(circle at 34% 78%, rgba(180, 80, 50, 0.45) 0%, transparent 5%),
+        radial-gradient(circle at 92% 88%, rgba(255, 200, 140, 0.35) 0%, transparent 4%),
+        radial-gradient(circle at 8% 85%, rgba(216, 130, 55, 0.4) 0%, transparent 4%),
+        linear-gradient(
+          25deg,
+          #4a2418 0%, #7a4a1e 6%, #e6b64c 18%, #fff2c0 24%, #f2a13c 28%,
+          #c99435 36%, #7a4a1e 42%, #e6b64c 48%, #fff2c0 52%, #f2a13c 56%,
+          #c99435 62%, #6e4218 68%, #c99435 76%, #fff2c0 80%, #f2a13c 84%,
+          #6e4218 94%, #4a2418 100%
+        );
+      background-repeat: no-repeat;
+      background-attachment: scroll, scroll, scroll, scroll, scroll, scroll, fixed;
+      background-size:
+        100% 100%, 100% 100%, 100% 100%,
+        100% 100%, 100% 100%, 100% 100%,
+        1200px 220px;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+      animation: gold-shimmer-glow 5s ease-in-out infinite;
+    }
+    @keyframes gold-shimmer-glow {
+      0%   { filter: drop-shadow(0 0 3px rgba(210, 160, 80, 0.15)) drop-shadow(0 0 6px rgba(210, 160, 80, 0.08)); }
+      50%  { filter: drop-shadow(0 0 6px rgba(240, 195, 110, 0.28)) drop-shadow(0 0 12px rgba(240, 195, 110, 0.13)); }
+      100% { filter: drop-shadow(0 0 3px rgba(210, 160, 80, 0.15)) drop-shadow(0 0 6px rgba(210, 160, 80, 0.08)); }
+    }
+  </style>
 </head>
 <body>
 
@@ -264,7 +322,15 @@
        / Somatic Ecstasy (last). In-grid section titles below carry the
        same names but with more visual weight per Michael's direction. -->
   <section class="section a2" style="padding: 40px 24px 32px;">
-    <p class="section-label" style="font-size: clamp(2.0rem, 13vw, 3.4rem); margin-bottom: 32px; letter-spacing: 0.14em; line-height: 1.3;">Library<br>Sections</p>
+    <div class="dimensional" style="font-family: 'Cinzel', serif; font-weight: 600; text-transform: uppercase; text-align: center; font-size: clamp(2.0rem, 13vw, 3.4rem); margin-bottom: 32px; letter-spacing: 0.14em; line-height: 1.3">
+        <span class="shadow-copy shadow-3">Library<br>Sections</span>
+        <span class="shadow-copy shadow-2">Library<br>Sections</span>
+        <span class="shadow-copy shadow-1">Library<br>Sections</span>
+        <span class="rim-copy rim-1">Library<br>Sections</span>
+        <span class="rim-copy rim-2">Library<br>Sections</span>
+        <span class="rim-copy rim-3">Library<br>Sections</span>
+        <span class="face shimmer-final">Library<br>Sections</span>
+      </div>
     <div style="max-width: 480px; margin: 0 auto; text-align: center; font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(2.0rem, 2.8vw, 2.4rem); line-height: 2.1; color: rgba(230, 200, 140, 0.95); letter-spacing: 0.04em;">
       <p style="margin: 0;"><span style="color:rgba(196,146,42,0.7); font-size:0.6em; vertical-align:middle;">&#10022;</span>&nbsp;&nbsp;The Anahata Heart&nbsp;&nbsp;<span style="color:rgba(196,146,42,0.7); font-size:0.6em; vertical-align:middle;">&#10022;</span></p>
       <p style="margin: 0;"><span style="color:rgba(196,146,42,0.7); font-size:0.6em; vertical-align:middle;">&#10022;</span>&nbsp;&nbsp;Philosophy/Psychology&nbsp;&nbsp;<span style="color:rgba(196,146,42,0.7); font-size:0.6em; vertical-align:middle;">&#10022;</span></p>
@@ -278,7 +344,15 @@
 
       <div style="display:flex; align-items:center; justify-content:center; gap:14px; grid-column:1/-1; width:100%; box-sizing:border-box; padding:0 12px; margin-bottom:36px;">
         <span style="font-size: clamp(1.4rem, 6vw, 2.4rem); color: rgba(196,146,42,0.75); flex-shrink: 0;">&#10022;</span>
-        <p class="section-label" style="font-size: clamp(1.6rem, 10vw, 2.8rem); letter-spacing: 0.05em; margin: 0; line-height: 1.25; overflow-wrap: break-word; word-break: break-word;">The Heart<br>of Anahata</p>
+        <div class="dimensional" style="font-family: 'Cinzel', serif; font-weight: 600; text-transform: uppercase; text-align: center; font-size: clamp(1.6rem, 10vw, 2.8rem); letter-spacing: 0.05em; margin: 0; line-height: 1.25; overflow-wrap: break-word; word-break: break-word">
+        <span class="shadow-copy shadow-3">The Heart<br>of Anahata</span>
+        <span class="shadow-copy shadow-2">The Heart<br>of Anahata</span>
+        <span class="shadow-copy shadow-1">The Heart<br>of Anahata</span>
+        <span class="rim-copy rim-1">The Heart<br>of Anahata</span>
+        <span class="rim-copy rim-2">The Heart<br>of Anahata</span>
+        <span class="rim-copy rim-3">The Heart<br>of Anahata</span>
+        <span class="face shimmer-final">The Heart<br>of Anahata</span>
+      </div>
         <span style="font-size: clamp(1.4rem, 6vw, 2.4rem); color: rgba(196,146,42,0.75); flex-shrink: 0;">&#10022;</span>
       </div>
       <!-- The Art of Amōre — Preview -->
@@ -326,7 +400,15 @@
 
       <div style="display:flex; align-items:center; justify-content:center; gap:14px; grid-column:1/-1; width:100%; box-sizing:border-box; padding:0 12px; margin-bottom:36px;">
         <span style="font-size: clamp(1.4rem, 6vw, 2.4rem); color: rgba(196,146,42,0.75); flex-shrink: 0;">&#10022;</span>
-        <p class="section-label" style="font-size: clamp(1.6rem, 8vw, 2.8rem); letter-spacing: 0.05em; margin: 0; line-height: 1.25; overflow-wrap: normal; word-break: normal; white-space: normal;">Philosophy/ Psychology</p>
+        <div class="dimensional" style="font-family: 'Cinzel', serif; font-weight: 600; text-transform: uppercase; text-align: center; font-size: clamp(1.6rem, 8vw, 2.8rem); letter-spacing: 0.05em; margin: 0; line-height: 1.25; overflow-wrap: normal; word-break: normal; white-space: normal">
+        <span class="shadow-copy shadow-3">Philosophy/ Psychology</span>
+        <span class="shadow-copy shadow-2">Philosophy/ Psychology</span>
+        <span class="shadow-copy shadow-1">Philosophy/ Psychology</span>
+        <span class="rim-copy rim-1">Philosophy/ Psychology</span>
+        <span class="rim-copy rim-2">Philosophy/ Psychology</span>
+        <span class="rim-copy rim-3">Philosophy/ Psychology</span>
+        <span class="face shimmer-final">Philosophy/ Psychology</span>
+      </div>
         <span style="font-size: clamp(1.4rem, 6vw, 2.4rem); color: rgba(196,146,42,0.75); flex-shrink: 0;">&#10022;</span>
       </div>
       <!-- Sapiens Cyberneticus (formerly Sapiens Cyberneticus) -->
@@ -370,7 +452,15 @@
 
       <div style="display:flex; align-items:center; justify-content:center; gap:14px; grid-column:1/-1; width:100%; box-sizing:border-box; padding:0 12px; margin-bottom:36px;">
         <span style="font-size: clamp(1.4rem, 6vw, 2.4rem); color: rgba(196,146,42,0.75); flex-shrink: 0;">&#10022;</span>
-        <p class="section-label" style="font-size: clamp(1.6rem, 10vw, 2.8rem); letter-spacing: 0.05em; margin: 0; line-height: 1.25; overflow-wrap: break-word; word-break: break-word;">Chi and<br>the Body</p>
+        <div class="dimensional" style="font-family: 'Cinzel', serif; font-weight: 600; text-transform: uppercase; text-align: center; font-size: clamp(1.6rem, 10vw, 2.8rem); letter-spacing: 0.05em; margin: 0; line-height: 1.25; overflow-wrap: break-word; word-break: break-word">
+        <span class="shadow-copy shadow-3">Chi and<br>the Body</span>
+        <span class="shadow-copy shadow-2">Chi and<br>the Body</span>
+        <span class="shadow-copy shadow-1">Chi and<br>the Body</span>
+        <span class="rim-copy rim-1">Chi and<br>the Body</span>
+        <span class="rim-copy rim-2">Chi and<br>the Body</span>
+        <span class="rim-copy rim-3">Chi and<br>the Body</span>
+        <span class="face shimmer-final">Chi and<br>the Body</span>
+      </div>
         <span style="font-size: clamp(1.4rem, 6vw, 2.4rem); color: rgba(196,146,42,0.75); flex-shrink: 0;">&#10022;</span>
       </div>
       <!-- Cultivating Spiritual Energy — Preview -->
@@ -418,7 +508,15 @@
   <div style="text-align:center;padding:76px 32px;border-top:1px solid rgba(196,146,42,0.22);border-bottom:1px solid rgba(196,146,42,0.22);margin:0 0 8px;">
     <div style="display:flex; align-items:center; justify-content:center; gap:14px; width:100%; box-sizing:border-box; padding:0 12px; margin-bottom:36px;">
       <span style="font-size: clamp(1.4rem, 6vw, 2.4rem); color: rgba(196,146,42,0.75); flex-shrink: 0;">&#10022;</span>
-      <p class="section-label" style="font-size: clamp(1.6rem, 10vw, 2.8rem); letter-spacing: 0.05em; margin: 0; line-height: 1.25; overflow-wrap: break-word; word-break: break-word;">Somatic<br>Ecstasy</p>
+      <div class="dimensional" style="font-family: 'Cinzel', serif; font-weight: 600; text-transform: uppercase; text-align: center; font-size: clamp(1.6rem, 10vw, 2.8rem); letter-spacing: 0.05em; margin: 0; line-height: 1.25; overflow-wrap: break-word; word-break: break-word">
+        <span class="shadow-copy shadow-3">Somatic<br>Ecstasy</span>
+        <span class="shadow-copy shadow-2">Somatic<br>Ecstasy</span>
+        <span class="shadow-copy shadow-1">Somatic<br>Ecstasy</span>
+        <span class="rim-copy rim-1">Somatic<br>Ecstasy</span>
+        <span class="rim-copy rim-2">Somatic<br>Ecstasy</span>
+        <span class="rim-copy rim-3">Somatic<br>Ecstasy</span>
+        <span class="face shimmer-final">Somatic<br>Ecstasy</span>
+      </div>
       <span style="font-size: clamp(1.4rem, 6vw, 2.4rem); color: rgba(196,146,42,0.75); flex-shrink: 0;">&#10022;</span>
     </div>
     <p style="font-family:'Cormorant Garamond',Georgia,serif;font-size:2.5rem;line-height:1.5;font-style:italic;letter-spacing:0.04em;max-width:700px;margin:0 auto 40px;background:linear-gradient(135deg,#9a7020 0%,#c09030 15%,#e8c050 30%,#fff8c0 42%,#ffee80 50%,#e8c050 65%,#c09030 82%,#9a7020 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Ecstasy is not hedonism;<br>nor is it the enemy of wisdom.<br>True pleasure is nature&rsquo;s<br>oldest language.</p>
@@ -486,6 +584,25 @@
   <p class="footer-name" style="line-height:1.6;"><span style="font-size:2.4em;display:block;">Gaia Ridge</span><span style="font-size:0.62em;letter-spacing:0.08em;display:block;">team-gaia-site.pages.dev</span></p>
 </footer>
 
+
+  <!-- Drives the gold sweep for all .shimmer-final elements (see
+       assets/effects/gold-shimmer-snippet.html for notes). -->
+  <script>
+    (function () {
+      var travel = 300;
+      var period = 6000;
+      function frame(timestamp) {
+        var pos = -(travel / 2) * (1 - Math.cos((2 * Math.PI * timestamp) / period));
+        var value = '0 0, 0 0, 0 0, 0 0, 0 0, 0 0, ' + pos + 'px 0';
+        var els = document.querySelectorAll('.shimmer-final');
+        for (var i = 0; i < els.length; i++) {
+          els[i].style.backgroundPosition = value;
+        }
+        requestAnimationFrame(frame);
+      }
+      requestAnimationFrame(frame);
+    })();
+  </script>
 </body>
 </html>
 
