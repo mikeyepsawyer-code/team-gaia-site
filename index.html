@@ -200,7 +200,7 @@
   }
   @keyframes zoomTwist {
     0%   { transform: scale(1) rotate(0deg); }
-    100% { transform: scale(1.85) rotate(-3deg); }
+    100% { transform: scale(1.85) rotate(9deg); }
   }
 
   /* BOOKSHELF-TOP SECTION DIVIDER (Aug 27 2026) — a row of book spines
@@ -277,19 +277,22 @@
     box-shadow: 0 1px 0 rgba(0,0,0,0.3);
   }
 
-  /* SPINE BAR (Aug 27 2026) — runs down the left edge of the section
-     containing the Somatic Ecstasy title + quote, in the top book's
-     color, so that title+quote read as "the cover contents" of the
-     book at the top-left of the stack above it. */
+  /* SPINE SET v2 (Aug 27 2026) — was one spine, wrong width (14px,
+     ~2x too wide), didn't connect to the diagonal above, and had a
+     flat cream cap creating a right-angle "stairstep" where it met
+     the divider's 60deg line. Now: 6 spines (one per book), each
+     STEP-width (matches the divider's own per-band stagger, ~0.0722in)
+     so the geometry is consistent top-to-bottom. Each spine's top
+     edge is cut on the same 60deg diagonal via clip-path instead of
+     a flat horizontal cap. Left offset continues the same i*STEP
+     stagger the divider bands use, so book 0 (top of the stack,
+     farthest left) is also the frontmost spine here -- highest
+     z-index, leftmost position. */
   .section-spine-wrap { position: relative; }
-  .section-spine-wrap::before {
-    content: ''; position: absolute; left: 0; top: 0.05in; bottom: 0.4in;
-    width: 14px; background: linear-gradient(90deg, #274a68 0%, #3e668f 55%, #5588b8 100%);
-    box-shadow: 2px 0 6px rgba(0,0,0,0.4);
-  }
-  .section-spine-wrap::after {
-    content: ''; position: absolute; left: 0; top: 0.05in; width: 14px; height: 6px;
-    background: linear-gradient(180deg, #f3ead0 0%, #e4d3a8 100%);
+  .spine-bar {
+    position: absolute; top: 0; bottom: 0.4in; width: 0.0722in;
+    box-shadow: 1px 0 3px rgba(0,0,0,0.35);
+    clip-path: polygon(0 0, 100% 10px, 100% 100%, 0 100%);
   }
   header { animation: fadeUp 1.2s ease both; }
   .a1 { animation: fadeUp 1.2s ease 0.15s both; }
@@ -636,6 +639,12 @@
 
   <!-- 18+ SECTION BREAK -->
   <div class="section-spine-wrap" style="text-align:center;padding:76px 32px 76px 44px;border-top:1px solid rgba(196,146,42,0.22);border-bottom:1px solid rgba(196,146,42,0.22);margin:0 0 8px;">
+    <div class="spine-bar" style="left:0in; background:#3e668f; z-index:6;"></div>
+    <div class="spine-bar" style="left:0.0722in; background:#77583e; z-index:5;"></div>
+    <div class="spine-bar" style="left:0.1444in; background:#2a2e56; z-index:4;"></div>
+    <div class="spine-bar" style="left:0.2166in; background:#505258; z-index:3;"></div>
+    <div class="spine-bar" style="left:0.2888in; background:#6e4c33; z-index:2;"></div>
+    <div class="spine-bar" style="left:0.3610in; background:#3d1f5c; z-index:1;"></div>
     <div style="display:flex; align-items:center; justify-content:center; gap:14px; width:100%; box-sizing:border-box; padding:0 12px; margin-bottom:36px;">
       <span style="font-size: clamp(1.4rem, 6vw, 2.4rem); color: rgba(196,146,42,0.75); flex-shrink: 0;">&#10022;</span>
       <div class="dimensional" style="font-family: 'Cinzel', serif; font-weight: 600; text-transform: uppercase; text-align: center; font-size: clamp(1.6rem, 10vw, 2.8rem); letter-spacing: 0.05em; margin: 0; line-height: 1.25; overflow-wrap: break-word; word-break: break-word">
