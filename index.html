@@ -285,11 +285,11 @@
     background: linear-gradient(180deg, #f3ead0 0%, #e4d3a8 100%);
     box-shadow: 0 1px 0 rgba(0,0,0,0.3);
   }
-  .book-graphic .spine-set { position: relative; height: 150cqw; display: flex; flex-direction: column; justify-content: center; padding-left: 58px; box-sizing: border-box; text-align: center; flex-shrink: 0; }
+  .book-graphic .spine-set { position: relative; height: calc(150cqw - 76.215px); display: flex; flex-direction: column; justify-content: center; padding-left: 58px; box-sizing: border-box; text-align: center; flex-shrink: 0; }
   .book-graphic .spine-bar {
     position: absolute; bottom: 0; width: 16.94px;
     box-shadow: 1px 0 3px rgba(0,0,0,0.35);
-    clip-path: polygon(0 0, 6.29px 19.56px, 100% 29.33px, 100% calc(100% - 29.33px), calc(100% - 6.29px) calc(100% - 19.56px), 0 100%);
+    clip-path: polygon(0 0, 6.29px 19.56px, 100% 29.33px, 100% calc(100% - 29.33px), 6.29px calc(100% - 19.56px), 0 100%);
   }
   header { animation: fadeUp 1.2s ease both; }
   .a1 { animation: fadeUp 1.2s ease 0.15s both; }
