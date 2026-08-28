@@ -261,34 +261,35 @@
      Math: band height H=0.125in. angle=60deg from horizontal ->
      horizontal run per band = H / tan(60deg) = 0.0722in. That same
      0.0722in is the step between bands AND the slant within a band. */
-  .shelf-divider-real {
-    width: 100%; margin: 0; padding: 0;
-    box-sizing: border-box;
-    display: flex; flex-direction: column;
-  }
-  .stack-band { position: relative; height: 0.25in; width: 100%; }
-  .stack-band .band-cover {
-    position: absolute; top: 0; left: 0; width: 100%; height: 0.07in;
+  /* SECTION HEADER GRAPHIC (Aug 27 2026) — reusable "3 books, top view
+     + spines" component, now sized as a standalone header ornament
+     (220px design width) instead of a full-bleed page divider, so it
+     can be placed above each of the four library sections.
+     Spec: spine-section height = 1.5x the graphic's width (the
+     "bottom line of the top sandwich"), giving the classic 6:9 (2:3)
+     book proportion. Divider height is a proportionate cap (0.4x
+     width) sitting above that, with the spines poking up into it by
+     varying amounts to meet their own book's diagonal -- that poke-up
+     is extra, not counted in the 1.5x spine-section height itself.
+     All three books use the same STEP/bandH ratio (tan 60deg) as
+     before, just recomputed for a 220px design width. */
+  .book-graphic { width: 220px; max-width: 100%; margin: 0 auto; }
+  .book-graphic .divider { width: 100%; display: flex; flex-direction: column; }
+  .book-graphic .stack-band { position: relative; height: 29.33px; width: 100%; }
+  .book-graphic .band-cover {
+    position: absolute; top: 0; left: 0; width: 100%; height: 8.21px;
     background: var(--spine, #3a2d14);
   }
-  .stack-band .band-pages {
-    position: absolute; top: 0.07in; left: 0; width: 100%; height: 0.18in;
+  .book-graphic .band-pages {
+    position: absolute; top: 8.21px; left: 0; width: 100%; height: 21.12px;
     background: linear-gradient(180deg, #f3ead0 0%, #e4d3a8 100%);
     box-shadow: 0 1px 0 rgba(0,0,0,0.3);
   }
-
-  /* SPINE SET v3 (Aug 27 2026) — reduced from 6 books to 3, each at
-     double thickness (same total stack height/width as before, just
-     fewer, chunkier books: two blues + the purple). Chamfer geometry
-     recalculated at the new doubled scale. */
-  .section-spine-wrap { position: relative; }
-  .spine-bar {
-    position: absolute; bottom: 0.4in; width: 0.1444in;
+  .book-graphic .spine-set { position: relative; height: 330px; }
+  .book-graphic .spine-bar {
+    position: absolute; bottom: 0; width: 16.94px;
     box-shadow: 1px 0 3px rgba(0,0,0,0.35);
-    /* Convex bulge chamfer at the new doubled scale: rise is now
-       0.25in over the 0.1444in width, bulge peak ~2/3 down, pulled
-       left proportionally more (4px) to match the larger chamfer. */
-    clip-path: polygon(0 0, 0.0546in 0.1667in, 100% 0.25in, 100% 100%, 0 100%);
+    clip-path: polygon(0 0, 6.29px 19.56px, 100% 29.33px, 100% 100%, 0 100%);
   }
   header { animation: fadeUp 1.2s ease both; }
   .a1 { animation: fadeUp 1.2s ease 0.15s both; }
@@ -444,18 +445,42 @@
 
     <div class="links-grid">
 
-      <div style="display:flex; align-items:center; justify-content:center; gap:14px; grid-column:1/-1; width:100%; box-sizing:border-box; padding:0 12px; margin-bottom:36px;">
+      <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px; grid-column:1/-1; width:100%; box-sizing:border-box; padding:0 12px; margin-bottom:36px;">
+        <div class="book-graphic">
+        <div class="divider">
+          <div class="stack-band">
+            <div class="band-cover" style="background:#3e668f; clip-path: polygon(0px 0, calc(100% - 50.81px) 0, calc(100% - 46.06px) 100%, 4.74px 100%);"></div>
+            <div class="band-pages" style="clip-path: polygon(4.74px 0, calc(100% - 55.51px) 0, calc(100% - 43.32px) 100%, 16.94px 100%);"></div>
+          </div>
+          <div class="stack-band">
+            <div class="band-cover" style="background:#2a2e56; clip-path: polygon(16.94px 0, calc(100% - 33.87px) 0, calc(100% - 29.13px) 100%, 21.68px 100%);"></div>
+            <div class="band-pages" style="clip-path: polygon(21.68px 0, calc(100% - 38.58px) 0, calc(100% - 26.38px) 100%, 33.87px 100%);"></div>
+          </div>
+          <div class="stack-band">
+            <div class="band-cover" style="background:#3d1f5c; clip-path: polygon(33.87px 0, calc(100% - 16.94px) 0, calc(100% - 12.19px) 100%, 38.61px 100%);"></div>
+            <div class="band-pages" style="clip-path: polygon(38.61px 0, calc(100% - 21.64px) 0, calc(100% - 9.45px) 100%, 50.81px 100%);"></div>
+          </div>
+        </div>
+        <div class="spine-set">
+          <div class="spine-bar" style="left:0px; top:-58.67px; background:#3e668f; z-index:3;"></div>
+          <div class="spine-bar" style="left:16.94px; top:-29.33px; background:#2a2e56; z-index:2;"></div>
+          <div class="spine-bar" style="left:33.87px; top:0px; background:#3d1f5c; z-index:1;"></div>
+        </div>
+      </div>
+        <div style="display:flex; align-items:center; justify-content:center; gap:14px;">
         <span style="font-size: clamp(1.4rem, 6vw, 2.4rem); color: rgba(196,146,42,0.75); flex-shrink: 0;">&#10022;</span>
         <div class="dimensional" style="font-family: 'Cinzel', serif; font-weight: 600; text-transform: uppercase; text-align: center; font-size: clamp(1.6rem, 10vw, 2.8rem); letter-spacing: 0.05em; margin: 0; line-height: 1.25; overflow-wrap: break-word; word-break: break-word">
-        <span class="shadow-copy shadow-3">The Heart<br>of Anahata</span>
-        <span class="shadow-copy shadow-2">The Heart<br>of Anahata</span>
-        <span class="shadow-copy shadow-1">The Heart<br>of Anahata</span>
-        <span class="rim-copy rim-1">The Heart<br>of Anahata</span>
-        <span class="rim-copy rim-2">The Heart<br>of Anahata</span>
-        <span class="rim-copy rim-3">The Heart<br>of Anahata</span>
-        <span class="face shimmer-final">The Heart<br>of Anahata</span>
+        <span class="shadow-copy shadow-3">The Heart of Anahata<br>Section</span>
+        <span class="shadow-copy shadow-2">The Heart of Anahata<br>Section</span>
+        <span class="shadow-copy shadow-1">The Heart of Anahata<br>Section</span>
+        <span class="rim-copy rim-1">The Heart of Anahata<br>Section</span>
+        <span class="rim-copy rim-2">The Heart of Anahata<br>Section</span>
+        <span class="rim-copy rim-3">The Heart of Anahata<br>Section</span>
+        <span class="face shimmer-final">The Heart of Anahata<br>Section</span>
       </div>
         <span style="font-size: clamp(1.4rem, 6vw, 2.4rem); color: rgba(196,146,42,0.75); flex-shrink: 0;">&#10022;</span>
+      </div>
+        <!-- no section tagline yet -- room reserved here for one -->
       </div>
       <!-- The Art of Amōre — Preview -->
       <a class="link-card" href="/ovid-preview.html" target="_blank" rel="noopener">
@@ -500,18 +525,42 @@
       <p style="font-family:'Cormorant Garamond',Georgia,serif;line-height:1.55;letter-spacing:0.03em;text-align:center;font-size:2.0rem;color:rgba(201,168,76,0.95);margin:-26px auto 0;padding:0 20px;max-width:700px;grid-column:1/-1;">Your sensitivity was never the problem.</p>
       <div class="rule-flourish" style="margin:-12px auto 40px;grid-column:1/-1;"><span></span></div>
 
-      <div style="display:flex; align-items:center; justify-content:center; gap:14px; grid-column:1/-1; width:100%; box-sizing:border-box; padding:0 12px; margin-bottom:36px;">
+      <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px; grid-column:1/-1; width:100%; box-sizing:border-box; padding:0 12px; margin-bottom:36px;">
+        <div class="book-graphic">
+        <div class="divider">
+          <div class="stack-band">
+            <div class="band-cover" style="background:#3e668f; clip-path: polygon(0px 0, calc(100% - 50.81px) 0, calc(100% - 46.06px) 100%, 4.74px 100%);"></div>
+            <div class="band-pages" style="clip-path: polygon(4.74px 0, calc(100% - 55.51px) 0, calc(100% - 43.32px) 100%, 16.94px 100%);"></div>
+          </div>
+          <div class="stack-band">
+            <div class="band-cover" style="background:#2a2e56; clip-path: polygon(16.94px 0, calc(100% - 33.87px) 0, calc(100% - 29.13px) 100%, 21.68px 100%);"></div>
+            <div class="band-pages" style="clip-path: polygon(21.68px 0, calc(100% - 38.58px) 0, calc(100% - 26.38px) 100%, 33.87px 100%);"></div>
+          </div>
+          <div class="stack-band">
+            <div class="band-cover" style="background:#3d1f5c; clip-path: polygon(33.87px 0, calc(100% - 16.94px) 0, calc(100% - 12.19px) 100%, 38.61px 100%);"></div>
+            <div class="band-pages" style="clip-path: polygon(38.61px 0, calc(100% - 21.64px) 0, calc(100% - 9.45px) 100%, 50.81px 100%);"></div>
+          </div>
+        </div>
+        <div class="spine-set">
+          <div class="spine-bar" style="left:0px; top:-58.67px; background:#3e668f; z-index:3;"></div>
+          <div class="spine-bar" style="left:16.94px; top:-29.33px; background:#2a2e56; z-index:2;"></div>
+          <div class="spine-bar" style="left:33.87px; top:0px; background:#3d1f5c; z-index:1;"></div>
+        </div>
+      </div>
+        <div style="display:flex; align-items:center; justify-content:center; gap:14px;">
         <span style="font-size: clamp(1.4rem, 6vw, 2.4rem); color: rgba(196,146,42,0.75); flex-shrink: 0;">&#10022;</span>
         <div class="dimensional" style="font-family: 'Cinzel', serif; font-weight: 600; text-transform: uppercase; text-align: center; font-size: clamp(1.6rem, 8vw, 2.8rem); letter-spacing: 0.05em; margin: 0; line-height: 1.25; overflow-wrap: normal; word-break: normal; white-space: normal">
-        <span class="shadow-copy shadow-3">Philosophy/ Psychology</span>
-        <span class="shadow-copy shadow-2">Philosophy/ Psychology</span>
-        <span class="shadow-copy shadow-1">Philosophy/ Psychology</span>
-        <span class="rim-copy rim-1">Philosophy/ Psychology</span>
-        <span class="rim-copy rim-2">Philosophy/ Psychology</span>
-        <span class="rim-copy rim-3">Philosophy/ Psychology</span>
-        <span class="face shimmer-final">Philosophy/ Psychology</span>
+        <span class="shadow-copy shadow-3">Philosophy/ Psychology<br>Section</span>
+        <span class="shadow-copy shadow-2">Philosophy/ Psychology<br>Section</span>
+        <span class="shadow-copy shadow-1">Philosophy/ Psychology<br>Section</span>
+        <span class="rim-copy rim-1">Philosophy/ Psychology<br>Section</span>
+        <span class="rim-copy rim-2">Philosophy/ Psychology<br>Section</span>
+        <span class="rim-copy rim-3">Philosophy/ Psychology<br>Section</span>
+        <span class="face shimmer-final">Philosophy/ Psychology<br>Section</span>
       </div>
         <span style="font-size: clamp(1.4rem, 6vw, 2.4rem); color: rgba(196,146,42,0.75); flex-shrink: 0;">&#10022;</span>
+      </div>
+        <!-- no section tagline yet -- room reserved here for one -->
       </div>
       <!-- Sapiens Cyberneticus (formerly Sapiens Cyberneticus) -->
       <a class="link-card" href="/sapiens-cyberneticus-preview.html" target="_blank" rel="noopener">
@@ -552,18 +601,42 @@
       <p class="body-intro" style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold-bright);text-align:center;letter-spacing:0.06em;line-height:1.55;margin:-26px auto 0;padding:0 20px;max-width:700px;grid-column:1/-1;">Pay attention to your<br>thought subscriptions.</p>
       <div class="rule-flourish" style="margin:-12px auto 40px;grid-column:1/-1;"><span></span></div>
 
-      <div style="display:flex; align-items:center; justify-content:center; gap:14px; grid-column:1/-1; width:100%; box-sizing:border-box; padding:0 12px; margin-bottom:36px;">
+      <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px; grid-column:1/-1; width:100%; box-sizing:border-box; padding:0 12px; margin-bottom:36px;">
+        <div class="book-graphic">
+        <div class="divider">
+          <div class="stack-band">
+            <div class="band-cover" style="background:#3e668f; clip-path: polygon(0px 0, calc(100% - 50.81px) 0, calc(100% - 46.06px) 100%, 4.74px 100%);"></div>
+            <div class="band-pages" style="clip-path: polygon(4.74px 0, calc(100% - 55.51px) 0, calc(100% - 43.32px) 100%, 16.94px 100%);"></div>
+          </div>
+          <div class="stack-band">
+            <div class="band-cover" style="background:#2a2e56; clip-path: polygon(16.94px 0, calc(100% - 33.87px) 0, calc(100% - 29.13px) 100%, 21.68px 100%);"></div>
+            <div class="band-pages" style="clip-path: polygon(21.68px 0, calc(100% - 38.58px) 0, calc(100% - 26.38px) 100%, 33.87px 100%);"></div>
+          </div>
+          <div class="stack-band">
+            <div class="band-cover" style="background:#3d1f5c; clip-path: polygon(33.87px 0, calc(100% - 16.94px) 0, calc(100% - 12.19px) 100%, 38.61px 100%);"></div>
+            <div class="band-pages" style="clip-path: polygon(38.61px 0, calc(100% - 21.64px) 0, calc(100% - 9.45px) 100%, 50.81px 100%);"></div>
+          </div>
+        </div>
+        <div class="spine-set">
+          <div class="spine-bar" style="left:0px; top:-58.67px; background:#3e668f; z-index:3;"></div>
+          <div class="spine-bar" style="left:16.94px; top:-29.33px; background:#2a2e56; z-index:2;"></div>
+          <div class="spine-bar" style="left:33.87px; top:0px; background:#3d1f5c; z-index:1;"></div>
+        </div>
+      </div>
+        <div style="display:flex; align-items:center; justify-content:center; gap:14px;">
         <span style="font-size: clamp(1.4rem, 6vw, 2.4rem); color: rgba(196,146,42,0.75); flex-shrink: 0;">&#10022;</span>
         <div class="dimensional" style="font-family: 'Cinzel', serif; font-weight: 600; text-transform: uppercase; text-align: center; font-size: clamp(1.6rem, 10vw, 2.8rem); letter-spacing: 0.05em; margin: 0; line-height: 1.25; overflow-wrap: break-word; word-break: break-word">
-        <span class="shadow-copy shadow-3">Chi and<br>the Body</span>
-        <span class="shadow-copy shadow-2">Chi and<br>the Body</span>
-        <span class="shadow-copy shadow-1">Chi and<br>the Body</span>
-        <span class="rim-copy rim-1">Chi and<br>the Body</span>
-        <span class="rim-copy rim-2">Chi and<br>the Body</span>
-        <span class="rim-copy rim-3">Chi and<br>the Body</span>
-        <span class="face shimmer-final">Chi and<br>the Body</span>
+        <span class="shadow-copy shadow-3">Chi and the Body<br>Section</span>
+        <span class="shadow-copy shadow-2">Chi and the Body<br>Section</span>
+        <span class="shadow-copy shadow-1">Chi and the Body<br>Section</span>
+        <span class="rim-copy rim-1">Chi and the Body<br>Section</span>
+        <span class="rim-copy rim-2">Chi and the Body<br>Section</span>
+        <span class="rim-copy rim-3">Chi and the Body<br>Section</span>
+        <span class="face shimmer-final">Chi and the Body<br>Section</span>
       </div>
         <span style="font-size: clamp(1.4rem, 6vw, 2.4rem); color: rgba(196,146,42,0.75); flex-shrink: 0;">&#10022;</span>
+      </div>
+        <!-- no section tagline yet -- room reserved here for one -->
       </div>
       <!-- Cultivating Spiritual Energy — Preview -->
       <a class="link-card" href="/cultivating-chi-preview.html" target="_blank" rel="noopener">
@@ -606,36 +679,39 @@
     </div>
   </div>
 
-  <div class="shelf-divider-real">
-    <div class="stack-band">
-      <div class="band-cover" style="background:#3e668f; clip-path: polygon(0.0in 0, calc(100% - 0.4332in) 0, calc(100% - 0.3928in) 100%, 0.0404in 100%);"></div>
-      <div class="band-pages" style="clip-path: polygon(0.0404in 0, calc(100% - 0.4928in) 0, calc(100% - 0.3888in) 100%, 0.1444in 100%);"></div>
-    </div>
-    <div class="stack-band">
-      <div class="band-cover" style="background:#2a2e56; clip-path: polygon(0.1444in 0, calc(100% - 0.2888in) 0, calc(100% - 0.2484in) 100%, 0.1848in 100%);"></div>
-      <div class="band-pages" style="clip-path: polygon(0.1848in 0, calc(100% - 0.3484in) 0, calc(100% - 0.2444in) 100%, 0.2888in 100%);"></div>
-    </div>
-    <div class="stack-band">
-      <div class="band-cover" style="background:#3d1f5c; clip-path: polygon(0.2888in 0, calc(100% - 0.1444in) 0, calc(100% - 0.104in) 100%, 0.3292in 100%);"></div>
-      <div class="band-pages" style="clip-path: polygon(0.3292in 0, calc(100% - 0.204in) 0, calc(100% - 0.1in) 100%, 0.4332in 100%);"></div>
-    </div>
-  </div>
-
   <!-- 18+ SECTION BREAK -->
-  <div class="section-spine-wrap" style="text-align:center;padding:76px 32px 76px 44px;border-top:1px solid rgba(196,146,42,0.22);border-bottom:1px solid rgba(196,146,42,0.22);margin:0 0 8px;">
-    <div class="spine-bar" style="top:-0.56in; left:0.0in; background:#3e668f; z-index:3;"></div>
-    <div class="spine-bar" style="top:-0.31in; left:0.1444in; background:#2a2e56; z-index:2;"></div>
-    <div class="spine-bar" style="top:-0.06in; left:0.2888in; background:#3d1f5c; z-index:1;"></div>
+  <div style="text-align:center;padding:76px 32px 76px 32px;border-top:1px solid rgba(196,146,42,0.22);border-bottom:1px solid rgba(196,146,42,0.22);margin:0 0 8px;">
+    <div class="book-graphic" style="margin-bottom:36px;">
+      <div class="divider">
+        <div class="stack-band">
+          <div class="band-cover" style="background:#3e668f; clip-path: polygon(0px 0, calc(100% - 50.81px) 0, calc(100% - 46.06px) 100%, 4.74px 100%);"></div>
+          <div class="band-pages" style="clip-path: polygon(4.74px 0, calc(100% - 55.51px) 0, calc(100% - 43.32px) 100%, 16.94px 100%);"></div>
+        </div>
+        <div class="stack-band">
+          <div class="band-cover" style="background:#2a2e56; clip-path: polygon(16.94px 0, calc(100% - 33.87px) 0, calc(100% - 29.13px) 100%, 21.68px 100%);"></div>
+          <div class="band-pages" style="clip-path: polygon(21.68px 0, calc(100% - 38.58px) 0, calc(100% - 26.38px) 100%, 33.87px 100%);"></div>
+        </div>
+        <div class="stack-band">
+          <div class="band-cover" style="background:#3d1f5c; clip-path: polygon(33.87px 0, calc(100% - 16.94px) 0, calc(100% - 12.19px) 100%, 38.61px 100%);"></div>
+          <div class="band-pages" style="clip-path: polygon(38.61px 0, calc(100% - 21.64px) 0, calc(100% - 9.45px) 100%, 50.81px 100%);"></div>
+        </div>
+      </div>
+      <div class="spine-set">
+        <div class="spine-bar" style="left:0px; top:-58.67px; background:#3e668f; z-index:3;"></div>
+        <div class="spine-bar" style="left:16.94px; top:-29.33px; background:#2a2e56; z-index:2;"></div>
+        <div class="spine-bar" style="left:33.87px; top:0px; background:#3d1f5c; z-index:1;"></div>
+      </div>
+    </div>
     <div style="display:flex; align-items:center; justify-content:center; gap:14px; width:100%; box-sizing:border-box; padding:0 12px; margin-bottom:36px;">
       <span style="font-size: clamp(1.4rem, 6vw, 2.4rem); color: rgba(196,146,42,0.75); flex-shrink: 0;">&#10022;</span>
       <div class="dimensional" style="font-family: 'Cinzel', serif; font-weight: 600; text-transform: uppercase; text-align: center; font-size: clamp(1.6rem, 10vw, 2.8rem); letter-spacing: 0.05em; margin: 0; line-height: 1.25; overflow-wrap: break-word; word-break: break-word">
-        <span class="shadow-copy shadow-3">Somatic<br>Ecstasy</span>
-        <span class="shadow-copy shadow-2">Somatic<br>Ecstasy</span>
-        <span class="shadow-copy shadow-1">Somatic<br>Ecstasy</span>
-        <span class="rim-copy rim-1">Somatic<br>Ecstasy</span>
-        <span class="rim-copy rim-2">Somatic<br>Ecstasy</span>
-        <span class="rim-copy rim-3">Somatic<br>Ecstasy</span>
-        <span class="face shimmer-final">Somatic<br>Ecstasy</span>
+        <span class="shadow-copy shadow-3">Somatic Ecstasy<br>Section</span>
+        <span class="shadow-copy shadow-2">Somatic Ecstasy<br>Section</span>
+        <span class="shadow-copy shadow-1">Somatic Ecstasy<br>Section</span>
+        <span class="rim-copy rim-1">Somatic Ecstasy<br>Section</span>
+        <span class="rim-copy rim-2">Somatic Ecstasy<br>Section</span>
+        <span class="rim-copy rim-3">Somatic Ecstasy<br>Section</span>
+        <span class="face shimmer-final">Somatic Ecstasy<br>Section</span>
       </div>
       <span style="font-size: clamp(1.4rem, 6vw, 2.4rem); color: rgba(196,146,42,0.75); flex-shrink: 0;">&#10022;</span>
     </div>
