@@ -1,277 +1,172 @@
-SITE BUILD STANDARD — RESPONSIVE ISOMETRIC BOOK-STACK GRAPHIC
-Rewritten August 28, 2026 to lead with the straightforward build
-path. (Earlier version kept below as "gotchas" reference — the
-mistakes are worth knowing, but build it this way and you won't
-make them.)
+SITE BUILD STANDARD — RESPONSIVE ISOMETRIC BOOK-STACK MOTIF
+Consolidated August 28, 2026. This replaces all prior drafts of this
+doc with the final, correct construction path only — no trial-and-
+error history. Update this file again only once a new issue reaches
+resolution, not after every intermediate step.
 
-WHAT THIS IS
-The ".book-graphic" motif used above each library section: a
-top-down view of N stacked books (".top-view") sitting directly
-above their front-facing spines (".spine-set"). Correct proper term
-for this kind of illustrative element is a "decorative motif" (or
-just "graphic") — not a glyph. A glyph is a single character/symbol
-in a font; this is a multi-part illustration.
+WHAT THIS IS: the ".book-graphic" decorative motif above each
+library section — a top-down view of N books (".top-view") sitting
+above their front-facing spines (".spine-set"), with a title and a
+brief tag inside the frame. Correct term is "motif," not glyph (a
+glyph is a single font character).
 
 ────────────────────────────────────────────────────────────────────
-THE STRAIGHTFORWARD BUILD PATH (for N books, here N=3)
+1. GEOMETRY CONSTANTS (fixed px — never scale with screen width)
 ────────────────────────────────────────────────────────────────────
+    bandH     = 29.33px             (top-view height per book)
+    STEP      = bandH / tan(60°) = 16.94px
+    coverFrac = 0.28
+    bulge_x, bulge_y = 6.29px, 19.56px   (chamfer bulge point)
 
-STEP 1 — Pick the base geometry constants (all fixed px, representing
-physical thickness — these never scale with screen width):
-    bandH   = 29.33px         (top-view height per book)
-    STEP    = bandH / tan(60°) = 16.94px   (horizontal chamfer run)
-    coverFrac = 0.28          (fraction of a band that's spine-edge
-                                "cover" vs. the wider "pages")
-    bulge_x = 0.667×STEP - 5  = 6.29px     (chamfer bulge point)
-    bulge_y = 0.667×bandH     = 19.56px
-
-STEP 2 — Build the top-view: N stacked ".stack-band" divs (bandH
-tall each), each with a ".band-cover" (coverFrac×bandH tall) and
-".band-pages" strip beneath it. Book i (0=rear-most, N-1=front-most)
-uses these per-band offsets, all multiples of STEP:
+For N books (i = 0 rear-most … N-1 front-most):
     leftTop_i   = i × STEP
-    insetTop_i  = (N-i) × STEP        (right-side inset, top of band)
-    insetMid_i  = insetTop_i - coverFrac×STEP   (inset at cover/pages
-                                                  boundary)
+    insetTop_i  = (N-i) × STEP
+    insetMid_i  = insetTop_i − coverFrac×STEP
     leftMid_i   = leftTop_i + coverFrac×STEP
-This produces the familiar stair-stepped parallelogram look.
 
-STEP 3 — DO NOT FORGET THE FRONT-COVER STRIP. Every band as built in
-step 2 only shows that book's BACK cover — the strip drawn is what
-peeks out from behind the book in front of it. The very front-most
-book's own FRONT cover is never drawn by that loop, because nothing
-is in front of it to justify omitting it. Add ONE more strip,
-continuing the same arithmetic one step further (i=N):
-    leftTop_N  = N × STEP     (≈ full width — i.e. no inset, insetTop_N≈0)
-    insetMid_N = insetTop_N - coverFrac×STEP   (comes out slightly
-                 NEGATIVE — this strip legitimately poking a few px
-                 past the container's right edge is correct, matching
-                 how every other cover overhangs its own pages)
-Give this strip height = coverFrac×bandH (same as a normal cover, no
-pages beneath it) and the front-most book's color.
+MUST include the front-cover strip: every band as built above only
+shows that book's BACK cover. The front-most book's own front cover
+is never drawn unless you add one more step (i=N) continuing the
+same arithmetic — its insetTop_N comes out to ≈0 (no inset) and its
+insetMid_N goes slightly negative (a few px overhang past the
+container edge, which is correct, matching how every other cover
+overhangs its own pages).
 
-STEP 4 — Container setup for full-width responsiveness:
+────────────────────────────────────────────────────────────────────
+2. RESPONSIVE SCALING: cqw FOR LENGTH, PX FOR THICKNESS
+────────────────────────────────────────────────────────────────────
     .book-graphic { width: 100%; container-type: inline-size; }
-This unlocks `cqw` units (1cqw = 1% of THIS element's own rendered
-width). RULE: physical-thickness values (everything from step 1)
-stay in fixed px forever. Only true LENGTH dimensions (the spine's
-own height) use cqw, so they scale with actual screen width while
-thickness stays constant. Mixing these up either shrinks the whole
-graphic to a tiny fixed box, or makes the thickness balloon
-absurdly wide.
+Physical-thickness values (everything in section 1) stay fixed px
+forever. Only true LENGTH dimensions (spine height) use cqw. Mixing
+these up either shrinks the graphic to a tiny fixed box, or makes
+the thickness balloon at large widths.
 
-STEP 5 — The 2:3 "front cover" reference. This is the step most
-likely to go wrong. The classic 2:3 book-cover ratio (height = 1.5 ×
-width) must be measured using the FRONT-MOST book's own inner edges
-— not the rear book's, not the whole graphic's outer bounds:
-    inner_left = (N-1) × STEP     (front book's own left offset)
-    inner_top  = front book's own top poke-up offset (see step 6)
-    width_ref  = 100cqw - inner_left
+────────────────────────────────────────────────────────────────────
+3. THE FRONT-COVER 2:3 FRAME — geometrically pure references only
+────────────────────────────────────────────────────────────────────
+The classic 2:3 book-cover ratio (height = 1.5 × width) must be
+measured using the FRONT-MOST book's own inner edges, and every one
+of the four edges must be a value with real geometric meaning — not
+a value that was chosen or tuned for a cosmetic/visual reason
+elsewhere (that mismatch is the recurring bug in this build: mixing
+a "looks right on screen" number with a "derived from the shared
+geometry" number). Concretely, for a 3-book stack:
+    inner_left = (N-1) × STEP = 33.87px   (front book's own spine
+                                            left edge)
+    inner_top  = coverFrac × bandH = 8.21px  (front-cover-strip's
+                                               OWN top edge — NOT
+                                               the spine's cosmetic
+                                               poke-up offset, which
+                                               is a different number
+                                               tuned only to close a
+                                               visual gap)
+    width_ref  = 100cqw − inner_left
     H_target   = 1.5 × width_ref
-Using the wrong book's edge (e.g. grabbing whichever K value is
-first in the CSS) silently produces a mis-proportioned spine that
-LOOKS plausible but isn't actually 2:3.
+Right edge = 100cqw (front-cover-strip's own right, insetTop_N≈0).
+Bottom edge = H_target below inner_top.
 
-STEP 6 — Position the spine bars. Each bar i needs a "poke-up" (top
-offset) so its color visually continues into its OWN matching band
-in the top-view above:
-    top_offset_i = (N-1-i) × bandH     (rear book pokes up the most)
-Bar width = STEP (16.94px), left = i × STEP.
+Construction/boundary lines (optional, thin, for verification and
+for visually completing the "book" look):
+    Right line:  left:100cqw; top:-inner_top; height:H_target
+    Bottom line: top:(H_target − inner_top); left: N×STEP (right
+                 after the whole spine assembly, so it never cuts
+                 through the colored scallops); width: remainder
 
-STEP 7 — Bar length: the profile-gauge property + the front-cover
-boundary, together. Two requirements stack here:
-  (a) PROFILE GAUGE: every bar must be the exact same total length
-      (so "any vertical line through the spine pack is identical").
-      Achieved by translating the SAME top-chamfer shape to the
-      bottom: bottom_y(x) = top_y(x) + H_bars. This is a literal
-      translation — NOT `calc(100% - top_y(x))`, which compresses
-      the shape wherever it dips (verify by reading the actual
-      computed clip-path points, not just eyeballing it).
-  (b) BOUNDARY MATCH: the front book's DEEPEST scallop point (not
-      its shallow/local-x=0 point) should land exactly on the 2:3
-      boundary — so the whole assembly reads as fitting inside the
-      rectangle rather than overshooting it. Since the scallop's own
-      depth is `bandH` (29.33px) below the flat reference, set:
-          H_bars = H_target - bandH
-      then each bar's own box height = H_bars + bandH (to hold the
-      full translated shape), positioned via explicit `height`
-      (not `top`+`bottom` dual offsets, which silently caused a
-      compression bug during development).
+────────────────────────────────────────────────────────────────────
+4. SPINE BAR LENGTH — profile gauge + boundary match
+────────────────────────────────────────────────────────────────────
+Every bar must be the exact same total length (profile gauge: "any
+vertical line through the spine pack is identical"), achieved by
+TRANSLATING the top chamfer shape to the bottom — bottom_y(x) =
+top_y(x) + H_bars. This is a literal translation, not `calc(100% -
+top_y(x))`, which compresses the shape wherever it dips. Verify via
+the actual computed clip-path points, not by eye.
 
-STEP 8 — Chamfer/scallop clip-path (shared by all bars, same values
-regardless of which book): 
+H_bars is calibrated so the front book's DEEPEST scallop point (not
+its shallow/local-x=0 point) lands exactly on the boundary line:
+    H_bars = H_target − inner_top − bandH + N2
+(N2 = front book's own cosmetic top offset, e.g. 26px — yes, this
+cosmetic value legitimately belongs HERE, in how far the spine
+visually pokes up, just not in the frame's own boundary math above).
+
+Shared clip-path (same for every bar):
     polygon(0 0, 6.29px 19.56px, 100% 29.33px,
             100% [H_bars+29.33], 6.29px [H_bars+19.56], 0 H_bars)
-(bracketed values are calc() expressions mixing cqw and px.)
-
-STEP 9 — Optional boundary lines (thin, for visually completing the
-"book" look / verifying the construction): 
-    Right line:  left:100cqw; top:-inner_top; height:H_target
-    Bottom line: top:(H_target - inner_top); left: N×STEP (i.e. right
-                 after the whole spine assembly ends, so the line
-                 doesn't cut through the colored scallops); width:
-                 remaining space to the right edge.
+Box height = H_bars + 29.33, using explicit `height` (not `top`+
+`bottom` dual offsets, which silently caused a compression bug
+during development).
 
 ────────────────────────────────────────────────────────────────────
-VERIFICATION (do this before calling it done, every time)
+5. TITLE + TAG LAYOUT: ZONES, NOT CENTER-POINTS
 ────────────────────────────────────────────────────────────────────
-  - Read the actual computed clip-path points via Playwright
-    (`getComputedStyle(el).clipPath`) for all N bars and confirm the
-    top-to-bottom distance is IDENTICAL at every vertex. Bounding-box
-    height alone doesn't prove this — the shape can still be wrong
-    even when the box size is right.
-  - Check `document.documentElement.scrollWidth` vs `clientWidth` at
-    several scroll depths after ANY width-related change — a single
-    miscalculated calc() or an unclosed div silently breaks layout
-    far downstream of where you were actually working.
-  - Pixel-color scans are unreliable where a poking-up element is
-    SUPPOSED to blend into an adjacent same-colored area (the spine
-    into the top-view is the whole point). For a clean pixel
-    measurement, render the element isolated on a plain background
-    instead of trying to threshold it out of the full page.
+Do NOT position title/tag as single centered points (25%/75% or
+similar) — that only defines where content is centered, not how much
+room it has, and nothing stops a longer tag from colliding with the
+title above it. Use hard zones instead:
 
-────────────────────────────────────────────────────────────────────
-MARKUP: MULTI-INSTANCE EDITING DISCIPLINE
-────────────────────────────────────────────────────────────────────
-This motif is duplicated once per section (currently 4x) via
-str_replace edits across index.html. A single missing closing </div>
-in one instance doesn't crash anything — it silently nests every
-subsequent element one level deeper, which shows up as unrelated
-overflow far downstream. After any multi-instance markup edit, run
-an HTML balance checker (Python html.parser + tag stack) and check
-NESTING DEPTH at a comment marker between each instance — depth
-should be identical at each one. A drifting number pinpoints exactly
-which instance is missing a close.
+    Exclusion band: 10% of frame height, centered at the waist
+                     (spans 45%–55%) — no text ever enters this band.
+    Margins: 9.375% (3/32) on all four sides of the frame.
+
+This carves out two zones:
+    title-zone: left/right 9.375%, top 9.375%, height 35.625%
+    tag-zone:   left/right 9.375%, top 55%,    height 35.625%
+(35.625% = 45% − 9.375%, the space between the margin and the
+exclusion band — same for both zones by symmetry.)
+
+Each zone is its own flex container (title: column + centered +
+small gap for the flourish diamonds; tag: centered) that bounds its
+own content independently. Content in either zone can wrap to
+however many lines it needs without ever touching the other zone —
+this is what makes it safe to size the tag aggressively (see below)
+even though tag text length varies a lot per section.
 
 ────────────────────────────────────────────────────────────────────
-TITLE + TAG COMPOSITION: THE FIGURE-EIGHT RULE
+6. FONT SIZING — measure rendered glyph height, not the CSS number
 ────────────────────────────────────────────────────────────────────
-Added after the section titles/tags were finalized. Within the
-front-cover frame (the area right of the spines, bounded by the
-optional boundary lines from step 9), the title and its tag are
-each their own focal point, not one clustered block.
+"Font size" as a CSS number is not comparable across two typefaces —
+compare actual rendered height instead. The title (Cinzel, all-caps)
+is measured by CAP-HEIGHT; the tag (Cormorant Garamond italic, mixed
+case) by X-HEIGHT, since roughly 80% of any mixed-case passage's
+letters sit within the x-height band (watch for ascenders/descenders
+on adjacent lines, but x-height is the reference for sizing/spacing).
+Measure with canvas actualBoundingBoxAscent/Descent, don't estimate:
+    Cinzel cap-height           = 0.66 × font-size
+    Cormorant Garamond x-height = 0.46 × font-size
+Default ratio: tag glyph-height = 100% of title's cap-height (equal
+height — compensates for the tag font's lighter stroke weight). The
+CSS font-size ratio needed to achieve this is NOT 100% — correct for
+the two fonts' different metrics:
+    fontsize_ratio = target_visual_ratio × (0.66/0.46) = 1.435×
+    (for a lower target ratio R, use R × 1.435)
 
-Picture a large figure-eight (∞) centered in the frame, its two
-loops stacked vertically. The CENTER of each loop is where that
-element's centerpoint should land:
-    title center: 25% down the frame height
-    tag center:   75% down the frame height
+TITLE sizing: per motif (not a shared value across sections), upsize
+so the longest of its lines exactly fills the title-zone's width —
+measure the actual rendered width of each candidate line via a
+hidden nowrap test span at a reference font-size, scale to the
+zone's real width (from getBoundingClientRect, not an estimate).
+Redo this measurement any time the zone width itself changes (e.g.
+margins change) — a stale width target is what caused an unexpected
+title wrap once already.
 
-CRITICAL: "the frame" means the true front-cover rectangle bounded
-by the gold construction lines (step 9) -- top:-inner_top; height:
-H_target -- NOT the full spine-set box (0 to 150cqw). These differ:
-spine-set's box includes extra room the scallop/poke-up needs, so
-using ITS 0-100% range for the 25%/75% math silently shifts both
-anchors down (verified this shifted the tag from an intended 75% to
-an apparent ~85%+ of the visible frame). Point ".content-frame"
-at the SAME top/height values already used for the boundary lines
-(top:-inner_top; height:H_target — currently -26px / calc(150cqw -
-50.805px)) so the percentages are computed against what's actually
-visible, not the larger invisible box around it. Verify by reading
-computed pseudo-element top/height via Playwright and confirming the
-anchors' center lands at exactly 25.00/75.00% of that same span —
-not just trusting the CSS numbers look right.
-
-Implemented via two independently absolute-positioned children of
-".content-frame", each using top:25%/75%; left:50%;
-transform:translate(-50%,-50%) — NOT a single centered flex column,
-which clusters both elements together with no real separation.
-
-DEFAULT SIZE RATIO: tag font-size = 70% of that section's OWN title
-font-size (same percentage applied to the clamp's min/cqw/max terms
-alike), not a flat tag size shared across sections regardless of how
-big that section's title is. (First attempt used 50% and was judged
-"still way too small" — 70% was the corrected value.) If a third
-tier (an epigraph/quote) is ever added inside the frame, extend the
-same modular-scale logic rather than picking an arbitrary size.
+Small overflow tolerance: once titles/tags are sized to fill their
+zones, minor overshoot (a few px past the zone's abstract height, so
+long as it doesn't cross the frame's visible boundary line) is
+acceptable — don't over-engineer safety margins for this.
 
 ────────────────────────────────────────────────────────────────────
-CORRECTION: THE TOP REFERENCE WAS COSMETIC, NOT GEOMETRIC
+7. VERIFICATION CHECKLIST (every time)
 ────────────────────────────────────────────────────────────────────
-The frame's top boundary was using the front spine-bar's CSS "top"
-offset (a value tuned earlier purely to visually close the gap
-between spine and top-view -- see the "trim that black separation"
-fix). That's a COSMETIC adjustment, not a 3D-consistent geometric
-position, and using it as the front-cover rectangle's true top edge
-mixed two unrelated things -- a "cousin" of the earlier rear/front
-book mixing bug. Three-dimensional thinking catches this: ask
-whether a reference value was chosen to make something LOOK right
-on screen (cosmetic) or whether it's derived from the shared
-band/step geometry (structurally real) before using it as a
-construction boundary.
-
-The correct top reference is the FRONT-COVER-STRIP's own top edge
-(the element built in step 3) -- since that strip IS explicitly the
-front book's own front cover, its position is geometrically pure:
-    inner_top = coverFrac × bandH   (currently 8.21px, NOT the
-                                      spine's cosmetic poke-up value)
-This is independent of whatever poke-up amount the spine bars use
-for their own visual connection into the top-view -- those two
-numbers can differ, and only the front-cover-strip's own edge
-belongs in the rectangle/frame math.
-
-────────────────────────────────────────────────────────────────────
-CORRECTION: TAG:TITLE SIZE RATIO MEANS RENDERED GLYPH HEIGHT
-────────────────────────────────────────────────────────────────────
-"Font size" as a CSS number is not comparable across two different
-typefaces -- a given font-size produces different actual glyph
-heights depending on the font's own metrics. The title (Cinzel,
-all-caps) is measured by its CAP-HEIGHT; the tag (Cormorant Garamond
-italic, mixed case) is measured by its X-HEIGHT, since ~80% of any
-mixed-case passage's letters sit within the x-height band (the
-"80/20 rule" -- ascenders/descenders are the exception, not the
-norm, though watch for them colliding with adjacent lines).
-
-Measured directly (render text, use canvas measureText with
-actualBoundingBoxAscent/Descent -- don't estimate):
-    Cinzel cap-height            = 0.66 × font-size
-    Cormorant Garamond x-height  = 0.46 × font-size
-
-To hit a target visual ratio R between tag and title (e.g. R=0.60),
-the CSS font-size ratio needed is NOT simply R -- it must correct
-for the two fonts' different metrics:
-    fontsize_ratio = R × (title_cap_ratio / tag_x_ratio)
-    e.g. for R=0.60: 0.60 × (0.66/0.46) = 0.861
-A naive "tag font-size = 60% of title font-size" only produces
-roughly a 42% visual ratio here, and even a generous-looking 70%
-font-size bump only lands around 49% visual -- both read as "still
-too small" because the comparison was never apples-to-apples.
-
-────────────────────────────────────────────────────────────────────
-SUPERSEDES: FIGURE-EIGHT IS NOW ZONES, NOT CENTER-POINTS
-────────────────────────────────────────────────────────────────────
-The center-point + translate(-50%,-50%) approach above (25%/75% or
-30%/70%) had a real flaw: it only defines where content is CENTERED,
-not how much room it has. Whenever the tag (or title) needed more
-lines than expected, it would grow outward from its center-point
-with nothing to stop it from colliding with the other element.
-
-Current rule: an EXCLUSION BAND across the waist of the figure-eight,
-10% of frame height, centered at 50% (so it spans 45%-55%) — no text
-ever enters this band. Combine with a 18.75% (3/16) margin on all
-four sides of the frame. Together these define two hard zones:
-    title-zone: left/right 18.75%, top 18.75%, height 26.25%
-    tag-zone:   left/right 18.75%, top 55%,    height 26.25%
-(26.25% = 45% - 18.75%, the space between the margin and the
-exclusion band — same math for both zones by symmetry.)
-
-Each zone is a flex container (column+centered for title, centered
-for tag) that clips/bounds its own content — title and tag can each
-wrap to however many lines they need without ever touching the
-other, because they're structurally separated, not just visually
-spaced. This is what let the tag go to full equal cap-height/x-height
-(100% ratio, see below) without the collisions that ratio caused
-under the old center-point method.
-
-IMPORTANT: narrowing the frame to 62.5% width (100% - 2×18.75%
-margin) also narrows what the TITLE can fit — recompute the title's
-own fill-width font-size (step "upsize to fill inner frame width")
-against this new, smaller zone width, not the old wider one. Skipping
-this recheck is what caused the title to start wrapping unexpectedly
-when the zone system was first introduced.
-
-Default ratio note: with zones preventing collision, the tag ratio
-was pushed to full 1.0 (equal cap-height/x-height, using the
-cap-height/x-height correction from the section above) and it held
-cleanly across all sections — some tags now wrap to 3 lines instead
-of 2, which is fine since the zone contains it regardless.
+  - Read computed clip-path points (getComputedStyle(el).clipPath)
+    for all N bars; confirm identical top-to-bottom distance at
+    every vertex, not just bounding-box height.
+  - Check document.documentElement.scrollWidth vs clientWidth at
+    several scroll depths after any width-related change.
+  - For elements meant to blend into an adjacent same-colored area
+    (spine into top-view), pixel-color scans are unreliable — render
+    isolated on a plain background for a clean measurement instead.
+  - After any multi-instance markup edit (this motif is duplicated
+    once per section), run an HTML balance checker (Python
+    html.parser + tag stack) and check nesting depth at a comment
+    marker between instances — depth should be identical at each
+    one; a drift pinpoints exactly which instance is missing a close.
