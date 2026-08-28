@@ -1,0 +1,135 @@
+SITE BUILD STANDARD — RESPONSIVE ISOMETRIC BOOK-STACK GRAPHIC
+Added August 28, 2026, after building and correcting the section-
+divider book-graphic (three stacked books, top-view + spines) used
+above each library section.
+
+WHAT THIS COVERS
+The reusable ".book-graphic" component: a top-down parallelogram
+view of a stack of books (".top-view", diagonal cover/pages bands)
+sitting above their front-facing spines (".spine-set", vertical
+color bars). Full construction principles below, so a future session
+doesn't have to re-derive them the hard way.
+
+────────────────────────────────────────────────────────────────────
+1. FULL-WIDTH SCALING: cqw FOR LENGTH, FIXED PX FOR THICKNESS
+────────────────────────────────────────────────────────────────────
+This graphic must span the full screen width and stay responsive,
+but the "thickness" of the physical object it represents (band
+height, spine width, chamfer depth) must NOT grow with screen width
+— only genuine length dimensions (spine height / "front cover
+height") should.
+
+  - Set `.book-graphic { width: 100%; container-type: inline-size; }`
+    so descendants can use `cqw` units (1cqw = 1% of THIS container's
+    width, not the viewport).
+  - Anything that represents physical thickness (stack-band height,
+    band-cover/band-pages height, spine-bar width, chamfer/bulge
+    depth in px like "6.29px 19.56px") stays in fixed px, unscaled.
+  - Anything that represents the book's own "length" (spine-set
+    height, i.e. the 2:3 front-cover proportion) uses cqw so it
+    scales with the actual rendered width.
+  - Getting this distinction backwards either shrinks the whole
+    graphic to a tiny fixed box (all px) or makes the physical
+    thickness balloon absurdly at large widths (all cqw) — both
+    happened during development before landing on the split above.
+
+────────────────────────────────────────────────────────────────────
+2. THE 2:3 "FRONT COVER" REFERENCE — USE THE FRONT BOOK, NOT THE REAR
+────────────────────────────────────────────────────────────────────
+The spine length is defined as 1.5x a reference width (the classic
+6:9 book proportion). That reference width is NOT the whole
+graphic's width — it's the flat width of ONE band in the top-view,
+and it MUST be the band representing the FRONTMOST book's own front
+cover, not any other band.
+
+Each band's diagonal inset (K) follows K = (bands_remaining) x STEP,
+where STEP = bandH / tan(60°). In a 3-book stack: rear book K=3xSTEP,
+middle K=2xSTEP, front book K=1xSTEP. It's tempting to grab whichever
+K value is already in the CSS (e.g. the rear book's, since it's
+first in the markup) — this is wrong and produces a visibly
+too-short or misaligned spine. Always confirm which band is the
+FRONT book before using its K value as the reference.
+
+CRITICAL SUBTLETY: every band's top-view drawing only shows its BACK
+cover (the edge visible because the book behind hides its own front
+cover). The frontmost book's FRONT cover is never drawn by the
+per-band loop — nothing is in front of it to justify omitting it.
+If a construction step calls for "the top of the front cover" as a
+reference line, that edge doesn't exist in the markup yet. Add it:
+continue the same per-band arithmetic one more step (i = band_count)
+to get a new thin strip in the front book's color, with insetTop
+converging to ~0 (i.e. the true reference width IS the full
+container width) and insetMid going slightly negative (this strip
+legitimately poke out a few px past the container's right edge,
+matching how every other cover overhangs its own pages — that's
+correct, not a bug).
+
+────────────────────────────────────────────────────────────────────
+3. "PROFILE GAUGE" — MATCHING A CHAMFER ON THE OPPOSITE EDGE
+────────────────────────────────────────────────────────────────────
+When asked to copy a chamfer/scallop shape from one edge to the
+opposite edge such that "any vertical line has the same length":
+that is a literal TRANSLATION, not a mirror or point-reflection.
+
+  WRONG: bottom_y(x) = 100% - top_y(x)   (compresses the shape —
+         wherever top_y(x) is large, the gap shrinks)
+  RIGHT: bottom_y(x) = top_y(x) + H      (true copy, shifted down by
+         constant H — gap stays exactly H at every x)
+
+Implementing the RIGHT version requires the element's own box to be
+tall enough to hold the translated shape (H + max(top_y(x))), using
+explicit `height`, not relying on `top`/`bottom` dual offsets to
+imply it. Verify by reading the actual computed clip-path points via
+Playwright (`getComputedStyle(el).clipPath`) and checking the y-gap
+at ALL vertices is identical — don't trust the formula by eye.
+
+If a boundary line is later added at the "flat" H mark and the
+translated scallop needs to visually respect that boundary too
+(rather than poking past it, which reads as an unintended overflow
+once a literal line marks the edge), cap the shape back to the
+boundary — e.g. `polygon(0 0, 6.29px 19.56px, 100% 29.33px, 100% 100%,
+calc(100% - 6.29px) calc(100% - 19.56px), 0 100%)` gives a
+point-symmetric chamfer that stays entirely within the box.
+
+────────────────────────────────────────────────────────────────────
+4. VERIFICATION METHODOLOGY
+────────────────────────────────────────────────────────────────────
+  - Bounding-box height/width checks (Playwright `.bounding_box()`)
+    confirm the CSS box size, but NOT that a shape's visible profile
+    matches another shape's profile — clip-path can still be wrong
+    even when the box itself is the right size.
+  - To verify a claim like "constant distance everywhere", read the
+    actual computed clip-path polygon points (`getComputedStyle(el)
+    .clipPath`) and check the math directly — this is exact, not an
+    approximation.
+  - Pixel-level color scans are unreliable when a poking-up element
+    intentionally blends into an adjacent same-colored area (as the
+    spine does into the top-view) — you can't threshold "background
+    vs foreground" when foreground-on-foreground is the whole point.
+    For those cases, render the element ISOLATED (plain background,
+    nothing overlapping) to get a clean pixel measurement instead.
+  - Always re-check `document.documentElement.scrollWidth` against
+    `clientWidth` after any width-related change, at multiple scroll
+    depths — a stray unclosed div or an overflowing calc() value can
+    silently break the whole page layout downstream, not just the
+    component you're editing.
+
+────────────────────────────────────────────────────────────────────
+5. MARKUP EDITING: DIV-BALANCE DISCIPLINE
+────────────────────────────────────────────────────────────────────
+This component is duplicated across 4 places in index.html (one per
+library section) with a wrapper div, nested top-view/spine-set divs,
+and a title block moved inside spine-set. Editing all 4 by
+str_replace is error-prone — a single missing closing </div> in one
+instance cascades: every element after it in the DOM nests one level
+deeper, which doesn't show up as a rendering crash but silently
+breaks layout (flex-centering wrapping content that should be a
+plain grid child, causing overflow far downstream).
+
+After any multi-instance markup edit, run an HTML balance checker
+(Python html.parser tracking a tag stack) and specifically check
+NESTING DEPTH at known comment markers between instances (e.g. the
+comment before each section's first book card) — depth should be
+IDENTICAL at each one. A drifting depth number pinpoints exactly
+which instance is missing a close, without needing to eyeball a
+700-line diff.
