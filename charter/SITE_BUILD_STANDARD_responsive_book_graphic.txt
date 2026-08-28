@@ -236,3 +236,42 @@ A naive "tag font-size = 60% of title font-size" only produces
 roughly a 42% visual ratio here, and even a generous-looking 70%
 font-size bump only lands around 49% visual -- both read as "still
 too small" because the comparison was never apples-to-apples.
+
+────────────────────────────────────────────────────────────────────
+SUPERSEDES: FIGURE-EIGHT IS NOW ZONES, NOT CENTER-POINTS
+────────────────────────────────────────────────────────────────────
+The center-point + translate(-50%,-50%) approach above (25%/75% or
+30%/70%) had a real flaw: it only defines where content is CENTERED,
+not how much room it has. Whenever the tag (or title) needed more
+lines than expected, it would grow outward from its center-point
+with nothing to stop it from colliding with the other element.
+
+Current rule: an EXCLUSION BAND across the waist of the figure-eight,
+10% of frame height, centered at 50% (so it spans 45%-55%) — no text
+ever enters this band. Combine with a 18.75% (3/16) margin on all
+four sides of the frame. Together these define two hard zones:
+    title-zone: left/right 18.75%, top 18.75%, height 26.25%
+    tag-zone:   left/right 18.75%, top 55%,    height 26.25%
+(26.25% = 45% - 18.75%, the space between the margin and the
+exclusion band — same math for both zones by symmetry.)
+
+Each zone is a flex container (column+centered for title, centered
+for tag) that clips/bounds its own content — title and tag can each
+wrap to however many lines they need without ever touching the
+other, because they're structurally separated, not just visually
+spaced. This is what let the tag go to full equal cap-height/x-height
+(100% ratio, see below) without the collisions that ratio caused
+under the old center-point method.
+
+IMPORTANT: narrowing the frame to 62.5% width (100% - 2×18.75%
+margin) also narrows what the TITLE can fit — recompute the title's
+own fill-width font-size (step "upsize to fill inner frame width")
+against this new, smaller zone width, not the old wider one. Skipping
+this recheck is what caused the title to start wrapping unexpectedly
+when the zone system was first introduced.
+
+Default ratio note: with zones preventing collision, the tag ratio
+was pushed to full 1.0 (equal cap-height/x-height, using the
+cap-height/x-height correction from the section above) and it held
+cleanly across all sections — some tags now wrap to 3 lines instead
+of 2, which is fine since the zone contains it regardless.
