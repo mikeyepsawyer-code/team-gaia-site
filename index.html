@@ -288,17 +288,17 @@
   }
   .book-graphic .spine-set { position: relative; height: 150cqw; display: flex; flex-direction: column; justify-content: center; padding-left: 58px; box-sizing: border-box; text-align: center; flex-shrink: 0; }
   .book-graphic .spine-set::before {
-    content: ''; position: absolute; left: 100%; top: 0;
-    width: 1px; height: 100%; background: rgba(196,146,42,0.32);
+    content: ''; position: absolute; left: 100%; top: -26px;
+    width: 1px; height: calc(150cqw - 50.805px); background: rgba(196,146,42,0.32);
   }
   .book-graphic .spine-set::after {
-    content: ''; position: absolute; left: 50.81px; top: 100%;
+    content: ''; position: absolute; left: 50.81px; top: calc(150cqw - 76.805px);
     width: calc(100% - 50.81px); height: 1px; background: rgba(196,146,42,0.32);
   }
   .book-graphic .spine-bar {
-    position: absolute; width: 16.94px; height: calc(150cqw + 29.33px);
+    position: absolute; width: 16.94px; height: calc(150cqw - 21.475px);
     box-shadow: 1px 0 3px rgba(0,0,0,0.35);
-    clip-path: polygon(0 0, 6.29px 19.56px, 100% 29.33px, 100% calc(150cqw + 29.33px), 6.29px calc(150cqw + 19.56px), 0 150cqw);
+    clip-path: polygon(0 0, 6.29px 19.56px, 100% 29.33px, 100% calc(150cqw - 21.475px), 6.29px calc(150cqw - 31.245px), 0 calc(150cqw - 50.805px));
   }
   header { animation: fadeUp 1.2s ease both; }
   .a1 { animation: fadeUp 1.2s ease 0.15s both; }
