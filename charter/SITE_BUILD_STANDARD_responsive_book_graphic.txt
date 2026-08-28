@@ -184,3 +184,55 @@ big that section's title is. (First attempt used 50% and was judged
 "still way too small" — 70% was the corrected value.) If a third
 tier (an epigraph/quote) is ever added inside the frame, extend the
 same modular-scale logic rather than picking an arbitrary size.
+
+────────────────────────────────────────────────────────────────────
+CORRECTION: THE TOP REFERENCE WAS COSMETIC, NOT GEOMETRIC
+────────────────────────────────────────────────────────────────────
+The frame's top boundary was using the front spine-bar's CSS "top"
+offset (a value tuned earlier purely to visually close the gap
+between spine and top-view -- see the "trim that black separation"
+fix). That's a COSMETIC adjustment, not a 3D-consistent geometric
+position, and using it as the front-cover rectangle's true top edge
+mixed two unrelated things -- a "cousin" of the earlier rear/front
+book mixing bug. Three-dimensional thinking catches this: ask
+whether a reference value was chosen to make something LOOK right
+on screen (cosmetic) or whether it's derived from the shared
+band/step geometry (structurally real) before using it as a
+construction boundary.
+
+The correct top reference is the FRONT-COVER-STRIP's own top edge
+(the element built in step 3) -- since that strip IS explicitly the
+front book's own front cover, its position is geometrically pure:
+    inner_top = coverFrac × bandH   (currently 8.21px, NOT the
+                                      spine's cosmetic poke-up value)
+This is independent of whatever poke-up amount the spine bars use
+for their own visual connection into the top-view -- those two
+numbers can differ, and only the front-cover-strip's own edge
+belongs in the rectangle/frame math.
+
+────────────────────────────────────────────────────────────────────
+CORRECTION: TAG:TITLE SIZE RATIO MEANS RENDERED GLYPH HEIGHT
+────────────────────────────────────────────────────────────────────
+"Font size" as a CSS number is not comparable across two different
+typefaces -- a given font-size produces different actual glyph
+heights depending on the font's own metrics. The title (Cinzel,
+all-caps) is measured by its CAP-HEIGHT; the tag (Cormorant Garamond
+italic, mixed case) is measured by its X-HEIGHT, since ~80% of any
+mixed-case passage's letters sit within the x-height band (the
+"80/20 rule" -- ascenders/descenders are the exception, not the
+norm, though watch for them colliding with adjacent lines).
+
+Measured directly (render text, use canvas measureText with
+actualBoundingBoxAscent/Descent -- don't estimate):
+    Cinzel cap-height            = 0.66 × font-size
+    Cormorant Garamond x-height  = 0.46 × font-size
+
+To hit a target visual ratio R between tag and title (e.g. R=0.60),
+the CSS font-size ratio needed is NOT simply R -- it must correct
+for the two fonts' different metrics:
+    fontsize_ratio = R × (title_cap_ratio / tag_x_ratio)
+    e.g. for R=0.60: 0.60 × (0.66/0.46) = 0.861
+A naive "tag font-size = 60% of title font-size" only produces
+roughly a 42% visual ratio here, and even a generous-looking 70%
+font-size bump only lands around 49% visual -- both read as "still
+too small" because the comparison was never apples-to-apples.
