@@ -200,7 +200,7 @@
   }
   @keyframes zoomTwist {
     0%   { transform: scale(1) rotate(0deg); }
-    100% { transform: scale(1.85) rotate(9deg); }
+    100% { transform: scale(1.85) rotate(13deg); }
   }
 
   /* BOOKSHELF-TOP SECTION DIVIDER (Aug 27 2026) — a row of book spines
@@ -292,7 +292,11 @@
   .spine-bar {
     position: absolute; top: 0; bottom: 0.4in; width: 0.0722in;
     box-shadow: 1px 0 3px rgba(0,0,0,0.35);
-    clip-path: polygon(0 0, 100% 10px, 100% 100%, 0 100%);
+    /* drop = width * tan(60deg) = 0.0722in * 1.732 = 0.125in -- this
+       is the exact same H used for the divider bands, so a STEP-wide
+       chamfer at true 60deg has a 0.125in rise/run, matching the
+       divider's own diagonal instead of an eyeballed 10px guess. */
+    clip-path: polygon(0 0, 100% 0.125in, 100% 100%, 0 100%);
   }
   header { animation: fadeUp 1.2s ease both; }
   .a1 { animation: fadeUp 1.2s ease 0.15s both; }
