@@ -296,9 +296,9 @@
     width: 100%; height: 1px; background: rgba(196,146,42,0.32);
   }
   .book-graphic .spine-bar {
-    position: absolute; width: 16.94px; height: calc(150cqw + 29.33px);
+    position: absolute; width: 16.94px; height: 150cqw;
     box-shadow: 1px 0 3px rgba(0,0,0,0.35);
-    clip-path: polygon(0 0, 6.29px 19.56px, 100% 29.33px, 100% calc(150cqw + 29.33px), 6.29px calc(150cqw + 19.56px), 0 150cqw);
+    clip-path: polygon(0 0, 6.29px 19.56px, 100% 29.33px, 100% 100%, calc(100% - 6.29px) calc(100% - 19.56px), 0 100%);
   }
   header { animation: fadeUp 1.2s ease both; }
   .a1 { animation: fadeUp 1.2s ease 0.15s both; }
