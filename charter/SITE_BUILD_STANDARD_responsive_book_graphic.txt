@@ -142,3 +142,29 @@ an HTML balance checker (Python html.parser + tag stack) and check
 NESTING DEPTH at a comment marker between each instance — depth
 should be identical at each one. A drifting number pinpoints exactly
 which instance is missing a close.
+
+────────────────────────────────────────────────────────────────────
+TITLE + TAG COMPOSITION: THE FIGURE-EIGHT RULE
+────────────────────────────────────────────────────────────────────
+Added after the section titles/tags were finalized. Within the
+front-cover frame (the area right of the spines, bounded by the
+optional boundary lines from step 9), the title and its tag are
+each their own focal point, not one clustered block.
+
+Picture a large figure-eight (∞) centered in the frame, its two
+loops stacked vertically. The CENTER of each loop is where that
+element's centerpoint should land:
+    title center: 25% down the frame height
+    tag center:   75% down the frame height
+Implemented via two independently absolute-positioned children of a
+".content-frame" wrapper (left:58px/right:0/top:0/bottom:0, matching
+the spine's own padding-left), each using top:25%/75%; left:50%;
+transform:translate(-50%,-50%) — NOT a single centered flex column,
+which clusters both elements together with no real separation.
+
+DEFAULT SIZE RATIO: tag font-size = 50% of that section's OWN title
+font-size (same percentage applied to the clamp's min/cqw/max terms
+alike), not a flat tag size shared across sections regardless of how
+big that section's title is. If a third tier (an epigraph/quote) is
+ever added inside the frame, extend the same modular-scale logic
+rather than picking an arbitrary size.
