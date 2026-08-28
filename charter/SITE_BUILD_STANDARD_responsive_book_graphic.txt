@@ -156,15 +156,31 @@ loops stacked vertically. The CENTER of each loop is where that
 element's centerpoint should land:
     title center: 25% down the frame height
     tag center:   75% down the frame height
-Implemented via two independently absolute-positioned children of a
-".content-frame" wrapper (left:58px/right:0/top:0/bottom:0, matching
-the spine's own padding-left), each using top:25%/75%; left:50%;
+
+CRITICAL: "the frame" means the true front-cover rectangle bounded
+by the gold construction lines (step 9) -- top:-inner_top; height:
+H_target -- NOT the full spine-set box (0 to 150cqw). These differ:
+spine-set's box includes extra room the scallop/poke-up needs, so
+using ITS 0-100% range for the 25%/75% math silently shifts both
+anchors down (verified this shifted the tag from an intended 75% to
+an apparent ~85%+ of the visible frame). Point ".content-frame"
+at the SAME top/height values already used for the boundary lines
+(top:-inner_top; height:H_target — currently -26px / calc(150cqw -
+50.805px)) so the percentages are computed against what's actually
+visible, not the larger invisible box around it. Verify by reading
+computed pseudo-element top/height via Playwright and confirming the
+anchors' center lands at exactly 25.00/75.00% of that same span —
+not just trusting the CSS numbers look right.
+
+Implemented via two independently absolute-positioned children of
+".content-frame", each using top:25%/75%; left:50%;
 transform:translate(-50%,-50%) — NOT a single centered flex column,
 which clusters both elements together with no real separation.
 
-DEFAULT SIZE RATIO: tag font-size = 50% of that section's OWN title
+DEFAULT SIZE RATIO: tag font-size = 70% of that section's OWN title
 font-size (same percentage applied to the clamp's min/cqw/max terms
 alike), not a flat tag size shared across sections regardless of how
-big that section's title is. If a third tier (an epigraph/quote) is
-ever added inside the frame, extend the same modular-scale logic
-rather than picking an arbitrary size.
+big that section's title is. (First attempt used 50% and was judged
+"still way too small" — 70% was the corrected value.) If a third
+tier (an epigraph/quote) is ever added inside the frame, extend the
+same modular-scale logic rather than picking an arbitrary size.
