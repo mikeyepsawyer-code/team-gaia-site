@@ -273,23 +273,23 @@
      is extra, not counted in the 1.5x spine-section height itself.
      All three books use the same STEP/bandH ratio (tan 60deg) as
      before, just recomputed for a 220px design width. */
-  .book-graphic { width: 220px; max-width: 100%; margin: 0 auto; flex-shrink: 0; }
+  .book-graphic { width: 100%; container-type: inline-size; flex-shrink: 0; }
   .book-graphic .top-view { width: 100%; display: flex; flex-direction: column; flex-shrink: 0; }
-  .book-graphic .stack-band { position: relative; height: 29.33px; width: 100%; flex-shrink: 0; }
+  .book-graphic .stack-band { position: relative; height: 13.332cqw; width: 100%; flex-shrink: 0; }
   .book-graphic .band-cover {
-    position: absolute; top: 0; left: 0; width: 100%; height: 8.21px;
+    position: absolute; top: 0; left: 0; width: 100%; height: 3.732cqw;
     background: var(--spine, #3a2d14);
   }
   .book-graphic .band-pages {
-    position: absolute; top: 8.21px; left: 0; width: 100%; height: 21.12px;
+    position: absolute; top: 3.732cqw; left: 0; width: 100%; height: 9.6cqw;
     background: linear-gradient(180deg, #f3ead0 0%, #e4d3a8 100%);
     box-shadow: 0 1px 0 rgba(0,0,0,0.3);
   }
-  .book-graphic .spine-set { position: relative; height: 330px; display: flex; flex-direction: column; justify-content: center; padding-left: 58px; box-sizing: border-box; text-align: center; flex-shrink: 0; }
+  .book-graphic .spine-set { position: relative; height: 150.0cqw; display: flex; flex-direction: column; justify-content: center; padding-left: 26.364cqw; box-sizing: border-box; text-align: center; flex-shrink: 0; }
   .book-graphic .spine-bar {
-    position: absolute; bottom: 0; width: 16.94px;
+    position: absolute; bottom: 0; width: 7.7cqw;
     box-shadow: 1px 0 3px rgba(0,0,0,0.35);
-    clip-path: polygon(0 0, 6.29px 19.56px, 100% 29.33px, 100% 100%, 0 100%);
+    clip-path: polygon(0 0, 2.859cqw 8.891cqw, 100% 13.332cqw, 100% 100%, 0 100%);
   }
   header { animation: fadeUp 1.2s ease both; }
   .a1 { animation: fadeUp 1.2s ease 0.15s both; }
@@ -449,22 +449,22 @@
         <div class="book-graphic">
         <div class="top-view">
           <div class="stack-band">
-            <div class="band-cover" style="background:#3e668f; clip-path: polygon(0px 0, calc(100% - 50.81px) 0, calc(100% - 46.06px) 100%, 4.74px 100%);"></div>
-            <div class="band-pages" style="clip-path: polygon(4.74px 0, calc(100% - 55.51px) 0, calc(100% - 43.32px) 100%, 16.94px 100%);"></div>
+            <div class="band-cover" style="background:#3e668f; clip-path: polygon(0px 0, calc(100% - 23.095cqw) 0, calc(100% - 20.936cqw) 100%, 2.155cqw 100%);"></div>
+            <div class="band-pages" style="clip-path: polygon(2.155cqw 0, calc(100% - 25.232cqw) 0, calc(100% - 19.691cqw) 100%, 7.7cqw 100%);"></div>
           </div>
           <div class="stack-band">
-            <div class="band-cover" style="background:#2a2e56; clip-path: polygon(16.94px 0, calc(100% - 33.87px) 0, calc(100% - 29.13px) 100%, 21.68px 100%);"></div>
-            <div class="band-pages" style="clip-path: polygon(21.68px 0, calc(100% - 38.58px) 0, calc(100% - 26.38px) 100%, 33.87px 100%);"></div>
+            <div class="band-cover" style="background:#2a2e56; clip-path: polygon(7.7cqw 0, calc(100% - 15.395cqw) 0, calc(100% - 13.241cqw) 100%, 9.855cqw 100%);"></div>
+            <div class="band-pages" style="clip-path: polygon(9.855cqw 0, calc(100% - 17.536cqw) 0, calc(100% - 11.991cqw) 100%, 15.395cqw 100%);"></div>
           </div>
           <div class="stack-band">
-            <div class="band-cover" style="background:#3d1f5c; clip-path: polygon(33.87px 0, calc(100% - 16.94px) 0, calc(100% - 12.19px) 100%, 38.61px 100%);"></div>
-            <div class="band-pages" style="clip-path: polygon(38.61px 0, calc(100% - 21.64px) 0, calc(100% - 9.45px) 100%, 50.81px 100%);"></div>
+            <div class="band-cover" style="background:#3d1f5c; clip-path: polygon(15.395cqw 0, calc(100% - 7.7cqw) 0, calc(100% - 5.541cqw) 100%, 17.55cqw 100%);"></div>
+            <div class="band-pages" style="clip-path: polygon(17.55cqw 0, calc(100% - 9.836cqw) 0, calc(100% - 4.295cqw) 100%, 23.095cqw 100%);"></div>
           </div>
         </div>
         <div class="spine-set">
-          <div class="spine-bar" style="left:0px; top:-58.67px; background:#3e668f; z-index:3;"></div>
-          <div class="spine-bar" style="left:16.94px; top:-29.33px; background:#2a2e56; z-index:2;"></div>
-          <div class="spine-bar" style="left:33.87px; top:0px; background:#3d1f5c; z-index:1;"></div>
+          <div class="spine-bar" style="left:0px; top:-26.668cqw; background:#3e668f; z-index:3;"></div>
+          <div class="spine-bar" style="left:7.7cqw; top:-13.332cqw; background:#2a2e56; z-index:2;"></div>
+          <div class="spine-bar" style="left:15.395cqw; top:0px; background:#3d1f5c; z-index:1;"></div>
           <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; width:100%;">
             <span style="font-size: clamp(0.85rem, 3vw, 1.1rem); color: rgba(196,146,42,0.75); flex-shrink: 0;">&#10022;</span>
             <div class="dimensional" style="font-family: 'Cinzel', serif; font-weight: 600; text-transform: uppercase; text-align: center; font-size: clamp(0.72rem, 4vw, 0.95rem); letter-spacing: 0.03em; margin: 0; line-height: 1.3; overflow-wrap: normal; word-break: normal; white-space: normal; width:100%">
@@ -529,22 +529,22 @@
         <div class="book-graphic">
         <div class="top-view">
           <div class="stack-band">
-            <div class="band-cover" style="background:#3e668f; clip-path: polygon(0px 0, calc(100% - 50.81px) 0, calc(100% - 46.06px) 100%, 4.74px 100%);"></div>
-            <div class="band-pages" style="clip-path: polygon(4.74px 0, calc(100% - 55.51px) 0, calc(100% - 43.32px) 100%, 16.94px 100%);"></div>
+            <div class="band-cover" style="background:#3e668f; clip-path: polygon(0px 0, calc(100% - 23.095cqw) 0, calc(100% - 20.936cqw) 100%, 2.155cqw 100%);"></div>
+            <div class="band-pages" style="clip-path: polygon(2.155cqw 0, calc(100% - 25.232cqw) 0, calc(100% - 19.691cqw) 100%, 7.7cqw 100%);"></div>
           </div>
           <div class="stack-band">
-            <div class="band-cover" style="background:#2a2e56; clip-path: polygon(16.94px 0, calc(100% - 33.87px) 0, calc(100% - 29.13px) 100%, 21.68px 100%);"></div>
-            <div class="band-pages" style="clip-path: polygon(21.68px 0, calc(100% - 38.58px) 0, calc(100% - 26.38px) 100%, 33.87px 100%);"></div>
+            <div class="band-cover" style="background:#2a2e56; clip-path: polygon(7.7cqw 0, calc(100% - 15.395cqw) 0, calc(100% - 13.241cqw) 100%, 9.855cqw 100%);"></div>
+            <div class="band-pages" style="clip-path: polygon(9.855cqw 0, calc(100% - 17.536cqw) 0, calc(100% - 11.991cqw) 100%, 15.395cqw 100%);"></div>
           </div>
           <div class="stack-band">
-            <div class="band-cover" style="background:#3d1f5c; clip-path: polygon(33.87px 0, calc(100% - 16.94px) 0, calc(100% - 12.19px) 100%, 38.61px 100%);"></div>
-            <div class="band-pages" style="clip-path: polygon(38.61px 0, calc(100% - 21.64px) 0, calc(100% - 9.45px) 100%, 50.81px 100%);"></div>
+            <div class="band-cover" style="background:#3d1f5c; clip-path: polygon(15.395cqw 0, calc(100% - 7.7cqw) 0, calc(100% - 5.541cqw) 100%, 17.55cqw 100%);"></div>
+            <div class="band-pages" style="clip-path: polygon(17.55cqw 0, calc(100% - 9.836cqw) 0, calc(100% - 4.295cqw) 100%, 23.095cqw 100%);"></div>
           </div>
         </div>
         <div class="spine-set">
-          <div class="spine-bar" style="left:0px; top:-58.67px; background:#3e668f; z-index:3;"></div>
-          <div class="spine-bar" style="left:16.94px; top:-29.33px; background:#2a2e56; z-index:2;"></div>
-          <div class="spine-bar" style="left:33.87px; top:0px; background:#3d1f5c; z-index:1;"></div>
+          <div class="spine-bar" style="left:0px; top:-26.668cqw; background:#3e668f; z-index:3;"></div>
+          <div class="spine-bar" style="left:7.7cqw; top:-13.332cqw; background:#2a2e56; z-index:2;"></div>
+          <div class="spine-bar" style="left:15.395cqw; top:0px; background:#3d1f5c; z-index:1;"></div>
           <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; width:100%;">
             <span style="font-size: clamp(0.85rem, 3vw, 1.1rem); color: rgba(196,146,42,0.75); flex-shrink: 0;">&#10022;</span>
             <div class="dimensional" style="font-family: 'Cinzel', serif; font-weight: 600; text-transform: uppercase; text-align: center; font-size: clamp(0.72rem, 4vw, 0.95rem); letter-spacing: 0.03em; margin: 0; line-height: 1.3; overflow-wrap: normal; word-break: normal; white-space: normal; width:100%">
@@ -605,22 +605,22 @@
         <div class="book-graphic">
         <div class="top-view">
           <div class="stack-band">
-            <div class="band-cover" style="background:#3e668f; clip-path: polygon(0px 0, calc(100% - 50.81px) 0, calc(100% - 46.06px) 100%, 4.74px 100%);"></div>
-            <div class="band-pages" style="clip-path: polygon(4.74px 0, calc(100% - 55.51px) 0, calc(100% - 43.32px) 100%, 16.94px 100%);"></div>
+            <div class="band-cover" style="background:#3e668f; clip-path: polygon(0px 0, calc(100% - 23.095cqw) 0, calc(100% - 20.936cqw) 100%, 2.155cqw 100%);"></div>
+            <div class="band-pages" style="clip-path: polygon(2.155cqw 0, calc(100% - 25.232cqw) 0, calc(100% - 19.691cqw) 100%, 7.7cqw 100%);"></div>
           </div>
           <div class="stack-band">
-            <div class="band-cover" style="background:#2a2e56; clip-path: polygon(16.94px 0, calc(100% - 33.87px) 0, calc(100% - 29.13px) 100%, 21.68px 100%);"></div>
-            <div class="band-pages" style="clip-path: polygon(21.68px 0, calc(100% - 38.58px) 0, calc(100% - 26.38px) 100%, 33.87px 100%);"></div>
+            <div class="band-cover" style="background:#2a2e56; clip-path: polygon(7.7cqw 0, calc(100% - 15.395cqw) 0, calc(100% - 13.241cqw) 100%, 9.855cqw 100%);"></div>
+            <div class="band-pages" style="clip-path: polygon(9.855cqw 0, calc(100% - 17.536cqw) 0, calc(100% - 11.991cqw) 100%, 15.395cqw 100%);"></div>
           </div>
           <div class="stack-band">
-            <div class="band-cover" style="background:#3d1f5c; clip-path: polygon(33.87px 0, calc(100% - 16.94px) 0, calc(100% - 12.19px) 100%, 38.61px 100%);"></div>
-            <div class="band-pages" style="clip-path: polygon(38.61px 0, calc(100% - 21.64px) 0, calc(100% - 9.45px) 100%, 50.81px 100%);"></div>
+            <div class="band-cover" style="background:#3d1f5c; clip-path: polygon(15.395cqw 0, calc(100% - 7.7cqw) 0, calc(100% - 5.541cqw) 100%, 17.55cqw 100%);"></div>
+            <div class="band-pages" style="clip-path: polygon(17.55cqw 0, calc(100% - 9.836cqw) 0, calc(100% - 4.295cqw) 100%, 23.095cqw 100%);"></div>
           </div>
         </div>
         <div class="spine-set">
-          <div class="spine-bar" style="left:0px; top:-58.67px; background:#3e668f; z-index:3;"></div>
-          <div class="spine-bar" style="left:16.94px; top:-29.33px; background:#2a2e56; z-index:2;"></div>
-          <div class="spine-bar" style="left:33.87px; top:0px; background:#3d1f5c; z-index:1;"></div>
+          <div class="spine-bar" style="left:0px; top:-26.668cqw; background:#3e668f; z-index:3;"></div>
+          <div class="spine-bar" style="left:7.7cqw; top:-13.332cqw; background:#2a2e56; z-index:2;"></div>
+          <div class="spine-bar" style="left:15.395cqw; top:0px; background:#3d1f5c; z-index:1;"></div>
           <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; width:100%;">
             <span style="font-size: clamp(0.85rem, 3vw, 1.1rem); color: rgba(196,146,42,0.75); flex-shrink: 0;">&#10022;</span>
             <div class="dimensional" style="font-family: 'Cinzel', serif; font-weight: 600; text-transform: uppercase; text-align: center; font-size: clamp(0.72rem, 4vw, 0.95rem); letter-spacing: 0.03em; margin: 0; line-height: 1.3; overflow-wrap: normal; word-break: normal; white-space: normal; width:100%">
@@ -684,22 +684,22 @@
     <div class="book-graphic" style="margin-bottom:36px;">
       <div class="top-view">
         <div class="stack-band">
-          <div class="band-cover" style="background:#3e668f; clip-path: polygon(0px 0, calc(100% - 50.81px) 0, calc(100% - 46.06px) 100%, 4.74px 100%);"></div>
-          <div class="band-pages" style="clip-path: polygon(4.74px 0, calc(100% - 55.51px) 0, calc(100% - 43.32px) 100%, 16.94px 100%);"></div>
+          <div class="band-cover" style="background:#3e668f; clip-path: polygon(0px 0, calc(100% - 23.095cqw) 0, calc(100% - 20.936cqw) 100%, 2.155cqw 100%);"></div>
+          <div class="band-pages" style="clip-path: polygon(2.155cqw 0, calc(100% - 25.232cqw) 0, calc(100% - 19.691cqw) 100%, 7.7cqw 100%);"></div>
         </div>
         <div class="stack-band">
-          <div class="band-cover" style="background:#2a2e56; clip-path: polygon(16.94px 0, calc(100% - 33.87px) 0, calc(100% - 29.13px) 100%, 21.68px 100%);"></div>
-          <div class="band-pages" style="clip-path: polygon(21.68px 0, calc(100% - 38.58px) 0, calc(100% - 26.38px) 100%, 33.87px 100%);"></div>
+          <div class="band-cover" style="background:#2a2e56; clip-path: polygon(7.7cqw 0, calc(100% - 15.395cqw) 0, calc(100% - 13.241cqw) 100%, 9.855cqw 100%);"></div>
+          <div class="band-pages" style="clip-path: polygon(9.855cqw 0, calc(100% - 17.536cqw) 0, calc(100% - 11.991cqw) 100%, 15.395cqw 100%);"></div>
         </div>
         <div class="stack-band">
-          <div class="band-cover" style="background:#3d1f5c; clip-path: polygon(33.87px 0, calc(100% - 16.94px) 0, calc(100% - 12.19px) 100%, 38.61px 100%);"></div>
-          <div class="band-pages" style="clip-path: polygon(38.61px 0, calc(100% - 21.64px) 0, calc(100% - 9.45px) 100%, 50.81px 100%);"></div>
+          <div class="band-cover" style="background:#3d1f5c; clip-path: polygon(15.395cqw 0, calc(100% - 7.7cqw) 0, calc(100% - 5.541cqw) 100%, 17.55cqw 100%);"></div>
+          <div class="band-pages" style="clip-path: polygon(17.55cqw 0, calc(100% - 9.836cqw) 0, calc(100% - 4.295cqw) 100%, 23.095cqw 100%);"></div>
         </div>
       </div>
       <div class="spine-set">
-        <div class="spine-bar" style="left:0px; top:-58.67px; background:#3e668f; z-index:3;"></div>
-        <div class="spine-bar" style="left:16.94px; top:-29.33px; background:#2a2e56; z-index:2;"></div>
-        <div class="spine-bar" style="left:33.87px; top:0px; background:#3d1f5c; z-index:1;"></div>
+        <div class="spine-bar" style="left:0px; top:-26.668cqw; background:#3e668f; z-index:3;"></div>
+        <div class="spine-bar" style="left:7.7cqw; top:-13.332cqw; background:#2a2e56; z-index:2;"></div>
+        <div class="spine-bar" style="left:15.395cqw; top:0px; background:#3d1f5c; z-index:1;"></div>
         <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; width:100%;">
           <span style="font-size: clamp(0.85rem, 3vw, 1.1rem); color: rgba(196,146,42,0.75); flex-shrink: 0;">&#10022;</span>
           <div class="dimensional" style="font-family: 'Cinzel', serif; font-weight: 600; text-transform: uppercase; text-align: center; font-size: clamp(0.72rem, 4vw, 0.95rem); letter-spacing: 0.03em; margin: 0; line-height: 1.3; overflow-wrap: normal; word-break: normal; white-space: normal; width:100%">
