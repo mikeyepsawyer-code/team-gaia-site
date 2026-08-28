@@ -273,9 +273,9 @@
      is extra, not counted in the 1.5x spine-section height itself.
      All three books use the same STEP/bandH ratio (tan 60deg) as
      before, just recomputed for a 220px design width. */
-  .book-graphic { width: 220px; max-width: 100%; margin: 0 auto; }
-  .book-graphic .divider { width: 100%; display: flex; flex-direction: column; }
-  .book-graphic .stack-band { position: relative; height: 29.33px; width: 100%; }
+  .book-graphic { width: 220px; max-width: 100%; margin: 0 auto; flex-shrink: 0; }
+  .book-graphic .top-view { width: 100%; display: flex; flex-direction: column; flex-shrink: 0; }
+  .book-graphic .stack-band { position: relative; height: 29.33px; width: 100%; flex-shrink: 0; }
   .book-graphic .band-cover {
     position: absolute; top: 0; left: 0; width: 100%; height: 8.21px;
     background: var(--spine, #3a2d14);
@@ -285,7 +285,7 @@
     background: linear-gradient(180deg, #f3ead0 0%, #e4d3a8 100%);
     box-shadow: 0 1px 0 rgba(0,0,0,0.3);
   }
-  .book-graphic .spine-set { position: relative; height: 330px; }
+  .book-graphic .spine-set { position: relative; height: 330px; display: flex; flex-direction: column; justify-content: center; padding-left: 58px; box-sizing: border-box; text-align: center; flex-shrink: 0; }
   .book-graphic .spine-bar {
     position: absolute; bottom: 0; width: 16.94px;
     box-shadow: 1px 0 3px rgba(0,0,0,0.35);
@@ -447,7 +447,7 @@
 
       <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px; grid-column:1/-1; width:100%; box-sizing:border-box; padding:0 12px; margin-bottom:36px;">
         <div class="book-graphic">
-        <div class="divider">
+        <div class="top-view">
           <div class="stack-band">
             <div class="band-cover" style="background:#3e668f; clip-path: polygon(0px 0, calc(100% - 50.81px) 0, calc(100% - 46.06px) 100%, 4.74px 100%);"></div>
             <div class="band-pages" style="clip-path: polygon(4.74px 0, calc(100% - 55.51px) 0, calc(100% - 43.32px) 100%, 16.94px 100%);"></div>
@@ -465,22 +465,21 @@
           <div class="spine-bar" style="left:0px; top:-58.67px; background:#3e668f; z-index:3;"></div>
           <div class="spine-bar" style="left:16.94px; top:-29.33px; background:#2a2e56; z-index:2;"></div>
           <div class="spine-bar" style="left:33.87px; top:0px; background:#3d1f5c; z-index:1;"></div>
+          <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; width:100%;">
+            <span style="font-size: clamp(0.85rem, 3vw, 1.1rem); color: rgba(196,146,42,0.75); flex-shrink: 0;">&#10022;</span>
+            <div class="dimensional" style="font-family: 'Cinzel', serif; font-weight: 600; text-transform: uppercase; text-align: center; font-size: clamp(0.72rem, 4vw, 0.95rem); letter-spacing: 0.03em; margin: 0; line-height: 1.3; overflow-wrap: normal; word-break: normal; white-space: normal; width:100%">
+              <span class="shadow-copy shadow-3">The Heart of Anahata<br>Section</span>
+              <span class="shadow-copy shadow-2">The Heart of Anahata<br>Section</span>
+              <span class="shadow-copy shadow-1">The Heart of Anahata<br>Section</span>
+              <span class="rim-copy rim-1">The Heart of Anahata<br>Section</span>
+              <span class="rim-copy rim-2">The Heart of Anahata<br>Section</span>
+              <span class="rim-copy rim-3">The Heart of Anahata<br>Section</span>
+              <span class="face shimmer-final">The Heart of Anahata<br>Section</span>
+            </div>
+            <span style="font-size: clamp(0.85rem, 3vw, 1.1rem); color: rgba(196,146,42,0.75); flex-shrink: 0;">&#10022;</span>
+          </div>
+          <!-- no section tagline yet -- room reserved here for one -->
         </div>
-      </div>
-        <div style="display:flex; align-items:center; justify-content:center; gap:14px;">
-        <span style="font-size: clamp(1.4rem, 6vw, 2.4rem); color: rgba(196,146,42,0.75); flex-shrink: 0;">&#10022;</span>
-        <div class="dimensional" style="font-family: 'Cinzel', serif; font-weight: 600; text-transform: uppercase; text-align: center; font-size: clamp(1.6rem, 10vw, 2.8rem); letter-spacing: 0.05em; margin: 0; line-height: 1.25; overflow-wrap: break-word; word-break: break-word">
-        <span class="shadow-copy shadow-3">The Heart of Anahata<br>Section</span>
-        <span class="shadow-copy shadow-2">The Heart of Anahata<br>Section</span>
-        <span class="shadow-copy shadow-1">The Heart of Anahata<br>Section</span>
-        <span class="rim-copy rim-1">The Heart of Anahata<br>Section</span>
-        <span class="rim-copy rim-2">The Heart of Anahata<br>Section</span>
-        <span class="rim-copy rim-3">The Heart of Anahata<br>Section</span>
-        <span class="face shimmer-final">The Heart of Anahata<br>Section</span>
-      </div>
-        <span style="font-size: clamp(1.4rem, 6vw, 2.4rem); color: rgba(196,146,42,0.75); flex-shrink: 0;">&#10022;</span>
-      </div>
-        <!-- no section tagline yet -- room reserved here for one -->
       </div>
       <!-- The Art of Amōre — Preview -->
       <a class="link-card" href="/ovid-preview.html" target="_blank" rel="noopener">
@@ -527,7 +526,7 @@
 
       <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px; grid-column:1/-1; width:100%; box-sizing:border-box; padding:0 12px; margin-bottom:36px;">
         <div class="book-graphic">
-        <div class="divider">
+        <div class="top-view">
           <div class="stack-band">
             <div class="band-cover" style="background:#3e668f; clip-path: polygon(0px 0, calc(100% - 50.81px) 0, calc(100% - 46.06px) 100%, 4.74px 100%);"></div>
             <div class="band-pages" style="clip-path: polygon(4.74px 0, calc(100% - 55.51px) 0, calc(100% - 43.32px) 100%, 16.94px 100%);"></div>
@@ -545,22 +544,21 @@
           <div class="spine-bar" style="left:0px; top:-58.67px; background:#3e668f; z-index:3;"></div>
           <div class="spine-bar" style="left:16.94px; top:-29.33px; background:#2a2e56; z-index:2;"></div>
           <div class="spine-bar" style="left:33.87px; top:0px; background:#3d1f5c; z-index:1;"></div>
+          <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; width:100%;">
+            <span style="font-size: clamp(0.85rem, 3vw, 1.1rem); color: rgba(196,146,42,0.75); flex-shrink: 0;">&#10022;</span>
+            <div class="dimensional" style="font-family: 'Cinzel', serif; font-weight: 600; text-transform: uppercase; text-align: center; font-size: clamp(0.72rem, 4vw, 0.95rem); letter-spacing: 0.03em; margin: 0; line-height: 1.3; overflow-wrap: normal; word-break: normal; white-space: normal; width:100%">
+              <span class="shadow-copy shadow-3">Philosophy/ Psychology<br>Section</span>
+              <span class="shadow-copy shadow-2">Philosophy/ Psychology<br>Section</span>
+              <span class="shadow-copy shadow-1">Philosophy/ Psychology<br>Section</span>
+              <span class="rim-copy rim-1">Philosophy/ Psychology<br>Section</span>
+              <span class="rim-copy rim-2">Philosophy/ Psychology<br>Section</span>
+              <span class="rim-copy rim-3">Philosophy/ Psychology<br>Section</span>
+              <span class="face shimmer-final">Philosophy/ Psychology<br>Section</span>
+            </div>
+            <span style="font-size: clamp(0.85rem, 3vw, 1.1rem); color: rgba(196,146,42,0.75); flex-shrink: 0;">&#10022;</span>
+          </div>
+          <!-- no section tagline yet -- room reserved here for one -->
         </div>
-      </div>
-        <div style="display:flex; align-items:center; justify-content:center; gap:14px;">
-        <span style="font-size: clamp(1.4rem, 6vw, 2.4rem); color: rgba(196,146,42,0.75); flex-shrink: 0;">&#10022;</span>
-        <div class="dimensional" style="font-family: 'Cinzel', serif; font-weight: 600; text-transform: uppercase; text-align: center; font-size: clamp(1.6rem, 8vw, 2.8rem); letter-spacing: 0.05em; margin: 0; line-height: 1.25; overflow-wrap: normal; word-break: normal; white-space: normal">
-        <span class="shadow-copy shadow-3">Philosophy/ Psychology<br>Section</span>
-        <span class="shadow-copy shadow-2">Philosophy/ Psychology<br>Section</span>
-        <span class="shadow-copy shadow-1">Philosophy/ Psychology<br>Section</span>
-        <span class="rim-copy rim-1">Philosophy/ Psychology<br>Section</span>
-        <span class="rim-copy rim-2">Philosophy/ Psychology<br>Section</span>
-        <span class="rim-copy rim-3">Philosophy/ Psychology<br>Section</span>
-        <span class="face shimmer-final">Philosophy/ Psychology<br>Section</span>
-      </div>
-        <span style="font-size: clamp(1.4rem, 6vw, 2.4rem); color: rgba(196,146,42,0.75); flex-shrink: 0;">&#10022;</span>
-      </div>
-        <!-- no section tagline yet -- room reserved here for one -->
       </div>
       <!-- Sapiens Cyberneticus (formerly Sapiens Cyberneticus) -->
       <a class="link-card" href="/sapiens-cyberneticus-preview.html" target="_blank" rel="noopener">
@@ -603,7 +601,7 @@
 
       <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px; grid-column:1/-1; width:100%; box-sizing:border-box; padding:0 12px; margin-bottom:36px;">
         <div class="book-graphic">
-        <div class="divider">
+        <div class="top-view">
           <div class="stack-band">
             <div class="band-cover" style="background:#3e668f; clip-path: polygon(0px 0, calc(100% - 50.81px) 0, calc(100% - 46.06px) 100%, 4.74px 100%);"></div>
             <div class="band-pages" style="clip-path: polygon(4.74px 0, calc(100% - 55.51px) 0, calc(100% - 43.32px) 100%, 16.94px 100%);"></div>
@@ -621,22 +619,21 @@
           <div class="spine-bar" style="left:0px; top:-58.67px; background:#3e668f; z-index:3;"></div>
           <div class="spine-bar" style="left:16.94px; top:-29.33px; background:#2a2e56; z-index:2;"></div>
           <div class="spine-bar" style="left:33.87px; top:0px; background:#3d1f5c; z-index:1;"></div>
+          <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; width:100%;">
+            <span style="font-size: clamp(0.85rem, 3vw, 1.1rem); color: rgba(196,146,42,0.75); flex-shrink: 0;">&#10022;</span>
+            <div class="dimensional" style="font-family: 'Cinzel', serif; font-weight: 600; text-transform: uppercase; text-align: center; font-size: clamp(0.72rem, 4vw, 0.95rem); letter-spacing: 0.03em; margin: 0; line-height: 1.3; overflow-wrap: normal; word-break: normal; white-space: normal; width:100%">
+              <span class="shadow-copy shadow-3">Chi and the Body<br>Section</span>
+              <span class="shadow-copy shadow-2">Chi and the Body<br>Section</span>
+              <span class="shadow-copy shadow-1">Chi and the Body<br>Section</span>
+              <span class="rim-copy rim-1">Chi and the Body<br>Section</span>
+              <span class="rim-copy rim-2">Chi and the Body<br>Section</span>
+              <span class="rim-copy rim-3">Chi and the Body<br>Section</span>
+              <span class="face shimmer-final">Chi and the Body<br>Section</span>
+            </div>
+            <span style="font-size: clamp(0.85rem, 3vw, 1.1rem); color: rgba(196,146,42,0.75); flex-shrink: 0;">&#10022;</span>
+          </div>
+          <!-- no section tagline yet -- room reserved here for one -->
         </div>
-      </div>
-        <div style="display:flex; align-items:center; justify-content:center; gap:14px;">
-        <span style="font-size: clamp(1.4rem, 6vw, 2.4rem); color: rgba(196,146,42,0.75); flex-shrink: 0;">&#10022;</span>
-        <div class="dimensional" style="font-family: 'Cinzel', serif; font-weight: 600; text-transform: uppercase; text-align: center; font-size: clamp(1.6rem, 10vw, 2.8rem); letter-spacing: 0.05em; margin: 0; line-height: 1.25; overflow-wrap: break-word; word-break: break-word">
-        <span class="shadow-copy shadow-3">Chi and the Body<br>Section</span>
-        <span class="shadow-copy shadow-2">Chi and the Body<br>Section</span>
-        <span class="shadow-copy shadow-1">Chi and the Body<br>Section</span>
-        <span class="rim-copy rim-1">Chi and the Body<br>Section</span>
-        <span class="rim-copy rim-2">Chi and the Body<br>Section</span>
-        <span class="rim-copy rim-3">Chi and the Body<br>Section</span>
-        <span class="face shimmer-final">Chi and the Body<br>Section</span>
-      </div>
-        <span style="font-size: clamp(1.4rem, 6vw, 2.4rem); color: rgba(196,146,42,0.75); flex-shrink: 0;">&#10022;</span>
-      </div>
-        <!-- no section tagline yet -- room reserved here for one -->
       </div>
       <!-- Cultivating Spiritual Energy — Preview -->
       <a class="link-card" href="/cultivating-chi-preview.html" target="_blank" rel="noopener">
@@ -682,7 +679,7 @@
   <!-- 18+ SECTION BREAK -->
   <div style="text-align:center;padding:76px 32px 76px 32px;border-top:1px solid rgba(196,146,42,0.22);border-bottom:1px solid rgba(196,146,42,0.22);margin:0 0 8px;">
     <div class="book-graphic" style="margin-bottom:36px;">
-      <div class="divider">
+      <div class="top-view">
         <div class="stack-band">
           <div class="band-cover" style="background:#3e668f; clip-path: polygon(0px 0, calc(100% - 50.81px) 0, calc(100% - 46.06px) 100%, 4.74px 100%);"></div>
           <div class="band-pages" style="clip-path: polygon(4.74px 0, calc(100% - 55.51px) 0, calc(100% - 43.32px) 100%, 16.94px 100%);"></div>
@@ -700,22 +697,22 @@
         <div class="spine-bar" style="left:0px; top:-58.67px; background:#3e668f; z-index:3;"></div>
         <div class="spine-bar" style="left:16.94px; top:-29.33px; background:#2a2e56; z-index:2;"></div>
         <div class="spine-bar" style="left:33.87px; top:0px; background:#3d1f5c; z-index:1;"></div>
+        <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; width:100%;">
+          <span style="font-size: clamp(0.85rem, 3vw, 1.1rem); color: rgba(196,146,42,0.75); flex-shrink: 0;">&#10022;</span>
+          <div class="dimensional" style="font-family: 'Cinzel', serif; font-weight: 600; text-transform: uppercase; text-align: center; font-size: clamp(0.72rem, 4vw, 0.95rem); letter-spacing: 0.03em; margin: 0; line-height: 1.3; overflow-wrap: normal; word-break: normal; white-space: normal; width:100%">
+            <span class="shadow-copy shadow-3">Somatic Ecstasy<br>Section</span>
+            <span class="shadow-copy shadow-2">Somatic Ecstasy<br>Section</span>
+            <span class="shadow-copy shadow-1">Somatic Ecstasy<br>Section</span>
+            <span class="rim-copy rim-1">Somatic Ecstasy<br>Section</span>
+            <span class="rim-copy rim-2">Somatic Ecstasy<br>Section</span>
+            <span class="rim-copy rim-3">Somatic Ecstasy<br>Section</span>
+            <span class="face shimmer-final">Somatic Ecstasy<br>Section</span>
+          </div>
+          <span style="font-size: clamp(0.85rem, 3vw, 1.1rem); color: rgba(196,146,42,0.75); flex-shrink: 0;">&#10022;</span>
+        </div>
       </div>
     </div>
-    <div style="display:flex; align-items:center; justify-content:center; gap:14px; width:100%; box-sizing:border-box; padding:0 12px; margin-bottom:36px;">
-      <span style="font-size: clamp(1.4rem, 6vw, 2.4rem); color: rgba(196,146,42,0.75); flex-shrink: 0;">&#10022;</span>
-      <div class="dimensional" style="font-family: 'Cinzel', serif; font-weight: 600; text-transform: uppercase; text-align: center; font-size: clamp(1.6rem, 10vw, 2.8rem); letter-spacing: 0.05em; margin: 0; line-height: 1.25; overflow-wrap: break-word; word-break: break-word">
-        <span class="shadow-copy shadow-3">Somatic Ecstasy<br>Section</span>
-        <span class="shadow-copy shadow-2">Somatic Ecstasy<br>Section</span>
-        <span class="shadow-copy shadow-1">Somatic Ecstasy<br>Section</span>
-        <span class="rim-copy rim-1">Somatic Ecstasy<br>Section</span>
-        <span class="rim-copy rim-2">Somatic Ecstasy<br>Section</span>
-        <span class="rim-copy rim-3">Somatic Ecstasy<br>Section</span>
-        <span class="face shimmer-final">Somatic Ecstasy<br>Section</span>
-      </div>
-      <span style="font-size: clamp(1.4rem, 6vw, 2.4rem); color: rgba(196,146,42,0.75); flex-shrink: 0;">&#10022;</span>
-    </div>
-    <p style="font-family:'Cormorant Garamond',Georgia,serif;font-size:2.5rem;line-height:1.5;font-style:italic;letter-spacing:0.04em;max-width:700px;margin:0 auto 40px;background:linear-gradient(135deg,#9a7020 0%,#c09030 15%,#e8c050 30%,#fff8c0 42%,#ffee80 50%,#e8c050 65%,#c09030 82%,#9a7020 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Ecstasy is not hedonism;<br>nor is it the enemy of wisdom.</p>
+    <p style="font-family:'Cormorant Garamond',Georgia,serif;font-size:2.5rem;line-height:1.5;font-style:italic;letter-spacing:0.04em;max-width:700px;margin:16px auto 40px;background:linear-gradient(135deg,#9a7020 0%,#c09030 15%,#e8c050 30%,#fff8c0 42%,#ffee80 50%,#e8c050 65%,#c09030 82%,#9a7020 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Joyful ecstasy<br>is not hedonism;<br>nor is it the<br>enemy of wisdom.</p>
     <div style="text-align:center;"><video src="/images/shimmer-adult.mp4" poster="/images/shimmer-adult-poster.png" autoplay loop muted playsinline style="width:90%;max-width:700px;height:auto;display:block;margin:0 auto;"></video><video src="/images/shimmer-titles.mp4" poster="/images/shimmer-titles-poster.png" autoplay loop muted playsinline style="width:90%;max-width:700px;height:auto;display:block;margin:14px auto 0 auto;"></video></div>
     <p style="font-family:'Cormorant Garamond',Georgia,serif;font-size:2.1rem;line-height:1.5;color:rgba(200,190,172,0.9);letter-spacing:0.03em;max-width:700px;margin:28px auto 0;">For adults 18+,<br>or the age of majority<br>where you live.</p>
     <div class="rule-flourish" style="margin:28px auto;"><span></span></div>
