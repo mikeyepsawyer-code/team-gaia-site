@@ -276,6 +276,7 @@
   .book-graphic { width: 100%; container-type: inline-size; flex-shrink: 0; }
   .book-graphic .top-view { width: 100%; display: flex; flex-direction: column; flex-shrink: 0; }
   .book-graphic .stack-band { position: relative; height: 29.33px; width: 100%; flex-shrink: 0; }
+  .book-graphic .front-cover-strip { position: relative; height: 8.21px; width: 100%; flex-shrink: 0; }
   .book-graphic .band-cover {
     position: absolute; top: 0; left: 0; width: 100%; height: 8.21px;
     background: var(--spine, #3a2d14);
@@ -285,19 +286,19 @@
     background: linear-gradient(180deg, #f3ead0 0%, #e4d3a8 100%);
     box-shadow: 0 1px 0 rgba(0,0,0,0.3);
   }
-  .book-graphic .spine-set { position: relative; height: calc(150cqw - 25.41px); display: flex; flex-direction: column; justify-content: center; padding-left: 58px; box-sizing: border-box; text-align: center; flex-shrink: 0; }
+  .book-graphic .spine-set { position: relative; height: 150cqw; display: flex; flex-direction: column; justify-content: center; padding-left: 58px; box-sizing: border-box; text-align: center; flex-shrink: 0; }
   .book-graphic .spine-set::before {
-    content: ''; position: absolute; left: calc(100% - 16.94px); top: 0;
+    content: ''; position: absolute; left: 100%; top: 0;
     width: 1px; height: 100%; background: rgba(196,146,42,0.32);
   }
   .book-graphic .spine-set::after {
     content: ''; position: absolute; left: 0; top: 100%;
-    width: calc(100% - 16.94px); height: 1px; background: rgba(196,146,42,0.32);
+    width: 100%; height: 1px; background: rgba(196,146,42,0.32);
   }
   .book-graphic .spine-bar {
-    position: absolute; width: 16.94px; height: calc(150cqw + 3.92px);
+    position: absolute; width: 16.94px; height: calc(150cqw + 29.33px);
     box-shadow: 1px 0 3px rgba(0,0,0,0.35);
-    clip-path: polygon(0 0, 6.29px 19.56px, 100% 29.33px, 100% calc(150cqw + 3.92px), 6.29px calc(150cqw - 5.85px), 0 calc(150cqw - 25.41px));
+    clip-path: polygon(0 0, 6.29px 19.56px, 100% 29.33px, 100% calc(150cqw + 29.33px), 6.29px calc(150cqw + 19.56px), 0 150cqw);
   }
   header { animation: fadeUp 1.2s ease both; }
   .a1 { animation: fadeUp 1.2s ease 0.15s both; }
@@ -468,6 +469,9 @@
             <div class="band-cover" style="background:#3d1f5c; clip-path: polygon(33.87px 0, calc(100% - 16.94px) 0, calc(100% - 12.19px) 100%, 38.61px 100%);"></div>
             <div class="band-pages" style="clip-path: polygon(38.61px 0, calc(100% - 21.64px) 0, calc(100% - 9.45px) 100%, 50.81px 100%);"></div>
           </div>
+          <div class="front-cover-strip">
+            <div class="band-cover" style="background:#3d1f5c; clip-path: polygon(50.82px 0, 100% 0, calc(100% + 4.74px) 100%, 55.56px 100%); height:100%;"></div>
+          </div>
         </div>
         <div class="spine-set">
           <div class="spine-bar" style="left:0px; top:-84.67px; background:#3e668f; z-index:3;"></div>
@@ -548,6 +552,9 @@
             <div class="band-cover" style="background:#3d1f5c; clip-path: polygon(33.87px 0, calc(100% - 16.94px) 0, calc(100% - 12.19px) 100%, 38.61px 100%);"></div>
             <div class="band-pages" style="clip-path: polygon(38.61px 0, calc(100% - 21.64px) 0, calc(100% - 9.45px) 100%, 50.81px 100%);"></div>
           </div>
+          <div class="front-cover-strip">
+            <div class="band-cover" style="background:#3d1f5c; clip-path: polygon(50.82px 0, 100% 0, calc(100% + 4.74px) 100%, 55.56px 100%); height:100%;"></div>
+          </div>
         </div>
         <div class="spine-set">
           <div class="spine-bar" style="left:0px; top:-84.67px; background:#3e668f; z-index:3;"></div>
@@ -623,6 +630,9 @@
           <div class="stack-band">
             <div class="band-cover" style="background:#3d1f5c; clip-path: polygon(33.87px 0, calc(100% - 16.94px) 0, calc(100% - 12.19px) 100%, 38.61px 100%);"></div>
             <div class="band-pages" style="clip-path: polygon(38.61px 0, calc(100% - 21.64px) 0, calc(100% - 9.45px) 100%, 50.81px 100%);"></div>
+          </div>
+          <div class="front-cover-strip">
+            <div class="band-cover" style="background:#3d1f5c; clip-path: polygon(50.82px 0, 100% 0, calc(100% + 4.74px) 100%, 55.56px 100%); height:100%;"></div>
           </div>
         </div>
         <div class="spine-set">
@@ -702,6 +712,9 @@
         <div class="stack-band">
           <div class="band-cover" style="background:#3d1f5c; clip-path: polygon(33.87px 0, calc(100% - 16.94px) 0, calc(100% - 12.19px) 100%, 38.61px 100%);"></div>
           <div class="band-pages" style="clip-path: polygon(38.61px 0, calc(100% - 21.64px) 0, calc(100% - 9.45px) 100%, 50.81px 100%);"></div>
+        </div>
+        <div class="front-cover-strip">
+          <div class="band-cover" style="background:#3d1f5c; clip-path: polygon(50.82px 0, 100% 0, calc(100% + 4.74px) 100%, 55.56px 100%); height:100%;"></div>
         </div>
       </div>
       <div class="spine-set">
