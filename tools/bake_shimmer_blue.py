@@ -24,19 +24,22 @@ it before calling build_letter(), same convention as bake_shimmer4.
 
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 import math
+import numpy as np
 
 FONT_PATH = '/home/claude/cinzel-700.ttf'
 
-# ---- Blue palette (sampled from the Ameris Gin reference video) ----
-SHADOW_1 = (10, 14, 40)        # deepest shadow, near-black navy
-SHADOW_2 = (20, 28, 70)
-SHADOW_3 = (30, 45, 110)
-BASE_BLUE = (42, 90, 220)      # mid-tone body blue
-CERULEAN = (60, 160, 220)      # high-midtone, sampled from the reference video (hue ~200)
-RIM_1 = (70, 130, 245)
-RIM_2 = (100, 195, 245)        # shifted more cyan, less pale
-RIM_3 = (110, 220, 245)        # was near-white, now bright cerulean
-HOTSPOT = (150, 235, 255)      # was pure white, now cyan-tinted highlight
+# ---- Blue palette (sampled directly from the Ameris Gin reference video) ----
+# Shadow: navy. Midtone: royal blue (this is the dominant, "keep it a
+# midtone blue" tone). Highlight: NOT a flat color -- a dappled mixture
+# of near-white and saturated sky-blue, matching the scattered sparkle
+# pattern actually visible in the reference, not a smooth gradient.
+SHADOW_1 = (8, 14, 55)          # deepest navy
+SHADOW_2 = (14, 22, 85)
+SHADOW_3 = (20, 32, 120)
+BASE_BLUE = (44, 65, 224)       # sampled directly: royal blue midtone
+RIM_1 = (55, 90, 235)           # transitional, still royal-blue family
+DAPPLE_WHITE = (215, 220, 240)  # near-white component of the highlight mix
+DAPPLE_SKY = (100, 160, 250)    # saturated sky-blue component of the mix
 
 
 def build_letter(text, font_size, letter_spacing=0):
@@ -69,7 +72,21 @@ def build_letter(text, font_size, letter_spacing=0):
     else:
         md.text((pad, pad - bbox_full[1]), text, font=font, fill=255)
 
-    return {'mask': mask, 'size': (canvas_w, canvas_h)}
+    # Precompute a static dappled texture (organic blobs, blurred noise)
+    # mixing DAPPLE_WHITE and DAPPLE_SKY -- this stays FIXED across frames
+    # (the sparkle positions don't move, only the sweep band that reveals
+    # them does), matching how the reference video's dapple pattern is a
+    # property of the foil texture itself, not of the light sweep.
+    rng = np.random.default_rng(42)
+    noise = rng.random((canvas_h, canvas_w)).astype(np.float32)
+    noise_img = Image.fromarray((noise * 255).astype(np.uint8), 'L')
+    noise_img = noise_img.filter(ImageFilter.GaussianBlur(font_size * 0.06))
+    arr = np.array(noise_img, dtype=np.float32) / 255.0
+    # normalize contrast so it swings fully between the two dapple colors
+    arr = np.clip((arr - arr.min()) / max(1e-5, (arr.max() - arr.min())), 0, 1)
+    dapple_mix = arr  # 0 = DAPPLE_SKY, 1 = DAPPLE_WHITE
+
+    return {'mask': mask, 'size': (canvas_w, canvas_h), 'dapple_mix': dapple_mix}
 
 
 def _diagonal_sweep(size, phase, angle_deg=25, band_count=3):
@@ -110,7 +127,7 @@ def render_frame(pre, phase):
 
     bevel_offsets = [
         (4, 4, SHADOW_1, 0.9), (3, 3, SHADOW_2, 0.75), (2, 2, SHADOW_3, 0.55),
-        (-1, -1, RIM_1, 0.5), (-2, -2, RIM_2, 0.7), (-3, -3, RIM_3, 0.85),
+        (-1, -1, RIM_1, 0.55),
     ]
     for dx, dy, color, op in bevel_offsets:
         layer = Image.new('RGBA', (w, h), color + (0,))
@@ -118,24 +135,28 @@ def render_frame(pre, phase):
         layer.putalpha(a)
         out.alpha_composite(layer, (dx, dy))
 
-    # base face
+    # base face -- the dominant midtone royal blue, kept as the bulk of
+    # the letterform's own color (this stays a "midtone blue" overall)
     face = Image.new('RGBA', (w, h), BASE_BLUE + (0,))
     face.putalpha(mask)
     out.alpha_composite(face)
 
-    # cerulean high-midtone -- a soft inner layer between the base body
-    # color and the rim highlights, sampled from the reference video
-    cerulean_layer = Image.new('RGBA', (w, h), CERULEAN + (0,))
-    cerulean_a = mask.point(lambda v: int(v * 0.55))
-    cerulean_layer.putalpha(cerulean_a)
-    out.alpha_composite(cerulean_layer, (-1, -1))
+    # dappled highlight: build an RGB image by mixing DAPPLE_WHITE and
+    # DAPPLE_SKY per-pixel using the precomputed static noise texture,
+    # then reveal it only within the moving sweep band -- so the sparkle
+    # positions are fixed (like real foil grain) but only shimmer as the
+    # light passes over them, same as the reference video.
+    mix = pre['dapple_mix']
+    dapple_rgb = np.empty((h, w, 3), dtype=np.uint8)
+    for c in range(3):
+        dapple_rgb[:, :, c] = (DAPPLE_SKY[c] + (DAPPLE_WHITE[c] - DAPPLE_SKY[c]) * mix).astype(np.uint8)
+    dapple_img = Image.fromarray(dapple_rgb, 'RGB')
 
-    # animated highlight sweep, masked to the letterforms, screen-blended
     sweep_l = _diagonal_sweep((w, h), phase)
-    sweep_rgba = Image.new('RGBA', (w, h), HOTSPOT + (0,))
     sweep_alpha = Image.composite(sweep_l, Image.new('L', (w, h), 0), mask)
-    sweep_rgba.putalpha(sweep_alpha)
-    out.alpha_composite(sweep_rgba)
+    dapple_rgba = dapple_img.convert('RGBA')
+    dapple_rgba.putalpha(sweep_alpha)
+    out.alpha_composite(dapple_rgba)
 
     # soft glow pass
     glow = out.filter(ImageFilter.GaussianBlur(3))
