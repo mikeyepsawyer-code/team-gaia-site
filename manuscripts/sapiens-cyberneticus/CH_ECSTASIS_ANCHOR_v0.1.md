@@ -1,6 +1,6 @@
 # Ec-stasis: The Open Valve
 ## Anchor philosophy chapter — Sapiens Cyberneticus
-### v0.1 — drafted August 29, 2026 — from Inner Council session (Michael + Claude)
+### v0.2 — drafted August 29, 2026; Michael's live edits woven same day — from Inner Council session (Michael + Claude)
 ### Status: CANDIDATE ANCHOR — Michael to hand-edit before canonical placement
 
 ---
@@ -65,6 +65,12 @@ Picture a valve between the meta-self and the apparent local self. The water is 
 
 This completes the etymology. Stasis was never really the body's boundedness. Stasis is the clench: the narrative self's continuous, effortful holding-apart of itself from what it is. Ec-stasis is out of the clench. There is nowhere to go and nothing to attain, because the going was the problem.
 
+How did the clench get authored in the first place? The mind authors the body as a grim memoir of experienced pain and trauma as it contracts into locality. Pain is the cartographer of the boundary: after you have experienced frostbite, you know where your fingers are. Contraction is not a mistake the narrative self makes. It is a map, written in the ink that writes most legibly.
+
+Openness does not erase the body; it fulfills it. When we allow enough chi, or meaning, or inspiration to flow through us, it inflates the narrative self enough to offset the predation by otherness. Then we are taking our reference from the perspective of whole being, rather than from the individuated consciousness. Note carefully what kind of inflation this is. It is not the reading-one amplification, amplitude generated inside the boundary. This inflation arrives from the far side of the valve. The narrative self is buoyed by field-pressure, and that buoyancy is exactly what frees it from taking its reference from itself.
+
+Raising your chi, or finding inspiration, or generating enough meaning in your life: these are some of the paths to the valve.
+
 ## 7. Why the valve is ever closed
 
 A sharp reader will now object: if there is nothing to attain and nowhere to go, why does realization not simply happen? Why does the refraction include forgetting?
@@ -73,7 +79,9 @@ Because the forgetting is what makes the inter-view possible. You cannot glimpse
 
 And the forgetting is never waste, because of a dichotomy that is exhaustive by construction: we are always either happy or learning.
 
-If the open valve is the condition, then there are only two possible situations for a narrative self. Either the valve is open -- happiness, meaning not pleasure but the unobstructed condition -- or the valve is closed, and the friction of that closure is informative. Suffering, on this account, is not punishment and not malfunction. Suffering is the felt shape of resistance, and felt resistance is precisely what teaches. You cannot learn where you are clenching except by the clench aching. There is no third situation in which suffering is meaningless. Everything that is not flow is curriculum.
+If the open valve is the condition, then there are only two possible situations for a narrative self. Either the valve is open, producing unencumbered happiness, unfettered joy rather than conditional pleasure. Or the valve is closed, and the friction of that closure is informative. Suffering, on this account, is not punishment and not malfunction. Suffering is the felt shape of resistance, and felt resistance is precisely what teaches. You cannot learn where you are clenching except by the clench aching. There is no third situation in which suffering is meaningless. Everything that is not flow is curriculum.
+
+This is why it is right to cut people a lot of slack. Everyone is walking around in their own personal hell until they recognize that it is also heaven. Same address, different pressure. Compassion, on this account, is not generosity. It is accuracy.
 
 ## 8. Lila
 
