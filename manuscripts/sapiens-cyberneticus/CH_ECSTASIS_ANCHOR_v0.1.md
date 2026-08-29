@@ -1,6 +1,6 @@
 # Ec-stasis: The Open Valve
 ## Anchor philosophy chapter — Sapiens Cyberneticus
-### v0.2 — drafted August 29, 2026; Michael's live edits woven same day — from Inner Council session (Michael + Claude)
+### v0.3 — drafted August 29, 2026; Michael's live edits woven same day (valve/memoir, fruit-of-duality/Eden) — from Inner Council session (Michael + Claude)
 ### Status: CANDIDATE ANCHOR — Michael to hand-edit before canonical placement
 
 ---
@@ -71,7 +71,21 @@ Openness does not erase the body; it fulfills it. When we allow enough chi, or m
 
 Raising your chi, or finding inspiration, or generating enough meaning in your life: these are some of the paths to the valve.
 
-## 7. Why the valve is ever closed
+## 7. The fruit of duality
+
+Closing the valve too tightly is pinching ourselves off from lila, from chi. In which case we take our reference from the duality of self and other.
+
+The distinction here is careful, and it rereads the oldest story we have. It is one thing to know and act on the difference between good and evil from within a state of flow. That is the golden rule. That is the eightfold path. That is an intelligent morality: the field caring for its own refractions. Knowledge of good and evil is not the problem, and never was.
+
+But it is a prison to eat of the fruit from the tree of the knowledge of good and evil. To eat the fruit is to take our entire reference from duality; to take all our feedback from that which has already individuated into forms. When we eat of the fruit of duality, we assume the frame of individuated matter to be primal instead of derivative. That is the Fall, restated without superstition: not disobedience, not knowledge, but a reference-frame error. The map mistaken for the territory's author.
+
+The two moralities can even prescribe the same acts, and still they are not the same. Both may say: do not steal. In one, the commandment is the field intelligently tending itself. In the other, it is a frightened knot defending its boundary with rules. Same commandment, different pressure.
+
+To open the valve is to redeem ourselves from our self-imposed total dedication to locality.
+
+We should be in the world, but not of it. The standing wave is in the river, and made of nothing but river, yet it takes its reference from the current rather than from the other waves. The energy and the pressure flow one way, from the self-effulgent source, prior to forms. From the ineffable radiance of being. Which is why the valve only ever opens inward-out: you cannot pump from the form side. Chi is received, never manufactured.
+
+## 8. Why the valve is ever closed
 
 A sharp reader will now object: if there is nothing to attain and nowhere to go, why does realization not simply happen? Why does the refraction include forgetting?
 
@@ -83,7 +97,7 @@ If the open valve is the condition, then there are only two possible situations 
 
 This is why it is right to cut people a lot of slack. Everyone is walking around in their own personal hell until they recognize that it is also heaven. Same address, different pressure. Compassion, on this account, is not generosity. It is accuracy.
 
-## 8. Lila
+## 9. Lila
 
 Which leaves only the largest question: why any of it? Why does be-ing bother?
 
@@ -93,7 +107,7 @@ Notice what this does to the question. Even the meta-self's answer to "why act?"
 
 When be-ing inter-views itself, the play of the universe arises. The reverent way to say it is lila. The honest way to say it is: for the cosmic shits and giggles. Both are true, and this book is committed to keeping both registers in the same room.
 
-## 9. The return: playing knowingly
+## 10. The return: playing knowingly
 
 The realization does not end the play. This matters more than anything else in the chapter.
 
