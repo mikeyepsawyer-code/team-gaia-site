@@ -38,7 +38,7 @@ SHADOW_2 = (14, 22, 85)
 SHADOW_3 = (20, 32, 120)
 BASE_BLUE = (44, 65, 224)       # sampled directly: royal blue midtone
 RIM_1 = (55, 90, 235)           # transitional, still royal-blue family
-DAPPLE_WHITE = (215, 220, 240)  # near-white component of the highlight mix
+DAPPLE_WHITE = (235, 235, 232)  # near-neutral white component, not blue/violet-shifted
 DAPPLE_SKY = (100, 160, 250)    # saturated sky-blue component of the mix
 
 
@@ -158,8 +158,22 @@ def render_frame(pre, phase):
     dapple_rgba.putalpha(sweep_alpha)
     out.alpha_composite(dapple_rgba)
 
-    # soft glow pass
-    glow = out.filter(ImageFilter.GaussianBlur(3))
+    # soft glow pass -- premultiply alpha before blurring, otherwise PIL
+    # blends in the arbitrary RGB sitting under semi-transparent/fully
+    # transparent pixels, which desaturates edges toward a muddy grey
+    # (this was the source of the "dusty mauve" cast in highlight areas)
+    arr = np.array(out).astype(np.float32)
+    a = arr[:, :, 3:4] / 255.0
+    premult = arr.copy()
+    premult[:, :, :3] *= a
+    premult_img = Image.fromarray(premult.astype(np.uint8), 'RGBA')
+    blurred = premult_img.filter(ImageFilter.GaussianBlur(3))
+    barr = np.array(blurred).astype(np.float32)
+    ba = barr[:, :, 3:4]
+    ba_safe = np.where(ba < 1, 1, ba)
+    barr[:, :, :3] = barr[:, :, :3] * 255.0 / ba_safe
+    glow = Image.fromarray(np.clip(barr, 0, 255).astype(np.uint8), 'RGBA')
+
     combined = Image.alpha_composite(glow, out)
     return combined
 
