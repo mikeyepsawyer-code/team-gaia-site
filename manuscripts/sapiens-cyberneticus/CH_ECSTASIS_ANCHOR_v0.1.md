@@ -1,6 +1,6 @@
 # Ec-stasis: The Open Valve
 ## Anchor philosophy chapter — Sapiens Cyberneticus
-### v0.3 — drafted August 29, 2026; Michael's live edits woven same day (valve/memoir, fruit-of-duality/Eden) — from Inner Council session (Michael + Claude)
+### v0.4 — drafted August 29, 2026; Michael's live edits woven same day (valve/memoir, fruit-of-duality/Eden, nakedness/hamartia/the-valve-is-the-mark) — from Inner Council session (Michael + Claude)
 ### Status: CANDIDATE ANCHOR — Michael to hand-edit before canonical placement
 
 ---
@@ -80,6 +80,12 @@ The distinction here is careful, and it rereads the oldest story we have. It is 
 But it is a prison to eat of the fruit from the tree of the knowledge of good and evil. To eat the fruit is to take our entire reference from duality; to take all our feedback from that which has already individuated into forms. When we eat of the fruit of duality, we assume the frame of individuated matter to be primal instead of derivative. That is the Fall, restated without superstition: not disobedience, not knowledge, but a reference-frame error. The map mistaken for the territory's author.
 
 The two moralities can even prescribe the same acts, and still they are not the same. Both may say: do not steal. In one, the commandment is the field intelligently tending itself. In the other, it is a frightened knot defending its boundary with rules. Same commandment, different pressure.
+
+And none of this means that the wholeness of the holy invalidates or prosecutes the stance of individuation. There is no tribunal here, no cosmic case against the local self. With an open valve, the numinous exalts the liminal. The infinite does not erase the threshold-form; it lifts it. Then we walk in the garden with God, made in his image: the inter-view, lived as companionship.
+
+When we know ourselves to be naked, when we see our individuated image primarily, we lose our season pass to the garden. We fall from ecstasy into dualistic dichotomy. The nakedness was not a body appearing where there was none before. It was the reference frame flipping. Shame is what field-perspective feels like when viewed from the knot side.
+
+Sure, there are good and bad actions. But bad actions are derived from the illusion of individualism as a primary truth. The oldest word for sin, the Greek hamartia, is an archery term: to miss the mark. Centuries of theology treated the mark as moral perfection, which turns life into scorekeeping. The mark is not perfection. The valve is the mark. To miss the mark is to close the valve. And with that, the whole moral vocabulary converts to hydraulics: repentance is reopening, grace is the pressure that was always there, redemption is remembering which way the water flows.
 
 To open the valve is to redeem ourselves from our self-imposed total dedication to locality.
 
