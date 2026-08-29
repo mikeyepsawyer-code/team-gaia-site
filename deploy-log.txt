@@ -2,11 +2,11 @@ npm warn exec The following package was not found and will be installed: wrangle
 npm warn deprecated rollup-plugin-inject@3.0.2: This package has been deprecated and is no longer maintained. Please use @rollup/plugin-inject.
 npm warn deprecated sourcemap-codec@1.4.8: Please use @jridgewell/sourcemap-codec instead
 ✨ Compiled Worker successfully
-Uploading... (268/269)
-Uploading... (269/269)
-✨ Success! Uploaded 1 files (268 already uploaded) (0.90 sec)
+Uploading... (269/270)
+Uploading... (270/270)
+✨ Success! Uploaded 1 files (269 already uploaded) (2.33 sec)
 
 ✨ Uploading _headers
 ✨ Uploading Functions bundle
 🌎 Deploying...
-✨ Deployment complete! Take a peek over at https://a07c66fd.team-gaia-site.pages.dev
+✨ Deployment complete! Take a peek over at https://0b247e3d.team-gaia-site.pages.dev
