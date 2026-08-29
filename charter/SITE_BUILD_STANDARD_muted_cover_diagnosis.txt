@@ -1,0 +1,68 @@
+SITE BUILD STANDARD — DIAGNOSING A "MUTED" COVER OR HERO IMAGE
+Added August 28, 2026, after the Shamanic Photography hero rendered
+visibly duller than its source photo.
+
+THE DIAGNOSIS METHOD (do this before touching any CSS)
+A cover/hero can look muted for two entirely different reasons, and
+fixing the wrong one wastes time:
+  (a) the IMAGE FILE itself has a tonal overlay baked in during
+      cover_build.py processing, or
+  (b) the DISPLAY CSS is darkening/desaturating it at runtime.
+
+Don't guess — measure. Pull the original source photo and the
+processed/live image file, then compare average brightness and
+saturation directly:
+
+    from PIL import Image
+    import colorsys
+    def stats(path):
+        img = Image.open(path).convert('RGB')
+        w,h = img.size
+        samples = [img.getpixel((x,y)) for x in range(0,w,w//50)
+                                        for y in range(0,h,h//50)]
+        avg = lambda i: sum(s[i] for s in samples)/len(samples)
+        brightness = (avg(0)+avg(1)+avg(2))/3
+        sats = [colorsys.rgb_to_hsv(r/255,g/255,b/255)[1]
+                for r,g,b in samples]
+        return brightness, sum(sats)/len(sats)
+
+If source and processed file are within a few percent of each other
+on both numbers, the FILE is clean — the muting is happening in CSS,
+full stop, and no amount of re-exporting the image will fix it. This
+was exactly the case here (97.3→94.6 brightness, 0.313→0.314
+saturation — negligible): the image was fine, the bug was two CSS
+layers stacked on top of it.
+
+THE TWO CSS CULPRITS TO CHECK
+  1. A `filter: brightness(x) saturate(y)` directly on the image
+     element. Even mild-looking values (0.82 / 0.92 here) compound
+     with culprit #2 below and read as a real, noticeable mute —
+     especially on a photo that already has punchy saturated
+     accents (the point of showing them at all is lost if they're
+     turned down).
+  2. A gradient "scrim" overlay div for text legibility, applied
+     uniformly across the whole image rather than localized to
+     where the text actually sits. A scrim strong enough to make
+     text pop at the top and bottom edges is often 2-4x darker than
+     the showcase area in the middle actually needs.
+
+THE FIX PATTERN
+  - Remove the filter entirely if the stated goal is true colors —
+    don't split the difference by halving it; a filter and "true
+    colors, no tonal overlay" are mutually exclusive.
+  - Keep the scrim, but treat the top/bottom text zones and the
+    middle showcase zone as DIFFERENT problems: darken the text
+    zones enough for legibility, leave the middle much lighter (or
+    nearly untouched) since nothing needs to read against it there.
+  - Reinforce text legibility with `text-shadow` on the text itself
+    (2-3 stacked shadows: tight+dark, medium+dark, wide+soft) rather
+    than compensating with more image-wide darkness. This decouples
+    "can I read the title" from "does the photo look muted."
+  - Re-render locally with the actual processed image file (not the
+    raw source — crops/framing differ) and eyeball the result before
+    pushing; the pixel-stats check proves the file is clean, but
+    only a real render shows whether the CSS fix reads correctly.
+
+This was an isolated case (grep confirmed no other preview page uses
+`.hero-img` with a filter at all), but the diagnostic method applies
+to any future full-bleed hero or cover treatment on the site.
