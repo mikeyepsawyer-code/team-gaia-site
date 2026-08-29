@@ -66,3 +66,36 @@ THE FIX PATTERN
 This was an isolated case (grep confirmed no other preview page uses
 `.hero-img` with a filter at all), but the diagnostic method applies
 to any future full-bleed hero or cover treatment on the site.
+
+────────────────────────────────────────────────────────────────────
+UPDATE: A THIRD CULPRIT — CHECK WHETHER TEXT IS BAKED INTO THE IMAGE
+────────────────────────────────────────────────────────────────────
+The Shamanic Photography hero turned out to need a second pass. The
+CSS fix above (remove filter, soften scrim) was real and correct,
+but the deeper issue was upstream: the title/subtitle/author text
+was baked directly into the image FILE as pixels, not rendered as
+live HTML. `view`-ing the raw image file directly (not through any
+HTML wrapper) confirmed this immediately.
+
+This matters because it flips the whole diagnosis: a heavy scrim
+usually exists to make baked-in or otherwise-fixed text legible
+against a busy photo. If the text were live HTML instead, it could
+carry its own legibility (glow, shimmer, drop-shadow) independent of
+the photo — removing the need for the scrim almost entirely, which
+is what "I really don't like scrims" led to here.
+
+Fix: crop a clean, text-free hero straight from the original source
+photo (matching the old framing, minus any incidental elements like
+a hand holding the object), and rebuild title/subtitle/author as
+live HTML using the site's established gold-shimmer text system
+(`.dimensional` + `.shimmer-final` for the main title, the lighter
+`.gold-script-shimmer` for subtitle/author). This is also just a
+more editable end state — text changes no longer require rebuilding
+the image.
+
+CHECK THIS FIRST, before touching any CSS: does the text move with
+the layout, or is it locked to the image pixels? Quickest test —
+open the raw image file directly (view tool, no HTML) and see if the
+words are there. If they are, the muting fix has to happen at the
+build/crop stage, not the CSS stage, no matter how the CSS filters
+and gradients are tuned.
