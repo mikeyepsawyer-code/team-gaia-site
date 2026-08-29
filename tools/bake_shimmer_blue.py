@@ -93,24 +93,41 @@ def build_letter(text, font_size, letter_spacing=0, variant='light'):
     else:
         md.text((pad, pad - bbox_full[1]), text, font=font, fill=255)
 
-    # Precompute a static dappled texture -- DISTINCT patches, not a
-    # smooth blend: small blur radius (just enough to avoid raw single-
-    # pixel noise) then a steep contrast curve pushes each patch toward
-    # one pole or the other, so sky-blue and white read as separate
-    # facets catching light differently, matching the reference's
-    # faceted-foil look rather than a gradient.
+    # Precompute a LARGER dappled field than the canvas needs, so
+    # render_frame() can sample a shifting window of it per-frame --
+    # this is what makes the color pattern itself flow as the light
+    # moves, instead of a fixed texture just fading in/out in place.
+    #
+    # Multi-octave noise (several frequencies combined, each with its
+    # own small blur) instead of one single blur radius -- a single
+    # gaussian blur produces suspiciously uniform, regularly-sized
+    # blobs; real foil grain has patches at genuinely mixed scales.
+    # Patch size overall is also smaller now (see per-octave radii).
+    margin = int(font_size * 0.9)
+    field_w, field_h = canvas_w + margin * 2, canvas_h + margin * 2
     rng = np.random.default_rng(42)
-    noise = rng.random((canvas_h, canvas_w)).astype(np.float32)
-    noise_img = Image.fromarray((noise * 255).astype(np.uint8), 'L')
-    noise_img = noise_img.filter(ImageFilter.GaussianBlur(font_size * cfg['blur_frac']))
-    arr = np.array(noise_img, dtype=np.float32) / 255.0
+    combined = np.zeros((field_h, field_w), dtype=np.float32)
+    octaves = [
+        (font_size * 0.030, 0.55),
+        (font_size * 0.012, 0.30),
+        (font_size * 0.055, 0.15),
+    ]
+    for radius, weight in octaves:
+        noise = rng.random((field_h, field_w)).astype(np.float32)
+        noise_img = Image.fromarray((noise * 255).astype(np.uint8), 'L')
+        noise_img = noise_img.filter(ImageFilter.GaussianBlur(max(0.6, radius)))
+        layer = np.array(noise_img, dtype=np.float32) / 255.0
+        layer = (layer - layer.min()) / max(1e-5, (layer.max() - layer.min()))
+        combined += layer * weight
+    arr = combined / sum(w for _, w in octaves)
     arr = np.clip((arr - arr.min()) / max(1e-5, (arr.max() - arr.min())), 0, 1)
     # steep S-curve around 0.5 to push values toward the extremes (distinct
     # patches) instead of lingering in a blended middle
     arr = 0.5 + 0.5 * np.sign(arr - 0.5) * np.abs(2 * arr - 1) ** (1 / cfg['contrast_pow'])
-    dapple_mix = np.clip(arr ** cfg['sky_bias'], 0, 1)
+    dapple_field = np.clip(arr ** cfg['sky_bias'], 0, 1)
 
-    return {'mask': mask, 'size': (canvas_w, canvas_h), 'dapple_mix': dapple_mix, 'variant': variant}
+    return {'mask': mask, 'size': (canvas_w, canvas_h), 'dapple_field': dapple_field,
+            'field_size': (field_w, field_h), 'margin': margin, 'variant': variant}
 
 
 def _diagonal_sweep(size, phase, angle_deg=25, band_count=3):
@@ -166,12 +183,18 @@ def render_frame(pre, phase):
     face.putalpha(mask)
     out.alpha_composite(face)
 
-    # dappled highlight: build an RGB image by mixing DAPPLE_WHITE and
-    # DAPPLE_SKY per-pixel using the precomputed static noise texture,
-    # then reveal it only within the moving sweep band -- so the sparkle
-    # positions are fixed (like real foil grain) but only shimmer as the
-    # light passes over them, same as the reference video.
-    mix = pre['dapple_mix']
+    # dappled highlight: sample a SHIFTING window of the precomputed
+    # dapple field, offset in sync with the sweep's own phase -- so the
+    # cream/cyan pattern actually flows across the letterform as the
+    # light moves, rather than a fixed texture just fading in and out
+    # in place (which read as a "solid still frame" under motion).
+    field = pre['dapple_field']
+    margin = pre['margin']
+    slide_x = int((phase - 0.5) * margin * 1.7)
+    slide_y = int((phase - 0.5) * margin * 0.8)  # slight diagonal drift, matches the 25deg sweep angle
+    ox, oy = margin - slide_x, margin - slide_y
+    mix = field[oy:oy + h, ox:ox + w]
+
     dapple_rgb = np.empty((h, w, 3), dtype=np.uint8)
     dw, dsky = cfg['DAPPLE_WHITE'], cfg['DAPPLE_SKY']
     for c in range(3):
