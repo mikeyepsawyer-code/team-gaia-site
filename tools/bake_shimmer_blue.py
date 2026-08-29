@@ -28,24 +28,45 @@ import numpy as np
 
 FONT_PATH = '/home/claude/cinzel-700.ttf'
 
-# ---- Blue palette (sampled directly from the Ameris Gin reference video) ----
-# Shadow: navy. Midtone: royal blue (this is the dominant, "keep it a
-# midtone blue" tone). Highlight: NOT a flat color -- a dappled mixture
-# of near-white and saturated sky-blue, matching the scattered sparkle
-# pattern actually visible in the reference, not a smooth gradient.
-SHADOW_1 = (8, 14, 55)          # deepest navy
-SHADOW_2 = (14, 22, 85)
-SHADOW_3 = (20, 32, 120)
-BASE_BLUE = (44, 65, 224)       # sampled directly: royal blue midtone
-RIM_1 = (55, 90, 235)           # transitional, still royal-blue family
-DAPPLE_WHITE = (235, 235, 232)  # near-neutral white component, not blue/violet-shifted
-DAPPLE_SKY = (60, 155, 255)     # more saturated, more distinctly cyan-blue
+# ---- Three variants, mirroring the gold shimmer/cover system ----
+# LIGHT: for dark backgrounds -- lighter overall, highlight-forward.
+# DARK:  for light backgrounds -- deep navy-forward, less white presence.
+# HIGH_CONTRAST: for midtone backgrounds -- manufactures its own strong
+#   separation regardless of what's behind it (pushed shadow/highlight
+#   further apart), same purpose as HIGH_CONTRAST_SHADOW_FLOOR in the
+#   gold cover tool.
+# All three keep DISTINCT dapple patches (near-white vs. saturated
+# sky-blue) rather than a smooth blend between them -- low blur radius
+# + a steep contrast curve on the noise field, not the wide gaussian
+# blur used before, which was smearing the two colors into a
+# desaturated intermediate that read as neither.
+VARIANTS = {
+    'light': {
+        'SHADOW_1': (25, 40, 110), 'SHADOW_2': (35, 55, 145), 'SHADOW_3': (48, 75, 180),
+        'BASE_BLUE': (70, 115, 235), 'RIM_1': (90, 140, 245),
+        'DAPPLE_WHITE': (245, 246, 244), 'DAPPLE_SKY': (90, 190, 255),
+        'blur_frac': 0.028, 'contrast_pow': 3.5, 'sky_bias': 1.0,
+    },
+    'dark': {
+        'SHADOW_1': (4, 8, 30), 'SHADOW_2': (7, 13, 48), 'SHADOW_3': (11, 20, 72),
+        'BASE_BLUE': (24, 42, 150), 'RIM_1': (34, 58, 175),
+        'DAPPLE_WHITE': (210, 215, 220), 'DAPPLE_SKY': (40, 110, 210),
+        'blur_frac': 0.028, 'contrast_pow': 3.5, 'sky_bias': 1.35,
+    },
+    'high_contrast': {
+        'SHADOW_1': (2, 4, 18), 'SHADOW_2': (5, 9, 35), 'SHADOW_3': (10, 18, 65),
+        'BASE_BLUE': (35, 60, 210), 'RIM_1': (55, 95, 240),
+        'DAPPLE_WHITE': (255, 255, 253), 'DAPPLE_SKY': (50, 165, 255),
+        'blur_frac': 0.016, 'contrast_pow': 5.0, 'sky_bias': 1.0,
+    },
+}
 
 
-def build_letter(text, font_size, letter_spacing=0):
+def build_letter(text, font_size, letter_spacing=0, variant='light'):
     """Render the text mask + layered bevel copies once. Returns a dict
     of precomputed data reused by render_frame() for every frame, so the
     expensive text rasterization only happens once per bake."""
+    cfg = VARIANTS[variant]
     font = ImageFont.truetype(FONT_PATH, font_size)
 
     # measure text with letter-spacing
@@ -72,21 +93,24 @@ def build_letter(text, font_size, letter_spacing=0):
     else:
         md.text((pad, pad - bbox_full[1]), text, font=font, fill=255)
 
-    # Precompute a static dappled texture (organic blobs, blurred noise)
-    # mixing DAPPLE_WHITE and DAPPLE_SKY -- this stays FIXED across frames
-    # (the sparkle positions don't move, only the sweep band that reveals
-    # them does), matching how the reference video's dapple pattern is a
-    # property of the foil texture itself, not of the light sweep.
+    # Precompute a static dappled texture -- DISTINCT patches, not a
+    # smooth blend: small blur radius (just enough to avoid raw single-
+    # pixel noise) then a steep contrast curve pushes each patch toward
+    # one pole or the other, so sky-blue and white read as separate
+    # facets catching light differently, matching the reference's
+    # faceted-foil look rather than a gradient.
     rng = np.random.default_rng(42)
     noise = rng.random((canvas_h, canvas_w)).astype(np.float32)
     noise_img = Image.fromarray((noise * 255).astype(np.uint8), 'L')
-    noise_img = noise_img.filter(ImageFilter.GaussianBlur(font_size * 0.06))
+    noise_img = noise_img.filter(ImageFilter.GaussianBlur(font_size * cfg['blur_frac']))
     arr = np.array(noise_img, dtype=np.float32) / 255.0
-    # normalize contrast so it swings fully between the two dapple colors
     arr = np.clip((arr - arr.min()) / max(1e-5, (arr.max() - arr.min())), 0, 1)
-    dapple_mix = arr ** 1.6  # bias toward DAPPLE_SKY (0) -- was an even split, now sky-blue dominates over white
+    # steep S-curve around 0.5 to push values toward the extremes (distinct
+    # patches) instead of lingering in a blended middle
+    arr = 0.5 + 0.5 * np.sign(arr - 0.5) * np.abs(2 * arr - 1) ** (1 / cfg['contrast_pow'])
+    dapple_mix = np.clip(arr ** cfg['sky_bias'], 0, 1)
 
-    return {'mask': mask, 'size': (canvas_w, canvas_h), 'dapple_mix': dapple_mix}
+    return {'mask': mask, 'size': (canvas_w, canvas_h), 'dapple_mix': dapple_mix, 'variant': variant}
 
 
 def _diagonal_sweep(size, phase, angle_deg=25, band_count=3):
@@ -121,13 +145,14 @@ def _diagonal_sweep(size, phase, angle_deg=25, band_count=3):
 def render_frame(pre, phase):
     """Render one animation frame. phase in [0,1] (already cosine-eased
     by the caller for back-and-forth motion)."""
+    cfg = VARIANTS[pre['variant']]
     mask = pre['mask']
     w, h = pre['size']
     out = Image.new('RGBA', (w, h), (0, 0, 0, 0))
 
     bevel_offsets = [
-        (4, 4, SHADOW_1, 0.9), (3, 3, SHADOW_2, 0.75), (2, 2, SHADOW_3, 0.55),
-        (-1, -1, RIM_1, 0.55),
+        (4, 4, cfg['SHADOW_1'], 0.9), (3, 3, cfg['SHADOW_2'], 0.75), (2, 2, cfg['SHADOW_3'], 0.55),
+        (-1, -1, cfg['RIM_1'], 0.55),
     ]
     for dx, dy, color, op in bevel_offsets:
         layer = Image.new('RGBA', (w, h), color + (0,))
@@ -137,7 +162,7 @@ def render_frame(pre, phase):
 
     # base face -- the dominant midtone royal blue, kept as the bulk of
     # the letterform's own color (this stays a "midtone blue" overall)
-    face = Image.new('RGBA', (w, h), BASE_BLUE + (0,))
+    face = Image.new('RGBA', (w, h), cfg['BASE_BLUE'] + (0,))
     face.putalpha(mask)
     out.alpha_composite(face)
 
@@ -148,8 +173,9 @@ def render_frame(pre, phase):
     # light passes over them, same as the reference video.
     mix = pre['dapple_mix']
     dapple_rgb = np.empty((h, w, 3), dtype=np.uint8)
+    dw, dsky = cfg['DAPPLE_WHITE'], cfg['DAPPLE_SKY']
     for c in range(3):
-        dapple_rgb[:, :, c] = (DAPPLE_SKY[c] + (DAPPLE_WHITE[c] - DAPPLE_SKY[c]) * mix).astype(np.uint8)
+        dapple_rgb[:, :, c] = (dsky[c] + (dw[c] - dsky[c]) * mix).astype(np.uint8)
     dapple_img = Image.fromarray(dapple_rgb, 'RGB')
 
     sweep_l = _diagonal_sweep((w, h), phase)
