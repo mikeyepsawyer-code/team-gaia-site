@@ -6,9 +6,9 @@ Uploading... (271/274)
 Uploading... (272/274)
 Uploading... (273/274)
 Uploading... (274/274)
-✨ Success! Uploaded 3 files (271 already uploaded) (1.14 sec)
+✨ Success! Uploaded 3 files (271 already uploaded) (1.72 sec)
 
 ✨ Uploading _headers
 ✨ Uploading Functions bundle
 🌎 Deploying...
-✨ Deployment complete! Take a peek over at https://ec2c7d98.team-gaia-site.pages.dev
+✨ Deployment complete! Take a peek over at https://d188d4b8.team-gaia-site.pages.dev
