@@ -34,9 +34,9 @@ SHADOW_3 = (30, 45, 110)
 BASE_BLUE = (42, 90, 220)      # mid-tone body blue
 CERULEAN = (60, 160, 220)      # high-midtone, sampled from the reference video (hue ~200)
 RIM_1 = (70, 130, 245)
-RIM_2 = (120, 175, 255)
-RIM_3 = (200, 225, 255)        # near-white-blue rim highlight
-HOTSPOT = (255, 255, 255)      # white-hot sweep highlight
+RIM_2 = (100, 195, 245)        # shifted more cyan, less pale
+RIM_3 = (110, 220, 245)        # was near-white, now bright cerulean
+HOTSPOT = (150, 235, 255)      # was pure white, now cyan-tinted highlight
 
 
 def build_letter(text, font_size, letter_spacing=0):
@@ -126,7 +126,7 @@ def render_frame(pre, phase):
     # cerulean high-midtone -- a soft inner layer between the base body
     # color and the rim highlights, sampled from the reference video
     cerulean_layer = Image.new('RGBA', (w, h), CERULEAN + (0,))
-    cerulean_a = mask.point(lambda v: int(v * 0.4))
+    cerulean_a = mask.point(lambda v: int(v * 0.55))
     cerulean_layer.putalpha(cerulean_a)
     out.alpha_composite(cerulean_layer, (-1, -1))
 
