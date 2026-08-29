@@ -39,7 +39,7 @@ SHADOW_3 = (20, 32, 120)
 BASE_BLUE = (44, 65, 224)       # sampled directly: royal blue midtone
 RIM_1 = (55, 90, 235)           # transitional, still royal-blue family
 DAPPLE_WHITE = (235, 235, 232)  # near-neutral white component, not blue/violet-shifted
-DAPPLE_SKY = (100, 160, 250)    # saturated sky-blue component of the mix
+DAPPLE_SKY = (60, 155, 255)     # more saturated, more distinctly cyan-blue
 
 
 def build_letter(text, font_size, letter_spacing=0):
@@ -84,7 +84,7 @@ def build_letter(text, font_size, letter_spacing=0):
     arr = np.array(noise_img, dtype=np.float32) / 255.0
     # normalize contrast so it swings fully between the two dapple colors
     arr = np.clip((arr - arr.min()) / max(1e-5, (arr.max() - arr.min())), 0, 1)
-    dapple_mix = arr  # 0 = DAPPLE_SKY, 1 = DAPPLE_WHITE
+    dapple_mix = arr ** 1.6  # bias toward DAPPLE_SKY (0) -- was an even split, now sky-blue dominates over white
 
     return {'mask': mask, 'size': (canvas_w, canvas_h), 'dapple_mix': dapple_mix}
 
