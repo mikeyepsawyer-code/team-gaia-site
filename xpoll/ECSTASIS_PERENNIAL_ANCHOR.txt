@@ -1,9 +1,9 @@
 XPOLL MASTER — EC-STASIS / PERENNIAL PHILOSOPHY ANCHOR
 Created: August 29, 2026 (live council session, Michael + Claude)
-Status: ACTIVE — Michael explicitly wants this MAXIMIZED, not minimized.
+Status: ACTIVE — fan-out COMPLETE Aug 29 2026 (12 books carry candidate blocks; anchor chapter at v0.4). Michael wants this MAXIMIZED; master stays per his instruction.
 Per his instruction: keep a copy here even after placements, if milk remains.
 
-FULL CHAPTER DRAFT: manuscripts/sapiens-cyberneticus/CH_ECSTASIS_ANCHOR_v0.1.md
+FULL CHAPTER DRAFT: manuscripts/sapiens-cyberneticus/CH_ECSTASIS_ANCHOR_v0.1.md (now v0.4 content)
 (That file is the complete argument. This file is the distribution map.)
 
 CORE ARGUMENT IN ONE BREATH:
@@ -50,42 +50,42 @@ GATEWAY (second full treatment):
    philosophy belongs in the volume that introduces the library.
    Register confirms Lobby is the Gateway book (7 chapters, not yet
    built). Reader enters the library through this philosophy, then
-   meets it refracted per-book. NOT YET PLACED — Lobby manuscript
-   needs seeding first.
+   meets it refracted per-book. CANDIDATE BLOCK INSERTED Aug 29 2026 —
+   Lobby seeded at manuscripts/lets-all-go-to-the-lobby/.
 
 SUBSTANTIAL CHUNKS:
 3. OCEANS OF LOVE — "a pretty good chunk." One-experiencer /
    inter-viewing material especially (love as Satchitananda meeting
-   itself). NOT YET PLACED.
+   itself). CANDIDATE BLOCK INSERTED Aug 29 2026.
 4. FORGOTTEN COMMUNION — "a pretty good chunk." Communion IS the
    inter-view; the forgetting section (why the valve closes) pairs
    with the book's title logic: communion forgotten = clench.
-   NOT YET PLACED.
+   CANDIDATE BLOCK INSERTED Aug 29 2026.
 5. RADIANT SENSITIVITY — Michael: "I do good work in radiant
    sensitivity." Sensitivity as the valve's aperture; radiance as
-   what flows when open. NOT YET PLACED.
+   what flows when open. CANDIDATE BLOCK INSERTED Aug 29 2026.
 
 TARGETED BENEFIT (smaller doses):
 6. UNJUSTIFIED HAPPINESS — "happy or learning" is nearly the book's
    thesis in six words: happiness needs no justification because it
    is the condition, not a reward state. Strong candidate for a
-   standalone short chapter "Happy or Learning." NOT YET PLACED.
+   standalone short chapter "Happy or Learning." CANDIDATE BLOCK INSERTED Aug 29 2026.
 7. KINTSUGI — (voice-to-text rendered this "can sunni" — confirmed
    Kintsugi.) Crack-as-curriculum: suffering as felt resistance that
-   teaches; gold seam = valve reopened at the break. NOT YET PLACED.
+   teaches; gold seam = valve reopened at the break. CANDIDATE BLOCK INSERTED Aug 29 2026.
 8. SCRIBE — the further stretch, but real: scribing (thinking,
    speaking, writing) is how we SUBSCRIBE to our future experience.
    Perspective matters; the vantage point writes its next scene.
    Fits the existing "Scribe, Inscribe, Subscribe" chapter.
-   NOT YET PLACED.
+   CANDIDATE BLOCK INSERTED Aug 29 2026.
 9. CHRONIC PLEASURE — keep scientifically rigorous. REFRAME as:
    training the default mode network toward the openness of ecstasy
    rather than the closedness of the egoic construct. (DMN language
-   is the clinical translation of clench/valve.) NOT YET PLACED.
+   is the clinical translation of clench/valve.) CANDIDATE BLOCK INSERTED Aug 29 2026.
 10. SPANK ME TENDER — "a little bit" of the play between ecstasy and
     RECREATIONAL BOUNDED-NESS: consensual bounds as costume worn
     knowingly; the game only works inside the game. Light touch.
-    NOT YET PLACED.
+    CANDIDATE BLOCK INSERTED Aug 29 2026.
 
 SOMATIC ECSTASY SECTION CALIBRATION:
 11. 100 ORGASMS AN HOUR — DO NOT wander far into philosophy. It is
@@ -106,12 +106,12 @@ BODY IN MOTION:
 14. ENCHANTÉ NIKE — Nike as the very DIP of spirit into matter, then
     taking the BOUNCE as emergent conscious matter. "The
     reverbification of noun-ness." (Descent-and-return as one motion;
-    victory = the bounce.) NOT YET PLACED.
+    victory = the bounce.) CANDIDATE BLOCK INSERTED Aug 29 2026.
 
 THE EARTH:
 15. SHAMANIC PHOTOGRAPHY — "Shamanic photography IS seeing
     ecstatically." The camera as valve; the shamanic eye as the
-    inter-view made visible. NOT YET PLACED.
+    inter-view made visible. CANDIDATE BLOCK INSERTED Aug 29 2026.
     >>> OPEN TASK CARRIED FROM PRIOR SESSIONS: cover + hero rebuild
     for Shamanic Photography was in progress over the last chat or
     two and needs FINISHING. Check recent session notes / past chats
@@ -124,3 +124,12 @@ PLACEMENT PROTOCOL REMINDER: insert into each book's most recent full
 GitHub manuscript, logged inline with date + candidate marker; delete
 map entries here only as placed; per Michael, keep this master in
 xpoll/ even at the end if milk remains.
+
+FAN-OUT LOG (Aug 29 2026): candidate blocks inserted into oceans-of-love,
+forgotten-communion, radiant-sensitivity, unjustified-happiness, kintsugi,
+scribe, chronic-pleasure, cultivating-chi, enchante-nike; new seeds created
+for lets-all-go-to-the-lobby, shamanic-photography, spank-me-tender.
+SKIPPED by design: slow-the-fuck-down (out for Michael's hand-edit round
+trip — place after merge), 100-orgasms (published; keep-light rule).
+Drive folder checks per standing workflow deferred to each book's own
+working session (fan-out only touched GitHub).
