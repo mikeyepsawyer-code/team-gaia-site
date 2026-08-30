@@ -91,6 +91,48 @@
     50%  { filter: drop-shadow(0 0 6px rgba(240,195,110,0.28)) drop-shadow(0 0 12px rgba(240,195,110,0.13)); }
     100% { filter: drop-shadow(0 0 3px rgba(210,160,80,0.15)) drop-shadow(0 0 6px rgba(210,160,80,0.08)); }
   }
+
+  /* LIGHT BLUE title variant (Aug 30 2026) — default dimensional/shimmer
+     system, recolored to match the Shamanic Photography cover's cerulean
+     metallic-blue title finish. First use: homepage card caption. */
+  .shadow-blue-1 { color: rgba(20,60,90,0.55); transform: translate(0.04em,0.04em); z-index: 4; }
+  .shadow-blue-2 { color: rgba(10,35,60,0.8); transform: translate(0.08em,0.08em); z-index: 3; }
+  .shadow-blue-3 { color: rgba(4,14,26,0.9); transform: translate(0.11em,0.11em); z-index: 2; }
+  .rim-blue-1 { color: rgba(140,210,235,0.45); transform: translate(-0.02em,-0.02em); z-index: 5; }
+  .rim-blue-2 { color: rgba(180,230,245,0.65); transform: translate(-0.035em,-0.035em); z-index: 6; }
+  .rim-blue-3 { color: rgba(220,245,255,0.85); transform: translate(-0.055em,-0.055em); z-index: 7; }
+  .shimmer-lightblue {
+    background:
+      radial-gradient(circle at 15% 30%, rgba(230,248,255,0.55) 0%, transparent 6%),
+      radial-gradient(circle at 62% 12%, rgba(126,200,227,0.45) 0%, transparent 5%),
+      radial-gradient(circle at 82% 58%, rgba(230,248,255,0.4) 0%, transparent 4%),
+      radial-gradient(circle at 34% 78%, rgba(63,131,171,0.45) 0%, transparent 5%),
+      radial-gradient(circle at 92% 88%, rgba(168,220,239,0.35) 0%, transparent 4%),
+      radial-gradient(circle at 8% 85%, rgba(95,168,204,0.4) 0%, transparent 4%),
+      linear-gradient(25deg,#193850 0%,#2c5a78 6%,#7ec8e3 18%,#eaf8ff 24%,#a8dcef 28%,#5fa8cc 36%,#2c5a78 42%,#7ec8e3 48%,#eaf8ff 52%,#a8dcef 56%,#5fa8cc 62%,#193850 68%,#5fa8cc 76%,#eaf8ff 80%,#a8dcef 84%,#193850 94%,#0e2436 100%);
+    background-repeat: no-repeat;
+    background-attachment: scroll, scroll, scroll, scroll, scroll, scroll, scroll;
+    background-size: 100% 100%,100% 100%,100% 100%,100% 100%,100% 100%,100% 100%,1200px 220px;
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; color: transparent;
+    line-height: 1.15;
+    animation: lightblue-shimmer-glow 5s ease-in-out infinite;
+  }
+  @keyframes lightblue-shimmer-glow {
+    0%   { filter: drop-shadow(0 0 3px rgba(120,190,220,0.15)) drop-shadow(0 0 6px rgba(120,190,220,0.08)); }
+    50%  { filter: drop-shadow(0 0 6px rgba(160,215,235,0.28)) drop-shadow(0 0 12px rgba(160,215,235,0.13)); }
+    100% { filter: drop-shadow(0 0 3px rgba(120,190,220,0.15)) drop-shadow(0 0 6px rgba(120,190,220,0.08)); }
+  }
+
+  /* LIGHT GOLD caption variant — flat gradient sweep (no bevel), for
+     subtitle/author lines under a light-blue shimmer title. */
+  .caption-gold-light {
+    background: linear-gradient(135deg,#82643c 0%,#c39650 10%,#ebb45a 35%,#ffe6a0 50%,#ebb45a 65%,#c39650 90%,#82643c 100%);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; color: transparent;
+    filter: drop-shadow(0 0 3px rgba(255,210,140,0.35));
+    animation: gold-shimmer-glow 5s ease-in-out infinite;
+  }
   .big18 { font-size: 7.5rem; }
   @media (min-width: 420px) { .big18 { font-size: 8.2rem; } }
   @media (min-width: 600px) { .big18 { font-size: 9.8rem; } }
@@ -697,9 +739,17 @@
         <div class="play-corner"><span class="glyph">&#9654;</span></div>
                 </div></div>
       </a>
-      <p class="link-caption-main" style="margin-top:16px;">Shamanic Photography</p>
-      <p class="link-caption-sub">Gaia stands. Always. Portrait. Never landscape.</p>
-      <p style="font-family:'Cinzel',serif;font-size:0.8rem;letter-spacing:0.14em;color:var(--gold);opacity:0.55;text-transform:uppercase;text-align:center;margin-top:6px;">Michael Sawyer</p>
+      <p class="dimensional" style="width:100%;text-align:center;font-family:'Cinzel',serif;font-size:1rem;letter-spacing:0.18em;text-transform:uppercase;margin-top:16px;">
+        <span class="shadow-copy shadow-blue-3">Shamanic Photography</span>
+        <span class="shadow-copy shadow-blue-2">Shamanic Photography</span>
+        <span class="shadow-copy shadow-blue-1">Shamanic Photography</span>
+        <span class="rim-copy rim-blue-1">Shamanic Photography</span>
+        <span class="rim-copy rim-blue-2">Shamanic Photography</span>
+        <span class="rim-copy rim-blue-3">Shamanic Photography</span>
+        <span class="face shimmer-lightblue">Shamanic Photography</span>
+      </p>
+      <p class="link-caption-sub caption-gold-light" style="opacity:1;">Gaia stands. Always. Portrait. Never landscape.</p>
+      <p class="caption-gold-light" style="font-family:'Cinzel',serif;font-size:0.8rem;letter-spacing:0.14em;text-transform:uppercase;text-align:center;margin-top:6px;">Michael Sawyer</p>
       <p class="body-intro" style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold-bright);text-align:center;letter-spacing:0.06em;line-height:1.55;margin:18px auto 0;padding:0 20px;max-width:700px;grid-column:1/-1;">You don&rsquo;t still believe in matter, do you?</p>
       <div class="rule-flourish" style="margin:-12px auto 40px;grid-column:1/-1;"><span></span></div>
       <!-- Gaia Journal 2027 -->
@@ -831,7 +881,7 @@
       function frame(timestamp) {
         var pos = -(travel / 2) * (1 - Math.cos((2 * Math.PI * timestamp) / period));
         var value = '0 0, 0 0, 0 0, 0 0, 0 0, 0 0, ' + pos + 'px 0';
-        var els = document.querySelectorAll('.shimmer-final');
+        var els = document.querySelectorAll('.shimmer-final, .shimmer-lightblue');
         for (var i = 0; i < els.length; i++) {
           els[i].style.backgroundPosition = value;
         }
