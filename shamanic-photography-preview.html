@@ -46,16 +46,16 @@
             display: none;
         }
         .gold-script-shimmer { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 500;
-            background: linear-gradient(135deg,#784614 0%,#be6e23 10%,#ffd278 35%,#fff2c0 50%,#ffd278 65%,#be6e23 90%,#784614 100%);
+            background: linear-gradient(135deg,#82643c 0%,#c39650 10%,#ebb45a 35%,#ffe6a0 50%,#ebb45a 65%,#c39650 90%,#82643c 100%);
             -webkit-background-clip: text; background-clip: text;
             -webkit-text-fill-color: transparent; color: transparent;
-            filter: drop-shadow(0 0 3px rgba(255,180,90,0.35));
+            filter: drop-shadow(0 0 3px rgba(255,210,140,0.35));
             animation: gold-shimmer-glow 5s ease-in-out infinite; display: block; text-align: center; }
         .author-shimmer { font-family: 'Cinzel', serif; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
-            background: linear-gradient(135deg,#784614 0%,#be6e23 10%,#ffd278 35%,#fff2c0 50%,#ffd278 65%,#be6e23 90%,#784614 100%);
+            background: linear-gradient(135deg,#82643c 0%,#c39650 10%,#ebb45a 35%,#ffe6a0 50%,#ebb45a 65%,#c39650 90%,#82643c 100%);
             -webkit-background-clip: text; background-clip: text;
             -webkit-text-fill-color: transparent; color: transparent;
-            filter: drop-shadow(0 0 3px rgba(255,180,90,0.35));
+            filter: drop-shadow(0 0 3px rgba(255,210,140,0.35));
             animation: gold-shimmer-glow 5s ease-in-out infinite; display: block; text-align: center; }
         .hero-content {
             position: absolute;
@@ -103,6 +103,38 @@
             0%   { filter: drop-shadow(0 0 3px rgba(210,160,80,0.15)) drop-shadow(0 0 6px rgba(210,160,80,0.08)); }
             50%  { filter: drop-shadow(0 0 6px rgba(240,195,110,0.28)) drop-shadow(0 0 12px rgba(240,195,110,0.13)); }
             100% { filter: drop-shadow(0 0 3px rgba(210,160,80,0.15)) drop-shadow(0 0 6px rgba(210,160,80,0.08)); }
+        }
+
+        /* LIGHT BLUE title variant (Aug 30 2026) — default dimensional/shimmer
+           system, recolored to match the cover's cerulean metallic-blue title
+           finish, lightened toward the pale end for web-text weight. */
+        .shadow-blue-1 { color: rgba(20,60,90,0.55); transform: translate(1.5px,1.5px); z-index: 4; }
+        .shadow-blue-2 { color: rgba(10,35,60,0.8); transform: translate(3px,3px); z-index: 3; }
+        .shadow-blue-3 { color: rgba(4,14,26,0.9); transform: translate(4.3px,4.3px); z-index: 2; }
+        .rim-blue-1 { color: rgba(140,210,235,0.45); transform: translate(-0.7px,-0.7px); z-index: 5; }
+        .rim-blue-2 { color: rgba(180,230,245,0.65); transform: translate(-1.4px,-1.4px); z-index: 6; }
+        .rim-blue-3 { color: rgba(220,245,255,0.85); transform: translate(-2.1px,-2.1px); z-index: 7; }
+        .shimmer-lightblue {
+            background:
+              radial-gradient(circle at 15% 30%, rgba(230,248,255,0.55) 0%, transparent 6%),
+              radial-gradient(circle at 62% 12%, rgba(126,200,227,0.45) 0%, transparent 5%),
+              radial-gradient(circle at 82% 58%, rgba(230,248,255,0.4) 0%, transparent 4%),
+              radial-gradient(circle at 34% 78%, rgba(63,131,171,0.45) 0%, transparent 5%),
+              radial-gradient(circle at 92% 88%, rgba(168,220,239,0.35) 0%, transparent 4%),
+              radial-gradient(circle at 8% 85%, rgba(95,168,204,0.4) 0%, transparent 4%),
+              linear-gradient(25deg,#193850 0%,#2c5a78 6%,#7ec8e3 18%,#eaf8ff 24%,#a8dcef 28%,#5fa8cc 36%,#2c5a78 42%,#7ec8e3 48%,#eaf8ff 52%,#a8dcef 56%,#5fa8cc 62%,#193850 68%,#5fa8cc 76%,#eaf8ff 80%,#a8dcef 84%,#193850 94%,#0e2436 100%);
+            background-repeat: no-repeat;
+            background-attachment: scroll, scroll, scroll, scroll, scroll, scroll, fixed;
+            background-size: 100% 100%,100% 100%,100% 100%,100% 100%,100% 100%,100% 100%,1200px 220px;
+            -webkit-background-clip: text; background-clip: text;
+            -webkit-text-fill-color: transparent; color: transparent;
+            line-height: 1.15;
+            animation: lightblue-shimmer-glow 5s ease-in-out infinite;
+        }
+        @keyframes lightblue-shimmer-glow {
+            0%   { filter: drop-shadow(0 0 3px rgba(120,190,220,0.15)) drop-shadow(0 0 6px rgba(120,190,220,0.08)); }
+            50%  { filter: drop-shadow(0 0 6px rgba(160,215,235,0.28)) drop-shadow(0 0 12px rgba(160,215,235,0.13)); }
+            100% { filter: drop-shadow(0 0 3px rgba(120,190,220,0.15)) drop-shadow(0 0 6px rgba(120,190,220,0.08)); }
         }
 
         .hero .subtitle.gold-script-shimmer {
@@ -213,10 +245,15 @@
         <img class="hero-img" src="/images/cover-shamanic-photography-hero-clean.jpeg" alt="Shamanic Photography">
         <div class="hero-gradient"></div>
         <div class="hero-content">
-            <video poster="/images/shimmer-shamanic-photography-light-poster.png" autoplay loop muted playsinline style="width:100%;max-width:520px;height:auto;display:block;margin:0 auto;">
-                <source src="/images/shimmer-shamanic-photography-light.webm" type="video/webm">
-                <source src="/images/shimmer-shamanic-photography-light.mp4" type="video/mp4">
-            </video>
+            <div class="dimensional big">
+                <span class="shadow-copy shadow-blue-3">Shamanic<br>Photography</span>
+                <span class="shadow-copy shadow-blue-2">Shamanic<br>Photography</span>
+                <span class="shadow-copy shadow-blue-1">Shamanic<br>Photography</span>
+                <span class="rim-copy rim-blue-1">Shamanic<br>Photography</span>
+                <span class="rim-copy rim-blue-2">Shamanic<br>Photography</span>
+                <span class="rim-copy rim-blue-3">Shamanic<br>Photography</span>
+                <span class="face shimmer-lightblue">Shamanic<br>Photography</span>
+            </div>
             <p class="subtitle gold-script-shimmer">The art of<br>Visual alchemy</p>
             <p class="author author-shimmer">Michael Sawyer</p>
         </div>
@@ -268,5 +305,21 @@
     <div class="back-link">
         <a href="/">← Back to catalog</a>
     </div>
+
+    <script>
+      // Shimmer sweep driver — from assets/effects/gold-shimmer-snippet.html
+      (function () {
+        var travel = 300;
+        var period = 6000;
+        var els = document.querySelectorAll('.shimmer-final, .shimmer-lightblue');
+        function frame(timestamp) {
+          var pos = -(travel / 2) * (1 - Math.cos((2 * Math.PI * timestamp) / period));
+          var value = '0 0, 0 0, 0 0, 0 0, 0 0, 0 0, ' + pos + 'px 0';
+          for (var i = 0; i < els.length; i++) { els[i].style.backgroundPosition = value; }
+          requestAnimationFrame(frame);
+        }
+        requestAnimationFrame(frame);
+      })();
+    </script>
 </body>
 </html>
