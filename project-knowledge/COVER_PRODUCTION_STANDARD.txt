@@ -787,3 +787,45 @@ COLORWAY: "Chronic Bliss Purple"
   Polygasm Therapy cover.
 - NOTE FROM MICHAEL: try a variant with lilac highlights and lavender
   low-lights (shadow/deep tones) -- not yet built, flagged for a future pass.
+
+═══════════════════════════════════════════════════════════
+FULL_TEXT_W ON THE WEB (added Aug 30, 2026 -- Shamanic Photography
+card overlay session)
+═══════════════════════════════════════════════════════════
+
+The full-canvas-width-within-margins rule (FULL_TEXT_W) has so far only
+lived in cover_build.py, applied to PIL-rendered cover images. It was NOT
+being carried over to web/CSS text -- a card title/subtitle/author overlay
+was first built at an arbitrary fixed rem size, landing at ~60-77% of the
+available width instead of filling it. This is a different pipeline
+(browser text layout, not pixel rendering) so the PIL rule doesn't apply
+automatically -- it has to be re-implemented in CSS terms every time.
+
+THE RULE, restated for CSS: title, subtitle, and author text placed on a
+card or cover-style image should span edge-to-edge within the margin, same
+as the built-cover images do. A caption sized well short of the margin
+reads as an oversight, not a deliberate choice.
+
+HOW TO DO IT IN CSS:
+1. Set `container-type: inline-size` on the image/card box that the text
+   overlays (the element whose width defines "full width" -- e.g. the
+   `.link-card-img` / `.sash-wrap` div). This makes `cqw` units resolve
+   against that box specifically, independent of grid/column layout.
+2. Position the text in an absolutely-positioned wrapper sized to the
+   margin (e.g. `width: 88%` for a ~6% margin each side), centered.
+3. Size the text with `font-size: clamp(MIN, Ncqw, MAX)` where N is tuned
+   so the longest line's rendered width lands at ~95-98% of the wrapper's
+   width -- not 100%, leave a hair of breathing room.
+4. Tune N empirically per text string: render, measure the actual rendered
+   pixel width of the longest line against the wrapper's width (canvas
+   `measureText` with the computed font/letter-spacing is reliable for
+   this), and rescale N by the ratio of target/actual. Repeat once if the
+   first pass over/undershoots. Do NOT eyeball this from a screenshot alone
+   -- the measurement step is fast and removes the guesswork.
+5. Double-check the MAX clamp value isn't silently capping the result
+   below the cqw-driven size at typical card widths -- this was the actual
+   bug in the first Shamanic Photography attempt (the cqw formula was
+   right, the rem cap was hit first and won).
+
+Applies to every title/subtitle/author placed directly on a card image or
+hero image going forward, not just Shamanic Photography.
