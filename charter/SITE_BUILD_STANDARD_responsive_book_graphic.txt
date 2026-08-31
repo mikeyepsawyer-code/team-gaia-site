@@ -170,3 +170,57 @@ acceptable — don't over-engineer safety margins for this.
     html.parser + tag stack) and check nesting depth at a comment
     marker between instances — depth should be identical at each
     one; a drift pinpoints exactly which instance is missing a close.
+
+────────────────────────────────────────────────────────────────────
+8. PLANNED: 3-BOOK -> 4-BOOK EXTENSION (Michael's construction order,
+   captured Aug 30 2026, not yet built)
+────────────────────────────────────────────────────────────────────
+Construction order, per Michael's guidance -- build in THIS sequence,
+not geometry-first:
+
+  1. Start from the existing front-cover 2:3 square as the fixed
+     anchor. Its four edges (inner_left, inner_top, width_ref,
+     H_target -- see Section 3) do NOT change when book count
+     changes. This square is the invariant everything else divides
+     into, not a value to re-derive per book count.
+
+  2. Keep the TOTAL thickness of both sandwiches constant:
+       - top-view sandwich: currently N=3 bands, total = 3 x bandH
+       - spine sandwich: currently H_bars, calibrated so the front
+         book's deepest scallop lands on the boundary line (Sec. 4)
+     Do not let the overall stack get thicker or thinner when going
+     to 4 books -- the same total footprint just divides one more
+     way. This means bandH_4 = (3 x bandH_3) / 4 = (3 x 29.33)/4 =
+     22.0px (recompute precisely before building, this is a rough
+     check only).
+
+  3. Retain the same angle geometry (60 deg chamfer, same
+     bulge_x/bulge_y ratio to the new smaller bandH). STEP is
+     derived from bandH and stays proportional:
+       STEP_4 = bandH_4 / tan(60deg)  (was 16.94px at bandH=29.33,
+       will shrink to match bandH_4)
+
+  4. Build out the 4 books "up and left" from the existing 3-book
+     block -- i.e. treat the current 3-book geometry as a subset and
+     extend the same i=0..N-1 arithmetic (Section 1) to N=4, rather
+     than re-deriving the whole stack from scratch. leftTop_i,
+     insetTop_i, insetMid_i, leftMid_i all use the same formulas,
+     just with the new bandH_4/STEP_4 and N=4.
+
+  5. Build the plain color blocks first (top-view bands + spine
+     bars, flat rectangles/parallelograms, no scallops yet) and
+     confirm the geometry/alignment is correct at this stage --
+     easier to verify a flat block grid than a fully-scalloped one.
+
+  6. Apply the scalloped clip-paths (the chamfer bulge shape from
+     Section 1, and the spine bar profile gauge from Section 4)
+     LAST, once the flat block layout is confirmed correct.
+
+Also on the table for this same session: assign each of the 4
+library sections its own color for the book-graphic (currently
+colors are per-book within one graphic, not per-section). Michael's
+suggestion: the 4th (newly added) book could be wine / muted
+crimson. Section-to-color mapping not yet decided -- confirm with
+Michael before building, and confirm whether the color assignment is
+per-section (all 4 books in a section's graphic share one accent) or
+per-book-position (book 4 is always crimson across all sections).
