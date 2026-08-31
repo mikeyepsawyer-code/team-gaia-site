@@ -133,6 +133,23 @@
     filter: drop-shadow(0 0 3px rgba(255,210,140,0.35));
     animation: gold-shimmer-glow 5s ease-in-out infinite;
   }
+  /* DARK GOLD caption variant — the site's default deep gold sweep
+     (same stops as .shimmer-final), flat text-clip version for
+     subtitle/author lines. */
+  .caption-gold-dark {
+    background: linear-gradient(135deg,#4a2418 0%,#7a4a1e 10%,#e6b64c 35%,#fff2c0 50%,#e6b64c 65%,#7a4a1e 90%,#4a2418 100%);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; color: transparent;
+    filter: drop-shadow(0 0 3px rgba(210,160,80,0.35));
+    animation: gold-shimmer-glow 5s ease-in-out infinite;
+  }
+  /* Title-only fade, synced to the card's zoom-twist timing so the title
+     dissolves as the image zooms in and returns as it zooms back out. */
+  @keyframes card-title-fade {
+    0%   { opacity: 1; }
+    100% { opacity: 0; }
+  }
+  .card-title-fade { animation: card-title-fade 9s ease-in-out infinite alternate; }
   .big18 { font-size: 7.5rem; }
   @media (min-width: 420px) { .big18 { font-size: 8.2rem; } }
   @media (min-width: 600px) { .big18 { font-size: 9.8rem; } }
@@ -737,20 +754,29 @@
           <div class="sash">Free Preview</div>
           <img src="/images/shamanic-zoom-wide.jpg" alt="Shamanic Photography" class="zoom-twist-img">
         <div class="play-corner"><span class="glyph">&#9654;</span></div>
-        <div style="position:absolute;top:6%;left:50%;transform:translateX(-50%);width:88%;z-index:2;text-align:center;pointer-events:none;">
-          <p class="dimensional" style="width:100%;text-align:center;font-family:'Cinzel',serif;font-size:clamp(1.0rem,10.8cqw,2.44rem);letter-spacing:0.06em;text-transform:uppercase;line-height:1.25;">
-            <span class="shadow-copy shadow-blue-3">Shamanic<br>Photography</span>
-            <span class="shadow-copy shadow-blue-2">Shamanic<br>Photography</span>
-            <span class="shadow-copy shadow-blue-1">Shamanic<br>Photography</span>
-            <span class="rim-copy rim-blue-1">Shamanic<br>Photography</span>
-            <span class="rim-copy rim-blue-2">Shamanic<br>Photography</span>
-            <span class="rim-copy rim-blue-3">Shamanic<br>Photography</span>
-            <span class="face shimmer-lightblue">Shamanic<br>Photography</span>
+        <div class="card-title-fade" style="position:absolute;top:4%;left:50%;transform:translateX(-50%);width:94%;z-index:2;text-align:center;pointer-events:none;">
+          <p class="dimensional" style="width:100%;text-align:center;font-family:'Cinzel',serif;font-size:clamp(1.4rem,15.9cqw,3.7rem);letter-spacing:0.06em;text-transform:uppercase;line-height:1.15;margin:0;">
+            <span class="shadow-copy shadow-blue-3">Shamanic</span>
+            <span class="shadow-copy shadow-blue-2">Shamanic</span>
+            <span class="shadow-copy shadow-blue-1">Shamanic</span>
+            <span class="rim-copy rim-blue-1">Shamanic</span>
+            <span class="rim-copy rim-blue-2">Shamanic</span>
+            <span class="rim-copy rim-blue-3">Shamanic</span>
+            <span class="face shimmer-lightblue">Shamanic</span>
+          </p>
+          <p class="dimensional" style="width:100%;text-align:center;font-family:'Cinzel',serif;font-size:clamp(1.0rem,11.2cqw,2.6rem);letter-spacing:0.06em;text-transform:uppercase;line-height:1.15;margin:6px 0 0;">
+            <span class="shadow-copy shadow-blue-3">Photography</span>
+            <span class="shadow-copy shadow-blue-2">Photography</span>
+            <span class="shadow-copy shadow-blue-1">Photography</span>
+            <span class="rim-copy rim-blue-1">Photography</span>
+            <span class="rim-copy rim-blue-2">Photography</span>
+            <span class="rim-copy rim-blue-3">Photography</span>
+            <span class="face shimmer-lightblue">Photography</span>
           </p>
         </div>
-        <div style="position:absolute;bottom:6%;left:50%;transform:translateX(-50%);width:88%;z-index:2;text-align:center;pointer-events:none;">
-          <p class="caption-gold-light" style="width:100%;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.3rem,12.6cqw,2.78rem);line-height:1.3;margin:0;white-space:nowrap;">Everything is alive</p>
-          <p class="caption-gold-light" style="width:100%;font-family:'Cinzel',serif;font-size:clamp(0.9rem,8.9cqw,1.91rem);letter-spacing:0.14em;text-transform:uppercase;margin-top:10px;">Michael Sawyer</p>
+        <div style="position:absolute;bottom:4%;left:50%;transform:translateX(-50%);width:94%;z-index:2;text-align:center;pointer-events:none;">
+          <p class="caption-gold-dark" style="width:100%;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.3rem,13.4cqw,2.96rem);line-height:1.3;margin:0;white-space:nowrap;">Everything is alive</p>
+          <p class="caption-gold-dark" style="width:100%;font-family:'Cinzel',serif;font-size:clamp(0.9rem,9.5cqw,2.04rem);letter-spacing:0.14em;text-transform:uppercase;margin-top:10px;">Michael Sawyer</p>
         </div>
                 </div></div>
       </a>
