@@ -1,0 +1,77 @@
+SITE BUILD STANDARD — BAKED SHIMMER VIDEO TEXT TREATMENT
+Consolidated August 29, 2026 after the Shamanic Photography title.
+Clean reference only -- see git history on tools/bake_shimmer_blue.py
+for the iteration trail if needed.
+
+WHAT THIS IS
+A metallic shimmer text effect baked frame-by-frame into a looping
+video, instead of live CSS. Built after live CSS shimmer produced a
+GPU texture-wrap seam on Samsung Internet that couldn't be fixed from
+CSS. Script: tools/bake_shimmer_blue.py (blue palette; clone the
+pattern for other colors — keep the script in the repo this time,
+unlike the original gold version which was lost between sessions).
+
+THREE VARIANTS (mirrors the gold cover-finish system exactly)
+    light          for DARK backgrounds — highlight-forward, brighter overall
+    dark           for LIGHT backgrounds — deep-navy-forward, less white
+    high_contrast  for MIDTONE backgrounds — manufactures its own strong
+                   separation regardless of what's behind it
+Each variant is its own palette dict in VARIANTS{}. Pick by what's
+actually behind the text, same rule as the gold cover finishes.
+
+CORE TECHNIQUE
+  - Dimensional bevel: shadow-toned copies offset down-right, one
+    rim-highlight copy offset up-left, behind a solid base-color face.
+  - Highlight is NOT a flat color — real foil shows a dappled mixture
+    of near-white and a saturated accent color in scattered, irregular
+    patches, not a smooth gradient. Sample the actual reference image/
+    video by brightness zone (shadow/mid/highlight) to get real values,
+    don't eyeball hex codes.
+  - Patch texture: multi-octave noise (2-3 Gaussian blurs at different
+    radii, combined) then a steep S-curve to push values toward the
+    extremes. A single blur radius produces suspiciously uniform blob
+    sizes; real grain is genuinely mixed-scale.
+  - Motion: cosine-eased back-and-forth (not one-directional — that's
+    what caused the GPU seam), ~6 second period.
+  - FLOW, not just reveal: the dapple pattern must itself move with
+    the light, not just fade in/out in a fixed position. Generate a
+    noise field LARGER than the canvas (margin on all sides) and
+    sample a sliding window of it per-frame, offset by an amount tied
+    to the animation phase, moving the same direction as the sweep.
+    Without this, motion reads as "a static texture lighting up," not
+    genuine shimmer — this was the single most important fix in this
+    build, more than any color tuning.
+  - Glow/blur passes on the composited RGBA MUST premultiply alpha
+    first (blur premultiplied, then un-premultiply). Blurring straight
+    RGBA lets arbitrary color bleed in from transparent/semi-transparent
+    neighbors and desaturates edges toward a muddy grey — this was the
+    literal cause of a "dusty mauve" cast that had nothing to do with
+    the chosen colors.
+
+TRANSPARENCY
+MP4/H.264 has no alpha channel — baking straight to MP4 leaves a
+solid-color rectangle behind the text, which shows as an ugly box over
+any non-matching background. Encode VP9/WebM with alpha instead:
+    ffmpeg -i frames/frame_%03d.png -vf "crop=W:H:0:0" \
+      -c:v libvpx-vp9 -pix_fmt yuva420p \
+      -metadata:s:v:0 alpha_mode="1" -crf 28 -b:v 0 -auto-alt-ref 0 \
+      output.webm
+Verify transparency actually survived (ffprobe's pix_fmt field can
+misreport yuv420p even when alpha_mode=1 is correctly set as side-
+channel metadata — don't trust it alone) by rendering the .webm in an
+actual browser over a bright test-color background and confirming the
+color shows through. Always provide an MP4 fallback (baked onto the
+site's actual background color) via <source> for browsers without
+VP9-alpha support:
+    <video poster="..." autoplay loop muted playsinline>
+      <source src="....webm" type="video/webm">
+      <source src="....mp4" type="video/mp4">
+    </video>
+Use a transparent PNG (not opaque) as the poster too, for the same
+box-avoidance reason.
+
+WORKFLOW NOTE
+This kind of fine-detail visual tuning can iterate indefinitely.
+"Production, not perfection" — land a genuinely good result, note
+remaining refinement ideas if any come up, and move on rather than
+chasing diminishing returns on a single asset.
