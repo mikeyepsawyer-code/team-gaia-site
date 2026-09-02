@@ -8,10 +8,10 @@ Michael Sawyer
 Read 100 Orgasms an Hour first.
 
 Working Draft v0.4 — June 16, 2026
-Migrated to GitHub-canonical Aug 21, 2026 (previously misfiled at
-tools/manuscripts/; superseded a stale Drive-only v0.3 and the
-placeholder v0.1 seed stub — this file is now the single source of
-truth for this manuscript).
+Superseded Sept 2, 2026 by v0.5_SLOW_THE_FUCK_DOWN_FULL.txt (Part 1
+restructured into Lower/Upper Kingdom, three new chapters added,
+Subtle Kingdom renumbered). Kept here for history only — v0.5 is now
+the single source of truth for this manuscript.
 
 Changes from v0.3: Chapter 2 (The Gush Spot) corrected — plasma/transudate
 mechanism restored in plain language; the speculative "key to squirting /
