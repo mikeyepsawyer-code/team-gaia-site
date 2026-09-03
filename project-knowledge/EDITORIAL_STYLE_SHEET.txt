@@ -1,0 +1,41 @@
+TEAM GAIA — EDITORIAL STYLE SHEET
+(the project's standing editorial/naming conventions, as distinct from
+the Inner Council Charter, which governs process and roles)
+
+Last updated: Sept 2, 2026
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FILE NAMING
+
+- Never use "canon" / "canonical" in a Google Drive filename. Drive
+  files are working/hand-edit copies by definition; use "WORKING",
+  "DRAFT", or similar instead. ("GitHub-canonical" as a concept still
+  applies to the repo -- this rule is about what we call Drive files.)
+- Never use the word "final" in any filename, anywhere. Nothing is
+  ever final; there's always a next pass.
+
+EDITORIAL NOTES IN MANUSCRIPT FILES
+
+- Structural/editorial notes (flags, open questions, things pending
+  Michael's next pass) go at the TOP of the document, not buried
+  inline at the point they concern. Reference the chapter/section by
+  name so they're still easy to find.
+
+IN-DOCUMENT NOTES ADDRESSED TO CLAUDE
+
+- When Michael is hand-editing a Drive doc and wants to write a note
+  directly to Claude (not manuscript text), wrap it like this:
+
+    [C: your note here M]
+
+- Opens with "C" (addressed to Claude), closes with "M" (Michael
+  signing off). Matches the existing bracketed-attribution convention
+  already used in manuscripts (e.g. "[MICHAEL -- verbatim]",
+  "[CLAUDE -- draft, structural note]"), survives docx/markdown
+  round-trips cleanly, and is easy to type and to search for.
+- Closest standard editorial equivalent: this is essentially an
+  "author query," conventionally bracketed with initials in
+  professional copyediting (e.g. "[MS: ...]"). The C/M framing is a
+  refinement of that same convention, specific to a note addressed
+  from Michael to Claude.
