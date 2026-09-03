@@ -20,6 +20,7 @@ The Art of Amōre | v3 manuscript with Michael for review | 1PMX6vL7S5ihKOFdqnGt
 Oceans of Love | in development | 14nyWMhxiwAf-vE1JfVPYQB4r3DK7GNHT | v12 approved | /images/cover-oceans-of-love.jpeg | /oceans-of-love-preview.html
 Unjustified Happiness | new, active | 1msk2X08jzOOOIeZCi-cRYAcGhaA5-HCn | v13 approved | /images/cover-unjustified-happiness-v1.jpeg | /unjustified-happiness-preview.html
 Radiant Sensitivity | early stage, active drafting | 1JzSjVAP1KmCsBAbayfWDrORVnSo70YwT | v11 approved | /images/cover-radiant-sensitivity-v7.jpeg | /radiant-sensitivity-preview.html (still shows old cover ref — Task 23 open)
+Radical Ecstasy (working title -- "Everyday Ecstasy" under consideration) | new Sep 3 2026; outline/spine from Michael's notes -- thesis lines ("'I' already imagines the perfect life for 'me'" / "everyday integration of the numinous and the proximal imminent"), chapters "By the Way" and "As Long as We're Here" seeded | none yet | cover candidate: wet-Paris-streets umbrella painting (2019 ChatGPT-generated image, to be rebuilt in house zoom+gold style) -- not yet built | — | manuscripts/radical-ecstasy/v0.1_RADICAL_ECSTASY_SEED.txt
 The Psychological Art of Kintsugi | working draft v0.3 | 1pFSMV5SIvAlzIgCwqiDJ_Lu2a_YYLEQ7 | v5 approved | /images/cover-kintsugi-v1.jpeg | /kintsugi-preview.html
 
 ── SECTION 3: THE BODY IN MOTION ──
@@ -35,6 +36,7 @@ Cascade (subtitle CONFIRMED: "Self-Similarity Across Scales of Being") | concept
 ── SECTION 5: THE EARTH ──
 Gaia Journal 2027 | HIGHEST PRIORITY — 12 spreads assembled; blockers: Aug photo, ISBN, bio wording | 111lvxJS6UQ9zAlnb9gI0aqqsZa921T37 | v4 approved | CONFIRM | — (PDF, not a preview page)
 Gaia Calendar 2027 | seed started Aug 20 2026, gathering wandering Gaia material; "Alive!" cover (large-G art) now linked here, previously orphaned | CONFIRM | placeholder card live | CONFIRM | manuscripts/gaia-calendar-2027/v0.1_GAIA_CALENDAR_SEED.txt | cover=/covers/gaia-alive/cover_gaia_alive_v9.jpg
+I AM & Me | new Sep 3 2026, elevated from single photo/poem concept to standalone book; opening line "I AM the Light dreaming I AuM, as Me," Chesterton's "Gold Leaves" (1900, public domain) epigraph confirmed; cover concept: frost-horizon photo (20260211_093838.jpg) + two badlands photos (20251211_143122.jpg, 20251025_102448.jpg), all three read as standing Gaia portraits in their AS-UPLOADED orientation -- do not rotate to level horizon, that reading is reserved for an animated card sequence only (zoom to portrait crop -> zoom out to full landscape, letterboxed -> rotate clockwise to fill 2:3 "stands" frame) | none yet | not built | — | manuscript not yet started
 Shamanic Photography | new preview live; source photos (Fraser Lake "sacred marriage" set) live at /shamanic-photography/sacred-marriage/ — NOTE: this is a source-photo folder, not a duplicate page. Naming coincidence with the preview page, not a conflict. | 10t7_QAgrybJtAeN6TSJxlWiuewTkqOhd | goblet cover approved | CONFIRM | /shamanic-photography-preview.html
 
 ── GATEWAY ──
