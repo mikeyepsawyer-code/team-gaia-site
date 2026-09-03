@@ -129,12 +129,96 @@ sense of the word, an invitation to subscribe — not to this book, but
 to this way of working. Take what's useful. Put your own name under
 it. See what you inscribe.
 
+CHAPTER — CANON AND CATECHISM
+
+[Drafted Sept 2 2026, seeded directly by a naming conversation with
+Michael about whether to call this project's standing conventions a
+"skill catechism" or a "style sheet." RED — new, pending Michael's
+review.]
+
+Editorial language didn't borrow from religious language by accident.
+For most of the history of careful writing, they were the same trade,
+practiced by the same hands, for the same reason: someone needed a
+text to survive copying without drifting into something else.
+
+Canon started as a Greek word for a straight measuring rod, a literal
+ruler, before it came to mean the fixed, authoritative list of
+scripture. Publishing kept both senses without noticing it had. When
+an editor says "the canonical text," they are reaching for the
+measuring rod and the sanctified list in the same breath, the standard
+a thing gets checked against, and the version that's been declared,
+finally, official. Fandom picked this up too, half-joking, when it
+started arguing about what's "canon" in a franchise, without knowing
+it had wandered into the same argument early Christian councils were
+having about the Gospel of Thomas.
+
+Apocrypha named the books that didn't make the cut, judged not quite
+scripture, kept but set apart. Every manuscript folder has its own
+apocrypha: the deleted scenes, the abandoned drafts, the fragments
+sitting in an xpoll folder that never found a chapter. Nobody
+excommunicated them. They're just outside the canon, for now, the
+same soft exile the word has always meant.
+
+Redaction, for most of its history, didn't mean blacking a document
+out. It meant compiling: the redactors of the Torah, of the Gospels,
+were the editors who wove multiple older sources into one continuous
+text, choosing what stayed, what got smoothed over, what got left as
+a seam. That's closer to what an editor actually does than the modern,
+narrower sense of the word, drawing a black bar over a paragraph. The
+oldest redactors weren't hiding anything. They were assembling.
+
+Marginalia is the direct ancestor of the editorial comment. Monks
+annotated scripture in the margins for a thousand years before "track
+changes" existed, questions, corrections, the occasional complaint
+about the cold in the scriptorium. When a note gets written directly
+into a hand-edited page, addressed to whoever reads it next, that's
+not a metaphor for what a medieval scribe did. It's the same act, on
+different paper.
+
+Stet, the proofreader's mark meaning let it stand, ignore the
+correction, is just Latin subjunctive. Grammatically, it's the same
+mood as thy will be done. Both are small, formal ways of surrendering
+a decision to something outside your own preference in the moment,
+one to a manuscript's own logic, the other to something larger still.
+
+Colophon was the scribe's closing note, naming the place and date a
+copy was finished, often ending in a short prayer of relief that the
+work was done without error. Modern books still carry colophons,
+quietly listing a typeface and a print run. The prayer got cut. The
+impulse, to mark, formally, the moment a made thing was actually
+finished, didn't.
+
+Imprimatur means, literally, let it be printed, the Church's formal
+sanction before a text could go to press. Publishing borrowed the word
+outright and still uses it, usually with a wink now, for anything
+carrying the boss's blessing. The wink doesn't change what the word is
+doing. It's still asking the same question a bishop's censor asked:
+has someone with the authority to say so, said so.
+
+None of this is coincidence. The technology of exact, careful,
+reproducible text, copied by hand, checked against a source, corrected
+without losing the correction's history, was built to keep scripture
+from drifting as it passed through generations of scribes who could
+not simply ask the original author what they meant. Everything written
+since, contracts, novels, this very chapter, inherited that toolkit
+and kept most of the words. Every time an editor calls for the
+canonical draft, or a proofreader writes stet in a margin, they are
+doing something a scriptorium would recognize on sight, whether either
+of them knows it or not.
+
+We didn't end up calling this catalog's house rules a catechism. We
+called it a style sheet. But if the last thousand years of textual
+history are any guide, that was never really a choice between two
+different things. It was only ever a choice of which old word to
+borrow.
+
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 STRUCTURE SKETCH (open, not yet built)
 
 PROSE SECTION — working chapter candidates, order TBD:
   - Scribe, Inscribe, Subscribe (drafted above)
+  - Canon and Catechism (drafted above)
   - How the charter started as a memory aid and became a nervous
     system (the version-history arc: v5.3 through v5.9 in three
     weeks, each version a scar from something that broke)
