@@ -161,43 +161,48 @@
   .card-title-fade { animation: card-title-fade 9s ease-in-out infinite alternate; }
 
   /* STFD "Down" -- slides down and lightens to nothing about 2/3 through
-     the painting. Now built from the same dimensional shadow/rim/face
-     structure as the rest of the site's titles (matching "Slow the Fuck"'s
-     finish as closely as CSS can), wrapped so the whole stack slides+fades
-     together while only the face layer shimmers. */
+     the painting. Rendered as a transparent PNG using the exact same
+     pipeline as "Slow the Fuck" (same font, same gold-crackle bevel, same
+     tone-matched stops) rather than approximated in CSS -- the stacked
+     shadow/rim DOM-layer technique looked ghosted/smeared once it faded
+     through partial opacity, since each offset layer became separately
+     visible. A single image fades as one cohesive unit and is a pixel-exact
+     finish match. */
   @keyframes stfd-down-slide {
     0%     { top: 33.09%; opacity: 0; }
     12.2%  { top: 33.09%; opacity: 1; }
     100%   { top: 67.12%; opacity: 0; }
   }
   .stfd-down-wrap {
-    position: absolute; left: 50%; transform: translateX(-50%);
+    position: absolute; left: 50%; width: 55%; transform: translateX(-50%);
     animation: stfd-down-slide 4.1s ease-in-out infinite;
     pointer-events: none;
   }
-  .stfd-down-wrap .dimensional {
-    font-family: 'Cinzel', serif; font-weight: 700;
-    font-size: clamp(14px, 21.4cqw, 90px);
-    letter-spacing: 0.02em;
-  }
+  .stfd-down-wrap img { width: 100%; display: block; }
 
   /* STFD subtitle -- water-gold sweep, blended from tones sampled out of
-     the painting's own water (see project-knowledge/COVER_PRODUCTION_STANDARD
-     Section 10/11 history) -- moving back-and-forth via the shared JS driver,
-     plus the glow pulse so the sweep actually reads as shimmer, not just a
-     slow, easy-to-miss gradient drift. Nudged up from 77.02% so the
-     descenders on "y" stay inside the painting. */
+     the painting's own water. The shared JS driver sets a 7-value
+     comma-separated background-position (matching .shimmer-final's 6
+     static grain layers + 1 moving gradient) -- this needs the SAME
+     7-layer structure or only the first "0 0" ever applies and nothing
+     moves, which is exactly what was happening before this fix. */
   .subtitle-water-gold-shimmer {
     position: absolute; left: 50%; top: 75.0%; transform: translateX(-50%);
     text-align: center; white-space: nowrap;
     font-family: 'Cormorant Garamond', serif; font-style: italic;
-    font-size: clamp(10px, 8.2cqw, 40px);
-    background: linear-gradient(25deg,#4e3f23 0%,#a98551 22%,#dfaf4c 42%,#fcde82 50%,#dfaf4c 58%,#a98551 78%,#4e3f23 100%);
+    font-size: clamp(11px, 9.2cqw, 44px);
+    background:
+      radial-gradient(circle at 15% 30%, rgba(255,224,180,0.35) 0%, transparent 6%),
+      radial-gradient(circle at 62% 12%, rgba(232,146,60,0.3) 0%, transparent 5%),
+      radial-gradient(circle at 82% 58%, rgba(255,240,200,0.25) 0%, transparent 4%),
+      radial-gradient(circle at 34% 78%, rgba(180,80,50,0.3) 0%, transparent 5%),
+      radial-gradient(circle at 92% 88%, rgba(255,200,140,0.2) 0%, transparent 4%),
+      radial-gradient(circle at 8% 85%, rgba(216,130,55,0.25) 0%, transparent 4%),
+      linear-gradient(25deg,#4e3f23 0%,#a98551 22%,#dfaf4c 42%,#fcde82 50%,#dfaf4c 58%,#a98551 78%,#4e3f23 100%);
     background-repeat: no-repeat;
-    background-size: 480px 100%;
+    background-size: 100% 100%,100% 100%,100% 100%,100% 100%,100% 100%,100% 100%,480px 100%;
     -webkit-background-clip: text; background-clip: text;
     -webkit-text-fill-color: transparent; color: transparent;
-    filter: drop-shadow(0 0 3px rgba(223,175,76,0.35));
     animation: gold-shimmer-glow 5s ease-in-out infinite;
     pointer-events: none;
   }
@@ -919,15 +924,7 @@
         <div class="hardcover" style="--spine:#77583e;--spine2:#35271b;--accent-color:#3a2415"><div class="link-card-img sash-wrap" style="background:#1a0808;overflow:hidden;position:relative;container-type:inline-size;">
           <div class="sash" style="width:260px;top:56px;right:-52px;line-height:1.3;font-size:0.75rem;">Free Preview<br>Listen or Read</div>
           <img src="/images/cover-slow-the-fuck-down-card-bg.jpeg" alt="Slow the Fuck Down" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
-          <div class="stfd-down-wrap"><div class="dimensional">
-            <span class="shadow-copy shadow-3">Down</span>
-            <span class="shadow-copy shadow-2">Down</span>
-            <span class="shadow-copy shadow-1">Down</span>
-            <span class="rim-copy rim-1">Down</span>
-            <span class="rim-copy rim-2">Down</span>
-            <span class="rim-copy rim-3">Down</span>
-            <span class="face shimmer-final">Down</span>
-          </div></div>
+          <div class="stfd-down-wrap"><img src="/images/stfd-down-word.png" alt=""></div>
           <div class="subtitle-water-gold-shimmer">Extending Sexual Ecstasy</div>
         <div class="play-corner"><span class="glyph">&#9654;</span></div>
                 </div></div>
