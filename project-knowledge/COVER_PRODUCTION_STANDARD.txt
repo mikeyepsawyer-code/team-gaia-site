@@ -890,3 +890,34 @@ for everything else.
 First cover to use it: Slow the Fuck Down, "Slow the Fuck" (cover v5,
 Sep 3 2026) -- "Down" kept the regular default bevel for contrast between
 the two typographic treatments on the same cover.
+
+════════════════════════════════════════════════════════════════════════════
+
+SECTION 11 — BLACK-BAR MARGIN RULE (Sep 3 2026)
+
+The standard MARGIN (169px = 5/16" visual + 1/4" bleed = 9/16") assumes
+the background photo runs full-bleed edge to edge. When a cover instead
+uses black bars (letterboxed painting, full artwork uncropped -- see
+Slow the Fuck Down v6+), the bars themselves are higher-contrast and
+forgiving of trim variance, so the margin can tighten:
+
+  Top-of-bar to title:        75px  (1/4" -- matches the side margins,
+                               not the 5/16" full-bleed-photo figure)
+  Below author to card edge:  75px  (1/4", same reasoning)
+  Above author (within the
+  bottom band, to the bar's
+  top edge):                  56px  (3/16" -- deliberately NOT equal to
+                               the below-author margin; the band doesn't
+                               need to visually center the author, just
+                               sit close to the bottom edge)
+
+This is a rule for the BLACK-BAR layout specifically, not a change to
+the full-bleed-photo default (MARGIN=169 stays as-is for those covers).
+
+Net effect on a letterboxed layout: the bottom bar shrinks (less margin
+needed) and the top bar grows by the same amount (painting height is
+fixed once scaled to full canvas width), which pushes the painting
+start down and frees real space in the top bar for a bigger title.
+On the Slow the Fuck Down rebuild this was 207px (~0.69"), not the ~1/8"
+first estimated -- confirm the actual shift by computation, not by eye,
+before reporting it back.
