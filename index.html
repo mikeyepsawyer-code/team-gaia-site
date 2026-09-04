@@ -163,19 +163,21 @@
   /* STFD "Down" -- slides down and lightens to nothing about 2/3 through
      the painting, distinct from the shared opacity-only card-title-fade */
   @keyframes stfd-down-slide {
-    0%   { top: 33.09%; opacity: 1; }
-    40%  { top: 33.09%; opacity: 1; }
-    100% { top: 67.12%; opacity: 0; }
+    0%     { top: 33.09%; opacity: 0; }
+    12.2%  { top: 33.09%; opacity: 1; }
+    100%   { top: 67.12%; opacity: 0; }
   }
   .stfd-down-word {
     position: absolute; left: 50%; transform: translateX(-50%);
     font-family: 'Cinzel', serif; font-weight: 700;
     font-size: clamp(14px, 21.4cqw, 90px);
     letter-spacing: 0.02em;
-    background: linear-gradient(25deg,#4a2418 0%,#7a4a1e 15%,#e6b64c 40%,#fff2c0 50%,#e6b64c 60%,#7a4a1e 85%,#4a2418 100%);
+    background: linear-gradient(25deg,#caa03a 0%,#e8c05a 10%,#ffe9a0 35%,#fffbe0 50%,#ffe9a0 65%,#e8c05a 90%,#caa03a 100%);
+    background-repeat: no-repeat;
+    background-size: 420px 100%;
     -webkit-background-clip: text; background-clip: text;
     -webkit-text-fill-color: transparent; color: transparent;
-    animation: stfd-down-slide 6s ease-in-out infinite;
+    animation: stfd-down-slide 4.1s ease-in-out infinite;
     pointer-events: none;
   }
 
@@ -965,7 +967,7 @@
       function frame(timestamp) {
         var pos = -(travel / 2) * (1 - Math.cos((2 * Math.PI * timestamp) / period));
         var value = '0 0, 0 0, 0 0, 0 0, 0 0, 0 0, ' + pos + 'px 0';
-        var els = document.querySelectorAll('.shimmer-final, .shimmer-lightblue, .subtitle-water-gold-shimmer');
+        var els = document.querySelectorAll('.shimmer-final, .shimmer-lightblue, .subtitle-water-gold-shimmer, .stfd-down-word');
         for (var i = 0; i < els.length; i++) {
           els[i].style.backgroundPosition = value;
         }
