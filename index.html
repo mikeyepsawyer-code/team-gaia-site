@@ -159,6 +159,41 @@
     100% { opacity: 0; }
   }
   .card-title-fade { animation: card-title-fade 9s ease-in-out infinite alternate; }
+
+  /* STFD "Down" -- slides down and lightens to nothing about 2/3 through
+     the painting, distinct from the shared opacity-only card-title-fade */
+  @keyframes stfd-down-slide {
+    0%   { top: 33.09%; opacity: 1; }
+    40%  { top: 33.09%; opacity: 1; }
+    100% { top: 67.12%; opacity: 0; }
+  }
+  .stfd-down-word {
+    position: absolute; left: 50%; transform: translateX(-50%);
+    font-family: 'Cinzel', serif; font-weight: 700;
+    font-size: clamp(14px, 21.4cqw, 90px);
+    letter-spacing: 0.02em;
+    background: linear-gradient(25deg,#4a2418 0%,#7a4a1e 15%,#e6b64c 40%,#fff2c0 50%,#e6b64c 60%,#7a4a1e 85%,#4a2418 100%);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; color: transparent;
+    animation: stfd-down-slide 6s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  /* STFD subtitle -- water-gold sweep, blended from tones sampled out of
+     the painting's own water (see project-knowledge/COVER_PRODUCTION_STANDARD
+     Section 10/11 history) -- moving back-and-forth via the shared JS driver */
+  .subtitle-water-gold-shimmer {
+    position: absolute; left: 50%; top: 77.02%; transform: translateX(-50%);
+    text-align: center; white-space: nowrap;
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: clamp(10px, 8.2cqw, 40px);
+    background: linear-gradient(25deg,#4e3f23 0%,#a98551 22%,#dfaf4c 42%,#fcde82 50%,#dfaf4c 58%,#a98551 78%,#4e3f23 100%);
+    background-repeat: no-repeat;
+    background-size: 480px 100%;
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; color: transparent;
+    pointer-events: none;
+  }
   .big18 { font-size: 7.5rem; }
   @media (min-width: 420px) { .big18 { font-size: 8.2rem; } }
   @media (min-width: 600px) { .big18 { font-size: 9.8rem; } }
@@ -874,9 +909,11 @@
       <div class="rule-flourish" style="margin:-12px auto 40px;grid-column:1/-1;"><span></span></div>
       <!-- Slow the Fuck Down — Preview -->
       <a class="link-card" href="/slow-the-fuck-down-preview.html" target="_blank" rel="noopener">
-        <div class="hardcover" style="--spine:#77583e;--spine2:#35271b;--accent-color:#3a2415"><div class="link-card-img sash-wrap" style="background:#1a0808;overflow:hidden;">
+        <div class="hardcover" style="--spine:#77583e;--spine2:#35271b;--accent-color:#3a2415"><div class="link-card-img sash-wrap" style="background:#1a0808;overflow:hidden;position:relative;container-type:inline-size;">
           <div class="sash" style="width:260px;top:56px;right:-52px;line-height:1.3;font-size:0.75rem;">Free Preview<br>Listen or Read</div>
-          <img src="/images/cover-slow-the-fuck-down.jpeg" alt="Slow the Fuck Down" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
+          <img src="/images/cover-slow-the-fuck-down-card-bg.jpeg" alt="Slow the Fuck Down" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
+          <div class="stfd-down-word">Down</div>
+          <div class="subtitle-water-gold-shimmer">Extending Sexual Ecstasy</div>
         <div class="play-corner"><span class="glyph">&#9654;</span></div>
                 </div></div>
       </a>
@@ -928,7 +965,7 @@
       function frame(timestamp) {
         var pos = -(travel / 2) * (1 - Math.cos((2 * Math.PI * timestamp) / period));
         var value = '0 0, 0 0, 0 0, 0 0, 0 0, 0 0, ' + pos + 'px 0';
-        var els = document.querySelectorAll('.shimmer-final, .shimmer-lightblue');
+        var els = document.querySelectorAll('.shimmer-final, .shimmer-lightblue, .subtitle-water-gold-shimmer');
         for (var i = 0; i < els.length; i++) {
           els[i].style.backgroundPosition = value;
         }
