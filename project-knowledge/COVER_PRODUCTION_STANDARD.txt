@@ -716,15 +716,49 @@ SECTION 6 — REBUILD CHECKLIST
 
 Use this every time a cover needs to be rebuilt or updated.
 
- [ ] 1. State source photo filename + Drive file ID
- [ ] 2. Fetch photo from Drive — save to /home/claude/[filename]
+ [ ] 1. State source photo filename + Drive file ID (or uploaded filename)
+ [ ] 2. Archive source photo to GitHub FIRST, before any build work:
+       covers/[slug]/source_photo_[original-filename].jpg
+       (EXIF-correct / rotate to true upright before archiving — do not
+       archive a sideways or upside-down photo). This is the canonical
+       copy going forward; do not re-fetch from Drive on later sessions.
  [ ] 3. Verify dimensions and that it is text-free
  [ ] 4. Install fonts (pip + npm + convert — see §4B for Parisienne note)
- [ ] 5. Run full build pipeline using FROZEN PARAMETERS from §5x
+ [ ] 5. Run full build pipeline using FROZEN PARAMETERS from this cover's
+       own BUILD_RECORD.txt (see SECTION 6B — every cover has one)
  [ ] 6. present_files() the output for Michael's approval before pushing
  [ ] 7. On approval: push card to /images/ and full cover to /covers/[slug]/
  [ ] 8. Update index.html AND any preview HTML referencing that cover
  [ ] 9. Trigger Cloudflare deploy (push trivial index.html commit if needed)
+ [ ] 10. Update/create that cover's BUILD_RECORD.txt with the final
+        approved parameters (see SECTION 6B)
+
+════════════════════════════════════════════════════════════════════════════════
+
+SECTION 6B — ONE BUILD_RECORD.TXT PER COVER (standing rule, added Sep 4 2026)
+
+Every book cover gets its own file: covers/[slug]/BUILD_RECORD.txt
+Modeled on covers/gaia-journal-2027/GAIA_JOURNAL_2027_COVER_BUILD_SPEC.txt,
+which is the reference example — read it before writing a new one.
+
+Required contents:
+ - Source photo(s): original filename, archived filename, EXIF-correction
+   status, dimensions, content description, text-free confirmation
+ - Canvas spec (trim, bleed, full px @ 300dpi)
+ - Fonts used, with exact file paths and any conversion notes
+ - Full text treatment: every text element, its font, size logic, color/
+   gold-finish treatment, position logic — enough to deterministically
+   rebuild the approved cover from scratch
+ - Status line at top: DRAFT / APPROVED, with approval date
+
+This replaces the old pattern of burying frozen parameters inside the
+shared COVER_PRODUCTION_STANDARD.txt (SECTION 5A-5E, kept as historical
+record but not to be extended further) or leaving them only in chat/Drive
+notes that go stale. The Gaia Journal 2027 file is the only one that was
+already doing this right; every other cover is retroactively missing one.
+Backfill opportunistically — whenever an existing cover is touched for any
+reason, create its BUILD_RECORD.txt as part of that session before moving
+on, even if the change itself was small.
 
 ════════════════════════════════════════════════════════════════════════════════
 
