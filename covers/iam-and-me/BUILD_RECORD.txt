@@ -1,0 +1,132 @@
+I AM & ME — COVER BUILD RECORD
+Status: DRAFT — pushed to live site for visual review (Sep 4 2026), not yet
+approved. Update this status line and the version number when Michael signs
+off.
+
+════════════════════════════════════════════════════════════════════════════
+
+SECTION 0 — SOURCE PHOTO (mandatory rebuild rule: always start here)
+
+  Original filename: 1000059139.jpg (uploaded to chat, not from Drive)
+  Archived as: covers/iam-and-me/source_photo_1000059139_gaia_ridge_sunrise_CANDIDATE.jpg
+  Raw upload dimensions: 2170 x 3856 (portrait frame, no EXIF orientation tag)
+  Actual content orientation: rotated 90 degrees CCW from raw to read
+  upright (winter sunrise, Drumheller badlands / "Gaia Ridge", snow access
+  road in foreground). Corrected dimensions after rotation: 3856 x 2170.
+  Content: double-peak ridge silhouette reading as a profile bust ("the
+  entire ridge forms a bust of the local self" -- Michael, Sep 4 2026),
+  facing right into open sky, sun near horizon at roughly 88% across the
+  frame. Sky-on-her-right composition confirmed against this read.
+  Text-free: YES
+
+  A second photo (1000002207.png, water/grasses painting) was uploaded in
+  the same batch -- that one is the Slow the Fuck Down source, archived
+  separately at covers/slow-the-fuck-down/source_photo_1000002207.jpg. Do
+  not conflate the two -- see Sep 4 2026 session notes.
+
+  CROP NOTE: this source is a wide landscape photo (aspect 1.777) going
+  into a portrait canvas (aspect 0.684). prep_photo_fullbleed()'s default
+  dead-center crop would exclude the sun entirely and only catch one ridge
+  peak. Used a custom horizontal crop instead: scale by height to
+  CANVAS_H=2850 (scale factor ~1.3134), then crop CANVAS_W=1950 centered
+  on horizontal fraction 0.44 of the scaled width (not 0.5) -- this keeps
+  both ridge peaks (the "bust" profile) plus a warm diagonal cloud-glow on
+  the right edge, at the cost of the literal sun disc (excluded). Crop
+  window on the scaled image: x=[1253, 3203], y=[0, 2850].
+
+════════════════════════════════════════════════════════════════════════════
+
+SECTION 1 — CANVAS SPEC
+
+  Standard canvas: 1950 x 2850 @ 300dpi (see tools/cover_build.py CANVAS_W/H)
+  MARGIN = 169, FULL_TEXT_W = 1650 (standard constants, unchanged)
+
+════════════════════════════════════════════════════════════════════════════
+
+SECTION 2 — FONTS USED
+
+  Cinzel 700 Bold (assets/fonts/cinzel-700.ttf) -- title "I AM", the W/M
+  caps in "We"/"Me"
+  Parisienne 400 (assets/fonts/parisienne-400.ttf) -- both subtitle lines,
+  the script word "are"
+  Cormorant Garamond 400 Italic (assets/fonts/cormorant-garamond-400-
+  italic.ttf) -- author name, per Section 9 of COVER_PRODUCTION_STANDARD
+
+════════════════════════════════════════════════════════════════════════════
+
+SECTION 3 — TEXT ELEMENTS (top to bottom)
+
+  1. TITLE "I AM"
+     Font: Cinzel 700. target_width = FULL_TEXT_W (1650). top_y = TITLE_TOP_Y
+     (169). Tone sampled behind title = midtone -> high_contrast-eligible
+     stops but built via gold_finish_for_tone()/scaled_gold_text() default
+     (chiseled treatment, STATIC_GOLD_FOIL_STOPS). center_x = CANVAS_W/2.
+
+  2. SUBTITLE, two lines, stacked directly under title (Sep 4 2026 change --
+     previously split, with the second line placed near the bottom of the
+     cover; Michael asked for both halves reunited under the title)
+     Line 1 "the light of being": Parisienne, target_width = 975px
+     (measured v7 width ~900px + 75px/0.25in per Michael's explicit
+     upsize instruction -- this is a deliberate override of the
+     FULL_TEXT_W default subtitle rule, not an oversight).
+     top_y = TITLE_TOP_Y + title_ink_height + 55
+     Line 2 "crystallizing as selves": same font, same target_width (975px,
+     matched to line 1 for a symmetric block rather than same point size).
+     top_y = line1_top_y + line1_common_bottom + 60
+     Both lines: tone-sampled gold (gold_finish_for_tone), treatment=
+     "chiseled" -- NOT harmonized_subtitle_stops(), which was tried first
+     and read too pale against this photo's bright cloud cover.
+
+  3. "We are / Me" block (Sep 4 2026 rebuild -- upsized, small-register e's,
+     script "are")
+     Construction:
+       - W: Cinzel 700 @ base pt 320, rendered alone.
+       - Small e: Cinzel 700 @ base pt 160 (0.50 x W's pt -- true x-height
+         small-caps register, not Cinzel's default lowercase 'e' shape,
+         which reads too close to full cap height). Baseline-aligned to W
+         via explicit ascent-based baseline math (see render_ink_baseline
+         helper -- not in cover_build.py yet, was written ad hoc this
+         session; worth promoting to the shared module if this pattern
+         recurs).
+       - "We" = W + small e, baseline-aligned, -6px kerning gap.
+       - "Me" = M + the SAME small e ink reused (not re-rendered).
+         M = W.rotate(180) -- NOT a horizontal mirror. A horizontal mirror
+         of W returns a W (it's already left-right symmetric in Cinzel).
+         180-degree rotation is what produces the M shape. Caught and
+         fixed this exact bug during the build -- flag it if rebuilding.
+       - "are": Parisienne @ base pt 230, baseline-aligned to We's baseline,
+         70px gap after "We".
+     Gold treatments:
+       - We / Me: apply_chiseled_gold, tone-sampled stops (same
+         gold_finish_for_tone as title) -- sampled from the region behind
+         this block specifically, not reused from the title's sample.
+       - are: apply_chiseled_gold using the SAME stops as the subtitle
+         lines above (deliberate -- ties the script accents into one
+         visual family across the cover).
+     Scaling: "We are" line built at base pt sizes above, then scaled as
+     ONE PIECE (post-gold) to WM_TARGET_W = 1450px. The exact same scale
+     factor is then applied to the separately-built "Me" piece, so M ends
+     up precisely the same absolute size as W -- do not scale Me
+     independently to its own target width, or the M/W size relationship
+     (M being literally W rotated) breaks.
+     Position: line 1 ("We are") top_y = subtitle_block_bottom + 130.
+     "Me" top_y = line1_top_y + line1_height + 40.
+
+  4. AUTHOR "Michael Sawyer"
+     Font: Cormorant Garamond 400 Italic. target_width = FULL_TEXT_W.
+     top_y computed bottom-anchored: CANVAS_H - MARGIN - author_ink_height.
+     Tone-sampled gold, chiseled. Per Section 9 standard.
+
+════════════════════════════════════════════════════════════════════════════
+
+SECTION 4 — WEB ASSETS
+
+  Card (650x962): exported at quality=52 to hit the <85KB target (this
+  cover's photo + heavy gold bevel grain pushed the default CARD_QUALITY=74
+  to ~119KB -- had to step down; 63/58/55/52 tested, 52 -> 82KB was the
+  first to clear the bar).
+  Hero (1300x1924): exported at default HERO_QUALITY, ~455KB, no target
+  constraint on hero size currently.
+  Card pushed to images/cover-iam-and-me-card.jpeg (the path index.html's
+  homepage card already references -- no HTML change needed, only the
+  image content).
