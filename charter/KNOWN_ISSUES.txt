@@ -97,3 +97,30 @@ not tools to integrate.
 MAINTENANCE: add an entry here any time a real bug is diagnosed. Keep the
 main charter's debugging section as a short pointer to this file rather
 than duplicating entries in both places.
+
+--- Sep 3 2026: shimmer JS driver requires exactly 7 background layers ---
+The shared shimmer sweep script sets background-position as a 7-value
+comma list ('0 0, 0 0, 0 0, 0 0, 0 0, 0 0, Xpx 0'), matching
+.shimmer-final's 6 static grain radial-gradients + 1 moving linear-
+gradient. Any element added to that querySelectorAll list MUST have the
+same 7-layer background structure (background-size also needs 7 comma
+values). A single-gradient element silently receives only the first
+"0 0" -- background-position with more values than actual layers just
+drops the extras, so it LOOKS like nothing is wrong (no console error)
+but the element never moves. This cost a full round-trip before being
+caught -- check layer count first if a new shimmer element "isn't
+shimmering" with no visible error.
+
+--- Sep 3 2026: multi-layer dimensional text ghosts when faded ---
+The dimensional shadow-copy/rim-copy/face stacked-DOM-layer technique
+(used for hero titles) looks correct at full opacity but ghosts/smears
+once faded through partial opacity via a parent wrapper -- each of the
+~7 offset layers becomes separately visible instead of fading as one
+unit, since they're semi-transparent siblings, not one compositied
+shape. Don't use this technique for anything that needs to fade in/out
+as part of an animation (slide-fade, reveal, etc.). For an animated
+word that needs to match a procedurally-rendered (PIL) gold finish
+exactly, render it as a transparent PNG using the same build pipeline
+and animate the image instead -- pixel-exact finish, and a single image
+layer fades cleanly. First instance: Slow the Fuck Down's "Down"
+(images/stfd-down-word.png).
