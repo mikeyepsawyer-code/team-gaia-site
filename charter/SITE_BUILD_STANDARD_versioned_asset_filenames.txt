@@ -1,0 +1,43 @@
+SITE BUILD STANDARD — VERSIONED ASSET FILENAMES
+(Sep 3 2026)
+
+PROBLEM
+Cloudflare's CDN edge cache is separate from the browser. Incognito mode,
+hard refresh, clearing browser cache -- none of it touches the CDN edge
+cache, because that layer lives on Cloudflare's network, not the
+visitor's machine. Image URLs in particular tend to get cached very
+aggressively (often on the assumption that if content changes, the
+filename changes too). Repeatedly overwriting the same filename
+(cover-slow-the-fuck-down.jpeg, pushed as v4 through v11 across one
+session) meant Michael kept looking at a stale cached copy on his phone
+even in incognito, with no reliable way to force a fresh fetch except
+waiting out Cloudflare's cache TTL or a manual dashboard purge (which
+Claude has no API access to -- only the GitHub PAT, which can push files
+but cannot touch Cloudflare's cache directly).
+
+RULE
+Every new version of a cover, card background, or other image asset that
+replaces a previous version gets a NEW filename with a version suffix,
+not an overwrite of the old one:
+
+  images/cover-<book-slug>-v<N>.jpeg
+  images/cover-<book-slug>-card-bg-v<N>.jpeg
+
+Update every page that references the asset (index.html card markup,
+the book's preview page hero, any other pointer) to the new filename in
+the SAME push that adds the new version. Do not leave any page pointing
+at an old versioned filename.
+
+The unversioned filename (e.g. images/cover-100-orgasms.jpeg) can still
+be used for the FIRST version of a given asset if there's no realistic
+chance of it needing frequent revision in the same session (a finished,
+approved cover). Reach for versioned filenames as soon as a cover enters
+active iteration -- which in practice means: use them by default, since
+almost every cover goes through several rounds before it's finalized.
+
+Old versions are not deleted -- they're harmless once nothing references
+them, and they double as the version history already kept in each
+book's covers/<slug>/ archive folder.
+
+First applied: Slow the Fuck Down, Sep 3 2026 (cover-slow-the-fuck-
+down-v11.jpeg, cover-slow-the-fuck-down-card-bg-v2.jpeg).
