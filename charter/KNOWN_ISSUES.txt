@@ -124,3 +124,17 @@ exactly, render it as a transparent PNG using the same build pipeline
 and animate the image instead -- pixel-exact finish, and a single image
 layer fades cleanly. First instance: Slow the Fuck Down's "Down"
 (images/stfd-down-word.png).
+
+--- Sep 3 2026: borrowed background layers carry their own visual content ---
+Fixing the 7-layer shimmer-position bug (above) meant copying .shimmer-
+final's 6 grain radial-gradients onto the subtitle just to match its
+layer COUNT. Missed that those layers aren't neutral -- they're warm,
+semi-transparent highlight blobs designed for that specific title
+context, and they sat on top of the custom water-gold linear-gradient,
+visibly washing out its shadow end (element read as "all highlights and
+midtones, no shadow" even though the base gradient had real dark
+stops). When reusing another element's multi-layer background structure
+for a mechanical reason (matching a JS driver's expected layer count,
+in this case), replace the borrowed layers' actual content with inert/
+transparent placeholders unless the visual content is also wanted --
+don't assume "same structure" means "same look is fine to inherit."
