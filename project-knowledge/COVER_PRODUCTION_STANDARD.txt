@@ -829,3 +829,64 @@ HOW TO DO IT IN CSS:
 
 Applies to every title/subtitle/author placed directly on a card image or
 hero image going forward, not just Shamanic Photography.
+
+════════════════════════════════════════════════════════════════════════════
+
+SECTION 9 — AUTHOR NAME: NEW DEFAULT (Sep 3 2026)
+
+Michael noticed the author name had drifted into 6+ different font
+treatments across the live catalog. New default going forward, for every
+cover built or touched from this point on:
+
+  Font:      Cormorant Garamond Italic (assets/fonts/cormorant-garamond-
+             400-italic.ttf) -- true mixed-case letterforms ("Michael
+             Sawyer", not small-caps/all-caps Cinzel).
+  Treatment: chiseled gold (apply_chiseled_gold), same as before -- only
+             the FONT and CASE changed, not the metallic treatment logic.
+  Gold finish (stops): still context-specific per Section 2B/3 -- sample
+             the background behind the author block and pick light/dark/
+             high-contrast gold accordingly, same as any other element.
+  Reference: Sapiens Cyberneticus cover (covers/sapiens-cyberneticus/
+             sapiens_cyberneticus_cover_v2.jpg) is the model to match.
+
+This is NOT retroactive across the whole catalog automatically -- update
+each cover's author treatment to this standard the next time that
+specific cover is touched for any other reason, rather than a dedicated
+pass across all ~20 books. First cover built under the new standard:
+Slow the Fuck Down (cover v5, Sep 3 2026).
+
+════════════════════════════════════════════════════════════════════════════
+
+SECTION 10 — "GOLD CRACKLE" FINISH (named Sep 3 2026)
+
+Discovered by accident on the word "the" in an early Slow the Fuck Down
+title render: apply_chiseled_gold's bevel radius (bevel_frac, default
+0.09) is a FIXED size relative to the letter's own bounding box, not to
+individual stroke width. On thin-stroke letters (T, H, E in that
+instance) the bevel radius exceeds the stroke width, so the interior of
+the stroke never reaches a flat, unshaded "top facet" -- the whole glyph
+reads as continuous edge-bevel, producing a mottled, hammered/crackled
+metal texture instead of the usual smooth polished-face-plus-edge-bevel
+look.
+
+To apply deliberately across a whole word/line (not just thin letters):
+
+  apply_chiseled_gold(ink, stops=..., angle_deg=FOIL_ANGLE_DEG,
+                       bevel_frac=0.26)
+
+bevel_frac=0.26 was the tuned value for the STFD title (Cinzel 700,
+~1650px full-text-width scale) -- thick strokes like S/L/O/W still read
+clearly at this value, not blown out, while picking up the same crackle
+texture "the" had by accident. Re-tune per font/size/weight combination;
+the effect is a function of bevel-radius-to-stroke-width ratio, so it
+will need a different bevel_frac at a different point size or a
+different-weight font.
+
+Use this as a deliberate stylistic choice for a title that wants a
+weathered/textured metal look, not as the new default -- the standard
+apply_chiseled_gold default (bevel_frac=0.09) remains the default finish
+for everything else.
+
+First cover to use it: Slow the Fuck Down, "Slow the Fuck" (cover v5,
+Sep 3 2026) -- "Down" kept the regular default bevel for contrast between
+the two typographic treatments on the same cover.
