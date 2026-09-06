@@ -195,6 +195,29 @@ SECTION 2B — DEFAULT FIRST-PASS RULES (added Aug 19 2026, tools/cover_build.py
          not assumed from a spec document — and the pixel number is
          stated so it's checkable.
 
+ 5. SUBTITLE POSITION (added Sep 6 2026, I AM & Me redesign): the
+    subtitle sits directly above the author line — not right under the
+    title. Compute the author's position first (bottom margin rule,
+    Section 1), then place the subtitle bottom-anchored a modest gap
+    above that (probe-render the subtitle to know its height before
+    committing its top_y). This is now the DEFAULT for any cover with
+    both a subtitle and an author name, not a one-off choice for one
+    book. The large empty photo zone this creates between the title
+    and the subtitle is intentional, not a spacing bug to fix.
+
+ 6. MIXING TYPEFACES BY POINT SIZE (added Sep 6 2026): point size is
+    NOT a reliable proxy for actual rendered height across different
+    font families. Cinzel's cap-height is much larger relative to its
+    own em/point-size than Cormorant Garamond's is — setting Cormorant
+    to "70% of Cinzel's point size" produced an actual pixel-height
+    ratio of only ~40%, not 70%. When a design calls for one font's
+    letters to read as some proportion of another font's letters
+    (e.g. a small-caps-style "e" sized relative to a Cinzel cap),
+    render both at candidate sizes and measure the actual ink heights
+    (render_ink_baseline or equivalent) to find the point size that
+    hits the target ratio — don't compute the ratio from point sizes
+    alone and trust it.
+
 ════════════════════════════════════════════════════════════════════════════════
 
 SECTION 3 — TYPOGRAPHY PREFERENCES
