@@ -1,188 +1,197 @@
 I AM & ME — COVER BUILD RECORD
-Status: DRAFT — v16, pushed for visual review, not yet approved.
+Status: APPROVED, pushed live (Sep 6 2026), v33.
 
-This replaces the earlier build record with the SIMPLE, DIRECT path to
-the current approved layout. The early sessions on this cover went
-through many exploratory rounds (custom crops, a baseline-flip bug on
-the mirrored M, wrong-font e's, etc.) -- none of that history is repeated
-here. This is just: here is the fastest correct way to build this cover
-from scratch.
-
-════════════════════════════════════════════════════════════════════════════
-
-SECTION 0 — SOURCE PHOTO
-
-  Gaia photos: ALWAYS check tools/gaia_orient.py first. Never trim, only
-  rotate. Confirm orientation OBJECTIVELY (compare average "sky-score" —
-  brightness + blue-dominance — of the left half vs right half of the
-  candidate frame) rather than by eye. Do this even if the raw file's
-  width/height already looks like the right shape -- phone photos from
-  this camera frequently have no EXIF orientation tag, so the raw
-  container's aspect ratio does NOT reliably indicate true capture
-  orientation.
-
-  Current source: a straightened re-shoot of the Gaia Ridge winter
-  sunrise (Drumheller badlands), rotated ~1 degree by Michael before
-  upload specifically to make a vertical brown grass band in the photo
-  perfectly vertical. Confirmed sky-right with no further rotation
-  needed. Archive any new source photo to
-  covers/iam-and-me/source_photo_[name].jpg before building.
-
-  FIT WITHOUT TRIMMING: this photo's aspect doesn't exactly match the
-  1950x2850 canvas. Scale by height (the limiting dimension) so the
-  entire photo appears with nothing cropped, and fill the resulting thin
-  side margins (currently ~48px total) by extending the outermost
-  column/row of pixels -- not a generative fill, not a crop.
-
-  THE VERTICAL BAND: there's a strip of brown grass running the full
-  height of the photo (through the ridge crevice and continuing as the
-  foreground dirt track) that Michael uses as a hard alignment reference
-  for the We/Me text. Locate it OBJECTIVELY each time the photo changes:
-  find the vertical column with the lowest average brightness across a
-  tall y-range (e.g. rows 100-2700, columns 350-600), confirm visually
-  with a ruled overlay before trusting it. On the current (straightened)
-  photo this lands at x=523.
+This replaces the earlier "I AM / We are Me refracting" build record. That
+whole approach (separate "I AM" title, a large "We are Me" pack with
+attached "refracting"/"refract as") was abandoned in favor of a simpler,
+better concept below. If reviving old ideas from that approach, be aware
+it was explicitly moved away from, not just superseded incrementally.
 
 ════════════════════════════════════════════════════════════════════════════
 
-SECTION 1 — CANVAS & FONTS (standard, unchanged)
+SECTION 0 — SOURCE PHOTO (unchanged from the prior record)
 
-  Canvas 1950x2850 @ 300dpi. MARGIN=169, FULL_TEXT_W=1650.
-  Cinzel 700 Bold -- title, and the W/M caps in We/Me.
-  Parisienne 400 -- the two subtitle lines, "refracting".
-  Cormorant Garamond 400 (regular, upright) -- the lowercase "e" in
-  We/Me. IMPORTANT: do not use Cinzel for this e. Cinzel's lowercase
-  glyphs are shaped like small capitals (a small "E", structurally),
-  not genuine lowercase letterforms. Compare the two directly if
-  rebuilding from scratch and this isn't obvious.
-  Cormorant Garamond 400 Italic -- author name, and the word "are".
+  Archived at: covers/iam-and-me/source_photo_1000059139_gaia_ridge_sunrise_CANDIDATE.jpg
+  and the straightened re-shoot used for the actual build:
+  the photo behind /home/claude/iam_bg_v12.jpg in-session (rotated ~1 degree
+  by Michael before upload to make a vertical brown grass band read
+  perfectly vertical). Gaia (ridge) on the left, sky on the right,
+  confirmed objectively via sky-score (brightness + blue-dominance,
+  left half vs right half) rather than by eye every time this photo is
+  reused. Full frame, no trim -- fit to canvas height, thin side margins
+  filled by edge-pixel extension (not a crop).
 
-  No shimmer/foil treatment anywhere on this cover. Chiseled gold only
-  (apply_chiseled_gold with tone-sampled STATIC/PASTEL stops via
-  gold_finish_for_tone) -- never GOLD_FOIL_STOPS.
+  THE VERTICAL BAND: a strip of brown grass running the full height of
+  the photo, used as a rule of thirds anchor in earlier iterations of
+  this cover. NOT used for anchoring in the current (v33) design --
+  the current title sits at the standard default title location instead.
+  Precise x-position if needed again: measure the darkest continuous
+  vertical column across a tall y-range, confirm visually with a ruled
+  overlay.
+
+════════════════════════════════════════════════════════════════════════════
+
+SECTION 1 — CANVAS & FONTS
+
+  Canvas 1950x2850 @ 300dpi. MARGIN=169 (top), FULL_TEXT_W=1650.
+  Cinzel 700 Bold -- the two true capitals (I, W).
+  Cormorant Garamond 400 (regular, upright) -- "am" and the "e" in "We"/
+  "Me". Genuine lowercase letterforms -- Cinzel's own lowercase glyphs
+  are shaped like small capitals, not real lowercase, and read wrong
+  for this purpose (verified by direct side-by-side render comparison).
+  Parisienne 400 -- the subtitle.
+  Cormorant Garamond 400 Italic -- the author name.
+  Chiseled gold only (apply_chiseled_gold, tone-sampled STATIC/PASTEL
+  stops via gold_finish_for_tone). No shimmer/foil treatment on the
+  static PRINT/default card -- see Section 5 for the separate animated-
+  shimmer exploration, which is a distinct deliverable, not applied here.
 
 ════════════════════════════════════════════════════════════════════════════
 
 SECTION 2 — TEXT ELEMENTS, TOP TO BOTTOM
 
-  1. TITLE "I AM": Cinzel 700, target_width = FULL_TEXT_W * 0.95 (a 5%
-     downsize from the original approved size), top_y = 169 (MARGIN).
-     Fixed stops = STATIC_GOLD_FOIL_STOPS, treatment = "high_contrast".
-     Keep these exact fixed values on future rebuilds rather than
-     re-sampling tone from a new background -- this element is meant to
-     be visually IDENTICAL across cover revisions.
+  1. TITLE: "I am We" -- default title location (top_y = MARGIN = 169),
+     default FULL_TEXT_W sizing. Only "I" and "W" are true full-height
+     capitals; "am" and "We"'s "e" are genuine lowercase.
+     - Cap point size: 400 (base render, before final width-fit scale).
+     - Lowercase point size: cap_pt * 1.20 (NOT 0.70x -- point-size
+       ratio is not the same as actual rendered cap-height ratio across
+       different type families. Cinzel's cap-height is much larger
+       relative to its own em/point-size than Cormorant's is. Verified
+       empirically: 0.70x point size produced an actual pixel-height
+       ratio of only ~40%; 1.20x point size is what actually yields the
+       intended ~70% ratio. ALWAYS measure rendered ink heights directly
+       when calibrating a cross-font size relationship -- don't trust
+       point-size ratios alone.
+     - Word order/spacing: "I" + gap + "am" + gap + "We" ("We" itself =
+       W + tight letter-gap + e, kerned as one unit, NOT word-gap
+       spacing). Word gap = cap_pt * 0.18 (tuned down from an initial
+       0.35 -- felt too wide). Letter gap (W-to-its-own-e) = -6 *
+       (cap_pt/320) scaling factor, essentially touching.
+     - All four pieces (I, am, W, e) baseline-aligned by true font
+       baseline (render_ink_baseline), NOT bottom-of-bbox -- none of
+       these glyphs have descenders so the two methods mostly agree,
+       but baseline alignment is the robust choice if that ever changes.
+     - OPTICAL DROP ON W ONLY: Cinzel's W has sharp pointed feet (not a
+       flat stroke touching the baseline), so it optically reads as
+       floating above the line next to flat-bottomed letters like I.
+       W (and ONLY W, not its own e -- confirmed explicitly with
+       Michael, the e must stay on the true baseline) is nudged down by
+       cap_pt * 0.028 to compensate.
+     - Whole title composite cropped tight, scaled to FULL_TEXT_W,
+       centered, pasted at top_y=169.
 
-  2. SUBTITLE, two short lines, right-shifted into the sky (not centered
-     under the title): "the light" / "of be-ing" (the hyphen in "be-ing"
-     is deliberate stylistic word-breaking, not a line-wrap hyphen).
-     Base render: Parisienne 230pt, independently for each line (not
-     width-matched to each other).
-     Sizing history that nets the current size, applied as sequential
-     multipliers to the raw 230pt render, in order:
-       a) +75px added to each line's raw width (a quarter-inch upsize,
-          split as 1/8" per side, symmetric around each line's own
-          center)
-       b) +10% uniform scale on top of (a), again around each line's
-          own center
-     Right edge: both lines share a right edge at
-     (CANVAS_W - 190) + 37.5px (the 37.5px accounts for the symmetric
-     growth in step (a) pushing the shared right edge outward).
-     sub1_top_y = title_bottom + 55. sub2_top_y = sub1's common-bottom
-     (via common_ink_bounds) + 35.
-     Tone: gold_finish_for_tone sampled behind the subtitle region,
-     treatment "chiseled".
+  2. "Me": We's own W (from the finished, final-scale title -- not a
+     separately-sized piece) is vertically mirrored (ImageOps.flip --
+     true top/bottom mirror, not a 180-degree rotation and not a
+     horizontal mirror) straight down, ~1/8" gap between We's baseline
+     and M's top. We's own "e" is copy-dragged straight down too,
+     bottom-aligned to M (M has no descender, so M's own bottom = its
+     baseline). The WHOLE "Me" (M + e together) is blurred as one unit:
+     GaussianBlur radius ~13, built with generous transparent padding
+     (radius x4) before blurring so the blur has room to bleed without
+     hard-clipping at a crop edge, then composited over the sharp
+     background. CRITICAL: never paste the sharp glyph to canvas first
+     and then paste a blur on top -- the blur's alpha never reaches full
+     opacity at its own center, so the sharp version shows through and
+     the blur looks like barely anything happened. Build the blurred
+     version from the rendered face directly and ONLY paste that.
+     "We" itself stays completely sharp.
 
-  3. "We [e] are / Me [e]" -- the construction:
-     - W: Cinzel 700 @ 320pt base, rendered alone.
-     - M: the SAME W ink, ImageOps.flip() (a true vertical/top-bottom
-       mirror -- NOT a 180-degree rotation, and NOT a horizontal
-       mirror). Note: for this particular glyph in Cinzel, flip and
-       180-rotation happen to look identical because Cinzel's W is
-       already left-right symmetric -- but flip is the semantically
-       correct operation and is what's specified, so use it directly
-       rather than relying on that coincidence.
-     - e: Cormorant Garamond regular @ 260pt (matches "are"'s point
-       size). The SAME rendered e is reused for both We and Me.
-     - are: Cormorant Garamond Italic @ 260pt.
-     - ALIGNMENT: bottom-align everything (W, e, are, M, e again). None
-       of these letters have descenders, so their true visual baseline
-       IS their ink-bottom row. Do NOT try to compute M's "baseline" by
-       transforming W's baseline row through the flip -- flipping the
-       glyph also flips which end of the cropped image is top vs.
-       bottom, so that math points at M's TOP, not its bottom. Bottom-
-       alignment sidesteps the whole problem.
-     - W/M share IDENTICAL x-position on the working canvas (not just
-       "centered independently to look similar") -- since M is
-       literally W's own ink flipped, same width, same x guarantees
-       same center automatically.
-     - Kerning: letter-to-e gap -6px; We-to-are gap 55px.
-     - W-to-M vertical gap (W's bottom to M's top): 1/8" (37.5px) in
-       final canvas pixels. Achieved by building the whole two-line
-       composite once, measuring its native size, computing the scale
-       factor needed, then converting the inch target back into base
-       (pre-scale) pixels for a second build pass.
-     - Overall pack size: pinned to a fixed final width of 1055px.
-       This does NOT auto-derive from remaining vertical space -- it's
-       a fixed value carried forward from the approved size. If the
-       subtitle or other elements change size later, do not let that
-       silently change this number.
-     - Position: horizontally, the W/M shared x-center lands at
-       BAND_X minus a 1/16" + 1/32" leftward nudge (accumulated over
-       two rounds of adjustment -- net offset from the band's raw
-       measured position is 3/32", about 28px at 300dpi). Vertically,
-       the whole two-line pack is positioned so "Me"'s bottom lands
-       exactly on "refracting"'s text line (see item 4) -- i.e. compute
-       refracting's position FIRST, then derive the pack's top_y as
-       (refracting's line y) - (pack's total height).
-     - "Me" IS HEAVILY BLURRED (current version): after building and
-       placing the pack normally (sharp), extract just the M+e pixels
-       for the Me line (with alpha) from the finished pack, pad
-       generously (radius x4) so the blur has room to bleed without
-       clipping, apply GaussianBlur(radius=26), and paste that blurred
-       piece back over the same spot on the canvas. This blurs only the
-       gold letterform -- the sharp photo underneath is untouched.
-       "We are" stays crisp. This is a deliberate thematic contrast
-       (the narrative "Me" softening/dissolving against a crisp "We").
+  3. SUBTITLE: "the light of being" -- ONE line (not split, no hyphen),
+     Parisienne, standard scaled_gold_text call to FULL_TEXT_W.
+     STANDING RULE (added Sep 6 2026, also added to
+     COVER_PRODUCTION_STANDARD.txt Section 2B as a catalog-wide default):
+     the subtitle sits directly above the author line, not under the
+     title. Compute the author's position FIRST (see item 4), then
+     probe-render the subtitle to know its height, then place it
+     bottom-anchored a small gap (60px) above the author's top edge.
+     This leaves a large open photo area between the title block and
+     the subtitle -- intentional, not a bug to fix.
 
-  4. "refracting": Parisienne, sized to match the subtitle's effective
-     point size after its own upsizing (i.e. same final scale factor as
-     subtitle line "the light"). Horizontally centered under the
-     subtitle block's own center (not the page center), then shifted by
-     the same leftward nudge applied to the We/Me pack (they move as one
-     unit). Vertically positioned independently of the We/Me pack --
-     the pack is what slides to meet IT, not the other way around.
-     Current absolute vertical anchor: subtitle_block_bottom + 868px,
-     then an additional 3/16" (56px) further up per the latest revision.
-
-  5. AUTHOR "Michael Sawyer": Cormorant Garamond Italic, target_width =
-     FULL_TEXT_W, chiseled gold, tone-sampled. Bottom margin: position
-     so the COMMON bottom (via common_ink_bounds, i.e. excluding the "y"
-     descender in Sawyer) sits 0.375" (112.5px) above the canvas bottom
-     edge -- NOT 0.25", which let the y-descender clip past the card
-     edge on an earlier version. Always verify the actual ink bottom
-     (including the descender) clears the canvas edge with some margin,
-     not just the common-bottom math. Then an additional 1/8" (37.5px)
-     further up per the latest revision.
+  4. AUTHOR "Michael Sawyer": Cormorant Garamond Italic, FULL_TEXT_W,
+     chiseled gold. Bottom margin: 7/16" from the canvas/card edge to
+     the author's COMMON bottom (common_ink_bounds, excluding the "y"
+     descender) -- catalog-wide default as of Sep 6 2026, up from 5/16".
+     The old 5/16" figure was calibrated back when author names mostly
+     used all-caps fonts with no descenders; it doesn't leave enough
+     room now that the default author font is mixed-case Cormorant
+     Italic. See COVER_PRODUCTION_STANDARD.txt Section 9 for the full
+     rule and reasoning. Always verify the FULL ink extent (including
+     the actual descender), not just the common-bottom number, actually
+     clears the edge with some margin -- don't just trust the formula.
 
 ════════════════════════════════════════════════════════════════════════════
 
-SECTION 3 — THINGS THAT WENT WRONG, WORTH NOT REPEATING
+SECTION 3 — THINGS ABANDONED THIS SESSION (worth knowing, not repeating)
 
-  - Don't improvise a custom crop on a Gaia photo before checking for
-    tools/gaia_orient.py.
-  - Don't trust a phone photo's raw width/height ratio as a proxy for
-    "already correctly oriented" -- these files often lack a real EXIF
-    orientation tag.
-  - Don't assume a font's "lowercase" glyphs are genuine lowercase
-    letterforms. Cinzel's aren't (they're small-caps-shaped).
-  - When mirroring a glyph to build a second letter (W -> M), be
-    precise about WHICH mirror (vertical flip, horizontal flip, 180
-    rotation are three different operations that can coincidentally
-    look similar on symmetric glyphs but are not interchangeable in
-    general, and their baseline/bounding-box math is NOT interchangeable
-    even when the visual result is).
-  - When a person gives a size/position instruction as a delta ("upsize
-    by 10%", "move up 1/8""), check whether it's meant to compound with
-    a shared formula that ALSO drives some other element's size --
-    coupling two elements' sizes through one convenience formula can
-    silently resize something nobody asked to change.
+  - "We are Me" with an attached script "are" or italic "refract as"/
+    "refracting" word, band-anchored horizontally to the vertical grass
+    line: built through ~15 iterations, ultimately abandoned as overly
+    complex for a look Michael wasn't fully happy with ("this one's
+    pissing me off"). The simpler "I am We" -> "Me" concept replaced it
+    entirely and was reached in a couple of passes once tried.
+  - A light patch (soft radial glow) pasted OVER an already-blurred Me
+    to add "more light" -- doesn't work, just reads as more blur, since
+    a translucent wash over something already low-contrast reduces
+    contrast further rather than brightening it. Don't do this; if a
+    blurred element needs to look brighter, adjust its own color/
+    brightness before blurring, not via an overlay after.
+
+════════════════════════════════════════════════════════════════════════════
+
+SECTION 4 — WEB ASSETS
+
+  Card (650x962): quality=52 (this cover's photo + gold grain pushes the
+  default CARD_QUALITY=74 well over the <85KB target; 52 lands ~74-76KB).
+  Pushed to images/cover-iam-and-me-card.jpeg (the path index.html's
+  homepage card already references).
+
+════════════════════════════════════════════════════════════════════════════
+
+SECTION 5 — ANIMATED GOLD SHIMMER (exploratory, NOT applied to this
+cover yet -- separate deliverable, parked as of Sep 6 2026)
+
+  Concept: an existing baked-video shimmer system (tools/bake_shimmer_
+  blue.py, built for Shamanic Photography) sweeps highlight bands across
+  text. Michael wants a gold "organic" variant with THREE highlight/
+  lowlight color pairs, one per band of the light sweep, rather than one
+  shared pair:
+    Band 1 (brightest): butter yellow (255,225,140) / light green
+      (210,225,175) -- pulled from the water in the Slow the Fuck Down
+      painting.
+    Band 2 (mid): soft orange (230,160,90) / burnt sienna (140,74,46)
+      -- burnt sienna chosen over an initial copper idea; Michael isn't
+      married to any specific bridge color, this was explicitly framed
+      as "set up the structure and play with it."
+    Band 3 (darkest): burnt sienna (140,74,46) / chocolate (60,38,24)
+      -- burnt sienna bridges band 2 and band 3.
+
+  Key technical direction (Michael's idea, and a good one): drive the
+  color sweep off the CHISELED bevel's own per-pixel surface normal
+  (nx, ny, nz from chisel_shade's distance-transform geometry) rather
+  than a generic diagonal band overlay independent of the letterform.
+  Precompute the normal field ONCE per glyph (expensive: distance
+  transform + gradient + blur), then animate cheaply by just rotating
+  the light direction per frame (a dot product) and mapping the
+  resulting per-pixel shade value through the 5-stop gradient above.
+  Working prototype built and confirmed promising (video: rendered a
+  test loop of "We" in Cinzel sweeping through the full palette).
+
+  STILL MISSING before this is a real deliverable:
+   - Dappled/mottled noise texture within each band (real foil isn't a
+     smooth gradient) -- the blue baker's multi-octave noise field needs
+     adapting in.
+   - Premultiplied-alpha glow/blur pass (the blue standard's fix for
+     muddy edge color).
+   - Transparent-alpha background (prototype used a solid navy fill for
+     visibility only).
+   - Actual baked WebM (alpha) + MP4 (matte fallback) pair, not a raw
+     PNG-sequence-to-MP4 test render.
+   - Decision on WHERE this gets used: card only for certain, maybe the
+     ebook-specific cover version too, explicitly NOT the print cover.
+     Revisit "things like that" (other ebook-vs-print distinctions) as
+     publishing gets closer.
+
+  Parked here Sep 6 2026 -- Michael asked to be reminded about this in
+  a day or two.
