@@ -889,7 +889,7 @@ hero image going forward, not just Shamanic Photography.
 
 ════════════════════════════════════════════════════════════════════════════
 
-SECTION 9 — AUTHOR NAME: NEW DEFAULT (Sep 3 2026)
+SECTION 9 — AUTHOR NAME: NEW DEFAULT (Sep 3 2026, margin updated Sep 6 2026)
 
 Michael noticed the author name had drifted into 6+ different font
 treatments across the live catalog. New default going forward, for every
@@ -905,12 +905,30 @@ cover built or touched from this point on:
              high-contrast gold accordingly, same as any other element.
   Reference: Sapiens Cyberneticus cover (covers/sapiens-cyberneticus/
              sapiens_cyberneticus_cover_v2.jpg) is the model to match.
+  Bottom margin (card, no-bleed context): 7/16" from the card edge to
+             the author's COMMON bottom, via common_ink_bounds() --
+             explicitly excluding any descender (the "y" in "Sawyer,"
+             etc). This supersedes the general 5/16" visual-border figure
+             from Section 1 for the author element specifically: that
+             5/16" default was calibrated back when author names mostly
+             used all-caps fonts with no descenders at all, so it never
+             needed to plan for one. Now that the default font is mixed-
+             case Cormorant Italic, without this adjustment the "y"
+             descender runs uncomfortably close to (or past) the edge --
+             confirmed by measuring the actual full ink extent against
+             the canvas edge, not just the common-bottom figure, on the
+             I AM & Me rebuild. 7/16" to the common bottom is what
+             actually gives the descender clean breathing room.
+             For a full-bleed PRINT cover, add the usual 1/4" bleed on
+             top of this the same way Section 1 does elsewhere (i.e.
+             7/16" is the visual figure, matching how 5/16" was framed).
 
 This is NOT retroactive across the whole catalog automatically -- update
 each cover's author treatment to this standard the next time that
 specific cover is touched for any other reason, rather than a dedicated
 pass across all ~20 books. First cover built under the new standard:
-Slow the Fuck Down (cover v5, Sep 3 2026).
+Slow the Fuck Down (cover v5, Sep 3 2026). First cover under the updated
+7/16" margin: I AM & Me (Sep 6 2026).
 
 ════════════════════════════════════════════════════════════════════════════
 
