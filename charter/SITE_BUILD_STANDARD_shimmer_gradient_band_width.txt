@@ -1,0 +1,46 @@
+SITE BUILD STANDARD — SHIMMER GRADIENT BAND WIDTH
+(Sep 10 2026)
+
+PROBLEM
+The gold-sweep shimmer effect (.subtitle-water-gold-shimmer, .shimmer-final,
+.shimmer-lightblue) works by animating background-position on a text-clipped
+gradient, driven by a shared JS requestAnimationFrame loop (travel=300px,
+oscillating between 0 and -300px).
+
+The moving gradient layer's background-size (a fixed px width, e.g. 480px)
+sets how wide the bright highlight band is. If that width is too narrow
+relative to the ACTUAL RENDERED TEXT WIDTH, the highlight peak (the
+brightest color stop, typically at 50%) slides completely out of the
+visible window at the oscillation's extremes. Whatever text falls outside
+that window at that moment renders in the gradient's dark tail-end color
+(near-black/brown), which reads as the subtitle "glitching" -- words or
+whole phrases appear to flicker, dim, or vanish as the light sweeps across
+them, worse for longer text strings.
+
+This bit the "Slow the Fuck Down" card subtitle ("Extending Sexual
+Ecstasy" / 24 characters, ~294px rendered width) at background-size
+480px: the bright peak fell out of frame at both oscillation extremes,
+and the right-hand words visibly faded to near-invisible. Confirmed via
+Playwright frame capture (burst screenshots over one sweep cycle) --
+this is the reliable way to diagnose this failure mode, since it's
+motion-dependent and won't show in a single static screenshot.
+
+RULE
+Size the moving gradient layer's background-size width generously larger
+than the longest text string it will ever need to render -- at minimum:
+  band width >= rendered text width + travel distance (currently 300px)
+In practice this means erring wide. .shimmer-final (main titles, generally
+short) uses 1200px and has not shown this bug. For subtitle-length text
+(a full sentence or phrase), 480px is NOT enough headroom; 900px+ is a
+safer default. When in doubt, verify empirically:
+  1. Build a minimal isolated test page with the actual card markup, the
+     real JS driver, and the real background CSS.
+  2. Playwright: capture a burst of screenshots (10-16 frames, ~120ms
+     apart) cropped tightly to the shimmer text element.
+  3. Montage the frames vertically and inspect for any frame where part
+     of the text goes dark/illegible. If the bright band never fully
+     abandons any part of the text across the burst, the width is
+     sufficient.
+
+First applied: Slow the Fuck Down subtitle, Sep 10 2026
+(background-size for the moving layer: 480px -> 900px).
