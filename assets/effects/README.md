@@ -68,3 +68,22 @@ project (see nike_cover_package.zip in that session) which sourced its
 palette partly from a cream Art Deco radiance reference — that reference's
 tones (~(185,180,165) through near-white ~(190,188,180)) are a reasonable
 starting point for this.
+
+## tools/bake_shimmer_gold.py — NEW, Sep 10 2026, NOT YET TRIED ON A LIVE CARD
+A second, different shimmer technique — not a replacement for
+gold-shimmer-snippet.html above, which stays as the live site's title
+treatment. This one bakes actual animated frames (GIF) from a 3D
+bevel/normal-map lighting simulation per letter, rather than a CSS/SVG
+gradient sweep. It existed already as
+tools/bake_shimmer_gold_organic_PROTOTYPE.py but had never been
+deployed anywhere — it had a different book's color palette hardcoded
+(chocolate/sienna/orange/green, from an old STFD-era experiment)
+instead of real gold, and used placeholder test text ("We"). Fixed
+during the Gaia Aspire cover build: swapped in the site's actual
+GOLD_FOIL_STOPS gold palette and real title text. Result reads well —
+the highlight genuinely follows each letter's stroke direction as the
+simulated light sweeps, not just a flat gradient wipe. See
+covers/gaia-aspire/gaia_shimmer.gif for the reference output.
+TAGGED: try this on a couple of other book covers' card treatments as
+a comparison before deciding whether it's worth using anywhere over
+the existing CSS/SVG approach. Not started.
