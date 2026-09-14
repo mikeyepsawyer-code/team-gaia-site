@@ -86,6 +86,20 @@ DISPLAY GATE (added Aug 13 2026 — mandatory, every version, no exceptions):
  all three get displayed as they're made, not just the last one. Michael
  reviews on his phone; a build he can't see is a build he can't approve.
 
+FIRST-PASS COMPLIANCE GATE (added Sep 13 2026 -- mandatory, code-enforced):
+save_cover_version() in tools/cover_build.py now REQUIRES a `first_pass`
+dict argument and calls verify_first_pass() on it before saving anything.
+This exists because prose rules (this file, docstrings, memory notes) were
+being satisfied at the function-call level while still violating the
+actual intent -- e.g. shrinking subtitle/author below FULL_TEXT_W with no
+stated reason, a left-aligned multi-line title nobody checked for. See
+verify_first_pass()'s docstring for the exact contract. Per Michael: these
+defaults are a first pass, not written in stone -- deviating is fine, a
+SILENT deviation is what this stops. Any build script that doesn't supply
+first_pass will hit a TypeError immediately; any build that deviates from
+FULL_TEXT_W or center-alignment without a `deviations` reason will hit a
+ValueError before the image is ever saved.
+
 ════════════════════════════════════════════════════════════════════════════════
 
 SECTION 1 — PHYSICAL SPEC
