@@ -94,7 +94,7 @@ def render_ink(text, font_path, pt_size, pad=80):
 
     canvas = Image.new("L", (work_w, work_h), 0)
     dc = ImageDraw.Draw(canvas)
-    dc.text((pad - bbox[0], pad - bbox[1]), text, font=font, fill=255)
+    dc.text((pad - bbox[0], pad - bbox[1]), text, font=font, fill=255, align="center")
 
     arr = np.asarray(canvas)
     cols = np.where(arr.max(axis=0) > 0)[0]
@@ -840,7 +840,50 @@ def export_approved_web_assets(full_cover, book_slug, out_dir="/home/claude"):
     return {"card_path": card_path, "hero_path": hero_path}
 
 
-def save_cover_version(canvas, book_slug, existing_versions, out_dir="/home/claude",
+def verify_first_pass(title_width_frac=1.0, subtitle_width_frac=1.0,
+                       author_width_frac=1.0, title_centered=True,
+                       deviations=None):
+    """
+    Added Sep 13 2026, after an audited build (Touchless Intimacy v1/v2)
+    silently violated the GOSPEL RULE (FULL_TEXT_W default for title/
+    subtitle/author) and shipped a left-aligned multi-line title with no
+    one catching either until Michael did, by eye, after the fact.
+
+    Root cause at the time: these rules lived only as prose (docstrings,
+    COVER_PRODUCTION_STANDARD.txt, memory notes) with nothing in the code
+    path that actually checked them. A build script could call every
+    function correctly and still ship a violation.
+
+    This function is that check. It is NOT meant to freeze the rules as
+    unchangeable -- per Michael (Sep 13 2026): "not written in stone, but
+    meant to be followed as a first pass." A deviation is fine. A SILENT
+    deviation is the thing this stops: call this before save_cover_version
+    with the actual values you used, and if anything is non-default, pass
+    a one-line reason in `deviations` (dict, keyed by the flag name below)
+    or this raises instead of letting the build proceed.
+
+    Flags checked: title_width_frac, subtitle_width_frac,
+    author_width_frac (each vs. 1.0 == FULL_TEXT_W), title_centered.
+    """
+    deviations = deviations or {}
+    problems = []
+    if not title_centered and "title_centered" not in deviations:
+        problems.append("title_centered")
+    if title_width_frac < 0.999 and "title_width" not in deviations:
+        problems.append("title_width")
+    if subtitle_width_frac < 0.999 and "subtitle_width" not in deviations:
+        problems.append("subtitle_width")
+    if author_width_frac < 0.999 and "author_width" not in deviations:
+        problems.append("author_width")
+    if problems:
+        raise ValueError(
+            f"First-pass rule deviation(s) with no stated reason: {problems}. "
+            f"Fix the value, or pass deviations={{'<flag>': 'one-line reason'}}."
+        )
+    return True
+
+
+def save_cover_version(canvas, book_slug, existing_versions, first_pass, out_dir="/home/claude",
                         quality=92, make_card=False):
     """
     Section 0 DISPLAY GATE (added Aug 13 2026): every cover build saves
@@ -861,6 +904,13 @@ def save_cover_version(canvas, book_slug, existing_versions, out_dir="/home/clau
     calling — this function does no network I/O itself, to keep it a pure
     PIL utility).
 
+    first_pass: REQUIRED dict for verify_first_pass() — e.g.
+    {"title_width_frac": 1.0, "subtitle_width_frac": 0.56,
+     "author_width_frac": 0.56, "title_centered": True,
+     "deviations": {"subtitle_width": "...", "author_width": "..."}}.
+    Raises ValueError before saving anything if a value deviates from the
+    first-pass default with no stated reason (see verify_first_pass).
+
     Returns a dict: {"version": int, "full_path": str, "card_path": str}.
     card_path is None unless make_card=True.
     MANDATORY NEXT STEP (not automatable from inside this function, since
@@ -870,6 +920,7 @@ def save_cover_version(canvas, book_slug, existing_versions, out_dir="/home/clau
     any GitHub push, before presenting anything to Michael. See
     COVER_PRODUCTION_STANDARD.txt Section 0 for the full rule.
     """
+    verify_first_pass(**first_pass)
     version = (max(existing_versions) + 1) if existing_versions else 1
     full_path = f"{out_dir}/{book_slug}_cover_v{version}_full.jpg"
     canvas.convert("RGB").save(full_path, "JPEG", quality=quality)
